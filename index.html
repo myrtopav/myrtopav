@@ -1,282 +1,455 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Myrto Pavlopoulou — Architect</title>
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>Myrto Pav — Architect</title>
+
 
   <style>
+
+    /* =========================================
+       BASIC SETTINGS
+    ========================================= */
+
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
     }
 
+    html,
+    body {
+      width: 100%;
+      height: 100%;
+    }
+
     body {
       background: #ffffff;
-      color: #171717;
-      font-family: Arial, Helvetica, sans-serif;
+      color: #000000;
+
+      font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+      font-size: 10px;
       font-weight: 400;
     }
 
     a {
-      color: inherit;
+      color: #000000;
       text-decoration: none;
     }
 
-    /* HEADER */
+
+    /* =========================================
+       HEADER
+    ========================================= */
 
     header {
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      align-items: start;
+
+      position: relative;
+
+      height: 12vh;
+      min-height: 70px;
 
       padding: 30px 3vw 0 3vw;
 
-      font-size: 13px;
-      letter-spacing: 0.02em;
-    }
+      display: grid;
 
-    .name {
+      grid-template-columns: 1fr 1fr;
+
+      align-items: start;
+
+      font-size: 10px;
+
       text-transform: uppercase;
     }
+
+
+    .name {
+      text-align: left;
+    }
+
 
     .profession {
       text-align: right;
-      text-transform: uppercase;
     }
+
+
+    /* =========================================
+       NAVIGATION
+    ========================================= */
 
     .navigation {
+
       position: absolute;
+
       left: 3vw;
-      top: 78px;
+      bottom: 0;
 
       display: flex;
-      flex-direction: column;
-      gap: 10px;
+
+      gap: 25px;
+
+      font-size: 10px;
+
+      text-transform: uppercase;
     }
+
 
     .navigation a {
-      color: #777;
+
+      color: #000000;
+
       font-size: 10px;
-      text-transform: uppercase;
-      transition: color 0.25s ease;
+
+      transition:
+        opacity 0.25s ease;
     }
+
 
     .navigation a:hover {
-      color: #111;
+
+      opacity: 0.55;
+
     }
 
-    /* GALLERY */
+
+    /* =========================================
+       MAIN AREA
+    ========================================= */
+
+    main {
+
+      height: 76vh;
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+    }
+
+
+    /* =========================================
+       FOUR SELECTED PROJECTS
+    ========================================= */
 
     .selected-work {
+
+      width: 66%;
+
       display: grid;
 
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns:
+        repeat(4, 1fr);
 
-      gap: 2vw;
+      gap: 3.5vw;
 
-      width: 72%;
-      margin: 0 auto;
-
-      padding: 80px 0 40px 0;
+      align-items: center;
     }
+
+
+    /* =========================================
+       PROJECT
+    ========================================= */
 
     .project {
+
       display: block;
+
     }
 
+
+    /* =========================================
+       PROJECT IMAGE
+    ========================================= */
+
     .project-image {
+
+      display: block;
+
       width: 100%;
-      aspect-ratio: 5 / 6;
+
+      aspect-ratio: 4 / 5;
 
       object-fit: cover;
 
-      display: block;
-
       transition:
-        transform 0.5s cubic-bezier(0.2, 0.7, 0.2, 1),
+        transform 0.5s
+          cubic-bezier(
+            0.2,
+            0.7,
+            0.2,
+            1
+          ),
+
         opacity 0.5s ease;
     }
 
-    .project:hover .project-image {
-      transform: scale(1.025);
+
+    /* Hover effect */
+
+    .project:hover
+    .project-image {
+
+      transform:
+        scale(1.025);
+
       opacity: 0.9;
     }
 
-    /* FOOTER */
+
+    /* =========================================
+       HIDE FOOTER
+    ========================================= */
 
     footer {
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
 
-      padding: 80px 3vw 35px 3vw;
+      display: none;
 
-      font-size: 12px;
-      text-transform: uppercase;
     }
 
-    footer .center {
-      text-align: center;
+
+    /* =========================================
+       TABLET
+    ========================================= */
+
+    @media (max-width: 900px) {
+
+      .selected-work {
+
+        width: 78%;
+
+        gap: 4vw;
+
+      }
+
     }
 
-    footer .right {
-      text-align: right;
-    }
 
-    /* MOBILE */
+    /* =========================================
+       MOBILE
+    ========================================= */
 
-    @media (max-width: 800px) {
+    @media (max-width: 650px) {
+
+      html,
+      body {
+
+        height: auto;
+
+      }
+
 
       header {
-        grid-template-columns: 1fr 1fr;
 
-        padding: 24px 5vw 0 5vw;
+        height: auto;
+
+        padding:
+          24px
+          5vw
+          0
+          5vw;
+
+        font-size: 10px;
+
       }
 
-      .profession {
-        text-align: right;
-      }
 
       .navigation {
+
         position: static;
 
-        grid-column: 1 / -1;
+        margin-top: 45px;
 
-        flex-direction: row;
+        gap: 20px;
 
-        gap: 22px;
-
-        margin-top: 55px;
       }
+
+
+      main {
+
+        height: auto;
+
+        padding:
+          70px
+          5vw
+          60px
+          5vw;
+
+      }
+
 
       .selected-work {
-        grid-template-columns: repeat(2, 1fr);
 
-        gap: 5vw;
+        width: 100%;
 
-        padding: 80px 5vw 80px 5vw;
+        grid-template-columns:
+          repeat(2, 1fr);
+
+        gap:
+          35px
+          8vw;
+
       }
 
-      .project-image {
-        aspect-ratio: 4 / 5;
-      }
-
-      footer {
-        grid-template-columns: 1fr;
-
-        gap: 15px;
-
-        padding: 50px 5vw 30px 5vw;
-      }
-
-      footer .center,
-      footer .right {
-        text-align: left;
-      }
     }
 
-    @media (max-width: 500px) {
 
-      header {
-        font-size: 11px;
-      }
+    /* =========================================
+       SMALL MOBILE
+    ========================================= */
 
-      .navigation {
-        margin-top: 45px;
-      }
+    @media (max-width: 450px) {
 
       .selected-work {
-        grid-template-columns: 1fr;
+
+        grid-template-columns:
+          1fr;
 
         gap: 45px;
 
-        padding-top: 65px;
+        width: 75%;
+
       }
 
-      .project-image {
-        aspect-ratio: 4 / 5;
-      }
     }
 
   </style>
+
 </head>
+
 
 <body>
 
+
+  <!-- =======================================
+       HEADER
+  ======================================== -->
+
   <header>
 
+
     <div class="name">
-      MYRTO PAVLOPOULOU
+      MYRTO PAV
     </div>
 
-    <div></div>
 
     <div class="profession">
       ARCHITECT
     </div>
 
+
     <nav class="navigation">
-      <a href="gallery.html">Gallery</a>
-      <a href="contact.html">Contact</a>
+
+      <a href="gallery.html">
+        GALLERY
+      </a>
+
+      <a href="contact.html">
+        CONTACT
+      </a>
+
     </nav>
+
 
   </header>
 
 
+
+  <!-- =======================================
+       MAIN
+  ======================================== -->
+
   <main>
+
 
     <section class="selected-work">
 
-      <a href="project1.html" class="project">
+
+      <!-- PROJECT 1 -->
+
+      <a
+        href="project1.html"
+        class="project"
+      >
+
         <img
           class="project-image"
           src="https://images.unsplash.com/photo-1487958449943-2429e8be8625?auto=format&fit=crop&w=1000&q=80"
-          alt="Project 1">
+          alt="Project 1"
+        >
+
       </a>
 
-      <a href="project2.html" class="project">
+
+
+      <!-- PROJECT 2 -->
+
+      <a
+        href="project2.html"
+        class="project"
+      >
+
         <img
           class="project-image"
           src="https://images.unsplash.com/photo-1511818966892-d7d671e672a2?auto=format&fit=crop&w=1000&q=80"
-          alt="Project 2">
+          alt="Project 2"
+        >
+
       </a>
 
-      <a href="project3.html" class="project">
+
+
+      <!-- PROJECT 3 -->
+
+      <a
+        href="project3.html"
+        class="project"
+      >
+
         <img
           class="project-image"
           src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=1000&q=80"
-          alt="Project 3">
+          alt="Project 3"
+        >
+
       </a>
 
-      <a href="project4.html" class="project">
+
+
+      <!-- PROJECT 4 -->
+
+      <a
+        href="project4.html"
+        class="project"
+      >
+
         <img
           class="project-image"
           src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1000&q=80"
-          alt="Project 4">
+          alt="Project 4"
+        >
+
       </a>
 
+
     </section>
+
 
   </main>
 
 
-  <footer>
-
-    <div>
-      Athens, Greece
-    </div>
-
-    <div class="center">
-      Myrto Pav
-    </div>
-
-    <div class="right">
-      Instagram
-    </div>
-
-  </footer>
-
 </body>
+
 </html>
