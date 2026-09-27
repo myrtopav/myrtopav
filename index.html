@@ -2,23 +2,11 @@
 <html lang="en">
 
 <head>
-
   <meta charset="UTF-8">
-
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-  >
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Myrto Pavlopoulou — Architect</title>
 
-
   <style>
-
-    /* =========================================
-       BASIC SETTINGS
-    ========================================= */
-
     * {
       box-sizing: border-box;
       margin: 0;
@@ -34,12 +22,7 @@
     body {
       background: #ffffff;
       color: #000000;
-
-      font-family:
-        Arial,
-        Helvetica,
-        sans-serif;
-
+      font-family: Arial, Helvetica, sans-serif;
       font-size: 10px;
       font-weight: 400;
     }
@@ -49,394 +32,217 @@
       text-decoration: none;
     }
 
-
-    /* =========================================
-       HEADER
-    ========================================= */
-
     header {
-
       position: relative;
-
       height: 12vh;
       min-height: 70px;
-
       padding: 30px 3vw 0 3vw;
-
       display: grid;
-
       grid-template-columns: 1fr 1fr;
-
       align-items: start;
-
       font-size: 10px;
-
       text-transform: uppercase;
     }
 
-
     .name {
       text-align: left;
-      color: #000000;
     }
 
+    .name a {
+      color: #000000;
+      font-size: 10px;
+      text-decoration: none;
+    }
 
     .profession {
       text-align: right;
       color: #000000;
     }
 
-
-    /* =========================================
-       NAVIGATION
-    ========================================= */
-
     .navigation {
-
       position: absolute;
-
       left: 3vw;
       bottom: 0;
-
       display: flex;
-
       gap: 25px;
-
       font-size: 10px;
-
       text-transform: uppercase;
     }
 
-
     .navigation a {
-
       color: #777777;
-
       font-size: 10px;
-
-      transition:
-        color 0.25s ease;
+      transition: color 0.25s ease;
     }
-
 
     .navigation a:hover {
-
       color: #000000;
-
     }
 
-
-    /* =========================================
-       MAIN AREA
-    ========================================= */
-
     main {
-
       height: 76vh;
-
       display: flex;
-
       align-items: center;
-
       justify-content: center;
     }
 
-
-    /* =========================================
-       FOUR SELECTED PROJECTS
-    ========================================= */
-
     .selected-work {
-
       width: 66%;
-
       display: grid;
-
-      grid-template-columns:
-        repeat(4, 1fr);
-
+      grid-template-columns: repeat(4, 1fr);
       gap: 3.5vw;
-
       align-items: center;
     }
 
-
-    /* =========================================
-       PROJECT
-    ========================================= */
-
     .project {
-
       display: block;
-
     }
 
-
-    /* =========================================
-       PROJECT IMAGE
-    ========================================= */
-
     .project-image {
-
       display: block;
-
       width: 100%;
-
       aspect-ratio: 4 / 5;
-
       object-fit: cover;
-
       transition:
-        transform 0.5s
-          cubic-bezier(
-            0.2,
-            0.7,
-            0.2,
-            1
-          ),
-
+        transform 0.5s cubic-bezier(0.2, 0.7, 0.2, 1),
         opacity 0.5s ease;
     }
 
-
-    /* Hover effect */
-
-    .project:hover
-    .project-image {
-
-      transform:
-        scale(1.025);
-
+    .project:hover .project-image {
+      transform: scale(1.025);
       opacity: 0.9;
     }
 
-
-    /* =========================================
-       TABLET
-    ========================================= */
-
-    @media (max-width: 900px) {
-
-      .selected-work {
-
-        width: 78%;
-
-        gap: 4vw;
-
-      }
-
+    .website-credit {
+      position: fixed;
+      right: 3vw;
+      bottom: 25px;
+      color: #777777;
+      font-size: 10px;
+      font-weight: 400;
+      text-align: right;
     }
 
-
-    /* =========================================
-       MOBILE
-    ========================================= */
+    @media (max-width: 900px) {
+      .selected-work {
+        width: 78%;
+        gap: 4vw;
+      }
+    }
 
     @media (max-width: 650px) {
 
       html,
       body {
-
         height: auto;
-
       }
-
 
       header {
-
         height: auto;
-
-        padding:
-          24px
-          5vw
-          0
-          5vw;
-
+        padding: 24px 5vw 0 5vw;
         font-size: 10px;
-
       }
-
 
       .navigation {
-
         position: static;
-
         margin-top: 45px;
-
         gap: 20px;
-
       }
-
 
       main {
-
         height: auto;
-
-        padding:
-          70px
-          5vw
-          60px
-          5vw;
-
+        padding: 70px 5vw 60px 5vw;
       }
-
 
       .selected-work {
-
         width: 100%;
-
-        grid-template-columns:
-          repeat(2, 1fr);
-
-        gap:
-          35px
-          8vw;
-
+        grid-template-columns: repeat(2, 1fr);
+        gap: 35px 8vw;
       }
 
+      .website-credit {
+        right: 5vw;
+        bottom: 20px;
+      }
     }
-
-
-    /* =========================================
-       SMALL MOBILE
-    ========================================= */
 
     @media (max-width: 450px) {
 
       .selected-work {
-
-        grid-template-columns:
-          1fr;
-
+        grid-template-columns: 1fr;
         gap: 45px;
-
         width: 75%;
-
       }
 
+      .website-credit {
+        font-size: 9px;
+      }
     }
-
   </style>
-
 </head>
-
 
 <body>
 
-
-  <!-- HEADER -->
-
   <header>
 
-
     <div class="name">
-      MYRTO PAVLOPOULOU
+      <a href="index.html">MYRTO PAVLOPOULOU</a>
     </div>
-
 
     <div class="profession">
       ARCHITECT
     </div>
 
-
     <nav class="navigation">
-
-      <a href="gallery.html">
-        GALLERY
-      </a>
-
-      <a href="contact.html">
-        CONTACT
-      </a>
-
+      <a href="gallery.html">GALLERY</a>
+      <a href="contact.html">CONTACT</a>
     </nav>
-
 
   </header>
 
-
-
-  <!-- MAIN -->
-
   <main>
-
 
     <section class="selected-work">
 
-
-      <!-- PROJECT 1 -->
-
-      <a
-        href="project1.html"
-        class="project"
-      >
-
+      <a href="project1.html" class="project">
         <img
           class="project-image"
           src="https://images.unsplash.com/photo-1487958449943-2429e8be8625?auto=format&fit=crop&w=1000&q=80"
           alt="Project 1"
         >
-
       </a>
 
-
-
-      <!-- PROJECT 2 -->
-
-      <a
-        href="project2.html"
-        class="project"
-      >
-
+      <a href="project2.html" class="project">
         <img
           class="project-image"
           src="https://images.unsplash.com/photo-1511818966892-d7d671e672a2?auto=format&fit=crop&w=1000&q=80"
           alt="Project 2"
         >
-
       </a>
 
-
-
-      <!-- PROJECT 3 -->
-
-      <a
-        href="project3.html"
-        class="project"
-      >
-
+      <a href="project3.html" class="project">
         <img
           class="project-image"
           src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=1000&q=80"
           alt="Project 3"
         >
-
       </a>
 
-
-
-      <!-- PROJECT 4 -->
-
-      <a
-        href="project4.html"
-        class="project"
-      >
-
+      <a href="project4.html" class="project">
         <img
           class="project-image"
           src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1000&q=80"
           alt="Project 4"
         >
-
       </a>
-
 
     </section>
 
-
   </main>
 
+  <div class="website-credit">
+    WEBSITE DESIGN: MYRTO PAVLOPOULOU
+  </div>
 
 </body>
-
 </html>
