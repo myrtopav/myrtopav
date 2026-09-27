@@ -10,6 +10,7 @@
   <link rel="icon" type="image/jpeg" href="profile.jpg">
 
   <style>
+
     * {
       box-sizing: border-box;
       margin: 0;
@@ -31,31 +32,26 @@
       cursor: url("cursor2.png") 25 25, auto;
     }
 
-    a,
-    button {
+    a {
+      text-decoration: none;
       cursor: url("cursor2.png") 25 25, auto;
     }
 
-    a {
-      text-decoration: none;
-    }
 
-    button {
-      border: none;
-      background: none;
-      font-family: inherit;
-    }
-
-    /* HEADER */
+    /* =========================
+       HEADER
+       ========================= */
 
     header {
       position: relative;
-      height: 12vh;
-      min-height: 70px;
+      height: 15vh;
+      min-height: 90px;
       padding: 30px 3vw 0 3vw;
+
       display: grid;
       grid-template-columns: 1fr 1fr;
       align-items: start;
+
       font-size: 10px;
       text-transform: uppercase;
     }
@@ -79,12 +75,21 @@
       color: #777777;
     }
 
+
+    /* =========================
+       NAVIGATION
+       ========================= */
+
     .navigation {
       position: absolute;
       left: 3vw;
       bottom: 0;
+
       display: flex;
       gap: 25px;
+
+      font-size: 10px;
+      text-transform: uppercase;
     }
 
     .navigation a {
@@ -97,167 +102,238 @@
       color: #2f6fff;
     }
 
-    .navigation .active {
-      color: #000000;
-    }
 
-    .navigation .active:hover {
-      color: #2f6fff;
-    }
-
-    /* GALLERY */
+    /* =========================
+       GALLERY
+       ========================= */
 
     main {
       width: 100%;
-      padding: 70px 7vw 100px 7vw;
+      padding: 8vh 7vw 120px 7vw;
     }
 
     .gallery-grid {
       width: 100%;
-      max-width: 1400px;
-      margin: 0 auto;
 
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 7vw;
+
+      column-gap: 7vw;
+      row-gap: 11vh;
+
       align-items: start;
     }
 
-    /* PROJECT */
+
+    /* =========================
+       PROJECT
+       ========================= */
 
     .project {
       width: 100%;
       text-align: center;
     }
 
+
+    /* =========================
+       IMAGE AREA
+       ========================= */
+
     .image-area {
       position: relative;
-      width: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+
+      width: 78%;
+      margin: 0 auto;
+
+      overflow: visible;
     }
 
     .project-image {
       display: block;
+
       width: 100%;
       height: auto;
-      max-height: 58vh;
+
       object-fit: contain;
+
       transition:
-        opacity 0.35s ease,
-        transform 0.5s cubic-bezier(0.2, 0.7, 0.2, 1);
+        transform 0.45s cubic-bezier(0.2, 0.7, 0.2, 1),
+        opacity 0.45s ease;
     }
 
-    .image-area:hover .project-image {
-      transform: scale(1.025);
+    .project:hover .project-image {
+      transform: scale(1.035);
+      opacity: 0.9;
     }
 
-    /* ARROWS */
+
+    /* =========================
+       ARROWS
+       ========================= */
 
     .arrow {
       position: absolute;
+
       top: 50%;
       transform: translateY(-50%);
 
-      width: 44px;
-      height: 44px;
+      width: 28px;
+      height: 28px;
 
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      border: none;
+      background: transparent;
 
       color: #777777;
+
+      font-family: Arial, Helvetica, sans-serif;
       font-size: 15px;
       font-weight: 400;
 
+      cursor: url("cursor2.png") 25 25, auto;
+
       opacity: 0;
+
       transition:
         opacity 0.25s ease,
         color 0.2s ease;
-    }
-
-    .arrow-left {
-      left: -48px;
-    }
-
-    .arrow-right {
-      right: -48px;
-    }
-
-    .image-area:hover .arrow {
-      opacity: 1;
     }
 
     .arrow:hover {
       color: #2f6fff;
     }
 
-    /* PROJECT INFORMATION */
+    .arrow-left {
+      left: -38px;
+    }
+
+    .arrow-right {
+      right: -38px;
+    }
+
+    .project:hover .arrow {
+      opacity: 1;
+    }
+
+
+    /* =========================
+       PROJECT INFORMATION
+       ========================= */
 
     .project-info {
       display: flex;
       flex-direction: column;
       align-items: center;
 
-      margin-top: 16px;
+      margin-top: 18px;
 
-      color: #2f6fff;
+      opacity: 1;
     }
 
     .project-line {
       width: 22px;
       height: 1px;
+
       background: #2f6fff;
+
       margin-bottom: 9px;
     }
 
     .project-title {
       color: #2f6fff;
+
       font-size: 10px;
-      line-height: 1.4;
+      line-height: 1.35;
+
       text-transform: uppercase;
-      text-align: center;
     }
 
-    /* CREDIT */
+    .project-description {
+      max-width: 270px;
+
+      margin-top: 7px;
+
+      color: #777777;
+
+      font-size: 9px;
+      line-height: 1.45;
+
+      text-transform: none;
+    }
+
+    .project-description a {
+      color: #777777;
+
+      text-decoration: none;
+
+      transition: color 0.2s ease;
+    }
+
+    .project-description a:hover {
+      color: #2f6fff;
+    }
+
+
+    /* =========================
+       WEBSITE CREDIT
+       ========================= */
 
     .website-credit {
       position: fixed;
+
       right: 3vw;
       bottom: 25px;
 
       color: #777777;
+
       font-size: 10px;
       font-weight: 400;
+
       text-align: right;
     }
 
-    /* TABLET */
 
-    @media (max-width: 1000px) {
+    /* =========================
+       TABLET
+       ========================= */
 
-      .gallery-grid {
-        grid-template-columns: 1fr 1fr;
-        gap: 80px 8vw;
+    @media (max-width: 900px) {
+
+      header {
+        padding-left: 5vw;
+        padding-right: 5vw;
+      }
+
+      .navigation {
+        left: 5vw;
       }
 
       main {
-        padding-left: 8vw;
-        padding-right: 8vw;
+        padding-left: 6vw;
+        padding-right: 6vw;
+      }
+
+      .gallery-grid {
+        column-gap: 5vw;
+      }
+
+      .image-area {
+        width: 82%;
       }
 
       .arrow-left {
-        left: -38px;
+        left: -30px;
       }
 
       .arrow-right {
-        right: -38px;
+        right: -30px;
       }
 
     }
 
-    /* MOBILE */
+
+    /* =========================
+       MOBILE
+       ========================= */
 
     @media (max-width: 650px) {
 
@@ -268,38 +344,52 @@
 
       header {
         height: auto;
+
         padding: 24px 5vw 0 5vw;
       }
 
       .navigation {
         position: static;
+
         margin-top: 45px;
+
         gap: 20px;
       }
 
       main {
-        padding: 70px 10vw 80px 10vw;
+        padding: 70px 8vw 100px 8vw;
       }
 
       .gallery-grid {
         grid-template-columns: 1fr;
-        gap: 80px;
+
+        row-gap: 75px;
       }
 
-      .project-image {
-        max-height: none;
+      .image-area {
+        width: 70%;
+      }
+
+      .project-info {
+        margin-top: 16px;
+      }
+
+      .project-description {
+        max-width: 280px;
       }
 
       .arrow {
         opacity: 1;
+
+        color: #777777;
       }
 
       .arrow-left {
-        left: -45px;
+        left: -35px;
       }
 
       .arrow-right {
-        right: -45px;
+        right: -35px;
       }
 
       .website-credit {
@@ -309,23 +399,24 @@
 
     }
 
+
+    /* =========================
+       SMALL MOBILE
+       ========================= */
+
     @media (max-width: 450px) {
 
       main {
-        padding-left: 12vw;
-        padding-right: 12vw;
+        padding-left: 10vw;
+        padding-right: 10vw;
       }
 
-      .gallery-grid {
-        gap: 70px;
+      .image-area {
+        width: 72%;
       }
 
-      .arrow-left {
-        left: -42px;
-      }
-
-      .arrow-right {
-        right: -42px;
+      .project-description {
+        font-size: 9px;
       }
 
       .website-credit {
@@ -337,12 +428,20 @@
   </style>
 </head>
 
+
 <body>
+
+
+  <!-- =========================
+       HEADER
+       ========================= -->
 
   <header>
 
     <div class="name">
-      <a href="index.html">MYRTO PAVLOPOULOU</a>
+      <a href="index.html">
+        MYRTO PAVLOPOULOU
+      </a>
     </div>
 
     <div class="profession">
@@ -350,21 +449,33 @@
     </div>
 
     <nav class="navigation">
-      <a href="about.html">ABOUT</a>
-      <a href="contact.html">CONTACT</a>
+
+      <a href="about.html">
+        ABOUT
+      </a>
+
+      <a href="contact.html">
+        CONTACT
+      </a>
+
     </nav>
 
   </header>
 
+
+
+  <!-- =========================
+       GALLERY
+       ========================= -->
 
   <main>
 
     <section class="gallery-grid">
 
 
-      <!-- =====================================================
-           JELLY
-           ===================================================== -->
+      <!-- =========================
+           ECHOES OF THE DEEP
+           ========================= -->
 
       <article class="project">
 
@@ -373,27 +484,30 @@
           <button
             class="arrow arrow-left"
             type="button"
-            aria-label="Previous Jelly image"
+            onclick="previousImage(0)"
+            aria-label="Previous image"
           >
             ←
           </button>
 
           <img
+            id="image-0"
             class="project-image"
             src="Jelly_1.jpg"
             alt="Echoes of the Deep"
-            data-project="jelly"
           >
 
           <button
             class="arrow arrow-right"
             type="button"
-            aria-label="Next Jelly image"
+            onclick="nextImage(0)"
+            aria-label="Next image"
           >
             →
           </button>
 
         </div>
+
 
         <div class="project-info">
 
@@ -403,14 +517,31 @@
             ECHOES OF THE DEEP
           </div>
 
+          <div class="project-description">
+
+            an interactive light and sound installation
+            for Mar Motto festival’s 2025 edition,
+            location: Faro, Portugal, with
+
+            <a
+              href="https://moradavaga.com/ECHOES-OF-THE-DEEP"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              MORADAVAGA
+            </a>
+
+          </div>
+
         </div>
 
       </article>
 
 
-      <!-- =====================================================
-           SMITHSON
-           ===================================================== -->
+
+      <!-- =========================
+           ROBERT SMITHSON
+           ========================= -->
 
       <article class="project">
 
@@ -419,27 +550,30 @@
           <button
             class="arrow arrow-left"
             type="button"
-            aria-label="Previous Smithson image"
+            onclick="previousImage(1)"
+            aria-label="Previous image"
           >
             ←
           </button>
 
           <img
+            id="image-1"
             class="project-image"
             src="Smithson_1.png"
             alt="Places inspired by Robert Smithson"
-            data-project="smithson"
           >
 
           <button
             class="arrow arrow-right"
             type="button"
-            aria-label="Next Smithson image"
+            onclick="nextImage(1)"
+            aria-label="Next image"
           >
             →
           </button>
 
         </div>
+
 
         <div class="project-info">
 
@@ -449,14 +583,19 @@
             PLACES INSPIRED BY ROBERT SMITHSON
           </div>
 
+          <div class="project-description">
+            <!-- Description to be added -->
+          </div>
+
         </div>
 
       </article>
 
 
-      <!-- =====================================================
+
+      <!-- =========================
            VETCARD
-           ===================================================== -->
+           ========================= -->
 
       <article class="project">
 
@@ -465,27 +604,30 @@
           <button
             class="arrow arrow-left"
             type="button"
-            aria-label="Previous VetCard image"
+            onclick="previousImage(2)"
+            aria-label="Previous image"
           >
             ←
           </button>
 
           <img
+            id="image-2"
             class="project-image"
             src="VetCard_1.jpg"
             alt="VetCard"
-            data-project="vetcard"
           >
 
           <button
             class="arrow arrow-right"
             type="button"
-            aria-label="Next VetCard image"
+            onclick="nextImage(2)"
+            aria-label="Next image"
           >
             →
           </button>
 
         </div>
+
 
         <div class="project-info">
 
@@ -493,6 +635,10 @@
 
           <div class="project-title">
             VETCARD
+          </div>
+
+          <div class="project-description">
+            <!-- Description to be added -->
           </div>
 
         </div>
@@ -505,20 +651,26 @@
   </main>
 
 
+
+  <!-- =========================
+       WEBSITE CREDIT
+       ========================= -->
+
   <div class="website-credit">
     WEB DESIGN: MYRTO PAVLOPOULOU
   </div>
 
 
+
+  <!-- =========================
+       JAVASCRIPT
+       ========================= -->
+
   <script>
 
-    /* =====================================================
-       PROJECT IMAGE LISTS
-       ===================================================== */
+    const projects = [
 
-    const projects = {
-
-      jelly: [
+      [
         "Jelly_1.jpg",
         "Jelly_2.JPG",
         "Jelly_3.JPG",
@@ -529,7 +681,7 @@
         "Jelly_8.JPG"
       ],
 
-      smithson: [
+      [
         "Smithson_1.png",
         "Smithson_2.jpg",
         "Smithson_3.png",
@@ -542,156 +694,69 @@
         "Smithson_10.png"
       ],
 
-      vetcard: [
+      [
         "VetCard_1.jpg",
         "VetCard2.jpg"
       ]
 
-    };
+    ];
 
 
-    /* =====================================================
-       SLIDESHOW
-       ===================================================== */
-
-    document.querySelectorAll(".project").forEach(function(project) {
-
-      const image = project.querySelector(".project-image");
-      const leftButton = project.querySelector(".arrow-left");
-      const rightButton = project.querySelector(".arrow-right");
-
-      const projectName = image.dataset.project;
-      const images = projects[projectName];
-
-      let currentIndex = 0;
+    const currentImages = [
+      0,
+      0,
+      0
+    ];
 
 
-      function showImage(index) {
+    function showImage(projectIndex) {
 
-        currentIndex = (index + images.length) % images.length;
+      const image =
+        document.getElementById("image-" + projectIndex);
 
-        image.style.opacity = "0";
+      image.src =
+        projects[projectIndex][currentImages[projectIndex]];
 
-        setTimeout(function() {
+    }
 
-          image.src = images[currentIndex];
 
-          image.onload = function() {
-            image.style.opacity = "1";
-          };
+    function nextImage(projectIndex) {
 
-        }, 150);
+      currentImages[projectIndex]++;
+
+      if (
+        currentImages[projectIndex] >=
+        projects[projectIndex].length
+      ) {
+
+        currentImages[projectIndex] = 0;
 
       }
 
+      showImage(projectIndex);
 
-      leftButton.addEventListener("click", function(event) {
-
-        event.preventDefault();
-        event.stopPropagation();
-
-        showImage(currentIndex - 1);
-
-      });
+    }
 
 
-      rightButton.addEventListener("click", function(event) {
+    function previousImage(projectIndex) {
 
-        event.preventDefault();
-        event.stopPropagation();
+      currentImages[projectIndex]--;
 
-        showImage(currentIndex + 1);
+      if (
+        currentImages[projectIndex] < 0
+      ) {
 
-      });
-
-
-      /* Keyboard navigation when mouse is over project */
-
-      project.addEventListener("mouseenter", function() {
-
-        project.dataset.active = "true";
-
-      });
-
-
-      project.addEventListener("mouseleave", function() {
-
-        project.dataset.active = "false";
-
-      });
-
-    });
-
-
-    /* =====================================================
-       KEYBOARD ARROWS
-       ===================================================== */
-
-    document.addEventListener("keydown", function(event) {
-
-      const activeProject = document.querySelector(
-        '.project[data-active="true"]'
-      );
-
-      if (!activeProject) {
-        return;
-      }
-
-      const image = activeProject.querySelector(".project-image");
-      const projectName = image.dataset.project;
-      const images = projects[projectName];
-
-      let currentIndex = images.indexOf(image.src.split("/").pop());
-
-      if (currentIndex === -1) {
-        currentIndex = 0;
-      }
-
-      if (event.key === "ArrowLeft") {
-
-        event.preventDefault();
-
-        currentIndex =
-          (currentIndex - 1 + images.length) % images.length;
-
-        image.style.opacity = "0";
-
-        setTimeout(function() {
-
-          image.src = images[currentIndex];
-
-          image.onload = function() {
-            image.style.opacity = "1";
-          };
-
-        }, 150);
+        currentImages[projectIndex] =
+          projects[projectIndex].length - 1;
 
       }
 
-      if (event.key === "ArrowRight") {
+      showImage(projectIndex);
 
-        event.preventDefault();
-
-        currentIndex =
-          (currentIndex + 1) % images.length;
-
-        image.style.opacity = "0";
-
-        setTimeout(function() {
-
-          image.src = images[currentIndex];
-
-          image.onload = function() {
-            image.style.opacity = "1";
-          };
-
-        }, 150);
-
-      }
-
-    });
+    }
 
   </script>
+
 
 </body>
 
