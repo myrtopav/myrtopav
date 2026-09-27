@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Your Name — Portfolio</title>
+  <title>Myrto Pav — Architect</title>
 
   <style>
     * {
@@ -14,230 +14,265 @@
     }
 
     body {
-      font-family: Arial, Helvetica, sans-serif;
-      background: #f7f7f5;
+      background: #ffffff;
       color: #171717;
-      line-height: 1.5;
+      font-family: Arial, Helvetica, sans-serif;
+      font-weight: 400;
     }
 
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* HEADER */
+
     header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 28px 5vw;
-      border-bottom: 1px solid #ddd;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      align-items: start;
+
+      padding: 38px 3vw 0 3vw;
+
+      font-size: 13px;
+      letter-spacing: 0.02em;
     }
 
     .name {
-      font-size: 18px;
-      font-weight: 500;
-    }
-
-    nav {
-      display: flex;
-      gap: 28px;
-    }
-
-    nav a {
-      color: inherit;
-      text-decoration: none;
-      font-size: 14px;
-    }
-
-    nav a:hover {
-      text-decoration: underline;
-    }
-
-    main {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 100px 5vw;
-    }
-
-    .intro {
-      max-width: 800px;
-      margin-bottom: 120px;
-    }
-
-    .intro h1 {
-      font-size: clamp(48px, 8vw, 100px);
-      font-weight: 400;
-      line-height: 0.95;
-      letter-spacing: -0.05em;
-      margin-bottom: 35px;
-    }
-
-    .intro p {
-      max-width: 600px;
-      font-size: 20px;
-      color: #555;
-    }
-
-    section {
-      margin-bottom: 120px;
-    }
-
-    .section-title {
-      font-size: 13px;
       text-transform: uppercase;
-      letter-spacing: 0.12em;
-      margin-bottom: 35px;
-      color: #666;
+    }
+
+    .profession {
+      text-align: right;
+      text-transform: uppercase;
+    }
+
+    .navigation {
+      position: absolute;
+      left: 3vw;
+      top: 115px;
+
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .navigation a {
+      color: #777;
+      font-size: 12px;
+      text-transform: uppercase;
+      transition: color 0.25s ease;
+    }
+
+    .navigation a:hover {
+      color: #111;
+    }
+
+    /* GALLERY */
+
+    .selected-work {
+      display: grid;
+
+      grid-template-columns: repeat(4, 1fr);
+
+      gap: 3vw;
+
+      padding: 190px 3vw 100px 3vw;
     }
 
     .project {
-      display: grid;
-      grid-template-columns: 1fr 2fr;
-      gap: 40px;
-      padding: 30px 0;
-      border-top: 1px solid #ddd;
+      display: block;
     }
 
-    .project:last-child {
-      border-bottom: 1px solid #ddd;
+    .project-image {
+      width: 100%;
+      aspect-ratio: 4 / 5;
+
+      object-fit: cover;
+
+      display: block;
+
+      transition:
+        transform 0.5s cubic-bezier(0.2, 0.7, 0.2, 1),
+        opacity 0.5s ease;
     }
 
-    .project h2 {
-      font-size: 28px;
-      font-weight: 400;
+    .project:hover .project-image {
+      transform: scale(1.025);
+      opacity: 0.9;
     }
 
-    .project p {
-      max-width: 600px;
-      color: #555;
-    }
+    /* FOOTER */
 
     footer {
-      padding: 40px 5vw;
-      border-top: 1px solid #ddd;
-      display: flex;
-      justify-content: space-between;
-      font-size: 13px;
-      color: #666;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+
+      padding: 80px 3vw 35px 3vw;
+
+      font-size: 12px;
+      text-transform: uppercase;
     }
 
-    @media (max-width: 700px) {
+    footer .center {
+      text-align: center;
+    }
+
+    footer .right {
+      text-align: right;
+    }
+
+    /* MOBILE */
+
+    @media (max-width: 800px) {
+
       header {
-        padding: 22px 5vw;
+        grid-template-columns: 1fr 1fr;
+
+        padding: 24px 5vw 0 5vw;
       }
 
-      nav {
-        gap: 15px;
+      .profession {
+        text-align: right;
       }
 
-      nav a {
-        font-size: 12px;
+      .navigation {
+        position: static;
+
+        grid-column: 1 / -1;
+
+        flex-direction: row;
+
+        gap: 22px;
+
+        margin-top: 55px;
       }
 
-      main {
-        padding-top: 70px;
+      .selected-work {
+        grid-template-columns: repeat(2, 1fr);
+
+        gap: 5vw;
+
+        padding: 80px 5vw 80px 5vw;
       }
 
-      .intro {
-        margin-bottom: 90px;
-      }
-
-      .intro p {
-        font-size: 17px;
-      }
-
-      .project {
-        grid-template-columns: 1fr;
-        gap: 12px;
-      }
-
-      section {
-        margin-bottom: 90px;
+      .project-image {
+        aspect-ratio: 4 / 5;
       }
 
       footer {
-        flex-direction: column;
-        gap: 10px;
+        grid-template-columns: 1fr;
+
+        gap: 15px;
+
+        padding: 50px 5vw 30px 5vw;
+      }
+
+      footer .center,
+      footer .right {
+        text-align: left;
       }
     }
+
+    @media (max-width: 500px) {
+
+      header {
+        font-size: 11px;
+      }
+
+      .navigation {
+        margin-top: 45px;
+      }
+
+      .selected-work {
+        grid-template-columns: 1fr;
+
+        gap: 45px;
+
+        padding-top: 65px;
+      }
+
+      .project-image {
+        aspect-ratio: 4 / 5;
+      }
+    }
+
   </style>
 </head>
 
 <body>
 
   <header>
-    <div class="name">Your Name</div>
 
-    <nav>
-      <a href="#work">Work</a>
-      <a href="#about">About</a>
-      <a href="#contact">Contact</a>
+    <div class="name">
+      MYRTO PAV
+    </div>
+
+    <div></div>
+
+    <div class="profession">
+      ARCHITECT
+    </div>
+
+    <nav class="navigation">
+      <a href="gallery.html">Gallery</a>
+      <a href="contact.html">Contact</a>
     </nav>
+
   </header>
+
 
   <main>
 
-    <div class="intro">
-      <h1>Hello, I'm<br>Your Name.</h1>
+    <section class="selected-work">
 
-      <p>
-        I am a [your field] interested in [your interests].
-        This is my personal portfolio and a collection of my work,
-        research and projects.
-      </p>
-    </div>
+      <a href="project1.html" class="project">
+        <img
+          class="project-image"
+          src="https://images.unsplash.com/photo-1487958449943-2429e8be8625?auto=format&fit=crop&w=1000&q=80"
+          alt="Project 1">
+      </a>
 
-    <section id="work">
-      <div class="section-title">Selected Work</div>
+      <a href="project2.html" class="project">
+        <img
+          class="project-image"
+          src="https://images.unsplash.com/photo-1511818966892-d7d671e672a2?auto=format&fit=crop&w=1000&q=80"
+          alt="Project 2">
+      </a>
 
-      <div class="project">
-        <div>
-          <h2>Diploma Thesis</h2>
-        </div>
+      <a href="project3.html" class="project">
+        <img
+          class="project-image"
+          src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=1000&q=80"
+          alt="Project 3">
+      </a>
 
-        <div>
-          <p>
-            Your diploma thesis title will go here.
-            A short description of the research, methodology
-            and main topic of the thesis.
-          </p>
-        </div>
-      </div>
+      <a href="project4.html" class="project">
+        <img
+          class="project-image"
+          src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1000&q=80"
+          alt="Project 4">
+      </a>
 
-      <div class="project">
-        <div>
-          <h2>Project Two</h2>
-        </div>
-
-        <div>
-          <p>
-            A short description of another project,
-            research project or academic work.
-          </p>
-        </div>
-      </div>
-
-    </section>
-
-    <section id="about">
-      <div class="section-title">About</div>
-
-      <p>
-        Write a short introduction about yourself here.
-        You can include your education, interests,
-        experience and anything else you would like people
-        to know about you.
-      </p>
-    </section>
-
-    <section id="contact">
-      <div class="section-title">Contact</div>
-
-      <p>
-        email@example.com
-      </p>
     </section>
 
   </main>
 
+
   <footer>
-    <span>© 2026 Your Name</span>
-    <span>Portfolio</span>
+
+    <div>
+      Athens, Greece
+    </div>
+
+    <div class="center">
+      Myrto Pav
+    </div>
+
+    <div class="right">
+      Instagram
+    </div>
+
   </footer>
 
 </body>
