@@ -2,14 +2,28 @@
 <html lang="en">
 
 <head>
+
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
 
   <title>Gallery — Myrto Pavlopoulou</title>
 
-  <link rel="icon" type="image/jpeg" href="profile.jpg">
+  <link
+    rel="icon"
+    type="image/jpeg"
+    href="profile.jpg"
+  >
+
 
   <style>
+
+    /* =========================================
+       BASIC
+       ========================================= */
 
     * {
       box-sizing: border-box;
@@ -24,177 +38,378 @@
     }
 
     body {
+
       background: #f2f6ff;
+
       color: #000000;
 
-      font-family: Arial, Helvetica, sans-serif;
+      font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
       font-size: 10px;
+
       font-weight: 400;
 
-      cursor: url("cursor2.png") 25 25, auto;
+      cursor:
+        url("cursor2.png") 25 25,
+        auto;
     }
 
     a {
+
       text-decoration: none;
-      cursor: url("cursor2.png") 25 25, auto;
+
+      cursor:
+        url("cursor2.png") 25 25,
+        auto;
     }
 
 
-    /* =========================
+    /* =========================================
        HEADER
-       ========================= */
+       ========================================= */
 
     header {
+
       position: relative;
 
       height: 15vh;
+
       min-height: 90px;
 
-      padding: 30px 3vw 0 3vw;
+      padding:
+        30px
+        3vw
+        0
+        3vw;
 
       display: grid;
-      grid-template-columns: 1fr 1fr;
+
+      grid-template-columns:
+        1fr 1fr;
+
       align-items: start;
 
       font-size: 10px;
+
       text-transform: uppercase;
     }
 
+
     .name {
+
       text-align: left;
     }
 
+
     .name a {
+
       color: #777777;
+
       font-size: 10px;
 
-      transition: color 0.2s ease;
+      transition:
+        color 0.2s ease;
     }
 
+
     .name a:hover {
+
       color: #2f6fff;
     }
 
+
     .profession {
+
       text-align: right;
+
       color: #777777;
     }
 
 
-    /* =========================
+    /* =========================================
        NAVIGATION
-       ========================= */
+       ========================================= */
 
     .navigation {
+
       position: absolute;
 
       left: 3vw;
+
       bottom: 0;
 
       display: flex;
+
       gap: 25px;
 
       font-size: 10px;
+
       text-transform: uppercase;
     }
 
+
     .navigation a {
+
       color: #777777;
+
       font-size: 10px;
 
-      transition: color 0.2s ease;
+      transition:
+        color 0.2s ease;
     }
 
+
     .navigation a:hover {
+
       color: #2f6fff;
     }
 
 
-    /* =========================
-       GALLERY
-       ========================= */
+    /* =========================================
+       EDITORIAL GALLERY
+       ========================================= */
 
     main {
+
       width: 100%;
 
-      padding: 7vh 6vw 110px 6vw;
-    }
-
-    .gallery-grid {
-      width: 100%;
-
-      display: grid;
-
-      grid-template-columns: repeat(3, 1fr);
-
-      column-gap: 5vw;
-      row-gap: 7vh;
-
-      align-items: start;
+      padding:
+        5vh
+        3vw
+        120px
+        3vw;
     }
 
 
-    /* =========================
+    .gallery {
+
+      position: relative;
+
+      width: 100%;
+
+      min-height: 125vh;
+    }
+
+
+    /* =========================================
        PROJECT
-       ========================= */
+       ========================================= */
 
     .project {
-      width: 100%;
+
+      position: absolute;
 
       text-align: center;
     }
 
 
-    /* =========================
+    /* =========================================
+       DIFFERENT PROJECT POSITIONS / SIZES
+       ========================================= */
+
+    /*
+      ECHOES OF THE DEEP
+      small / upper left
+    */
+
+    .project-jelly {
+
+      width: 29vw;
+
+      left: 1vw;
+
+      top: 1vh;
+    }
+
+
+    /*
+      ROBERT SMITHSON
+      larger / upper right
+    */
+
+    .project-smithson {
+
+      width: 34vw;
+
+      right: 3vw;
+
+      top: 0;
+    }
+
+
+    /*
+      VETCARD
+      smaller / middle left
+    */
+
+    .project-vetcard {
+
+      width: 25vw;
+
+      left: 25vw;
+
+      top: 43vh;
+    }
+
+
+    /*
+      URBAN DESIGN
+      medium / middle right
+    */
+
+    .project-urban {
+
+      width: 29vw;
+
+      right: 15vw;
+
+      top: 48vh;
+    }
+
+
+    /* =========================================
        IMAGE AREA
-       ========================= */
+       ========================================= */
 
     .image-area {
+
       position: relative;
 
-      width: 72%;
+      width: 100%;
 
       margin: 0 auto;
 
       overflow: visible;
-
-      cursor: url("cursor2.png") 25 25, pointer;
     }
 
+
     .project-image {
+
       display: block;
 
       width: 100%;
+
       height: auto;
 
       object-fit: contain;
 
       transition:
-        transform 0.45s cubic-bezier(0.2, 0.7, 0.2, 1),
-        opacity 0.45s ease;
+        transform 0.5s
+        cubic-bezier(
+          0.2,
+          0.7,
+          0.2,
+          1
+        ),
+
+        opacity 0.4s ease;
     }
 
+
+    /*
+      Slight enlargement on hover
+    */
+
     .project:hover .project-image {
-      transform: scale(1.05);
+
+      transform:
+        scale(1.045);
+
       opacity: 0.92;
     }
 
 
-    /* =========================
-       PROJECT INFORMATION
-       ========================= */
+    /* =========================================
+       ARROWS
+       ========================================= */
 
-    .project-info {
-      display: flex;
+    .arrow {
 
-      flex-direction: column;
-      align-items: center;
+      position: absolute;
 
-      margin-top: 15px;
+      top: 50%;
+
+      transform:
+        translateY(-50%);
+
+      z-index: 10;
+
+      border: none;
+
+      outline: none;
+
+      padding: 0;
+
+      background: transparent;
+
+      color: #777777;
+
+      font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+      font-size: 17px;
+
+      line-height: 1;
+
+      cursor:
+        url("cursor2.png") 25 25,
+        auto;
 
       opacity: 0;
 
-      transform: translateY(-5px);
+      transition:
+        opacity 0.25s ease,
+        color 0.2s ease;
+    }
+
+
+    .arrow-left {
+
+      left: 12px;
+    }
+
+
+    .arrow-right {
+
+      right: 12px;
+    }
+
+
+    .project:hover .arrow {
+
+      opacity: 1;
+    }
+
+
+    .arrow:hover {
+
+      color: #2f6fff;
+    }
+
+
+    /* =========================================
+       PROJECT INFORMATION
+       ========================================= */
+
+    .project-info {
+
+      display: flex;
+
+      flex-direction: column;
+
+      align-items: center;
+
+      margin-top: 13px;
+
+      opacity: 0;
+
+      transform:
+        translateY(-5px);
 
       transition:
         opacity 0.35s ease,
@@ -203,16 +418,20 @@
       pointer-events: none;
     }
 
+
     .project:hover .project-info {
+
       opacity: 1;
 
-      transform: translateY(0);
-
-      pointer-events: auto;
+      transform:
+        translateY(0);
     }
 
+
     .project-line {
+
       width: 22px;
+
       height: 1px;
 
       background: #2f6fff;
@@ -220,16 +439,21 @@
       margin-bottom: 8px;
     }
 
+
     .project-title {
+
       color: #2f6fff;
 
       font-size: 10px;
+
       line-height: 1.35;
 
       text-transform: uppercase;
     }
 
+
     .project-description {
+
       max-width: 280px;
 
       margin-top: 7px;
@@ -237,103 +461,171 @@
       color: #777777;
 
       font-size: 9px;
+
       line-height: 1.5;
 
       text-transform: none;
     }
 
-    .project-description .black-text {
+
+    .black-text {
+
       color: #000000;
     }
 
+
     .project-description a {
+
       color: #777777;
 
       text-decoration: none;
 
-      transition: color 0.2s ease;
+      transition:
+        color 0.2s ease;
     }
 
+
     .project-description a:hover {
+
       color: #2f6fff;
     }
 
+
     .location {
+
       display: block;
 
       margin-top: 1px;
     }
 
 
-    /* =========================
+    /* =========================================
        WEBSITE CREDIT
-       ========================= */
+       ========================================= */
 
     .website-credit {
+
       position: fixed;
 
       right: 3vw;
+
       bottom: 25px;
 
       color: #777777;
 
       font-size: 10px;
+
       font-weight: 400;
 
       text-align: right;
+
+      z-index: 50;
     }
 
 
-    /* =========================
+    /* =========================================
        TABLET
-       ========================= */
+       ========================================= */
 
     @media (max-width: 900px) {
 
       header {
+
         padding-left: 5vw;
+
         padding-right: 5vw;
       }
 
+
       .navigation {
+
         left: 5vw;
       }
 
+
       main {
-        padding-left: 6vw;
-        padding-right: 6vw;
+
+        padding-left: 5vw;
+
+        padding-right: 5vw;
       }
 
-      .gallery-grid {
-        column-gap: 4vw;
-        row-gap: 6vh;
+
+      .gallery {
+
+        min-height: 110vh;
       }
 
-      .image-area {
-        width: 78%;
+
+      .project-jelly {
+
+        width: 31vw;
+
+        left: 0;
+
+        top: 2vh;
+      }
+
+
+      .project-smithson {
+
+        width: 37vw;
+
+        right: 1vw;
+
+        top: 0;
+      }
+
+
+      .project-vetcard {
+
+        width: 28vw;
+
+        left: 21vw;
+
+        top: 42vh;
+      }
+
+
+      .project-urban {
+
+        width: 32vw;
+
+        right: 8vw;
+
+        top: 48vh;
       }
 
     }
 
 
-    /* =========================
+    /* =========================================
        MOBILE
-       ========================= */
+       ========================================= */
 
     @media (max-width: 650px) {
 
       html,
       body {
+
         height: auto;
       }
+
 
       header {
+
         height: auto;
 
-        padding: 24px 5vw 0 5vw;
+        padding:
+          24px
+          5vw
+          0
+          5vw;
       }
 
+
       .navigation {
+
         position: static;
 
         margin-top: 45px;
@@ -341,88 +633,181 @@
         gap: 20px;
       }
 
+
       main {
-        padding: 65px 8vw 100px 8vw;
+
+        padding:
+          65px
+          7vw
+          100px
+          7vw;
       }
 
-      .gallery-grid {
-        grid-template-columns: 1fr;
 
-        row-gap: 60px;
+      .gallery {
+
+        min-height: auto;
+
+        display: flex;
+
+        flex-direction: column;
+
+        gap: 70px;
       }
 
-      .image-area {
-        width: 68%;
-      }
 
-      .project-info {
-        margin-top: 14px;
-      }
+      .project {
 
-      .project-description {
-        max-width: 280px;
+        position: relative;
+
+        width: 72% !important;
+
+        left: auto !important;
+
+        right: auto !important;
+
+        top: auto !important;
+
+        margin: 0 auto;
       }
 
 
       /*
-        Mobile devices do not have
-        reliable hover behaviour,
-        so the information stays visible.
+        Slight variation in mobile
+        positioning so everything
+        does not look identical.
       */
 
+      .project:nth-child(2) {
+
+        width: 82% !important;
+
+        margin-left: 12%;
+      }
+
+
+      .project:nth-child(3) {
+
+        width: 62% !important;
+
+        margin-left: 5%;
+      }
+
+
+      .project:nth-child(4) {
+
+        width: 72% !important;
+
+        margin-right: 5%;
+      }
+
+
       .project-info {
+
         opacity: 1;
 
-        transform: translateY(0);
+        transform:
+          translateY(0);
 
         pointer-events: auto;
       }
 
+
+      .arrow {
+
+        opacity: 1;
+
+        font-size: 16px;
+      }
+
+
       .website-credit {
+
         right: 5vw;
+
         bottom: 20px;
       }
 
     }
 
 
-    /* =========================
+    /* =========================================
        SMALL MOBILE
-       ========================= */
+       ========================================= */
 
     @media (max-width: 450px) {
 
       main {
-        padding-left: 9vw;
-        padding-right: 9vw;
+
+        padding-left: 8vw;
+
+        padding-right: 8vw;
       }
 
-      .image-area {
-        width: 72%;
+
+      .gallery {
+
+        gap: 60px;
       }
+
+
+      .project {
+
+        width: 78% !important;
+      }
+
+
+      .project:nth-child(2) {
+
+        width: 88% !important;
+
+        margin-left: 8%;
+      }
+
+
+      .project:nth-child(3) {
+
+        width: 68% !important;
+
+        margin-left: 2%;
+      }
+
+
+      .project:nth-child(4) {
+
+        width: 76% !important;
+
+        margin-right: 2%;
+      }
+
 
       .project-description {
+
         font-size: 9px;
       }
 
+
       .website-credit {
+
         font-size: 9px;
       }
 
     }
 
   </style>
+
 </head>
 
 
 <body>
 
 
-  <!-- =========================
+  <!-- =========================================
        HEADER
-       ========================= -->
+       ========================================= -->
 
   <header>
+
 
     <div class="name">
 
@@ -450,29 +835,45 @@
 
     </nav>
 
+
   </header>
 
 
 
-  <!-- =========================
+  <!-- =========================================
        GALLERY
-       ========================= -->
+       ========================================= -->
 
   <main>
 
-    <section class="gallery-grid">
+
+    <section class="gallery">
 
 
-      <!-- =========================
+      <!-- =====================================
            ECHOES OF THE DEEP
-           ========================= -->
+           ===================================== -->
 
-      <article class="project">
+      <article
+        class="project project-jelly"
+      >
+
 
         <div
           class="image-area"
           onclick="nextImage(0)"
         >
+
+
+          <button
+            class="arrow arrow-left"
+            type="button"
+            onclick="event.stopPropagation(); previousImage(0)"
+            aria-label="Previous image"
+          >
+            ←
+          </button>
+
 
           <img
             id="image-0"
@@ -481,16 +882,30 @@
             alt="Echoes of the Deep"
           >
 
+
+          <button
+            class="arrow arrow-right"
+            type="button"
+            onclick="event.stopPropagation(); nextImage(0)"
+            aria-label="Next image"
+          >
+            →
+          </button>
+
+
         </div>
 
 
         <div class="project-info">
 
+
           <div class="project-line"></div>
+
 
           <div class="project-title">
             ECHOES OF THE DEEP
           </div>
+
 
           <div class="project-description">
 
@@ -504,6 +919,7 @@
               href="https://moradavaga.com/ECHOES-OF-THE-DEEP"
               target="_blank"
               rel="noopener noreferrer"
+              onclick="event.stopPropagation()"
             >
               MORADAVAGA
             </a>
@@ -514,22 +930,38 @@
 
           </div>
 
+
         </div>
+
 
       </article>
 
 
 
-      <!-- =========================
+      <!-- =====================================
            ROBERT SMITHSON
-           ========================= -->
+           ===================================== -->
 
-      <article class="project">
+      <article
+        class="project project-smithson"
+      >
+
 
         <div
           class="image-area"
           onclick="nextImage(1)"
         >
+
+
+          <button
+            class="arrow arrow-left"
+            type="button"
+            onclick="event.stopPropagation(); previousImage(1)"
+            aria-label="Previous image"
+          >
+            ←
+          </button>
+
 
           <img
             id="image-1"
@@ -538,37 +970,67 @@
             alt="Places inspired by Robert Smithson"
           >
 
+
+          <button
+            class="arrow arrow-right"
+            type="button"
+            onclick="event.stopPropagation(); nextImage(1)"
+            aria-label="Next image"
+          >
+            →
+          </button>
+
+
         </div>
 
 
         <div class="project-info">
 
+
           <div class="project-line"></div>
+
 
           <div class="project-title">
             PLACES INSPIRED BY ROBERT SMITHSON
           </div>
 
+
           <div class="project-description">
             <!-- Description to be added -->
           </div>
 
+
         </div>
+
 
       </article>
 
 
 
-      <!-- =========================
+      <!-- =====================================
            VETCARD
-           ========================= -->
+           ===================================== -->
 
-      <article class="project">
+      <article
+        class="project project-vetcard"
+      >
+
 
         <div
           class="image-area"
           onclick="nextImage(2)"
         >
+
+
+          <button
+            class="arrow arrow-left"
+            type="button"
+            onclick="event.stopPropagation(); previousImage(2)"
+            aria-label="Previous image"
+          >
+            ←
+          </button>
+
 
           <img
             id="image-2"
@@ -577,37 +1039,67 @@
             alt="VetCard"
           >
 
+
+          <button
+            class="arrow arrow-right"
+            type="button"
+            onclick="event.stopPropagation(); nextImage(2)"
+            aria-label="Next image"
+          >
+            →
+          </button>
+
+
         </div>
 
 
         <div class="project-info">
 
+
           <div class="project-line"></div>
+
 
           <div class="project-title">
             VETCARD
           </div>
 
+
           <div class="project-description">
             <!-- Description to be added -->
           </div>
 
+
         </div>
+
 
       </article>
 
 
 
-      <!-- =========================
+      <!-- =====================================
            URBAN DESIGN
-           ========================= -->
+           ===================================== -->
 
-      <article class="project">
+      <article
+        class="project project-urban"
+      >
+
 
         <div
           class="image-area"
           onclick="nextImage(3)"
         >
+
+
+          <button
+            class="arrow arrow-left"
+            type="button"
+            onclick="event.stopPropagation(); previousImage(3)"
+            aria-label="Previous image"
+          >
+            ←
+          </button>
+
 
           <img
             id="image-3"
@@ -616,49 +1108,70 @@
             alt="Urban Design"
           >
 
+
+          <button
+            class="arrow arrow-right"
+            type="button"
+            onclick="event.stopPropagation(); nextImage(3)"
+            aria-label="Next image"
+          >
+            →
+          </button>
+
+
         </div>
 
 
         <div class="project-info">
 
+
           <div class="project-line"></div>
+
 
           <div class="project-title">
             URBAN DESIGN
           </div>
 
+
           <div class="project-description">
             <!-- Description to be added -->
           </div>
 
+
         </div>
+
 
       </article>
 
 
     </section>
 
+
   </main>
 
 
 
-  <!-- =========================
+  <!-- =========================================
        WEBSITE CREDIT
-       ========================= -->
+       ========================================= -->
 
   <div class="website-credit">
+
     WEB DESIGN: MYRTO PAVLOPOULOU
+
   </div>
 
 
 
-  <!-- =========================
+  <!-- =========================================
        JAVASCRIPT
-       ========================= -->
+       ========================================= -->
 
   <script>
 
+
     const projects = [
+
 
       /* ECHOES OF THE DEEP */
 
@@ -717,9 +1230,46 @@
     ];
 
 
+
+    function updateImage(projectIndex) {
+
+
+      const image =
+        document.getElementById(
+          "image-" + projectIndex
+        );
+
+
+      image.style.opacity = "0.4";
+
+
+      setTimeout(function () {
+
+
+        image.src =
+          projects[projectIndex][
+            currentImages[projectIndex]
+          ];
+
+
+        image.onload = function () {
+
+          image.style.opacity = "1";
+
+        };
+
+
+      }, 100);
+
+    }
+
+
+
     function nextImage(projectIndex) {
 
+
       currentImages[projectIndex]++;
+
 
       if (
         currentImages[projectIndex] >=
@@ -731,31 +1281,32 @@
       }
 
 
-      const image =
-        document.getElementById(
-          "image-" + projectIndex
-        );
-
-
-      image.style.opacity = "0.35";
-
-
-      setTimeout(function () {
-
-        image.src =
-          projects[projectIndex][
-            currentImages[projectIndex]
-          ];
-
-        image.onload = function () {
-
-          image.style.opacity = "1";
-
-        };
-
-      }, 120);
+      updateImage(projectIndex);
 
     }
+
+
+
+    function previousImage(projectIndex) {
+
+
+      currentImages[projectIndex]--;
+
+
+      if (
+        currentImages[projectIndex] < 0
+      ) {
+
+        currentImages[projectIndex] =
+          projects[projectIndex].length - 1;
+
+      }
+
+
+      updateImage(projectIndex);
+
+    }
+
 
   </script>
 
