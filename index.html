@@ -106,6 +106,7 @@
     .project {
       display: block;
       position: relative;
+      text-align: center;
     }
 
     .project-image {
@@ -123,27 +124,44 @@
       opacity: 0.9;
     }
 
-    .project-title {
-      margin-top: 10px;
-      color: #777777;
-      font-size: 10px;
-      line-height: 1.35;
-      text-transform: uppercase;
+    .project-info {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 12px;
+      color: #2f6fff;
       opacity: 0;
-      transform: translateX(-8px);
+      transform: translateY(-5px);
       transition:
         opacity 0.35s ease,
         transform 0.35s ease;
       pointer-events: none;
     }
 
+    .project-line {
+      width: 22px;
+      height: 1px;
+      background: #2f6fff;
+      margin-bottom: 9px;
+    }
+
+    .project-title {
+      color: #2f6fff;
+      font-size: 10px;
+      line-height: 1.35;
+      text-transform: uppercase;
+    }
+
     .project-subtitle {
+      color: #2f6fff;
+      font-size: 10px;
+      line-height: 1.35;
       text-transform: none;
     }
 
-    .project:hover .project-title {
+    .project:hover .project-info {
       opacity: 1;
-      transform: translateX(0);
+      transform: translateY(0);
     }
 
     .website-credit {
@@ -251,8 +269,14 @@
           alt="Gallery"
         >
 
-        <div class="project-title">
-          GALLERY
+        <div class="project-info">
+
+          <div class="project-line"></div>
+
+          <div class="project-title">
+            GALLERY
+          </div>
+
         </div>
 
       </a>
@@ -268,9 +292,18 @@
           alt="Nisyros"
         >
 
-        <div class="project-title">
-          NISYROS<br>
-          <span class="project-subtitle">diploma thesis</span>
+        <div class="project-info">
+
+          <div class="project-line"></div>
+
+          <div class="project-title">
+            NISYROS-(+100)-
+          </div>
+
+          <div class="project-subtitle">
+            diploma thesis
+          </div>
+
         </div>
 
       </a>
@@ -286,8 +319,14 @@
           alt="The Bridge"
         >
 
-        <div class="project-title">
-          THE BRIDGE
+        <div class="project-info">
+
+          <div class="project-line"></div>
+
+          <div class="project-title">
+            THE BRIDGE
+          </div>
+
         </div>
 
       </a>
@@ -303,8 +342,14 @@
           alt="Research"
         >
 
-        <div class="project-title">
-          RESEARCH
+        <div class="project-info">
+
+          <div class="project-line"></div>
+
+          <div class="project-title">
+            RESEARCH
+          </div>
+
         </div>
 
       </a>
