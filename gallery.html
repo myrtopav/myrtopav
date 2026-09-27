@@ -157,6 +157,8 @@
       margin: 0 auto;
 
       overflow: visible;
+
+      cursor: url("cursor2.png") 25 25, pointer;
     }
 
     .project-image {
@@ -175,63 +177,6 @@
     .project:hover .project-image {
       transform: scale(1.05);
       opacity: 0.92;
-    }
-
-
-    /* =========================
-       ARROWS
-       ========================= */
-
-    .arrow {
-      position: absolute;
-
-      top: 50%;
-
-      transform: translateY(-50%);
-
-      width: auto;
-      height: auto;
-
-      padding: 0;
-
-      border: none;
-      outline: none;
-
-      background: none;
-
-      color: #777777;
-
-      font-family: Arial, Helvetica, sans-serif;
-      font-size: 16px;
-      font-weight: 400;
-
-      line-height: 1;
-
-      cursor: url("cursor2.png") 25 25, auto;
-
-      z-index: 10;
-
-      opacity: 0;
-
-      transition:
-        opacity 0.25s ease,
-        color 0.2s ease;
-    }
-
-    .arrow-left {
-      left: 12px;
-    }
-
-    .arrow-right {
-      right: 12px;
-    }
-
-    .project:hover .arrow {
-      opacity: 1;
-    }
-
-    .arrow:hover {
-      color: #2f6fff;
     }
 
 
@@ -418,9 +363,10 @@
         max-width: 280px;
       }
 
+
       /*
-         On mobile the text is always visible,
-         because there is no hover.
+        On mobile there is no hover,
+        so the information stays visible.
       */
 
       .project-info {
@@ -429,20 +375,6 @@
         transform: translateY(0);
 
         pointer-events: auto;
-      }
-
-      .arrow {
-        opacity: 1;
-
-        font-size: 16px;
-      }
-
-      .arrow-left {
-        left: 8px;
-      }
-
-      .arrow-right {
-        right: 8px;
       }
 
       .website-credit {
@@ -536,19 +468,10 @@
 
       <article class="project">
 
-
-        <div class="image-area">
-
-
-          <button
-            class="arrow arrow-left"
-            type="button"
-            onclick="previousImage(0)"
-            aria-label="Previous image"
-          >
-            ←
-          </button>
-
+        <div
+          class="image-area"
+          onclick="nextImage(0)"
+        >
 
           <img
             id="image-0"
@@ -557,22 +480,10 @@
             alt="Echoes of the Deep"
           >
 
-
-          <button
-            class="arrow arrow-right"
-            type="button"
-            onclick="nextImage(0)"
-            aria-label="Next image"
-          >
-            →
-          </button>
-
-
         </div>
 
 
         <div class="project-info">
-
 
           <div class="project-line"></div>
 
@@ -594,6 +505,7 @@
               href="https://moradavaga.com/ECHOES-OF-THE-DEEP"
               target="_blank"
               rel="noopener noreferrer"
+              onclick="event.stopPropagation()"
             >
               MORADAVAGA
             </a>
@@ -604,9 +516,7 @@
 
           </div>
 
-
         </div>
-
 
       </article>
 
@@ -618,19 +528,10 @@
 
       <article class="project">
 
-
-        <div class="image-area">
-
-
-          <button
-            class="arrow arrow-left"
-            type="button"
-            onclick="previousImage(1)"
-            aria-label="Previous image"
-          >
-            ←
-          </button>
-
+        <div
+          class="image-area"
+          onclick="nextImage(1)"
+        >
 
           <img
             id="image-1"
@@ -639,22 +540,10 @@
             alt="Places inspired by Robert Smithson"
           >
 
-
-          <button
-            class="arrow arrow-right"
-            type="button"
-            onclick="nextImage(1)"
-            aria-label="Next image"
-          >
-            →
-          </button>
-
-
         </div>
 
 
         <div class="project-info">
-
 
           <div class="project-line"></div>
 
@@ -668,9 +557,7 @@
             <!-- Description to be added -->
           </div>
 
-
         </div>
-
 
       </article>
 
@@ -682,19 +569,10 @@
 
       <article class="project">
 
-
-        <div class="image-area">
-
-
-          <button
-            class="arrow arrow-left"
-            type="button"
-            onclick="previousImage(2)"
-            aria-label="Previous image"
-          >
-            ←
-          </button>
-
+        <div
+          class="image-area"
+          onclick="nextImage(2)"
+        >
 
           <img
             id="image-2"
@@ -703,22 +581,10 @@
             alt="VetCard"
           >
 
-
-          <button
-            class="arrow arrow-right"
-            type="button"
-            onclick="nextImage(2)"
-            aria-label="Next image"
-          >
-            →
-          </button>
-
-
         </div>
 
 
         <div class="project-info">
-
 
           <div class="project-line"></div>
 
@@ -732,9 +598,7 @@
             <!-- Description to be added -->
           </div>
 
-
         </div>
-
 
       </article>
 
@@ -811,10 +675,23 @@
           "image-" + projectIndex
         );
 
-      image.src =
-        projects[projectIndex][
-          currentImages[projectIndex]
-        ];
+      image.style.opacity = "0.25";
+
+
+      setTimeout(function () {
+
+        image.src =
+          projects[projectIndex][
+            currentImages[projectIndex]
+          ];
+
+        image.onload = function () {
+
+          image.style.opacity = "1";
+
+        };
+
+      }, 120);
 
     }
 
@@ -834,25 +711,45 @@
 
       showImage(projectIndex);
 
+      resetTimer(projectIndex);
+
+    }
+
+
+    function resetTimer(projectIndex) {
+
+      clearInterval(
+        projects[projectIndex].timer
+      );
+
+      projects[projectIndex].timer =
+        setInterval(function () {
+
+          currentImages[projectIndex]++;
+
+          if (
+            currentImages[projectIndex] >=
+            projects[projectIndex].length
+          ) {
+
+            currentImages[projectIndex] = 0;
+
+          }
+
+          showImage(projectIndex);
+
+        }, 4000);
+
     }
 
 
-    function previousImage(projectIndex) {
+    /* =========================
+       START AUTOMATIC SLIDESHOW
+       ========================= */
 
-      currentImages[projectIndex]--;
-
-      if (
-        currentImages[projectIndex] < 0
-      ) {
-
-        currentImages[projectIndex] =
-          projects[projectIndex].length - 1;
-
-      }
-
-      showImage(projectIndex);
-
-    }
+    resetTimer(0);
+    resetTimer(1);
+    resetTimer(2);
 
   </script>
 
