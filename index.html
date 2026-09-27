@@ -100,11 +100,12 @@
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 3vw;
-      align-items: center;
+      align-items: start;
     }
 
     .project {
       display: block;
+      position: relative;
     }
 
     .project-image {
@@ -120,6 +121,29 @@
     .project:hover .project-image {
       transform: scale(1.06);
       opacity: 0.9;
+    }
+
+    .project-title {
+      margin-top: 10px;
+      color: #777777;
+      font-size: 10px;
+      line-height: 1.35;
+      text-transform: uppercase;
+      opacity: 0;
+      transform: translateX(-8px);
+      transition:
+        opacity 0.35s ease,
+        transform 0.35s ease;
+      pointer-events: none;
+    }
+
+    .project-subtitle {
+      text-transform: none;
+    }
+
+    .project:hover .project-title {
+      opacity: 1;
+      transform: translateX(0);
     }
 
     .website-credit {
@@ -220,44 +244,69 @@
       <!-- Gallery -->
 
       <a href="gallery.html" class="project">
+
         <img
           class="project-image"
           src="GALLERY2.jpg"
           alt="Gallery"
         >
+
+        <div class="project-title">
+          GALLERY
+        </div>
+
       </a>
 
 
       <!-- Nisyros -->
 
       <a href="project1.html" class="project">
+
         <img
           class="project-image"
           src="Nisyros4.jpg"
           alt="Nisyros"
         >
+
+        <div class="project-title">
+          NISYROS<br>
+          <span class="project-subtitle">diploma thesis</span>
+        </div>
+
       </a>
 
 
       <!-- Gefura -->
 
       <a href="project3.html" class="project">
+
         <img
           class="project-image"
           src="Gefura.jpg"
-          alt="Gefura"
+          alt="The Bridge"
         >
+
+        <div class="project-title">
+          THE BRIDGE
+        </div>
+
       </a>
 
 
       <!-- Research -->
 
       <a href="project2.html" class="project">
+
         <img
           class="project-image"
           src="research.png"
           alt="Research"
         >
+
+        <div class="project-title">
+          RESEARCH
+        </div>
+
       </a>
 
     </section>
