@@ -365,7 +365,8 @@
 
 
       /*
-        On mobile there is no hover,
+        Mobile devices do not have
+        reliable hover behaviour,
         so the information stays visible.
       */
 
@@ -487,11 +488,9 @@
 
           <div class="project-line"></div>
 
-
           <div class="project-title">
             ECHOES OF THE DEEP
           </div>
-
 
           <div class="project-description">
 
@@ -505,7 +504,6 @@
               href="https://moradavaga.com/ECHOES-OF-THE-DEEP"
               target="_blank"
               rel="noopener noreferrer"
-              onclick="event.stopPropagation()"
             >
               MORADAVAGA
             </a>
@@ -547,11 +545,9 @@
 
           <div class="project-line"></div>
 
-
           <div class="project-title">
             PLACES INSPIRED BY ROBERT SMITHSON
           </div>
-
 
           <div class="project-description">
             <!-- Description to be added -->
@@ -588,11 +584,48 @@
 
           <div class="project-line"></div>
 
-
           <div class="project-title">
             VETCARD
           </div>
 
+          <div class="project-description">
+            <!-- Description to be added -->
+          </div>
+
+        </div>
+
+      </article>
+
+
+
+      <!-- =========================
+           URBAN DESIGN
+           ========================= -->
+
+      <article class="project">
+
+        <div
+          class="image-area"
+          onclick="nextImage(3)"
+        >
+
+          <img
+            id="image-3"
+            class="project-image"
+            src="Urban_1.png"
+            alt="Urban Design"
+          >
+
+        </div>
+
+
+        <div class="project-info">
+
+          <div class="project-line"></div>
+
+          <div class="project-title">
+            URBAN DESIGN
+          </div>
 
           <div class="project-description">
             <!-- Description to be added -->
@@ -627,6 +660,8 @@
 
     const projects = [
 
+      /* ECHOES OF THE DEEP */
+
       [
         "Jelly_1.jpg",
         "Jelly_2.JPG",
@@ -638,6 +673,8 @@
         "Jelly_8.JPG"
       ],
 
+
+      /* ROBERT SMITHSON */
 
       [
         "Smithson_1.png",
@@ -653,9 +690,20 @@
       ],
 
 
+      /* VETCARD */
+
       [
         "VetCard_1.jpg",
         "VetCard2.jpg"
+      ],
+
+
+      /* URBAN DESIGN */
+
+      [
+        "Urban_1.png",
+        "Urban_2.jpg",
+        "Urban_3.jpg"
       ]
 
     ];
@@ -664,18 +712,32 @@
     const currentImages = [
       0,
       0,
+      0,
       0
     ];
 
 
-    function showImage(projectIndex) {
+    function nextImage(projectIndex) {
+
+      currentImages[projectIndex]++;
+
+      if (
+        currentImages[projectIndex] >=
+        projects[projectIndex].length
+      ) {
+
+        currentImages[projectIndex] = 0;
+
+      }
+
 
       const image =
         document.getElementById(
           "image-" + projectIndex
         );
 
-      image.style.opacity = "0.25";
+
+      image.style.opacity = "0.35";
 
 
       setTimeout(function () {
@@ -694,62 +756,6 @@
       }, 120);
 
     }
-
-
-    function nextImage(projectIndex) {
-
-      currentImages[projectIndex]++;
-
-      if (
-        currentImages[projectIndex] >=
-        projects[projectIndex].length
-      ) {
-
-        currentImages[projectIndex] = 0;
-
-      }
-
-      showImage(projectIndex);
-
-      resetTimer(projectIndex);
-
-    }
-
-
-    function resetTimer(projectIndex) {
-
-      clearInterval(
-        projects[projectIndex].timer
-      );
-
-      projects[projectIndex].timer =
-        setInterval(function () {
-
-          currentImages[projectIndex]++;
-
-          if (
-            currentImages[projectIndex] >=
-            projects[projectIndex].length
-          ) {
-
-            currentImages[projectIndex] = 0;
-
-          }
-
-          showImage(projectIndex);
-
-        }, 4000);
-
-    }
-
-
-    /* =========================
-       START AUTOMATIC SLIDESHOW
-       ========================= */
-
-    resetTimer(0);
-    resetTimer(1);
-    resetTimer(2);
 
   </script>
 
