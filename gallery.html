@@ -96,12 +96,11 @@
 
       text-transform: uppercase;
 
-      z-index: 100;
+      z-index: 1000;
     }
 
 
     .name {
-
       text-align: left;
     }
 
@@ -118,7 +117,6 @@
 
 
     .name a:hover {
-
       color: #2f6fff;
     }
 
@@ -165,13 +163,12 @@
 
 
     .navigation a:hover {
-
       color: #2f6fff;
     }
 
 
     /* =========================================
-       EDITORIAL GALLERY
+       GALLERY
        ========================================= */
 
     main {
@@ -179,7 +176,7 @@
       width: 100%;
 
       padding:
-        5vh
+        4vh
         3vw
         120px
         3vw;
@@ -192,12 +189,12 @@
 
       width: 100%;
 
-      min-height: 150vh;
+      min-height: 135vh;
     }
 
 
     /* =========================================
-       PROJECT
+       PROJECT BASE
        ========================================= */
 
     .project {
@@ -209,7 +206,7 @@
       z-index: 1;
 
       transition:
-        transform 0.45s
+        transform 0.4s
         cubic-bezier(
           0.2,
           0.7,
@@ -220,87 +217,126 @@
 
 
     /*
-      Selected project comes to the front.
+      Selected project comes completely
+      to the front.
     */
 
     .project.selected {
 
-      z-index: 50;
+      z-index: 100;
     }
 
 
     /* =========================================
-       PROJECT POSITIONS / SIZES
+       PROJECT POSITIONS
        ========================================= */
 
 
     /*
+      01
       ECHOES OF THE DEEP
+      smaller than before
     */
 
-    .project-jelly {
+    .project-jelly-1 {
 
-      width: 23vw;
+      width: 19vw;
 
-      left: 2vw;
-
-      top: 1vh;
-    }
-
-
-    /*
-      ROBERT SMITHSON
-    */
-
-    .project-smithson {
-
-      width: 27vw;
-
-      right: 4vw;
+      left: 3vw;
 
       top: 0;
     }
 
 
     /*
+      02
+      ROBERT SMITHSON
+    */
+
+    .project-smithson-1 {
+
+      width: 25vw;
+
+      right: 5vw;
+
+      top: 1vh;
+    }
+
+
+    /*
+      03
       VETCARD
     */
 
     .project-vetcard {
 
-      width: 20vw;
+      width: 16vw;
 
-      left: 28vw;
+      left: 29vw;
 
-      top: 39vh;
+      top: 27vh;
     }
 
 
     /*
+      04
       URBAN DESIGN
     */
 
     .project-urban {
 
-      width: 23vw;
+      width: 20vw;
 
-      right: 17vw;
+      right: 24vw;
 
-      top: 45vh;
+      top: 24vh;
     }
 
 
     /*
+      05
       YTONG MODEL
     */
 
     .project-ytong {
 
-      width: 19vw;
+      width: 15vw;
 
-      left: 7vw;
+      left: 8vw;
 
-      top: 77vh;
+      top: 48vh;
+    }
+
+
+    /*
+      06
+      ECHOES OF THE DEEP
+      second appearance
+    */
+
+    .project-jelly-2 {
+
+      width: 16vw;
+
+      right: 8vw;
+
+      top: 57vh;
+    }
+
+
+    /*
+      07
+      ROBERT SMITHSON
+      second appearance
+    */
+
+    .project-smithson-2 {
+
+      width: 18vw;
+
+      left: 38vw;
+
+      top: 65vh;
     }
 
 
@@ -348,7 +384,7 @@
 
 
     /* =========================================
-       NORMAL HOVER
+       HOVER
        ========================================= */
 
     .project:hover .project-image {
@@ -356,7 +392,7 @@
       transform:
         scale(1.045);
 
-      opacity: 0.92;
+      opacity: 0.93;
     }
 
 
@@ -367,7 +403,7 @@
     .project.selected .project-image {
 
       transform:
-        scale(1.075);
+        scale(1.08);
 
       opacity: 1;
     }
@@ -386,7 +422,7 @@
       transform:
         translateY(-50%);
 
-      z-index: 10;
+      z-index: 20;
 
       border: none;
 
@@ -420,31 +456,26 @@
 
 
     .arrow-left {
-
-      left: 10px;
+      left: 9px;
     }
 
 
     .arrow-right {
-
-      right: 10px;
+      right: 9px;
     }
 
 
     .project:hover .arrow {
-
       opacity: 1;
     }
 
 
     .project.selected .arrow {
-
       opacity: 1;
     }
 
 
     .arrow:hover {
-
       color: #2f6fff;
     }
 
@@ -461,7 +492,7 @@
 
       align-items: center;
 
-      margin-top: 12px;
+      margin-top: 10px;
 
       padding:
         0
@@ -473,8 +504,8 @@
         translateY(-5px);
 
       transition:
-        opacity 0.35s ease,
-        transform 0.35s ease,
+        opacity 0.3s ease,
+        transform 0.3s ease,
         background 0.25s ease,
         padding 0.25s ease;
 
@@ -483,7 +514,7 @@
 
 
     /*
-      Information appears on hover.
+      Hover preview
     */
 
     .project:hover .project-info {
@@ -497,7 +528,7 @@
 
     /*
       Selected project gets
-      a blue information box.
+      the blue information box.
     */
 
     .project.selected .project-info {
@@ -520,7 +551,7 @@
 
 
     /* =========================================
-       BLUE LINE
+       LINE
        ========================================= */
 
     .project-line {
@@ -531,13 +562,9 @@
 
       background: #2f6fff;
 
-      margin-bottom: 8px;
+      margin-bottom: 7px;
     }
 
-
-    /*
-      White line when selected.
-    */
 
     .project.selected .project-line {
 
@@ -561,10 +588,6 @@
     }
 
 
-    /*
-      White title on blue background.
-    */
-
     .project.selected .project-title {
 
       color: #ffffff;
@@ -577,9 +600,9 @@
 
     .project-description {
 
-      max-width: 280px;
+      max-width: 270px;
 
-      margin-top: 7px;
+      margin-top: 6px;
 
       color: #777777;
 
@@ -591,11 +614,6 @@
     }
 
 
-    /*
-      Description becomes white
-      when project is selected.
-    */
-
     .project.selected .project-description {
 
       color: #ffffff;
@@ -603,13 +621,11 @@
 
 
     .black-text {
-
       color: #000000;
     }
 
 
     .project.selected .black-text {
-
       color: #ffffff;
     }
 
@@ -626,18 +642,19 @@
 
 
     .project-description a:hover {
-
       color: #2f6fff;
     }
 
 
-    .project.selected .project-description a {
+    .project.selected
+    .project-description a {
 
       color: #ffffff;
     }
 
 
-    .project.selected .project-description a:hover {
+    .project.selected
+    .project-description a:hover {
 
       color: #dce7ff;
     }
@@ -671,7 +688,7 @@
 
       text-align: right;
 
-      z-index: 100;
+      z-index: 1000;
     }
 
 
@@ -690,7 +707,6 @@
 
 
       .navigation {
-
         left: 5vw;
       }
 
@@ -705,57 +721,73 @@
 
       .gallery {
 
-        min-height: 135vh;
+        min-height: 125vh;
       }
 
 
-      .project-jelly {
+      .project-jelly-1 {
 
-        width: 25vw;
+        width: 21vw;
 
-        left: 0;
-
-        top: 2vh;
+        left: 1vw;
       }
 
 
-      .project-smithson {
+      .project-smithson-1 {
 
-        width: 30vw;
+        width: 28vw;
 
         right: 2vw;
-
-        top: 0;
       }
 
 
       .project-vetcard {
 
-        width: 22vw;
+        width: 18vw;
 
-        left: 25vw;
+        left: 27vw;
 
-        top: 40vh;
+        top: 27vh;
       }
 
 
       .project-urban {
 
-        width: 25vw;
+        width: 22vw;
 
-        right: 12vw;
+        right: 18vw;
 
-        top: 46vh;
+        top: 25vh;
       }
 
 
       .project-ytong {
 
-        width: 21vw;
+        width: 17vw;
 
         left: 5vw;
 
-        top: 76vh;
+        top: 48vh;
+      }
+
+
+      .project-jelly-2 {
+
+        width: 18vw;
+
+        right: 5vw;
+
+        top: 57vh;
+      }
+
+
+      .project-smithson-2 {
+
+        width: 20vw;
+
+        left: 35vw;
+
+        top: 65vh;
       }
 
     }
@@ -769,7 +801,6 @@
 
       html,
       body {
-
         height: auto;
       }
 
@@ -822,7 +853,7 @@
 
         position: relative;
 
-        width: 72% !important;
+        width: 70% !important;
 
         left: auto !important;
 
@@ -836,7 +867,7 @@
 
       .project:nth-child(2) {
 
-        width: 80% !important;
+        width: 78% !important;
 
         margin-left: 12%;
       }
@@ -844,7 +875,7 @@
 
       .project:nth-child(3) {
 
-        width: 60% !important;
+        width: 57% !important;
 
         margin-left: 5%;
       }
@@ -852,7 +883,7 @@
 
       .project:nth-child(4) {
 
-        width: 70% !important;
+        width: 66% !important;
 
         margin-right: 5%;
       }
@@ -860,16 +891,27 @@
 
       .project:nth-child(5) {
 
-        width: 58% !important;
+        width: 55% !important;
 
         margin-left: 8%;
       }
 
 
-      /*
-        Information remains visible
-        on mobile.
-      */
+      .project:nth-child(6) {
+
+        width: 58% !important;
+
+        margin-right: 4%;
+      }
+
+
+      .project:nth-child(7) {
+
+        width: 61% !important;
+
+        margin-left: 15%;
+      }
+
 
       .project-info {
 
@@ -922,57 +964,51 @@
 
 
       .gallery {
-
         gap: 55px;
       }
 
 
       .project {
-
-        width: 74% !important;
+        width: 72% !important;
       }
 
 
       .project:nth-child(2) {
-
-        width: 84% !important;
-
-        margin-left: 7%;
+        width: 82% !important;
       }
 
 
       .project:nth-child(3) {
-
-        width: 63% !important;
-
-        margin-left: 2%;
+        width: 60% !important;
       }
 
 
       .project:nth-child(4) {
-
-        width: 72% !important;
-
-        margin-right: 2%;
+        width: 70% !important;
       }
 
 
       .project:nth-child(5) {
+        width: 58% !important;
+      }
 
+
+      .project:nth-child(6) {
         width: 61% !important;
+      }
 
-        margin-left: 5%;
+
+      .project:nth-child(7) {
+        width: 64% !important;
       }
 
 
       .project-description {
-
         font-size: 9px;
       }
 
 
       .website-credit {
-
         font-size: 9px;
       }
 
@@ -1030,25 +1066,22 @@
 
   <main>
 
-
     <section class="gallery">
 
 
       <!-- =====================================
-           ECHOES OF THE DEEP
+           01 — ECHOES OF THE DEEP
            ===================================== -->
 
       <article
-        class="project project-jelly"
+        class="project project-jelly-1"
         id="project-0"
       >
-
 
         <div
           class="image-area"
           onclick="selectAndNext(0)"
         >
-
 
           <button
             class="arrow arrow-left"
@@ -1077,20 +1110,16 @@
             →
           </button>
 
-
         </div>
 
 
         <div class="project-info">
 
-
           <div class="project-line"></div>
-
 
           <div class="project-title">
             ECHOES OF THE DEEP
           </div>
-
 
           <div class="project-description">
 
@@ -1115,29 +1144,25 @@
 
           </div>
 
-
         </div>
-
 
       </article>
 
 
 
       <!-- =====================================
-           ROBERT SMITHSON
+           02 — ROBERT SMITHSON
            ===================================== -->
 
       <article
-        class="project project-smithson"
+        class="project project-smithson-1"
         id="project-1"
       >
-
 
         <div
           class="image-area"
           onclick="selectAndNext(1)"
         >
-
 
           <button
             class="arrow arrow-left"
@@ -1166,35 +1191,29 @@
             →
           </button>
 
-
         </div>
 
 
         <div class="project-info">
 
-
           <div class="project-line"></div>
-
 
           <div class="project-title">
             PLACES INSPIRED BY ROBERT SMITHSON
           </div>
 
-
           <div class="project-description">
             <!-- Description to be added -->
           </div>
 
-
         </div>
-
 
       </article>
 
 
 
       <!-- =====================================
-           VETCARD
+           03 — VETCARD
            ===================================== -->
 
       <article
@@ -1202,12 +1221,10 @@
         id="project-2"
       >
 
-
         <div
           class="image-area"
           onclick="selectAndNext(2)"
         >
-
 
           <button
             class="arrow arrow-left"
@@ -1236,35 +1253,29 @@
             →
           </button>
 
-
         </div>
 
 
         <div class="project-info">
 
-
           <div class="project-line"></div>
-
 
           <div class="project-title">
             VETCARD
           </div>
 
-
           <div class="project-description">
             <!-- Description to be added -->
           </div>
 
-
         </div>
-
 
       </article>
 
 
 
       <!-- =====================================
-           URBAN DESIGN
+           04 — URBAN DESIGN
            ===================================== -->
 
       <article
@@ -1272,12 +1283,10 @@
         id="project-3"
       >
 
-
         <div
           class="image-area"
           onclick="selectAndNext(3)"
         >
-
 
           <button
             class="arrow arrow-left"
@@ -1306,35 +1315,29 @@
             →
           </button>
 
-
         </div>
 
 
         <div class="project-info">
 
-
           <div class="project-line"></div>
-
 
           <div class="project-title">
             URBAN DESIGN
           </div>
 
-
           <div class="project-description">
             <!-- Description to be added -->
           </div>
 
-
         </div>
-
 
       </article>
 
 
 
       <!-- =====================================
-           YTONG MODEL
+           05 — YTONG MODEL
            ===================================== -->
 
       <article
@@ -1342,12 +1345,10 @@
         id="project-4"
       >
 
-
         <div
           class="image-area"
           onclick="selectAndNext(4)"
         >
-
 
           <button
             class="arrow arrow-left"
@@ -1376,34 +1377,172 @@
             →
           </button>
 
+        </div>
+
+
+        <div class="project-info">
+
+          <div class="project-line"></div>
+
+          <div class="project-title">
+            YTONG MODEL
+          </div>
+
+          <div class="project-description">
+            <!-- Description to be added -->
+          </div>
+
+        </div>
+
+      </article>
+
+
+
+      <!-- =====================================
+           06 — ECHOES OF THE DEEP
+           SECOND APPEARANCE
+           ===================================== -->
+
+      <article
+        class="project project-jelly-2"
+        id="project-5"
+      >
+
+        <div
+          class="image-area"
+          onclick="selectAndNext(5)"
+        >
+
+          <button
+            class="arrow arrow-left"
+            type="button"
+            onclick="event.stopPropagation(); selectProject(5); previousImage(5)"
+            aria-label="Previous image"
+          >
+            ←
+          </button>
+
+
+          <img
+            id="image-5"
+            class="project-image"
+            src="Jelly_4.jpg"
+            alt="Echoes of the Deep"
+          >
+
+
+          <button
+            class="arrow arrow-right"
+            type="button"
+            onclick="event.stopPropagation(); selectProject(5); nextImage(5)"
+            aria-label="Next image"
+          >
+            →
+          </button>
 
         </div>
 
 
         <div class="project-info">
 
+          <div class="project-line"></div>
+
+          <div class="project-title">
+            ECHOES OF THE DEEP
+          </div>
+
+          <div class="project-description">
+
+            an interactive
+            <span class="black-text">
+              light and sound installation
+            </span>
+            for Mar Motto festival’s 2025 edition with
+
+            <a
+              href="https://moradavaga.com/ECHOES-OF-THE-DEEP"
+              target="_blank"
+              rel="noopener noreferrer"
+              onclick="event.stopPropagation()"
+            >
+              MORADAVAGA
+            </a>
+
+            <span class="location">
+              Faro, Portugal
+            </span>
+
+          </div>
+
+        </div>
+
+      </article>
+
+
+
+      <!-- =====================================
+           07 — ROBERT SMITHSON
+           SECOND APPEARANCE
+           ===================================== -->
+
+      <article
+        class="project project-smithson-2"
+        id="project-6"
+      >
+
+        <div
+          class="image-area"
+          onclick="selectAndNext(6)"
+        >
+
+          <button
+            class="arrow arrow-left"
+            type="button"
+            onclick="event.stopPropagation(); selectProject(6); previousImage(6)"
+            aria-label="Previous image"
+          >
+            ←
+          </button>
+
+
+          <img
+            id="image-6"
+            class="project-image"
+            src="Smithson_6.jpg"
+            alt="Places inspired by Robert Smithson"
+          >
+
+
+          <button
+            class="arrow arrow-right"
+            type="button"
+            onclick="event.stopPropagation(); selectProject(6); nextImage(6)"
+            aria-label="Next image"
+          >
+            →
+          </button>
+
+        </div>
+
+
+        <div class="project-info">
 
           <div class="project-line"></div>
 
-
           <div class="project-title">
-            YTONG MODEL
+            PLACES INSPIRED BY ROBERT SMITHSON
           </div>
-
 
           <div class="project-description">
             <!-- Description to be added -->
           </div>
 
-
         </div>
-
 
       </article>
 
 
     </section>
-
 
   </main>
 
@@ -1428,10 +1567,13 @@
   <script>
 
 
+    /* =========================================
+       IMAGE ARRAYS
+       ========================================= */
+
     const projects = [
 
-
-      /* ECHOES OF THE DEEP */
+      /* 0 — ECHOES OF THE DEEP */
 
       [
         "Jelly_1.jpg",
@@ -1445,7 +1587,7 @@
       ],
 
 
-      /* ROBERT SMITHSON */
+      /* 1 — ROBERT SMITHSON */
 
       [
         "Smithson_1.png",
@@ -1461,7 +1603,7 @@
       ],
 
 
-      /* VETCARD */
+      /* 2 — VETCARD */
 
       [
         "VetCard_1.jpg",
@@ -1469,7 +1611,7 @@
       ],
 
 
-      /* URBAN DESIGN */
+      /* 3 — URBAN DESIGN */
 
       [
         "Urban_1.png",
@@ -1478,23 +1620,63 @@
       ],
 
 
-      /* YTONG MODEL */
+      /* 4 — YTONG MODEL */
 
       [
         "model_1.jpg",
         "model_1(2).jpg",
         "model_1(3).jpg"
+      ],
+
+
+      /* 5 — ECHOES OF THE DEEP
+         second appearance */
+
+      [
+        "Jelly_4.jpg",
+        "Jelly_5.JPG",
+        "Jelly_6.jpg",
+        "Jelly_7.JPG",
+        "Jelly_8.JPG",
+        "Jelly_1.jpg",
+        "Jelly_2.JPG",
+        "Jelly_3.JPG"
+      ],
+
+
+      /* 6 — ROBERT SMITHSON
+         second appearance */
+
+      [
+        "Smithson_6.jpg",
+        "Smithson_7.jpg",
+        "Smithson_8.jpg",
+        "Smithson_9.png",
+        "Smithson_10.png",
+        "Smithson_1.png",
+        "Smithson_2.jpg",
+        "Smithson_3.png",
+        "Smithson_4.png",
+        "Smithson_5.jpg"
       ]
 
     ];
 
 
+    /* =========================================
+       CURRENT IMAGE FOR EACH APPEARANCE
+       ========================================= */
+
     const currentImages = [
+
+      0,
+      0,
       0,
       0,
       0,
       0,
       0
+
     ];
 
 
@@ -1512,13 +1694,15 @@
         );
 
 
-      allProjects.forEach(function(project) {
+      allProjects.forEach(
+        function(project) {
 
-        project.classList.remove(
-          "selected"
-        );
+          project.classList.remove(
+            "selected"
+          );
 
-      });
+        }
+      );
 
 
       const selectedProject =
@@ -1564,26 +1748,30 @@
         );
 
 
-      image.style.opacity = "0.4";
+      image.style.opacity = "0.35";
 
 
-      setTimeout(function() {
+      setTimeout(
+        function() {
 
 
-        image.src =
-          projects[projectIndex][
-            currentImages[projectIndex]
-          ];
+          image.src =
+            projects[projectIndex][
+              currentImages[projectIndex]
+            ];
 
 
-        image.onload = function() {
+          image.onload =
+            function() {
 
-          image.style.opacity = "1";
+              image.style.opacity = "1";
 
-        };
+            };
 
 
-      }, 100);
+        },
+        100
+      );
 
     }
 
