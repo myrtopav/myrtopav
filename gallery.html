@@ -189,7 +189,7 @@
 
       width: 100%;
 
-      min-height: 135vh;
+      min-height: 185vh;
     }
 
 
@@ -216,11 +216,6 @@
     }
 
 
-    /*
-      Selected project comes completely
-      to the front.
-    */
-
     .project.selected {
 
       z-index: 100;
@@ -228,14 +223,13 @@
 
 
     /* =========================================
-       PROJECT POSITIONS
+       PROJECT POSITIONS / SIZES
        ========================================= */
 
 
     /*
       01
       ECHOES OF THE DEEP
-      smaller than before
     */
 
     .project-jelly-1 {
@@ -310,33 +304,63 @@
 
     /*
       06
-      ECHOES OF THE DEEP
-      second appearance
+      EXPERIMENTAL MODEL
     */
 
-    .project-jelly-2 {
+    .project-experimental {
 
-      width: 16vw;
+      width: 14vw;
 
-      right: 8vw;
+      right: 7vw;
 
-      top: 57vh;
+      top: 40vh;
     }
 
 
     /*
       07
+      SPATIAL INVESTIGATIONS
+    */
+
+    .project-spatial {
+
+      width: 21vw;
+
+      left: 40vw;
+
+      top: 52vh;
+    }
+
+
+    /*
+      08
+      ECHOES OF THE DEEP
+      SECOND APPEARANCE
+    */
+
+    .project-jelly-2 {
+
+      width: 15vw;
+
+      right: 10vw;
+
+      top: 70vh;
+    }
+
+
+    /*
+      09
       ROBERT SMITHSON
-      second appearance
+      SECOND APPEARANCE
     */
 
     .project-smithson-2 {
 
-      width: 18vw;
+      width: 17vw;
 
-      left: 38vw;
+      left: 18vw;
 
-      top: 65vh;
+      top: 74vh;
     }
 
 
@@ -397,7 +421,7 @@
 
 
     /* =========================================
-       SELECTED IMAGE
+       SELECTED
        ========================================= */
 
     .project.selected .project-image {
@@ -513,10 +537,6 @@
     }
 
 
-    /*
-      Hover preview
-    */
-
     .project:hover .project-info {
 
       opacity: 1;
@@ -525,11 +545,6 @@
         translateY(0);
     }
 
-
-    /*
-      Selected project gets
-      the blue information box.
-    */
 
     .project.selected .project-info {
 
@@ -721,7 +736,7 @@
 
       .gallery {
 
-        min-height: 125vh;
+        min-height: 170vh;
       }
 
 
@@ -771,23 +786,43 @@
       }
 
 
+      .project-experimental {
+
+        width: 16vw;
+
+        right: 4vw;
+
+        top: 40vh;
+      }
+
+
+      .project-spatial {
+
+        width: 23vw;
+
+        left: 37vw;
+
+        top: 52vh;
+      }
+
+
       .project-jelly-2 {
 
-        width: 18vw;
+        width: 17vw;
 
-        right: 5vw;
+        right: 6vw;
 
-        top: 57vh;
+        top: 70vh;
       }
 
 
       .project-smithson-2 {
 
-        width: 20vw;
+        width: 19vw;
 
-        left: 35vw;
+        left: 15vw;
 
-        top: 65vh;
+        top: 75vh;
       }
 
     }
@@ -899,13 +934,29 @@
 
       .project:nth-child(6) {
 
-        width: 58% !important;
+        width: 54% !important;
 
-        margin-right: 4%;
+        margin-right: 7%;
       }
 
 
       .project:nth-child(7) {
+
+        width: 68% !important;
+
+        margin-left: 11%;
+      }
+
+
+      .project:nth-child(8) {
+
+        width: 57% !important;
+
+        margin-right: 5%;
+      }
+
+
+      .project:nth-child(9) {
 
         width: 61% !important;
 
@@ -994,11 +1045,21 @@
 
 
       .project:nth-child(6) {
-        width: 61% !important;
+        width: 57% !important;
       }
 
 
       .project:nth-child(7) {
+        width: 72% !important;
+      }
+
+
+      .project:nth-child(8) {
+        width: 60% !important;
+      }
+
+
+      .project:nth-child(9) {
         width: 64% !important;
       }
 
@@ -1399,12 +1460,11 @@
 
 
       <!-- =====================================
-           06 — ECHOES OF THE DEEP
-           SECOND APPEARANCE
+           06 — EXPERIMENTAL MODEL
            ===================================== -->
 
       <article
-        class="project project-jelly-2"
+        class="project project-experimental"
         id="project-5"
       >
 
@@ -1426,6 +1486,131 @@
           <img
             id="image-5"
             class="project-image"
+            src="model_2.jpg"
+            alt="Experimental Model"
+          >
+
+
+          <button
+            class="arrow arrow-right"
+            type="button"
+            onclick="event.stopPropagation(); selectProject(5); nextImage(5)"
+            aria-label="Next image"
+          >
+            →
+          </button>
+
+        </div>
+
+
+        <div class="project-info">
+
+          <div class="project-line"></div>
+
+          <div class="project-title">
+            EXPERIMENTAL MODEL
+          </div>
+
+          <div class="project-description">
+            <!-- Description to be added -->
+          </div>
+
+        </div>
+
+      </article>
+
+
+
+      <!-- =====================================
+           07 — SPATIAL INVESTIGATIONS
+           ===================================== -->
+
+      <article
+        class="project project-spatial"
+        id="project-6"
+      >
+
+        <div
+          class="image-area"
+          onclick="selectAndNext(6)"
+        >
+
+          <button
+            class="arrow arrow-left"
+            type="button"
+            onclick="event.stopPropagation(); selectProject(6); previousImage(6)"
+            aria-label="Previous image"
+          >
+            ←
+          </button>
+
+
+          <img
+            id="image-6"
+            class="project-image"
+            src="TeclaSala_7.jpg"
+            alt="Spatial Investigations"
+          >
+
+
+          <button
+            class="arrow arrow-right"
+            type="button"
+            onclick="event.stopPropagation(); selectProject(6); nextImage(6)"
+            aria-label="Next image"
+          >
+            →
+          </button>
+
+        </div>
+
+
+        <div class="project-info">
+
+          <div class="project-line"></div>
+
+          <div class="project-title">
+            SPATIAL INVESTIGATIONS
+          </div>
+
+          <div class="project-description">
+            <!-- Description to be added -->
+          </div>
+
+        </div>
+
+      </article>
+
+
+
+      <!-- =====================================
+           08 — ECHOES OF THE DEEP
+           SECOND APPEARANCE
+           ===================================== -->
+
+      <article
+        class="project project-jelly-2"
+        id="project-7"
+      >
+
+        <div
+          class="image-area"
+          onclick="selectAndNext(7)"
+        >
+
+          <button
+            class="arrow arrow-left"
+            type="button"
+            onclick="event.stopPropagation(); selectProject(7); previousImage(7)"
+            aria-label="Previous image"
+          >
+            ←
+          </button>
+
+
+          <img
+            id="image-7"
+            class="project-image"
             src="Jelly_4.jpg"
             alt="Echoes of the Deep"
           >
@@ -1434,7 +1619,7 @@
           <button
             class="arrow arrow-right"
             type="button"
-            onclick="event.stopPropagation(); selectProject(5); nextImage(5)"
+            onclick="event.stopPropagation(); selectProject(7); nextImage(7)"
             aria-label="Next image"
           >
             →
@@ -1481,24 +1666,24 @@
 
 
       <!-- =====================================
-           07 — ROBERT SMITHSON
+           09 — ROBERT SMITHSON
            SECOND APPEARANCE
            ===================================== -->
 
       <article
         class="project project-smithson-2"
-        id="project-6"
+        id="project-8"
       >
 
         <div
           class="image-area"
-          onclick="selectAndNext(6)"
+          onclick="selectAndNext(8)"
         >
 
           <button
             class="arrow arrow-left"
             type="button"
-            onclick="event.stopPropagation(); selectProject(6); previousImage(6)"
+            onclick="event.stopPropagation(); selectProject(8); previousImage(8)"
             aria-label="Previous image"
           >
             ←
@@ -1506,7 +1691,7 @@
 
 
           <img
-            id="image-6"
+            id="image-8"
             class="project-image"
             src="Smithson_6.jpg"
             alt="Places inspired by Robert Smithson"
@@ -1516,7 +1701,7 @@
           <button
             class="arrow arrow-right"
             type="button"
-            onclick="event.stopPropagation(); selectProject(6); nextImage(6)"
+            onclick="event.stopPropagation(); selectProject(8); nextImage(8)"
             aria-label="Next image"
           >
             →
@@ -1572,6 +1757,7 @@
        ========================================= */
 
     const projects = [
+
 
       /* 0 — ECHOES OF THE DEEP */
 
@@ -1629,8 +1815,31 @@
       ],
 
 
-      /* 5 — ECHOES OF THE DEEP
-         second appearance */
+      /* 5 — EXPERIMENTAL MODEL */
+
+      [
+        "model_2.jpg"
+      ],
+
+
+      /* 6 — SPATIAL INVESTIGATIONS */
+
+      [
+        "TeclaSala_7.jpg",
+        "TeclaSala_1.jpg",
+        "TeclaSala_10.jpg",
+        "TeclaSala_3.jpg",
+        "TeclaSala_4.jpg",
+        "TeclaSala_2.jpg",
+        "TeclaSala_6.jpg",
+        "TeclaSala_8.jpg",
+        "TeclaSala_9.jpg",
+        "TeclaSala_5.jpg"
+      ],
+
+
+      /* 7 — ECHOES OF THE DEEP
+         SECOND APPEARANCE */
 
       [
         "Jelly_4.jpg",
@@ -1644,8 +1853,8 @@
       ],
 
 
-      /* 6 — ROBERT SMITHSON
-         second appearance */
+      /* 8 — ROBERT SMITHSON
+         SECOND APPEARANCE */
 
       [
         "Smithson_6.jpg",
@@ -1664,11 +1873,13 @@
 
 
     /* =========================================
-       CURRENT IMAGE FOR EACH APPEARANCE
+       CURRENT IMAGE
        ========================================= */
 
     const currentImages = [
 
+      0,
+      0,
       0,
       0,
       0,
