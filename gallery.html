@@ -39,7 +39,7 @@
 
     body {
 
-      background: #f2f6ff;
+      background: #ffffff;
 
       color: #000000;
 
@@ -192,7 +192,7 @@
 
       width: 100%;
 
-      min-height: 125vh;
+      min-height: 150vh;
     }
 
 
@@ -209,7 +209,6 @@
       z-index: 1;
 
       transition:
-        z-index 0s,
         transform 0.45s
         cubic-bezier(
           0.2,
@@ -221,8 +220,7 @@
 
 
     /*
-      When selected, the project
-      comes visually to the front.
+      Selected project comes to the front.
     */
 
     .project.selected {
@@ -232,46 +230,77 @@
 
 
     /* =========================================
-       DIFFERENT PROJECT POSITIONS / SIZES
+       PROJECT POSITIONS / SIZES
        ========================================= */
+
+
+    /*
+      ECHOES OF THE DEEP
+    */
 
     .project-jelly {
 
-      width: 29vw;
+      width: 23vw;
 
-      left: 1vw;
+      left: 2vw;
 
       top: 1vh;
     }
 
 
+    /*
+      ROBERT SMITHSON
+    */
+
     .project-smithson {
 
-      width: 34vw;
+      width: 27vw;
 
-      right: 3vw;
+      right: 4vw;
 
       top: 0;
     }
 
 
+    /*
+      VETCARD
+    */
+
     .project-vetcard {
 
-      width: 25vw;
+      width: 20vw;
 
-      left: 25vw;
+      left: 28vw;
 
-      top: 43vh;
+      top: 39vh;
     }
 
 
+    /*
+      URBAN DESIGN
+    */
+
     .project-urban {
 
-      width: 29vw;
+      width: 23vw;
 
-      right: 15vw;
+      right: 17vw;
 
-      top: 48vh;
+      top: 45vh;
+    }
+
+
+    /*
+      YTONG MODEL
+    */
+
+    .project-ytong {
+
+      width: 19vw;
+
+      left: 7vw;
+
+      top: 77vh;
     }
 
 
@@ -314,9 +343,7 @@
           1
         ),
 
-        opacity 0.4s ease,
-
-        filter 0.35s ease;
+        opacity 0.4s ease;
     }
 
 
@@ -334,7 +361,7 @@
 
 
     /* =========================================
-       SELECTED PROJECT
+       SELECTED IMAGE
        ========================================= */
 
     .project.selected .project-image {
@@ -394,13 +421,13 @@
 
     .arrow-left {
 
-      left: 12px;
+      left: 10px;
     }
 
 
     .arrow-right {
 
-      right: 12px;
+      right: 10px;
     }
 
 
@@ -434,7 +461,11 @@
 
       align-items: center;
 
-      margin-top: 13px;
+      margin-top: 12px;
+
+      padding:
+        0
+        8px;
 
       opacity: 0;
 
@@ -443,14 +474,16 @@
 
       transition:
         opacity 0.35s ease,
-        transform 0.35s ease;
+        transform 0.35s ease,
+        background 0.25s ease,
+        padding 0.25s ease;
 
       pointer-events: none;
     }
 
 
     /*
-      Show information on hover.
+      Information appears on hover.
     */
 
     .project:hover .project-info {
@@ -463,8 +496,8 @@
 
 
     /*
-      Keep information visible
-      after the project is clicked.
+      Selected project gets
+      a blue information box.
     */
 
     .project.selected .project-info {
@@ -475,8 +508,20 @@
         translateY(0);
 
       pointer-events: auto;
+
+      background: #2f6fff;
+
+      padding:
+        9px
+        13px
+        11px
+        13px;
     }
 
+
+    /* =========================================
+       BLUE LINE
+       ========================================= */
 
     .project-line {
 
@@ -490,6 +535,20 @@
     }
 
 
+    /*
+      White line when selected.
+    */
+
+    .project.selected .project-line {
+
+      background: #ffffff;
+    }
+
+
+    /* =========================================
+       TITLE
+       ========================================= */
+
     .project-title {
 
       color: #2f6fff;
@@ -501,6 +560,20 @@
       text-transform: uppercase;
     }
 
+
+    /*
+      White title on blue background.
+    */
+
+    .project.selected .project-title {
+
+      color: #ffffff;
+    }
+
+
+    /* =========================================
+       DESCRIPTION
+       ========================================= */
 
     .project-description {
 
@@ -518,9 +591,26 @@
     }
 
 
+    /*
+      Description becomes white
+      when project is selected.
+    */
+
+    .project.selected .project-description {
+
+      color: #ffffff;
+    }
+
+
     .black-text {
 
       color: #000000;
+    }
+
+
+    .project.selected .black-text {
+
+      color: #ffffff;
     }
 
 
@@ -538,6 +628,18 @@
     .project-description a:hover {
 
       color: #2f6fff;
+    }
+
+
+    .project.selected .project-description a {
+
+      color: #ffffff;
+    }
+
+
+    .project.selected .project-description a:hover {
+
+      color: #dce7ff;
     }
 
 
@@ -603,13 +705,13 @@
 
       .gallery {
 
-        min-height: 110vh;
+        min-height: 135vh;
       }
 
 
       .project-jelly {
 
-        width: 31vw;
+        width: 25vw;
 
         left: 0;
 
@@ -619,9 +721,9 @@
 
       .project-smithson {
 
-        width: 37vw;
+        width: 30vw;
 
-        right: 1vw;
+        right: 2vw;
 
         top: 0;
       }
@@ -629,21 +731,31 @@
 
       .project-vetcard {
 
-        width: 28vw;
+        width: 22vw;
 
-        left: 21vw;
+        left: 25vw;
 
-        top: 42vh;
+        top: 40vh;
       }
 
 
       .project-urban {
 
-        width: 32vw;
+        width: 25vw;
 
-        right: 8vw;
+        right: 12vw;
 
-        top: 48vh;
+        top: 46vh;
+      }
+
+
+      .project-ytong {
+
+        width: 21vw;
+
+        left: 5vw;
+
+        top: 76vh;
       }
 
     }
@@ -702,7 +814,7 @@
 
         flex-direction: column;
 
-        gap: 70px;
+        gap: 65px;
       }
 
 
@@ -724,7 +836,7 @@
 
       .project:nth-child(2) {
 
-        width: 82% !important;
+        width: 80% !important;
 
         margin-left: 12%;
       }
@@ -732,7 +844,7 @@
 
       .project:nth-child(3) {
 
-        width: 62% !important;
+        width: 60% !important;
 
         margin-left: 5%;
       }
@@ -740,15 +852,23 @@
 
       .project:nth-child(4) {
 
-        width: 72% !important;
+        width: 70% !important;
 
         margin-right: 5%;
       }
 
 
+      .project:nth-child(5) {
+
+        width: 58% !important;
+
+        margin-left: 8%;
+      }
+
+
       /*
-        On mobile information
-        remains visible.
+        Information remains visible
+        on mobile.
       */
 
       .project-info {
@@ -803,27 +923,27 @@
 
       .gallery {
 
-        gap: 60px;
+        gap: 55px;
       }
 
 
       .project {
 
-        width: 78% !important;
+        width: 74% !important;
       }
 
 
       .project:nth-child(2) {
 
-        width: 88% !important;
+        width: 84% !important;
 
-        margin-left: 8%;
+        margin-left: 7%;
       }
 
 
       .project:nth-child(3) {
 
-        width: 68% !important;
+        width: 63% !important;
 
         margin-left: 2%;
       }
@@ -831,9 +951,17 @@
 
       .project:nth-child(4) {
 
-        width: 76% !important;
+        width: 72% !important;
 
         margin-right: 2%;
+      }
+
+
+      .project:nth-child(5) {
+
+        width: 61% !important;
+
+        margin-left: 5%;
       }
 
 
@@ -1204,6 +1332,76 @@
       </article>
 
 
+
+      <!-- =====================================
+           YTONG MODEL
+           ===================================== -->
+
+      <article
+        class="project project-ytong"
+        id="project-4"
+      >
+
+
+        <div
+          class="image-area"
+          onclick="selectAndNext(4)"
+        >
+
+
+          <button
+            class="arrow arrow-left"
+            type="button"
+            onclick="event.stopPropagation(); selectProject(4); previousImage(4)"
+            aria-label="Previous image"
+          >
+            ←
+          </button>
+
+
+          <img
+            id="image-4"
+            class="project-image"
+            src="model_1.jpg"
+            alt="Ytong Model"
+          >
+
+
+          <button
+            class="arrow arrow-right"
+            type="button"
+            onclick="event.stopPropagation(); selectProject(4); nextImage(4)"
+            aria-label="Next image"
+          >
+            →
+          </button>
+
+
+        </div>
+
+
+        <div class="project-info">
+
+
+          <div class="project-line"></div>
+
+
+          <div class="project-title">
+            YTONG MODEL
+          </div>
+
+
+          <div class="project-description">
+            <!-- Description to be added -->
+          </div>
+
+
+        </div>
+
+
+      </article>
+
+
     </section>
 
 
@@ -1277,12 +1475,22 @@
         "Urban_1.png",
         "Urban_2.jpg",
         "Urban_3.jpg"
+      ],
+
+
+      /* YTONG MODEL */
+
+      [
+        "model_1.jpg",
+        "model_1(2).jpg",
+        "model_1(3).jpg"
       ]
 
     ];
 
 
     const currentImages = [
+      0,
       0,
       0,
       0,
