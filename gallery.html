@@ -26,6 +26,7 @@
     body {
       background: #ffffff;
       color: #000000;
+
       font-family: Arial, Helvetica, sans-serif;
       font-size: 10px;
       font-weight: 400;
@@ -92,7 +93,6 @@
       position: relative;
 
       width: 100%;
-
       height: 190vh;
 
       margin-top: 2vh;
@@ -127,7 +127,7 @@
       object-fit: contain;
 
       transition:
-        transform 0.4s cubic-bezier(0.2, 0.7, 0.2, 1),
+        transform 0.45s cubic-bezier(0.2, 0.7, 0.2, 1),
         opacity 0.3s ease;
     }
 
@@ -155,7 +155,7 @@
     }
 
     .project.selected .project-image {
-      transform: scale(1.75);
+      transform: scale(2.2);
       opacity: 1;
     }
 
@@ -222,24 +222,24 @@
 
     /* =========================================
        PROJECT INFORMATION
+
+       TITLE:
+       εμφανίζεται στο hover
+
+       DESCRIPTION:
+       εμφανίζεται ΜΟΝΟ όταν selected
        ========================================= */
 
     .project-info {
       position: absolute;
 
-      left: 50%;
+      left: 0;
       top: 100%;
 
-      width: max-content;
-      max-width: 300px;
+      width: 100%;
+      max-width: 100%;
 
-      transform:
-        translateX(-50%)
-        translateY(7px);
-
-      padding: 7px 9px 8px 9px;
-
-      background: transparent;
+      transform: translateY(7px);
 
       text-align: center;
 
@@ -254,14 +254,99 @@
       z-index: 300;
     }
 
-    .project:hover .project-info,
-    .project.selected .project-info {
+
+    /* =========================================
+       TITLE
+       ========================================= */
+
+    .project-title {
+      color: #777777;
+
+      font-size: 10px;
+      line-height: 1.35;
+
+      text-transform: uppercase;
+
+      padding: 0 4px;
+    }
+
+
+    /* Title appears on hover */
+
+    .project:hover .project-info {
       opacity: 1;
 
-      transform:
-        translateX(-50%)
-        translateY(4px);
+      transform: translateY(4px);
     }
+
+
+    /* =========================================
+       DESCRIPTION
+       ========================================= */
+
+    .project-description {
+      display: none;
+
+      margin-top: 5px;
+
+      padding: 0 5px 7px 5px;
+
+      color: #ffffff;
+
+      font-size: 10px;
+      line-height: 1.35;
+
+      text-transform: none;
+
+      white-space: normal;
+
+      overflow-wrap: break-word;
+      word-wrap: break-word;
+    }
+
+    .project-description .black {
+      color: #ffffff;
+    }
+
+    .project-description a {
+      color: #ffffff;
+
+      text-decoration: underline;
+    }
+
+
+    /* =========================================
+       SELECTED INFORMATION
+
+       Όταν πατηθεί η εικόνα:
+       - μπλε background
+       - τίτλος
+       - περιγραφή
+       ========================================= */
+
+    .project.selected .project-info {
+
+      opacity: 1;
+
+      transform: translateY(4px);
+
+      background: #2f6fff;
+
+      padding: 8px 5px 0 5px;
+    }
+
+    .project.selected .project-title {
+      color: #ffffff;
+    }
+
+    .project.selected .project-description {
+      display: block;
+    }
+
+
+    /* =========================================
+       BLUE LINE
+       ========================================= */
 
     .project-line {
       width: 18px;
@@ -272,66 +357,13 @@
       margin: 0 auto 7px auto;
     }
 
-    .project-title {
-      color: #777777;
-
-      font-size: 10px;
-      line-height: 1.35;
-
-      text-transform: uppercase;
-
-      white-space: nowrap;
-    }
-
-    .project-description {
-      margin-top: 4px;
-
-      color: #777777;
-
-      font-size: 10px;
-      line-height: 1.35;
-
-      text-transform: none;
-
-      white-space: normal;
-    }
-
-    .project-description .black {
-      color: #000000;
-    }
-
-    .project-description a {
-      color: inherit;
-      text-decoration: underline;
-    }
-
-
-    /* =========================================
-       SELECTED INFORMATION
-       ========================================= */
-
-    .project.selected .project-info {
-      background: #2f6fff;
-
-      padding: 8px 11px 9px 11px;
-    }
-
     .project.selected .project-line {
       background: #ffffff;
     }
 
-    .project.selected .project-title,
-    .project.selected .project-description,
-    .project.selected .project-description .black,
-    .project.selected .project-description a {
-      color: #ffffff;
-    }
-
 
     /* =========================================
-       DESKTOP POSITIONS
-       
-       All projects are intentionally separated.
+       PROJECT POSITIONS
        ========================================= */
 
 
@@ -339,6 +371,7 @@
 
     .project-jelly-1 {
       width: 9vw;
+
       left: 5vw;
       top: 4vh;
     }
@@ -348,17 +381,20 @@
 
     .project-smithson-1 {
       width: 10vw;
+
       left: 23vw;
       top: 3vh;
     }
 
 
-    /* 3 — VETCARD */
+    /* 3 — VETCARD
+       Larger */
 
     .project-vetcard {
-      width: 7vw;
-      left: 43vw;
-      top: 7vh;
+      width: 11vw;
+
+      left: 42vw;
+      top: 6vh;
     }
 
 
@@ -366,7 +402,8 @@
 
     .project-urban {
       width: 9vw;
-      left: 60vw;
+
+      left: 61vw;
       top: 3vh;
     }
 
@@ -375,21 +412,18 @@
 
     .project-ytong {
       width: 7vw;
-      left: 80vw;
+
+      left: 81vw;
       top: 8vh;
     }
-
-
-    /* =========================================
-       SECOND ROW
-       ========================================= */
 
 
     /* 6 — EXPERIMENTAL MODEL */
 
     .project-experimental {
       width: 7vw;
-      left: 8vw;
+
+      left: 7vw;
       top: 32vh;
     }
 
@@ -398,7 +432,8 @@
 
     .project-spatial {
       width: 9vw;
-      left: 30vw;
+
+      left: 29vw;
       top: 29vh;
     }
 
@@ -407,30 +442,28 @@
 
     .project-jelly-2 {
       width: 7vw;
+
       left: 53vw;
       top: 35vh;
     }
 
 
-    /* 9 — SMITHSON SECOND APPEARANCE */
+    /* 9 — ROBERT SMITHSON SECOND APPEARANCE */
 
     .project-smithson-2 {
       width: 8vw;
-      left: 75vw;
+
+      left: 76vw;
       top: 30vh;
     }
-
-
-    /* =========================================
-       THIRD ROW
-       ========================================= */
 
 
     /* 10 — RESIDENTIAL COMPLEX */
 
     .project-residential {
       width: 10vw;
-      left: 25vw;
+
+      left: 24vw;
       top: 58vh;
     }
 
@@ -477,13 +510,13 @@
       }
 
       .project-vetcard {
-        width: 9vw;
-        left: 45vw;
+        width: 13vw;
+        left: 43vw;
       }
 
       .project-urban {
         width: 11vw;
-        left: 65vw;
+        left: 64vw;
       }
 
       .project-ytong {
@@ -499,13 +532,13 @@
 
       .project-spatial {
         width: 11vw;
-        left: 30vw;
+        left: 29vw;
         top: 29vh;
       }
 
       .project-jelly-2 {
         width: 9vw;
-        left: 55vw;
+        left: 54vw;
         top: 35vh;
       }
 
@@ -517,7 +550,7 @@
 
       .project-residential {
         width: 12vw;
-        left: 24vw;
+        left: 23vw;
         top: 58vh;
       }
 
@@ -580,7 +613,7 @@
       }
 
       .project.selected .project-image {
-        transform: scale(1.3);
+        transform: scale(1.5);
       }
 
       .project-info {
@@ -590,28 +623,36 @@
         top: auto;
 
         width: 100%;
-        max-width: none;
+        max-width: 100%;
 
         margin-top: 10px;
 
         transform: none;
 
-        opacity: 1;
-
-        padding: 5px 0;
+        opacity: 0;
       }
 
-      .project:hover .project-info,
-      .project.selected .project-info {
+      .project:hover .project-info {
+        opacity: 1;
+
         transform: none;
       }
 
       .project.selected .project-info {
-        padding: 7px 8px;
+        opacity: 1;
+
+        transform: none;
+
+        padding: 7px 5px 0 5px;
       }
 
       .project-title {
         white-space: normal;
+      }
+
+      .project-description {
+        padding-left: 4px;
+        padding-right: 4px;
       }
 
       .arrow {
@@ -639,7 +680,7 @@
       }
 
       .project.selected .project-image {
-        transform: scale(1.25);
+        transform: scale(1.4);
       }
 
       .gallery {
@@ -839,6 +880,12 @@
 
         <div class="project-title">
           VETCARD
+        </div>
+
+        <div class="project-description">
+
+          professional card and logo design for a veterinarian, 2026
+
         </div>
 
       </div>
@@ -1342,7 +1389,7 @@
 
 
     /* =========================================
-       FIND PROJECT
+       GET PROJECT
        ========================================= */
 
     function getProject(projectIndex) {
