@@ -69,7 +69,6 @@
 
     .name a {
       color: #777777;
-
       font-size: 10px;
 
       transition: color 0.2s ease;
@@ -94,18 +93,14 @@
 
       width: 100%;
 
-      /*
-        Μεγάλος χώρος ώστε οι εικόνες
-        να έχουν άνεση μεταξύ τους.
-      */
-      height: 150vh;
+      height: 190vh;
 
       margin-top: 2vh;
     }
 
 
     /* =========================================
-       PROJECTS
+       PROJECT
        ========================================= */
 
     .project {
@@ -120,7 +115,6 @@
 
     .project-image-wrap {
       position: relative;
-
       width: 100%;
     }
 
@@ -153,7 +147,7 @@
 
 
     /* =========================================
-       SELECTED
+       SELECTED / CLICKED
        ========================================= */
 
     .project.selected {
@@ -237,7 +231,7 @@
       top: 100%;
 
       width: max-content;
-      max-width: 280px;
+      max-width: 300px;
 
       transform:
         translateX(-50%)
@@ -313,7 +307,7 @@
 
 
     /* =========================================
-       SELECTED INFO
+       SELECTED INFORMATION
        ========================================= */
 
     .project.selected .project-info {
@@ -337,9 +331,7 @@
     /* =========================================
        DESKTOP POSITIONS
        
-       IMPORTANT:
-       Οι εικόνες έχουν μικρά μεγέθη
-       και αρκετό κενό μεταξύ τους.
+       All projects are intentionally separated.
        ========================================= */
 
 
@@ -347,7 +339,6 @@
 
     .project-jelly-1 {
       width: 9vw;
-
       left: 5vw;
       top: 4vh;
     }
@@ -357,7 +348,6 @@
 
     .project-smithson-1 {
       width: 10vw;
-
       left: 23vw;
       top: 3vh;
     }
@@ -367,7 +357,6 @@
 
     .project-vetcard {
       width: 7vw;
-
       left: 43vw;
       top: 7vh;
     }
@@ -377,7 +366,6 @@
 
     .project-urban {
       width: 9vw;
-
       left: 60vw;
       top: 3vh;
     }
@@ -387,14 +375,13 @@
 
     .project-ytong {
       width: 7vw;
-
       left: 80vw;
       top: 8vh;
     }
 
 
     /* =========================================
-       SECOND GROUP
+       SECOND ROW
        ========================================= */
 
 
@@ -402,7 +389,6 @@
 
     .project-experimental {
       width: 7vw;
-
       left: 8vw;
       top: 32vh;
     }
@@ -412,7 +398,6 @@
 
     .project-spatial {
       width: 9vw;
-
       left: 30vw;
       top: 29vh;
     }
@@ -422,7 +407,6 @@
 
     .project-jelly-2 {
       width: 7vw;
-
       left: 53vw;
       top: 35vh;
     }
@@ -432,21 +416,22 @@
 
     .project-smithson-2 {
       width: 8vw;
-
       left: 75vw;
       top: 30vh;
     }
 
 
     /* =========================================
-       THIRD GROUP
-       
-       Extra vertical separation so that
-       nothing overlaps.
+       THIRD ROW
        ========================================= */
 
-    .project-jelly-1 {
-      margin-bottom: 0;
+
+    /* 10 — RESIDENTIAL COMPLEX */
+
+    .project-residential {
+      width: 10vw;
+      left: 25vw;
+      top: 58vh;
     }
 
 
@@ -478,7 +463,7 @@
     @media (max-width: 900px) {
 
       .gallery {
-        height: 145vh;
+        height: 180vh;
       }
 
       .project-jelly-1 {
@@ -528,6 +513,12 @@
         width: 10vw;
         left: 77vw;
         top: 30vh;
+      }
+
+      .project-residential {
+        width: 12vw;
+        left: 24vw;
+        top: 58vh;
       }
 
     }
@@ -1125,6 +1116,63 @@
     </div>
 
 
+
+    <!-- =========================================
+         10 — RESIDENTIAL COMPLEX
+         ========================================= -->
+
+    <div
+      class="project project-residential"
+      data-project="9"
+    >
+
+      <div class="project-image-wrap">
+
+        <img
+          class="project-image"
+          src="ResidentialBuilding_1.png"
+          alt="Residential Complex"
+        >
+
+        <button
+          class="arrow arrow-left"
+          onclick="previousImage(event, 9)"
+        >
+          ‹
+        </button>
+
+        <button
+          class="arrow arrow-right"
+          onclick="nextImage(event, 9)"
+        >
+          ›
+        </button>
+
+      </div>
+
+      <div class="project-info">
+
+        <div class="project-line"></div>
+
+        <div class="project-title">
+          RESIDENTIAL COMPLEX
+        </div>
+
+        <div class="project-description">
+
+          Design Studio in Auth,
+
+          <br>
+
+          with Dimitrios Athanasiou and Pinelopi Kosta, 2022
+
+        </div>
+
+      </div>
+
+    </div>
+
+
   </main>
 
 
@@ -1147,7 +1195,7 @@
 
 
     /* =========================================
-       ALL PROJECT IMAGES
+       PROJECT IMAGE ARRAYS
        ========================================= */
 
     const projects = [
@@ -1258,16 +1306,29 @@
         "Smithson_3.png",
         "Smithson_4.png",
         "Smithson_5.jpg"
+      ],
+
+
+      /* 9 — RESIDENTIAL COMPLEX */
+
+      [
+        "ResidentialBuilding_1.png",
+        "ResidentialBuilding_2.jpg",
+        "ResidentialBuilding_3.png",
+        "ResidentialBuilding_4.jpg",
+        "ResidentialBuilding_5.jpg",
+        "ResidentialBuilding_6.jpg"
       ]
 
     ];
 
 
     /* =========================================
-       CURRENT IMAGE
+       CURRENT IMAGE INDEX
        ========================================= */
 
     const currentIndexes = [
+      0,
       0,
       0,
       0,
@@ -1294,7 +1355,7 @@
 
 
     /* =========================================
-       CHANGE IMAGE
+       UPDATE IMAGE
        ========================================= */
 
     function updateImage(projectIndex) {
@@ -1428,7 +1489,7 @@
 
 
             /*
-              Select and enlarge.
+              Select project.
             */
 
             selectProject(projectIndex);
