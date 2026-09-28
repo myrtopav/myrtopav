@@ -29,7 +29,9 @@
       font-family: Arial, Helvetica, sans-serif;
       font-size: 10px;
       font-weight: 400;
+
       cursor: url("cursor2.png") 25 25, auto;
+
       overflow-x: hidden;
     }
 
@@ -39,14 +41,16 @@
     }
 
 
-    /* =========================
+    /* =========================================
        HEADER
-       ========================= */
+       ========================================= */
 
     header {
       position: relative;
+
       height: 12vh;
       min-height: 70px;
+
       padding: 30px 3vw 0 3vw;
 
       display: grid;
@@ -55,7 +59,8 @@
 
       font-size: 10px;
       text-transform: uppercase;
-      z-index: 500;
+
+      z-index: 1000;
     }
 
     .name {
@@ -64,8 +69,9 @@
 
     .name a {
       color: #777777;
+
       font-size: 10px;
-      text-decoration: none;
+
       transition: color 0.2s ease;
     }
 
@@ -78,46 +84,29 @@
       color: #777777;
     }
 
-    .navigation {
-      position: absolute;
-      left: 3vw;
-      bottom: 0;
 
-      display: flex;
-      gap: 25px;
-
-      font-size: 10px;
-      text-transform: uppercase;
-    }
-
-    .navigation a {
-      color: #777777;
-      font-size: 10px;
-      transition: color 0.2s ease;
-    }
-
-    .navigation a:hover {
-      color: #2f6fff;
-    }
-
-
-    /* =========================
-       GALLERY AREA
-       ========================= */
+    /* =========================================
+       GALLERY
+       ========================================= */
 
     .gallery {
       position: relative;
 
       width: 100%;
-      height: 175vh;
+
+      /*
+        Μεγάλος χώρος ώστε οι εικόνες
+        να έχουν άνεση μεταξύ τους.
+      */
+      height: 150vh;
 
       margin-top: 2vh;
     }
 
 
-    /* =========================
-       PROJECT
-       ========================= */
+    /* =========================================
+       PROJECTS
+       ========================================= */
 
     .project {
       position: absolute;
@@ -127,13 +116,11 @@
       cursor: url("cursor2.png") 25 25, auto;
 
       z-index: 1;
-
-      transition:
-        z-index 0s linear 0.05s;
     }
 
     .project-image-wrap {
       position: relative;
+
       width: 100%;
     }
 
@@ -147,13 +134,13 @@
 
       transition:
         transform 0.4s cubic-bezier(0.2, 0.7, 0.2, 1),
-        opacity 0.35s ease;
+        opacity 0.3s ease;
     }
 
 
-    /* =========================
+    /* =========================================
        HOVER
-       ========================= */
+       ========================================= */
 
     .project:hover {
       z-index: 50;
@@ -165,12 +152,12 @@
     }
 
 
-    /* =========================
-       SELECTED / CLICKED
-       ========================= */
+    /* =========================================
+       SELECTED
+       ========================================= */
 
     .project.selected {
-      z-index: 200;
+      z-index: 500;
     }
 
     .project.selected .project-image {
@@ -179,18 +166,19 @@
     }
 
 
-    /* =========================
+    /* =========================================
        ARROWS
-       ========================= */
+       ========================================= */
 
     .arrow {
       position: absolute;
 
       top: 50%;
-      transform: translateY(-50%);
 
       width: 22px;
       height: 40px;
+
+      transform: translateY(-50%);
 
       display: flex;
       align-items: center;
@@ -207,11 +195,11 @@
 
       opacity: 0;
 
+      z-index: 20;
+
       transition:
         opacity 0.2s ease,
         transform 0.2s ease;
-
-      z-index: 20;
 
       cursor: url("cursor2.png") 25 25, auto;
     }
@@ -238,9 +226,9 @@
     }
 
 
-    /* =========================
+    /* =========================================
        PROJECT INFORMATION
-       ========================= */
+       ========================================= */
 
     .project-info {
       position: absolute;
@@ -248,10 +236,12 @@
       left: 50%;
       top: 100%;
 
-      transform: translateX(-50%) translateY(7px);
-
       width: max-content;
       max-width: 280px;
+
+      transform:
+        translateX(-50%)
+        translateY(7px);
 
       padding: 7px 9px 8px 9px;
 
@@ -273,7 +263,10 @@
     .project:hover .project-info,
     .project.selected .project-info {
       opacity: 1;
-      transform: translateX(-50%) translateY(4px);
+
+      transform:
+        translateX(-50%)
+        translateY(4px);
     }
 
     .project-line {
@@ -292,6 +285,7 @@
       line-height: 1.35;
 
       text-transform: uppercase;
+
       white-space: nowrap;
     }
 
@@ -304,6 +298,7 @@
       line-height: 1.35;
 
       text-transform: none;
+
       white-space: normal;
     }
 
@@ -317,12 +312,13 @@
     }
 
 
-    /* =========================
-       SELECTED INFORMATION
-       ========================= */
+    /* =========================================
+       SELECTED INFO
+       ========================================= */
 
     .project.selected .project-info {
       background: #2f6fff;
+
       padding: 8px 11px 9px 11px;
     }
 
@@ -338,96 +334,125 @@
     }
 
 
-    /* =========================
-       PROJECT POSITIONS
-       SMALL + CLOSE
-       NO OVERLAP
-       ========================= */
+    /* =========================================
+       DESKTOP POSITIONS
+       
+       IMPORTANT:
+       Οι εικόνες έχουν μικρά μεγέθη
+       και αρκετό κενό μεταξύ τους.
+       ========================================= */
+
 
     /* 1 — ECHOES OF THE DEEP */
+
     .project-jelly-1 {
-      width: 11vw;
+      width: 9vw;
+
       left: 5vw;
-      top: 3vh;
+      top: 4vh;
     }
 
 
     /* 2 — ROBERT SMITHSON */
+
     .project-smithson-1 {
-      width: 13vw;
-      left: 22vw;
-      top: 1vh;
+      width: 10vw;
+
+      left: 23vw;
+      top: 3vh;
     }
 
 
     /* 3 — VETCARD */
+
     .project-vetcard {
-      width: 9vw;
-      left: 42vw;
+      width: 7vw;
+
+      left: 43vw;
       top: 7vh;
     }
 
 
     /* 4 — URBAN DESIGN */
+
     .project-urban {
-      width: 11vw;
-      left: 59vw;
-      top: 2vh;
+      width: 9vw;
+
+      left: 60vw;
+      top: 3vh;
     }
 
 
     /* 5 — YTONG MODEL */
+
     .project-ytong {
-      width: 9vw;
-      left: 79vw;
+      width: 7vw;
+
+      left: 80vw;
       top: 8vh;
     }
 
 
+    /* =========================================
+       SECOND GROUP
+       ========================================= */
+
+
     /* 6 — EXPERIMENTAL MODEL */
+
     .project-experimental {
-      width: 8vw;
-      left: 12vw;
-      top: 30vh;
+      width: 7vw;
+
+      left: 8vw;
+      top: 32vh;
     }
 
 
     /* 7 — SPATIAL INVESTIGATIONS */
+
     .project-spatial {
-      width: 11vw;
-      left: 31vw;
-      top: 27vh;
-    }
-
-
-    /* 8 — ECHOES OF THE DEEP SECOND */
-    .project-jelly-2 {
       width: 9vw;
+
+      left: 30vw;
+      top: 29vh;
+    }
+
+
+    /* 8 — ECHOES SECOND APPEARANCE */
+
+    .project-jelly-2 {
+      width: 7vw;
+
       left: 53vw;
-      top: 33vh;
+      top: 35vh;
     }
 
 
-    /* 9 — ROBERT SMITHSON SECOND */
+    /* 9 — SMITHSON SECOND APPEARANCE */
+
     .project-smithson-2 {
-      width: 10vw;
-      left: 74vw;
-      top: 28vh;
+      width: 8vw;
+
+      left: 75vw;
+      top: 30vh;
     }
 
 
-    /* =========================
-       SECOND ROW
-       ========================= */
+    /* =========================================
+       THIRD GROUP
+       
+       Extra vertical separation so that
+       nothing overlaps.
+       ========================================= */
 
     .project-jelly-1 {
       margin-bottom: 0;
     }
 
 
-    /* =========================
+    /* =========================================
        CREDIT
-       ========================= */
+       ========================================= */
 
     .website-credit {
       position: fixed;
@@ -442,75 +467,75 @@
 
       text-align: right;
 
-      z-index: 600;
+      z-index: 1000;
     }
 
 
-    /* =========================
+    /* =========================================
        TABLET
-       ========================= */
+       ========================================= */
 
     @media (max-width: 900px) {
 
       .gallery {
-        height: 160vh;
+        height: 145vh;
       }
 
       .project-jelly-1 {
-        width: 14vw;
+        width: 11vw;
         left: 4vw;
       }
 
       .project-smithson-1 {
-        width: 16vw;
+        width: 12vw;
         left: 23vw;
       }
 
       .project-vetcard {
-        width: 12vw;
+        width: 9vw;
         left: 45vw;
       }
 
       .project-urban {
-        width: 14vw;
+        width: 11vw;
         left: 65vw;
       }
 
       .project-ytong {
-        width: 12vw;
+        width: 9vw;
         left: 82vw;
       }
 
       .project-experimental {
-        width: 11vw;
-        left: 8vw;
-        top: 29vh;
+        width: 9vw;
+        left: 7vw;
+        top: 31vh;
       }
 
       .project-spatial {
-        width: 14vw;
-        left: 31vw;
-        top: 27vh;
+        width: 11vw;
+        left: 30vw;
+        top: 29vh;
       }
 
       .project-jelly-2 {
-        width: 12vw;
+        width: 9vw;
         left: 55vw;
-        top: 34vh;
+        top: 35vh;
       }
 
       .project-smithson-2 {
-        width: 13vw;
+        width: 10vw;
         left: 77vw;
-        top: 29vh;
+        top: 30vh;
       }
 
     }
 
 
-    /* =========================
+    /* =========================================
        MOBILE
-       ========================= */
+       ========================================= */
 
     @media (max-width: 650px) {
 
@@ -528,14 +553,6 @@
         min-height: 0;
 
         padding: 24px 5vw 0 5vw;
-      }
-
-      .navigation {
-        position: static;
-
-        margin-top: 45px;
-
-        gap: 20px;
       }
 
       .gallery {
@@ -562,17 +579,17 @@
         left: auto !important;
         right: auto !important;
 
-        width: 42vw !important;
+        width: 40vw !important;
 
         margin: 0 !important;
       }
 
       .project:hover .project-image {
-        transform: scale(1.05);
+        transform: scale(1.06);
       }
 
       .project.selected .project-image {
-        transform: scale(1.35);
+        transform: scale(1.3);
       }
 
       .project-info {
@@ -581,12 +598,12 @@
         left: auto;
         top: auto;
 
-        transform: none;
-
         width: 100%;
         max-width: none;
 
         margin-top: 10px;
+
+        transform: none;
 
         opacity: 1;
 
@@ -620,14 +637,14 @@
     }
 
 
-    /* =========================
+    /* =========================================
        VERY SMALL MOBILE
-       ========================= */
+       ========================================= */
 
     @media (max-width: 450px) {
 
       .project {
-        width: 48vw !important;
+        width: 45vw !important;
       }
 
       .project.selected .project-image {
@@ -648,48 +665,38 @@
 <body>
 
 
-  <!-- =========================
+  <!-- =========================================
        HEADER
-       ========================= -->
+       ========================================= -->
 
   <header>
 
     <div class="name">
+
       <a href="index.html">
         MYRTO PAVLOPOULOU
       </a>
+
     </div>
 
     <div class="profession">
       ARCHITECT
     </div>
 
-    <nav class="navigation">
-
-      <a href="about.html">
-        ABOUT
-      </a>
-
-      <a href="contact.html">
-        CONTACT
-      </a>
-
-    </nav>
-
   </header>
 
 
 
-  <!-- =========================
+  <!-- =========================================
        GALLERY
-       ========================= -->
+       ========================================= -->
 
   <main class="gallery">
 
 
-    <!-- =====================================================
-         1. ECHOES OF THE DEEP
-         ===================================================== -->
+    <!-- =========================================
+         1 — ECHOES OF THE DEEP
+         ========================================= -->
 
     <div
       class="project project-jelly-1"
@@ -731,8 +738,11 @@
         <div class="project-description">
 
           an interactive
-          <span class="black">light and sound installation</span>
+          <span class="black">
+            light and sound installation
+          </span>
           for Mar Motto festival’s 2025 edition with
+
           <a
             href="https://moradavaga.com/ECHOES-OF-THE-DEEP"
             target="_blank"
@@ -752,9 +762,9 @@
 
 
 
-    <!-- =====================================================
-         2. ROBERT SMITHSON
-         ===================================================== -->
+    <!-- =========================================
+         2 — ROBERT SMITHSON
+         ========================================= -->
 
     <div
       class="project project-smithson-1"
@@ -799,9 +809,9 @@
 
 
 
-    <!-- =====================================================
-         3. VETCARD
-         ===================================================== -->
+    <!-- =========================================
+         3 — VETCARD
+         ========================================= -->
 
     <div
       class="project project-vetcard"
@@ -846,9 +856,9 @@
 
 
 
-    <!-- =====================================================
-         4. URBAN DESIGN
-         ===================================================== -->
+    <!-- =========================================
+         4 — URBAN DESIGN
+         ========================================= -->
 
     <div
       class="project project-urban"
@@ -893,9 +903,9 @@
 
 
 
-    <!-- =====================================================
-         5. YTONG MODEL
-         ===================================================== -->
+    <!-- =========================================
+         5 — YTONG MODEL
+         ========================================= -->
 
     <div
       class="project project-ytong"
@@ -940,9 +950,9 @@
 
 
 
-    <!-- =====================================================
-         6. EXPERIMENTAL MODEL
-         ===================================================== -->
+    <!-- =========================================
+         6 — EXPERIMENTAL MODEL
+         ========================================= -->
 
     <div
       class="project project-experimental"
@@ -973,9 +983,9 @@
 
 
 
-    <!-- =====================================================
-         7. SPATIAL INVESTIGATIONS
-         ===================================================== -->
+    <!-- =========================================
+         7 — SPATIAL INVESTIGATIONS
+         ========================================= -->
 
     <div
       class="project project-spatial"
@@ -1020,9 +1030,10 @@
 
 
 
-    <!-- =====================================================
-         8. ECHOES OF THE DEEP — SECOND APPEARANCE
-         ===================================================== -->
+    <!-- =========================================
+         8 — ECHOES OF THE DEEP
+         SECOND APPEARANCE
+         ========================================= -->
 
     <div
       class="project project-jelly-2"
@@ -1067,9 +1078,10 @@
 
 
 
-    <!-- =====================================================
-         9. ROBERT SMITHSON — SECOND APPEARANCE
-         ===================================================== -->
+    <!-- =========================================
+         9 — ROBERT SMITHSON
+         SECOND APPEARANCE
+         ========================================= -->
 
     <div
       class="project project-smithson-2"
@@ -1117,9 +1129,9 @@
 
 
 
-  <!-- =========================
+  <!-- =========================================
        CREDIT
-       ========================= -->
+       ========================================= -->
 
   <div class="website-credit">
     WEB DESIGN: MYRTO PAVLOPOULOU
@@ -1127,19 +1139,21 @@
 
 
 
-  <!-- =========================
+  <!-- =========================================
        JAVASCRIPT
-       ========================= -->
+       ========================================= -->
 
   <script>
 
-    /* =====================================================
-       IMAGE ARRAYS
-       ===================================================== */
+
+    /* =========================================
+       ALL PROJECT IMAGES
+       ========================================= */
 
     const projects = [
 
-      /* 0 — Jelly */
+      /* 0 — ECHOES OF THE DEEP */
+
       [
         "Jelly_1.jpg",
         "Jelly_2.JPG",
@@ -1152,7 +1166,8 @@
       ],
 
 
-      /* 1 — Smithson */
+      /* 1 — ROBERT SMITHSON */
+
       [
         "Smithson_1.png",
         "Smithson_2.jpg",
@@ -1167,14 +1182,16 @@
       ],
 
 
-      /* 2 — VetCard */
+      /* 2 — VETCARD */
+
       [
         "VetCard_1.jpg",
         "VetCard2.jpg"
       ],
 
 
-      /* 3 — Urban */
+      /* 3 — URBAN DESIGN */
+
       [
         "Urban_1.png",
         "Urban_2.jpg",
@@ -1182,7 +1199,8 @@
       ],
 
 
-      /* 4 — Ytong */
+      /* 4 — YTONG MODEL */
+
       [
         "model_1.jpg",
         "model_1(2).jpg",
@@ -1190,13 +1208,15 @@
       ],
 
 
-      /* 5 — Experimental */
+      /* 5 — EXPERIMENTAL MODEL */
+
       [
         "model_2.jpg"
       ],
 
 
-      /* 6 — Spatial Investigations */
+      /* 6 — SPATIAL INVESTIGATIONS */
+
       [
         "TeclaSala_7.jpg",
         "TeclaSala_1.jpg",
@@ -1211,7 +1231,8 @@
       ],
 
 
-      /* 7 — Jelly second appearance */
+      /* 7 — ECHOES SECOND APPEARANCE */
+
       [
         "Jelly_4.jpg",
         "Jelly_5.JPG",
@@ -1224,7 +1245,8 @@
       ],
 
 
-      /* 8 — Smithson second appearance */
+      /* 8 — SMITHSON SECOND APPEARANCE */
+
       [
         "Smithson_6.jpg",
         "Smithson_7.jpg",
@@ -1241,26 +1263,26 @@
     ];
 
 
-    /* =====================================================
-       CURRENT IMAGE INDEX
-       ===================================================== */
+    /* =========================================
+       CURRENT IMAGE
+       ========================================= */
 
     const currentIndexes = [
-      0,  // Jelly
-      0,  // Smithson
-      0,  // VetCard
-      0,  // Urban
-      0,  // Ytong
-      0,  // Experimental
-      0,  // Spatial
-      0,  // Jelly second
-      0   // Smithson second
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
     ];
 
 
-    /* =====================================================
-       GET PROJECT
-       ===================================================== */
+    /* =========================================
+       FIND PROJECT
+       ========================================= */
 
     function getProject(projectIndex) {
 
@@ -1271,29 +1293,33 @@
     }
 
 
-    /* =====================================================
-       UPDATE IMAGE
-       ===================================================== */
+    /* =========================================
+       CHANGE IMAGE
+       ========================================= */
 
     function updateImage(projectIndex) {
 
-      const project = getProject(projectIndex);
+      const project =
+        getProject(projectIndex);
 
       if (!project) {
         return;
       }
 
-      const image = project.querySelector(".project-image");
+      const image =
+        project.querySelector(".project-image");
 
       image.src =
-        projects[projectIndex][currentIndexes[projectIndex]];
+        projects[projectIndex][
+          currentIndexes[projectIndex]
+        ];
 
     }
 
 
-    /* =====================================================
+    /* =========================================
        SELECT PROJECT
-       ===================================================== */
+       ========================================= */
 
     function selectProject(projectIndex) {
 
@@ -1305,7 +1331,9 @@
 
         });
 
-      const project = getProject(projectIndex);
+
+      const project =
+        getProject(projectIndex);
 
       if (!project) {
         return;
@@ -1316,9 +1344,9 @@
     }
 
 
-    /* =====================================================
+    /* =========================================
        NEXT IMAGE
-       ===================================================== */
+       ========================================= */
 
     function nextImage(event, projectIndex) {
 
@@ -1342,9 +1370,9 @@
     }
 
 
-    /* =====================================================
+    /* =========================================
        PREVIOUS IMAGE
-       ===================================================== */
+       ========================================= */
 
     function previousImage(event, projectIndex) {
 
@@ -1368,68 +1396,70 @@
     }
 
 
-    /* =====================================================
-       CLICK ANYWHERE ON PROJECT
-       ===================================================== */
+    /* =========================================
+       CLICK ON PROJECT
+       ========================================= */
 
     document
       .querySelectorAll(".project")
       .forEach(function(project) {
 
-        project.addEventListener("click", function(event) {
+        project.addEventListener(
+          "click",
+          function(event) {
 
-          /*
-            If an arrow or external link was clicked,
-            don't run the normal image click.
-          */
+            /*
+              Don't trigger the main click
+              when clicking an arrow or link.
+            */
 
-          if (
-            event.target.closest(".arrow") ||
-            event.target.closest("a")
-          ) {
-            return;
+            if (
+              event.target.closest(".arrow") ||
+              event.target.closest("a")
+            ) {
+              return;
+            }
+
+
+            const projectIndex =
+              Number(
+                project.getAttribute("data-project")
+              );
+
+
+            /*
+              Select and enlarge.
+            */
+
+            selectProject(projectIndex);
+
+
+            /*
+              Move to next image.
+            */
+
+            currentIndexes[projectIndex]++;
+
+            if (
+              currentIndexes[projectIndex] >=
+              projects[projectIndex].length
+            ) {
+
+              currentIndexes[projectIndex] = 0;
+
+            }
+
+            updateImage(projectIndex);
+
           }
-
-
-          const projectIndex =
-            Number(
-              project.getAttribute("data-project")
-            );
-
-
-          /*
-            First select the project
-            so it becomes large.
-          */
-
-          selectProject(projectIndex);
-
-
-          /*
-            Then move to the next image.
-          */
-
-          currentIndexes[projectIndex]++;
-
-          if (
-            currentIndexes[projectIndex] >=
-            projects[projectIndex].length
-          ) {
-
-            currentIndexes[projectIndex] = 0;
-
-          }
-
-          updateImage(projectIndex);
-
-        });
+        );
 
       });
 
 
-    /* =====================================================
+    /* =========================================
        CLICK OUTSIDE
-       ===================================================== */
+       ========================================= */
 
     document.addEventListener(
       "click",
@@ -1443,7 +1473,9 @@
             .querySelectorAll(".project")
             .forEach(function(project) {
 
-              project.classList.remove("selected");
+              project.classList.remove(
+                "selected"
+              );
 
             });
 
@@ -1451,6 +1483,7 @@
 
       }
     );
+
 
   </script>
 
