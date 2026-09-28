@@ -25,14 +25,11 @@
 
     body {
       background: #ffffff;
-      color: #000000;
-
+      color: #777777;
       font-family: Arial, Helvetica, sans-serif;
       font-size: 10px;
       font-weight: 400;
-
       cursor: url("cursor2.png") 25 25, auto;
-
       overflow-x: hidden;
     }
 
@@ -42,16 +39,17 @@
     }
 
 
-    /* =========================================
+    /* =========================
        HEADER
-       ========================================= */
+       ========================= */
 
     header {
-      position: relative;
-
-      height: 12vh;
-      min-height: 70px;
-
+      position: fixed;
+      z-index: 1000;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 70px;
       padding: 30px 3vw 0 3vw;
 
       display: grid;
@@ -60,18 +58,18 @@
 
       font-size: 10px;
       text-transform: uppercase;
-
-      z-index: 1000;
+      pointer-events: none;
     }
 
     .name {
       text-align: left;
+      pointer-events: auto;
     }
 
     .name a {
       color: #777777;
       font-size: 10px;
-
+      text-decoration: none;
       transition: color 0.2s ease;
     }
 
@@ -85,118 +83,176 @@
     }
 
 
-    /* =========================================
-       DESKTOP GALLERY
-       ========================================= */
+    /* =========================
+       GALLERY
+       ========================= */
 
     .gallery {
       position: relative;
-
       width: 100%;
-      height: 165vh;
+      height: 150vh;
+      margin-top: 0;
+    }
 
-      margin-top: 2vh;
+    .mobile-column {
+      display: block;
     }
 
 
-    /* =========================================
+    /* =========================
        PROJECT
-       ========================================= */
+       ========================= */
 
     .project {
       position: absolute;
-
       display: block;
-
-      cursor: url("cursor2.png") 25 25, auto;
+      text-align: center;
 
       z-index: 1;
-    }
 
-    .project-image-wrap {
-      position: relative;
-
-      width: 100%;
+      transition:
+        z-index 0s linear 0.1s;
     }
 
     .project-image {
       display: block;
-
       width: 100%;
       height: auto;
 
-      object-fit: contain;
-
       transition:
         transform 0.45s cubic-bezier(0.2, 0.7, 0.2, 1),
-        opacity 0.3s ease;
+        opacity 0.45s ease;
     }
 
-
-    /* =========================================
-       HOVER
-       ========================================= */
-
     .project:hover {
-      z-index: 50;
+      z-index: 20;
     }
 
     .project:hover .project-image {
       transform: scale(1.08);
-      opacity: 0.94;
     }
 
 
-    /* =========================================
-       SELECTED
-       ========================================= */
+    /* =========================
+       PROJECT INFORMATION
+       ========================= */
+
+    .project-info {
+      width: 100%;
+      max-width: 100%;
+
+      margin-top: 8px;
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      color: #2f6fff;
+
+      opacity: 0;
+      transform: translateY(-4px);
+
+      transition:
+        opacity 0.3s ease,
+        transform 0.3s ease;
+
+      pointer-events: none;
+    }
+
+    .project:hover .project-info {
+      opacity: 1;
+      transform: translateY(0);
+    }
 
     .project.selected {
-      z-index: 500;
+      z-index: 100;
     }
 
     .project.selected .project-image {
       transform: scale(2.2);
+    }
+
+    .project.selected .project-info {
       opacity: 1;
+      transform: translateY(0);
+
+      background: #2f6fff;
+      color: #ffffff;
+
+      padding: 7px 8px 8px 8px;
+      margin-top: 8px;
+    }
+
+    .project-title {
+      width: 100%;
+
+      color: #2f6fff;
+
+      font-size: 10px;
+      line-height: 1.35;
+
+      text-transform: uppercase;
+    }
+
+    .project.selected .project-title {
+      color: #ffffff;
+    }
+
+    .project-description {
+      width: 100%;
+
+      margin-top: 3px;
+
+      color: #ffffff;
+
+      font-size: 9px;
+      line-height: 1.4;
+
+      text-transform: none;
+    }
+
+    .project-description a {
+      color: #ffffff;
+      text-decoration: underline;
+      pointer-events: auto;
     }
 
 
-    /* =========================================
+    /* =========================
        ARROWS
-       ========================================= */
+       ========================= */
 
     .arrow {
       position: absolute;
-
       top: 50%;
 
-      width: 22px;
-      height: 40px;
-
       transform: translateY(-50%);
+
+      width: 22px;
+      height: 30px;
 
       display: flex;
       align-items: center;
       justify-content: center;
 
-      background: transparent;
-      border: none;
-
-      color: #ffffff;
-
-      font-family: Arial, Helvetica, sans-serif;
-      font-size: 17px;
-      font-weight: 300;
+      color: #777777;
+      font-size: 16px;
 
       opacity: 0;
-
-      z-index: 20;
-
       transition:
         opacity 0.2s ease,
-        transform 0.2s ease;
+        color 0.2s ease;
 
+      z-index: 30;
       cursor: url("cursor2.png") 25 25, auto;
+    }
+
+    .project:hover .arrow {
+      opacity: 1;
+    }
+
+    .arrow:hover {
+      color: #2f6fff;
     }
 
     .arrow-left {
@@ -207,253 +263,95 @@
       right: 3px;
     }
 
-    .project:hover .arrow,
-    .project.selected .arrow {
-      opacity: 1;
-    }
 
-    .arrow-left:hover {
-      transform: translate(-2px, -50%);
-    }
-
-    .arrow-right:hover {
-      transform: translate(2px, -50%);
-    }
-
-
-    /* =========================================
-       PROJECT INFORMATION
-       ========================================= */
-
-    .project-info {
-      position: absolute;
-
-      left: 0;
-      top: 100%;
-
-      width: 100%;
-      max-width: 100%;
-
-      transform: translateY(7px);
-
-      text-align: center;
-
-      opacity: 0;
-
-      pointer-events: none;
-
-      transition:
-        opacity 0.25s ease,
-        transform 0.25s ease;
-
-      z-index: 300;
-    }
-
-
-    /* =========================================
-       TITLE
-       ========================================= */
-
-    .project-title {
-      color: #777777;
-
-      font-size: 10px;
-      line-height: 1.35;
-
-      text-transform: uppercase;
-
-      padding: 0 4px;
-    }
-
-
-    /* =========================================
-       HOVER TITLE
-       ========================================= */
-
-    .project:hover .project-info {
-      opacity: 1;
-
-      transform: translateY(4px);
-    }
-
-
-    /* =========================================
-       DESCRIPTION
-       ========================================= */
-
-    .project-description {
-      display: none;
-
-      margin-top: 5px;
-
-      padding: 0 5px 7px 5px;
-
-      color: #ffffff;
-
-      font-size: 10px;
-      line-height: 1.35;
-
-      text-transform: none;
-
-      white-space: normal;
-
-      overflow-wrap: break-word;
-      word-wrap: break-word;
-    }
-
-    .project-description a {
-      color: #ffffff;
-      text-decoration: underline;
-    }
-
-
-    /* =========================================
-       SELECTED INFO
-       ========================================= */
-
-    .project.selected .project-info {
-      opacity: 1;
-
-      transform: translateY(4px);
-
-      background: #2f6fff;
-
-      padding: 8px 5px 0 5px;
-    }
-
-    .project.selected .project-description {
-      display: block;
-    }
-
-    .project.selected .project-title {
-      color: #ffffff;
-    }
-
-
-    /* =========================================
-       BLUE LINE
-       ========================================= */
-
-    .project-line {
-      width: 18px;
-      height: 1px;
-
-      background: #2f6fff;
-
-      margin: 0 auto 7px auto;
-    }
-
-    .project.selected .project-line {
-      background: #ffffff;
-    }
-
-
-    /* =========================================
+    /* =========================
        DESKTOP POSITIONS
-       
-       8 UNIQUE PROJECTS
-       ========================================= */
+       ========================= */
 
+    /* 1. VETCARD */
 
-    /* -----------------------------------------
-       VETCARD
-       ----------------------------------------- */
-
-    .project-vetcard {
+    .project[data-project="0"] {
       width: 11vw;
-
       left: 5vw;
       top: 5vh;
     }
 
 
-    /* -----------------------------------------
-       ECHOES OF THE DEEP
-       ----------------------------------------- */
+    /* 2. ECHOES OF THE DEEP */
 
-    .project-jelly {
+    .project[data-project="1"] {
       width: 9vw;
-
-      left: 25vw;
+      left: 23vw;
       top: 4vh;
     }
 
 
-    /* -----------------------------------------
-       ROBERT SMITHSON
-       ----------------------------------------- */
+    /* 3. X-RAYS OF THE MODERN CITIES */
 
-    .project-smithson {
+    .project[data-project="2"] {
+      width: 8vw;
+      left: 37vw;
+      top: 18vh;
+    }
+
+
+    /* 4. SMITHSON */
+
+    .project[data-project="3"] {
       width: 10vw;
-
-      left: 46vw;
+      left: 49vw;
       top: 7vh;
     }
 
 
-    /* -----------------------------------------
-       URBAN DESIGN
-       ----------------------------------------- */
+    /* 5. URBAN DESIGN */
 
-    .project-urban {
+    .project[data-project="4"] {
       width: 9vw;
-
-      left: 67vw;
+      left: 68vw;
       top: 3vh;
     }
 
 
-    /* -----------------------------------------
-       YTONG MODEL
-       ----------------------------------------- */
+    /* 6. YTONG MODEL */
 
-    .project-ytong {
+    .project[data-project="5"] {
       width: 7vw;
-
       left: 84vw;
-      top: 9vh;
+      top: 8vh;
     }
 
 
-    /* -----------------------------------------
-       EXPERIMENTAL MODEL
-       ----------------------------------------- */
+    /* 7. EXPERIMENTAL MODEL */
 
-    .project-experimental {
+    .project[data-project="6"] {
       width: 7vw;
-
-      left: 9vw;
-      top: 34vh;
+      left: 10vw;
+      top: 32vh;
     }
 
 
-    /* -----------------------------------------
-       SPATIAL INVESTIGATIONS
-       ----------------------------------------- */
+    /* 8. SPATIAL INVESTIGATIONS */
 
-    .project-spatial {
+    .project[data-project="7"] {
       width: 9vw;
+      left: 34vw;
+      top: 30vh;
+    }
 
-      left: 35vw;
+
+    /* 9. RESIDENTIAL COMPLEX */
+
+    .project[data-project="8"] {
+      width: 10vw;
+      left: 65vw;
       top: 31vh;
     }
 
 
-    /* -----------------------------------------
-       RESIDENTIAL COMPLEX
-       ----------------------------------------- */
-
-    .project-residential {
-      width: 10vw;
-
-      left: 67vw;
-      top: 34vh;
-    }
-
-
-    /* =========================================
-       CREDIT
-       ========================================= */
+    /* =========================
+       WEBSITE CREDIT
+       ========================= */
 
     .website-credit {
       position: fixed;
@@ -472,67 +370,64 @@
     }
 
 
-    /* =========================================
+    /* =========================
        TABLET
-       ========================================= */
+       ========================= */
 
     @media (max-width: 900px) {
 
-      .gallery {
-        height: 155vh;
-      }
-
-      .project-vetcard {
+      .project[data-project="0"] {
         width: 13vw;
         left: 4vw;
       }
 
-      .project-jelly {
+      .project[data-project="1"] {
         width: 11vw;
-        left: 25vw;
+        left: 22vw;
       }
 
-      .project-smithson {
+      .project[data-project="2"] {
+        width: 10vw;
+        left: 36vw;
+        top: 18vh;
+      }
+
+      .project[data-project="3"] {
         width: 12vw;
-        left: 46vw;
+        left: 48vw;
       }
 
-      .project-urban {
+      .project[data-project="4"] {
         width: 11vw;
         left: 67vw;
       }
 
-      .project-ytong {
+      .project[data-project="5"] {
         width: 9vw;
-        left: 84vw;
+        left: 82vw;
       }
 
-      .project-experimental {
+      .project[data-project="6"] {
         width: 9vw;
-        left: 7vw;
-        top: 34vh;
+        left: 8vw;
       }
 
-      .project-spatial {
+      .project[data-project="7"] {
         width: 11vw;
-        left: 34vw;
-        top: 31vh;
+        left: 33vw;
       }
 
-      .project-residential {
+      .project[data-project="8"] {
         width: 12vw;
-        left: 67vw;
-        top: 34vh;
+        left: 64vw;
       }
 
     }
 
 
-    /* =========================================
+    /* =========================
        MOBILE
-       
-       TWO INDEPENDENT SCROLLING COLUMNS
-       ========================================= */
+       ========================= */
 
     @media (max-width: 650px) {
 
@@ -540,41 +435,28 @@
       body {
         width: 100%;
         height: 100%;
-
         overflow: hidden;
       }
 
       body {
-        overflow: hidden;
+        position: fixed;
       }
 
 
-      /* ---------------------------------------
-         HEADER
-         --------------------------------------- */
+      /* MOBILE HEADER */
 
       header {
+        height: 65px;
+
+        padding: 24px 5vw 0 5vw;
+
         position: fixed;
 
-        top: 0;
-        left: 0;
-
-        width: 100%;
-
-        height: 65px;
-        min-height: 65px;
-
-        padding: 22px 5vw 0 5vw;
-
         background: #ffffff;
-
-        z-index: 1000;
       }
 
 
-      /* ---------------------------------------
-         GALLERY CONTAINER
-         --------------------------------------- */
+      /* MOBILE GALLERY */
 
       .gallery {
         position: fixed;
@@ -587,10 +469,7 @@
 
         margin: 0;
 
-        padding: 0;
-
         display: grid;
-
         grid-template-columns: 1fr 1fr;
 
         gap: 0;
@@ -599,19 +478,16 @@
       }
 
 
-      /* ---------------------------------------
-         TWO COLUMNS
-         --------------------------------------- */
+      /* TWO INDEPENDENT COLUMNS */
 
       .mobile-column {
         position: relative;
 
+        width: 100%;
         height: 100%;
 
         overflow-y: auto;
         overflow-x: hidden;
-
-        padding: 30px 12px 100px 12px;
 
         -webkit-overflow-scrolling: touch;
 
@@ -623,53 +499,50 @@
       }
 
 
-      /* ---------------------------------------
-         PROJECTS ON MOBILE
-         --------------------------------------- */
+      /* MOBILE PROJECT */
 
       .mobile-column .project {
         position: relative !important;
 
-        top: auto !important;
-        left: auto !important;
-        right: auto !important;
-
         width: 100% !important;
 
-        margin: 0 0 75px 0;
+        left: auto !important;
+        top: auto !important;
+
+        margin: 0 0 35px 0;
 
         display: block;
 
         z-index: 1;
       }
 
+      .mobile-column .project:first-child {
+        margin-top: 20px;
+      }
 
-      /* ---------------------------------------
-         MOBILE IMAGE
-         --------------------------------------- */
+
+      /* MOBILE IMAGE */
 
       .mobile-column .project-image {
         width: 100%;
         height: auto;
+
+        transform: scale(1);
+
+        transition:
+          transform 0.4s cubic-bezier(0.2, 0.7, 0.2, 1),
+          opacity 0.4s ease;
       }
-
-
-      /* ---------------------------------------
-         MOBILE HOVER
-         --------------------------------------- */
 
       .mobile-column .project:hover .project-image {
-        transform: none;
-        opacity: 1;
+        transform: scale(1.04);
       }
 
 
-      /* ---------------------------------------
-         MOBILE SELECTED
-         --------------------------------------- */
+      /* MOBILE SELECTED */
 
       .mobile-column .project.selected {
-        z-index: 500;
+        z-index: 100;
       }
 
       .mobile-column .project.selected .project-image {
@@ -677,168 +550,106 @@
       }
 
 
-      /* ---------------------------------------
-         MOBILE INFO
-         --------------------------------------- */
+      /* MOBILE INFO */
 
       .mobile-column .project-info {
-        position: relative;
-
-        left: auto;
-        top: auto;
-
         width: 100%;
         max-width: 100%;
 
-        margin-top: 10px;
+        margin-top: 8px;
 
-        padding: 0;
+        opacity: 0;
+      }
 
-        transform: none;
-
+      .mobile-column .project:hover .project-info {
         opacity: 1;
-
-        background: transparent;
-
-        text-align: center;
-
-        pointer-events: none;
       }
-
-
-      /* ---------------------------------------
-         MOBILE TITLE
-         --------------------------------------- */
-
-      .mobile-column .project-title {
-        color: #777777;
-
-        font-size: 9px;
-
-        padding: 0 3px;
-      }
-
-
-      /* ---------------------------------------
-         MOBILE DESCRIPTION
-         --------------------------------------- */
-
-      .mobile-column .project-description {
-        display: none;
-
-        font-size: 9px;
-
-        line-height: 1.35;
-
-        margin-top: 5px;
-      }
-
-
-      /* ---------------------------------------
-         MOBILE SELECTED INFO
-         --------------------------------------- */
 
       .mobile-column .project.selected .project-info {
-        width: 100%;
+        opacity: 1;
 
-        background: #2f6fff;
+        padding: 7px 6px 8px 6px;
 
-        padding: 7px 4px 2px 4px;
-
-        transform: none;
+        margin-top: 8px;
       }
 
-      .mobile-column .project.selected .project-title {
-        color: #ffffff;
+      .mobile-column .project-title {
+        font-size: 9px;
       }
 
-      .mobile-column .project.selected .project-description {
-        display: block;
-
-        color: #ffffff;
-
-        padding: 0 3px 5px 3px;
+      .mobile-column .project-description {
+        font-size: 8px;
+        line-height: 1.35;
       }
 
 
-      /* ---------------------------------------
-         MOBILE ARROWS
-         --------------------------------------- */
+      /* MOBILE ARROWS */
 
       .mobile-column .arrow {
         opacity: 1;
 
-        width: 22px;
+        width: 28px;
         height: 35px;
 
         font-size: 16px;
       }
 
 
-      /* ---------------------------------------
-         CREDIT
-         --------------------------------------- */
+      /* MOBILE CREDIT */
 
       .website-credit {
-        position: fixed;
-
         right: 5vw;
-        bottom: 12px;
+        bottom: 15px;
 
-        font-size: 8px;
+        font-size: 9px;
 
-        z-index: 1100;
+        z-index: 2000;
       }
 
     }
 
 
-    /* =========================================
-       VERY SMALL MOBILE
-       ========================================= */
+    /* =========================
+       SMALL MOBILE
+       ========================= */
 
     @media (max-width: 450px) {
 
-      .mobile-column {
-        padding-left: 9px;
-        padding-right: 9px;
+      .mobile-column .project {
+        margin-bottom: 30px;
       }
 
-      .mobile-column .project {
-        margin-bottom: 65px;
+      .mobile-column .project:first-child {
+        margin-top: 20px;
       }
 
       .mobile-column .project.selected .project-image {
-        transform: scale(1.3);
+        transform: scale(1.28);
       }
 
-      .mobile-column .project-title,
-      .mobile-column .project-description {
+      .website-credit {
         font-size: 8px;
       }
 
     }
 
   </style>
-
 </head>
 
 
 <body>
 
 
-  <!-- =========================================
+  <!-- =========================
        HEADER
-       ========================================= -->
+       ========================= -->
 
   <header>
 
     <div class="name">
-
       <a href="index.html">
         MYRTO PAVLOPOULOU
       </a>
-
     </div>
 
     <div class="profession">
@@ -848,55 +659,39 @@
   </header>
 
 
-
-  <!-- =========================================
-       DESKTOP / MOBILE GALLERY
-       ========================================= -->
+  <!-- =========================
+       GALLERY
+       ========================= -->
 
   <main class="gallery">
 
 
-    <!-- =======================================
+    <!-- =========================
          LEFT MOBILE COLUMN
-         ======================================= -->
+         ========================= -->
 
-    <div class="mobile-column mobile-column-left">
+    <div class="mobile-column">
 
 
-      <!-- VETCARD — FIRST -->
+      <!-- VETCARD -->
 
-      <div
-        class="project project-vetcard"
-        data-project="0"
-      >
+      <div class="project" data-project="0">
 
-        <div class="project-image-wrap">
+        <img
+          class="project-image"
+          src="VetCard_1.jpg"
+          alt="VetCard"
+        >
 
-          <img
-            class="project-image"
-            src="VetCard_1.jpg"
-            alt="VetCard"
-          >
+        <div class="arrow arrow-left">
+          ‹
+        </div>
 
-          <button
-            class="arrow arrow-left"
-            onclick="previousImage(event, 0)"
-          >
-            ‹
-          </button>
-
-          <button
-            class="arrow arrow-right"
-            onclick="nextImage(event, 0)"
-          >
-            ›
-          </button>
-
+        <div class="arrow arrow-right">
+          ›
         </div>
 
         <div class="project-info">
-
-          <div class="project-line"></div>
 
           <div class="project-title">
             VETCARD
@@ -911,41 +706,25 @@
       </div>
 
 
-
       <!-- URBAN DESIGN -->
 
-      <div
-        class="project project-urban"
-        data-project="3"
-      >
+      <div class="project" data-project="4">
 
-        <div class="project-image-wrap">
+        <img
+          class="project-image"
+          src="Urban_1.png"
+          alt="Urban Design"
+        >
 
-          <img
-            class="project-image"
-            src="Urban_1.png"
-            alt="Urban Design"
-          >
+        <div class="arrow arrow-left">
+          ‹
+        </div>
 
-          <button
-            class="arrow arrow-left"
-            onclick="previousImage(event, 3)"
-          >
-            ‹
-          </button>
-
-          <button
-            class="arrow arrow-right"
-            onclick="nextImage(event, 3)"
-          >
-            ›
-          </button>
-
+        <div class="arrow arrow-right">
+          ›
         </div>
 
         <div class="project-info">
-
-          <div class="project-line"></div>
 
           <div class="project-title">
             URBAN DESIGN
@@ -956,27 +735,17 @@
       </div>
 
 
-
       <!-- EXPERIMENTAL MODEL -->
 
-      <div
-        class="project project-experimental"
-        data-project="5"
-      >
+      <div class="project" data-project="6">
 
-        <div class="project-image-wrap">
-
-          <img
-            class="project-image"
-            src="model_2.jpg"
-            alt="Experimental Model"
-          >
-
-        </div>
+        <img
+          class="project-image"
+          src="model_2.jpg"
+          alt="Experimental Model"
+        >
 
         <div class="project-info">
-
-          <div class="project-line"></div>
 
           <div class="project-title">
             EXPERIMENTAL MODEL
@@ -987,54 +756,62 @@
       </div>
 
 
+      <!-- SPATIAL INVESTIGATIONS -->
 
-      <!-- RESIDENTIAL COMPLEX -->
+      <div class="project" data-project="7">
 
-      <div
-        class="project project-residential"
-        data-project="7"
-      >
+        <img
+          class="project-image"
+          src="TeclaSala_7.jpg"
+          alt="Spatial Investigations"
+        >
 
-        <div class="project-image-wrap">
+        <div class="arrow arrow-left">
+          ‹
+        </div>
 
-          <img
-            class="project-image"
-            src="ResidentialBuilding_1.png"
-            alt="Residential Complex"
-          >
-
-          <button
-            class="arrow arrow-left"
-            onclick="previousImage(event, 7)"
-          >
-            ‹
-          </button>
-
-          <button
-            class="arrow arrow-right"
-            onclick="nextImage(event, 7)"
-          >
-            ›
-          </button>
-
+        <div class="arrow arrow-right">
+          ›
         </div>
 
         <div class="project-info">
 
-          <div class="project-line"></div>
+          <div class="project-title">
+            SPATIAL INVESTIGATIONS
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- RESIDENTIAL COMPLEX -->
+
+      <div class="project" data-project="8">
+
+        <img
+          class="project-image"
+          src="ResidentialBuilding_1.png"
+          alt="Residential Complex"
+        >
+
+        <div class="arrow arrow-left">
+          ‹
+        </div>
+
+        <div class="arrow arrow-right">
+          ›
+        </div>
+
+        <div class="project-info">
 
           <div class="project-title">
             RESIDENTIAL COMPLEX
           </div>
 
           <div class="project-description">
-
-            Design Studio in Auth,
-
-            <br>
-
+            Design Studio in Auth,<br>
             with Dimitrios Athanasiou and Pinelopi Kosta, 2022
-
           </div>
 
         </div>
@@ -1045,70 +822,48 @@
     </div>
 
 
-
-    <!-- =======================================
+    <!-- =========================
          RIGHT MOBILE COLUMN
-         ======================================= -->
+         ========================= -->
 
-    <div class="mobile-column mobile-column-right">
+    <div class="mobile-column">
 
 
       <!-- ECHOES OF THE DEEP -->
 
-      <div
-        class="project project-jelly"
-        data-project="1"
-      >
+      <div class="project" data-project="1">
 
-        <div class="project-image-wrap">
+        <img
+          class="project-image"
+          src="Jelly_1.jpg"
+          alt="Echoes of the Deep"
+        >
 
-          <img
-            class="project-image"
-            src="Jelly_1.jpg"
-            alt="Echoes of the Deep"
-          >
+        <div class="arrow arrow-left">
+          ‹
+        </div>
 
-          <button
-            class="arrow arrow-left"
-            onclick="previousImage(event, 1)"
-          >
-            ‹
-          </button>
-
-          <button
-            class="arrow arrow-right"
-            onclick="nextImage(event, 1)"
-          >
-            ›
-          </button>
-
+        <div class="arrow arrow-right">
+          ›
         </div>
 
         <div class="project-info">
-
-          <div class="project-line"></div>
 
           <div class="project-title">
             ECHOES OF THE DEEP
           </div>
 
           <div class="project-description">
-
-            an interactive
-            light and sound installation
-            for Mar Motto festival’s 2025 edition with
-
+            an interactive light and sound installation for Mar Motto festival’s 2025 edition with
             <a
               href="https://moradavaga.com/ECHOES-OF-THE-DEEP"
               target="_blank"
+              rel="noopener noreferrer"
             >
               MORADAVAGA
             </a>
-
             <br>
-
             Faro, Portugal
-
           </div>
 
         </div>
@@ -1116,41 +871,58 @@
       </div>
 
 
+      <!-- X-RAYS OF THE MODERN CITIES -->
 
-      <!-- ROBERT SMITHSON -->
+      <div class="project" data-project="2">
 
-      <div
-        class="project project-smithson"
-        data-project="2"
-      >
+        <img
+          class="project-image"
+          src="X-ray_(1).jpg"
+          alt="X-rays of the Modern Cities"
+        >
 
-        <div class="project-image-wrap">
+        <div class="arrow arrow-left">
+          ‹
+        </div>
 
-          <img
-            class="project-image"
-            src="Smithson_1.png"
-            alt="Places inspired by Robert Smithson"
-          >
-
-          <button
-            class="arrow arrow-left"
-            onclick="previousImage(event, 2)"
-          >
-            ‹
-          </button>
-
-          <button
-            class="arrow arrow-right"
-            onclick="nextImage(event, 2)"
-          >
-            ›
-          </button>
-
+        <div class="arrow arrow-right">
+          ›
         </div>
 
         <div class="project-info">
 
-          <div class="project-line"></div>
+          <div class="project-title">
+            X-RAYS OF THE MODERN CITIES
+          </div>
+
+          <div class="project-description">
+            photography project, ongoing
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- SMITHSON -->
+
+      <div class="project" data-project="3">
+
+        <img
+          class="project-image"
+          src="Smithson_1.png"
+          alt="Places Inspired by Robert Smithson"
+        >
+
+        <div class="arrow arrow-left">
+          ‹
+        </div>
+
+        <div class="arrow arrow-right">
+          ›
+        </div>
+
+        <div class="project-info">
 
           <div class="project-title">
             PLACES INSPIRED BY ROBERT SMITHSON
@@ -1161,89 +933,28 @@
       </div>
 
 
-
       <!-- YTONG MODEL -->
 
-      <div
-        class="project project-ytong"
-        data-project="4"
-      >
+      <div class="project" data-project="5">
 
-        <div class="project-image-wrap">
+        <img
+          class="project-image"
+          src="model_1.jpg"
+          alt="Ytong Model"
+        >
 
-          <img
-            class="project-image"
-            src="model_1.jpg"
-            alt="Ytong Model"
-          >
+        <div class="arrow arrow-left">
+          ‹
+        </div>
 
-          <button
-            class="arrow arrow-left"
-            onclick="previousImage(event, 4)"
-          >
-            ‹
-          </button>
-
-          <button
-            class="arrow arrow-right"
-            onclick="nextImage(event, 4)"
-          >
-            ›
-          </button>
-
+        <div class="arrow arrow-right">
+          ›
         </div>
 
         <div class="project-info">
-
-          <div class="project-line"></div>
 
           <div class="project-title">
             YTONG MODEL
-          </div>
-
-        </div>
-
-      </div>
-
-
-
-      <!-- SPATIAL INVESTIGATIONS -->
-
-      <div
-        class="project project-spatial"
-        data-project="6"
-      >
-
-        <div class="project-image-wrap">
-
-          <img
-            class="project-image"
-            src="TeclaSala_7.jpg"
-            alt="Spatial Investigations"
-          >
-
-          <button
-            class="arrow arrow-left"
-            onclick="previousImage(event, 6)"
-          >
-            ‹
-          </button>
-
-          <button
-            class="arrow arrow-right"
-            onclick="nextImage(event, 6)"
-          >
-            ›
-          </button>
-
-        </div>
-
-        <div class="project-info">
-
-          <div class="project-line"></div>
-
-          <div class="project-title">
-            SPATIAL INVESTIGATIONS
           </div>
 
         </div>
@@ -1256,41 +967,29 @@
   </main>
 
 
-
-  <!-- =========================================
-       CREDIT
-       ========================================= -->
+  <!-- =========================
+       WEBSITE CREDIT
+       ========================= -->
 
   <div class="website-credit">
     WEB DESIGN: MYRTO PAVLOPOULOU
   </div>
 
 
-
-  <!-- =========================================
-       JAVASCRIPT
-       ========================================= -->
-
   <script>
 
+    /* =========================
+       PROJECT IMAGE ARRAYS
+       ========================= */
 
-    /* =========================================
-       PROJECT IMAGES
-       ========================================= */
+    const projectImages = {
 
-    const projects = [
-
-      /* 0 — VETCARD */
-
-      [
+      0: [
         "VetCard_1.jpg",
         "VetCard2.jpg"
       ],
 
-
-      /* 1 — ECHOES OF THE DEEP */
-
-      [
+      1: [
         "Jelly_1.jpg",
         "Jelly_2.JPG",
         "Jelly_3.JPG",
@@ -1301,10 +1000,16 @@
         "Jelly_8.JPG"
       ],
 
+      2: [
+        "X-ray_(1).jpg",
+        "X-ray_(2).jpg",
+        "X-ray_(3).jpg",
+        "X-ray_(4).jpg",
+        "X-ray_(5).jpg",
+        "X-ray_(6).jpg"
+      ],
 
-      /* 2 — ROBERT SMITHSON */
-
-      [
+      3: [
         "Smithson_1.png",
         "Smithson_2.jpg",
         "Smithson_3.png",
@@ -1317,35 +1022,23 @@
         "Smithson_10.png"
       ],
 
-
-      /* 3 — URBAN DESIGN */
-
-      [
+      4: [
         "Urban_1.png",
         "Urban_2.jpg",
         "Urban_3.jpg"
       ],
 
-
-      /* 4 — YTONG MODEL */
-
-      [
+      5: [
         "model_1.jpg",
         "model_1(2).jpg",
         "model_1(3).jpg"
       ],
 
-
-      /* 5 — EXPERIMENTAL MODEL */
-
-      [
+      6: [
         "model_2.jpg"
       ],
 
-
-      /* 6 — SPATIAL INVESTIGATIONS */
-
-      [
+      7: [
         "TeclaSala_7.jpg",
         "TeclaSala_1.jpg",
         "TeclaSala_10.jpg",
@@ -1358,10 +1051,7 @@
         "TeclaSala_5.jpg"
       ],
 
-
-      /* 7 — RESIDENTIAL COMPLEX */
-
-      [
+      8: [
         "ResidentialBuilding_1.png",
         "ResidentialBuilding_2.jpg",
         "ResidentialBuilding_3.png",
@@ -1370,231 +1060,151 @@
         "ResidentialBuilding_6.jpg"
       ]
 
-    ];
+    };
 
 
-    /* =========================================
-       CURRENT IMAGE
-       ========================================= */
+    /* =========================
+       CURRENT IMAGE INDEX
+       ========================= */
 
-    const currentIndexes = [
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0,
-      0
-    ];
-
-
-    /* =========================================
-       FIND PROJECT
-       ========================================= */
-
-    function getProject(projectIndex) {
-
-      return document.querySelector(
-        `[data-project="${projectIndex}"]`
-      );
-
-    }
+    const currentIndexes = {
+      0: 0,
+      1: 0,
+      2: 0,
+      3: 0,
+      4: 0,
+      5: 0,
+      6: 0,
+      7: 0,
+      8: 0
+    };
 
 
-    /* =========================================
+    /* =========================
        UPDATE IMAGE
-       ========================================= */
+       ========================= */
 
-    function updateImage(projectIndex) {
+    function updateProjectImage(project, direction) {
 
-      const project =
-        getProject(projectIndex);
+      const projectId = Number(project.dataset.project);
 
-      if (!project) {
+      const images = projectImages[projectId];
+
+      if (!images || images.length <= 1) {
         return;
       }
 
-      const image =
-        project.querySelector(".project-image");
+      currentIndexes[projectId] =
+        (currentIndexes[projectId] + direction + images.length)
+        % images.length;
 
-      image.src =
-        projects[projectIndex][
-          currentIndexes[projectIndex]
-        ];
+      const image = project.querySelector(".project-image");
+
+      image.src = images[currentIndexes[projectId]];
 
     }
 
 
-    /* =========================================
+    /* =========================
        SELECT PROJECT
-       ========================================= */
+       ========================= */
 
-    function selectProject(projectIndex) {
+    function selectProject(project) {
 
-      document
-        .querySelectorAll(".project")
-        .forEach(function(project) {
+      document.querySelectorAll(".project").forEach(function(item) {
 
-          project.classList.remove("selected");
+        if (item !== project) {
+          item.classList.remove("selected");
+        }
 
-        });
-
-
-      const project =
-        getProject(projectIndex);
-
-      if (!project) {
-        return;
-      }
+      });
 
       project.classList.add("selected");
 
     }
 
 
-    /* =========================================
-       NEXT IMAGE
-       ========================================= */
-
-    function nextImage(event, projectIndex) {
-
-      event.stopPropagation();
-
-      currentIndexes[projectIndex]++;
-
-      if (
-        currentIndexes[projectIndex] >=
-        projects[projectIndex].length
-      ) {
-
-        currentIndexes[projectIndex] = 0;
-
-      }
-
-      updateImage(projectIndex);
-
-      selectProject(projectIndex);
-
-    }
-
-
-    /* =========================================
-       PREVIOUS IMAGE
-       ========================================= */
-
-    function previousImage(event, projectIndex) {
-
-      event.stopPropagation();
-
-      currentIndexes[projectIndex]--;
-
-      if (
-        currentIndexes[projectIndex] < 0
-      ) {
-
-        currentIndexes[projectIndex] =
-          projects[projectIndex].length - 1;
-
-      }
-
-      updateImage(projectIndex);
-
-      selectProject(projectIndex);
-
-    }
-
-
-    /* =========================================
+    /* =========================
        PROJECT CLICK
-       ========================================= */
+       ========================= */
 
-    document
-      .querySelectorAll(".project")
-      .forEach(function(project) {
+    document.querySelectorAll(".project").forEach(function(project) {
 
-        project.addEventListener(
-          "click",
-          function(event) {
+      project.addEventListener("click", function(event) {
 
-            /*
-              Ignore arrows and links.
-            */
+        if (event.target.classList.contains("arrow")) {
+          return;
+        }
 
-            if (
-              event.target.closest(".arrow") ||
-              event.target.closest("a")
-            ) {
-              return;
-            }
+        if (event.target.closest("a")) {
+          return;
+        }
 
+        selectProject(project);
 
-            const projectIndex =
-              Number(
-                project.getAttribute("data-project")
-              );
-
-
-            /*
-              Select and enlarge.
-            */
-
-            selectProject(projectIndex);
-
-
-            /*
-              Move to next image.
-            */
-
-            currentIndexes[projectIndex]++;
-
-            if (
-              currentIndexes[projectIndex] >=
-              projects[projectIndex].length
-            ) {
-
-              currentIndexes[projectIndex] = 0;
-
-            }
-
-            updateImage(projectIndex);
-
-          }
-        );
+        updateProjectImage(project, 1);
 
       });
 
+    });
 
-    /* =========================================
+
+    /* =========================
+       ARROW CLICKS
+       ========================= */
+
+    document.querySelectorAll(".arrow-left").forEach(function(arrow) {
+
+      arrow.addEventListener("click", function(event) {
+
+        event.stopPropagation();
+
+        const project = arrow.closest(".project");
+
+        selectProject(project);
+
+        updateProjectImage(project, -1);
+
+      });
+
+    });
+
+
+    document.querySelectorAll(".arrow-right").forEach(function(arrow) {
+
+      arrow.addEventListener("click", function(event) {
+
+        event.stopPropagation();
+
+        const project = arrow.closest(".project");
+
+        selectProject(project);
+
+        updateProjectImage(project, 1);
+
+      });
+
+    });
+
+
+    /* =========================
        CLICK OUTSIDE
-       ========================================= */
+       ========================= */
 
-    document.addEventListener(
-      "click",
-      function(event) {
+    document.addEventListener("click", function(event) {
 
-        if (
-          !event.target.closest(".project")
-        ) {
+      if (!event.target.closest(".project")) {
 
-          document
-            .querySelectorAll(".project")
-            .forEach(function(project) {
-
-              project.classList.remove(
-                "selected"
-              );
-
-            });
-
-        }
+        document.querySelectorAll(".project").forEach(function(project) {
+          project.classList.remove("selected");
+        });
 
       }
-    );
+
+    });
 
 
   </script>
-
 
 </body>
 
