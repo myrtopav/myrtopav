@@ -31,7 +31,9 @@
       font-family: Arial, Helvetica, sans-serif;
       font-size: 10px;
       font-weight: 400;
+
       cursor: url("cursor2.png") 25 25, auto;
+
       overflow-x: hidden;
     }
 
@@ -47,7 +49,7 @@
 
     header {
       position: fixed;
-      z-index: 1000;
+
       top: 0;
       left: 0;
 
@@ -58,10 +60,13 @@
 
       display: grid;
       grid-template-columns: 1fr 1fr;
+
       align-items: start;
 
       font-size: 10px;
       text-transform: uppercase;
+
+      z-index: 1000;
 
       pointer-events: none;
     }
@@ -73,8 +78,11 @@
 
     .name a {
       color: #777777;
+
       font-size: 10px;
+
       text-decoration: none;
+
       transition: color 0.2s ease;
     }
 
@@ -96,7 +104,8 @@
       position: relative;
 
       width: 100%;
-      height: 175vh;
+
+      height: 155vh;
     }
 
 
@@ -121,7 +130,8 @@
       height: auto;
       max-width: 100%;
 
-      margin: 0 auto;
+      margin-left: auto;
+      margin-right: auto;
 
       object-fit: contain;
 
@@ -130,11 +140,6 @@
         opacity 0.4s ease;
 
       cursor: url("cursor2.png") 25 25, auto;
-
-      /*
-        The original image file is NOT resized.
-        This only controls its displayed size.
-      */
     }
 
     .project:hover .project-image {
@@ -147,13 +152,18 @@
     }
 
     .project.selected .project-image {
+      position: relative;
+
       transform: scale(2.2);
+
       opacity: 1;
+
+      z-index: 10;
     }
 
 
     /* =========================
-       PROJECT INFO
+       PROJECT INFORMATION
        ========================= */
 
     .project-info {
@@ -171,18 +181,23 @@
       transform: translateY(-5px);
 
       transition:
-        opacity 0.3s ease,
-        transform 0.3s ease;
+        opacity 0.35s ease,
+        transform 0.35s ease;
 
       pointer-events: none;
 
       text-align: center;
+
+      z-index: 30;
     }
 
     .project:hover .project-info,
     .project.selected .project-info {
       opacity: 1;
+
       transform: translateY(0);
+
+      z-index: 50;
     }
 
     .project.selected .project-info {
@@ -193,6 +208,8 @@
       padding: 7px 8px 8px 8px;
 
       pointer-events: auto;
+
+      z-index: 50;
     }
 
     .project-line {
@@ -217,6 +234,10 @@
       text-transform: uppercase;
     }
 
+    .project.selected .project-title {
+      color: #ffffff;
+    }
+
     .project-subtitle {
       color: #2f6fff;
 
@@ -224,6 +245,10 @@
       line-height: 1.35;
 
       text-transform: none;
+    }
+
+    .project.selected .project-subtitle {
+      color: #ffffff;
     }
 
     .project-description {
@@ -253,6 +278,7 @@
       color: #000000;
 
       font-size: 9px;
+
       line-height: 1.4;
 
       margin-top: 8px;
@@ -274,6 +300,7 @@
       height: 22px;
 
       display: flex;
+
       align-items: center;
       justify-content: center;
 
@@ -288,7 +315,7 @@
 
       transition: opacity 0.25s ease;
 
-      z-index: 20;
+      z-index: 60;
 
       cursor: url("cursor2.png") 25 25, auto;
 
@@ -313,16 +340,11 @@
        DESKTOP POSITIONS
        ========================= */
 
-    /* 1 — VETCARD */
-
     .project[data-project="0"] {
       width: 11vw;
       left: 5vw;
       top: 5vh;
     }
-
-
-    /* 2 — ECHOES OF THE DEEP */
 
     .project[data-project="1"] {
       width: 9vw;
@@ -330,17 +352,11 @@
       top: 4vh;
     }
 
-
-    /* 3 — X-RAYS */
-
     .project[data-project="2"] {
       width: 8vw;
       left: 37vw;
       top: 18vh;
     }
-
-
-    /* 4 — SMITHSON */
 
     .project[data-project="3"] {
       width: 10vw;
@@ -348,17 +364,11 @@
       top: 7vh;
     }
 
-
-    /* 5 — URBAN DESIGN */
-
     .project[data-project="4"] {
       width: 9vw;
       left: 67vw;
       top: 3vh;
     }
-
-
-    /* 6 — CATWALK */
 
     .project[data-project="5"] {
       width: 8vw;
@@ -366,17 +376,11 @@
       top: 24vh;
     }
 
-
-    /* 7 — WISHWALL */
-
     .project[data-project="6"] {
       width: 8vw;
       left: 16vw;
       top: 48vh;
     }
-
-
-    /* 8 — YTONG MODEL */
 
     .project[data-project="7"] {
       width: 7vw;
@@ -384,17 +388,11 @@
       top: 8vh;
     }
 
-
-    /* 9 — EXPERIMENTAL MODEL */
-
     .project[data-project="8"] {
       width: 7vw;
       left: 10vw;
       top: 32vh;
     }
-
-
-    /* 10 — SPATIAL INVESTIGATIONS */
 
     .project[data-project="9"] {
       width: 9vw;
@@ -402,26 +400,17 @@
       top: 30vh;
     }
 
-
-    /* 11 — RESIDENTIAL COMPLEX */
-
     .project[data-project="10"] {
       width: 10vw;
       left: 65vw;
       top: 31vh;
     }
 
-
-    /* 12 — DRYPOINT PRINTING */
-
     .project[data-project="11"] {
       width: 8vw;
       left: 24vw;
       top: 72vh;
     }
-
-
-    /* 13 — POSTER */
 
     .project[data-project="12"] {
       width: 8vw;
@@ -562,6 +551,7 @@
         top: 0;
         left: 0;
 
+        width: 100%;
         height: 65px;
 
         padding: 24px 5vw 0 5vw;
@@ -654,6 +644,8 @@
         transform: scale(1.25);
 
         opacity: 1;
+
+        z-index: 10;
       }
 
       .mobile-column .project-info {
@@ -662,11 +654,17 @@
         max-width: 100%;
 
         margin-top: 10px;
+
+        position: relative;
+
+        z-index: 50;
       }
 
       .mobile-column .project.selected .project-info {
 
         padding: 7px 7px 8px 7px;
+
+        z-index: 50;
       }
 
       .mobile-column .project-note {
@@ -731,7 +729,11 @@
   <header>
 
     <div class="name">
-      <a href="index.html">MYRTO PAVLOPOULOU</a>
+
+      <a href="index.html">
+        MYRTO PAVLOPOULOU
+      </a>
+
     </div>
 
     <div class="profession">
@@ -749,7 +751,7 @@
 
 
     <!-- =========================
-         1 — VETCARD
+         VETCARD
          ========================= -->
 
     <article
@@ -761,13 +763,15 @@
         class="project-image"
         src="VetCard_1.jpg"
         alt="VetCard"
-        loading="lazy"
-        decoding="async"
-        fetchpriority="auto"
       >
 
-      <div class="arrow arrow-left">&#8249;</div>
-      <div class="arrow arrow-right">&#8250;</div>
+      <div class="arrow arrow-left">
+        &#8249;
+      </div>
+
+      <div class="arrow arrow-right">
+        &#8250;
+      </div>
 
       <div class="project-info">
 
@@ -787,7 +791,7 @@
 
 
     <!-- =========================
-         2 — ECHOES OF THE DEEP
+         ECHOES OF THE DEEP
          ========================= -->
 
     <article
@@ -799,13 +803,15 @@
         class="project-image"
         src="Jelly_1.jpg"
         alt="Echoes of the Deep"
-        loading="lazy"
-        decoding="async"
-        fetchpriority="auto"
       >
 
-      <div class="arrow arrow-left">&#8249;</div>
-      <div class="arrow arrow-right">&#8250;</div>
+      <div class="arrow arrow-left">
+        &#8249;
+      </div>
+
+      <div class="arrow arrow-right">
+        &#8250;
+      </div>
 
       <div class="project-info">
 
@@ -839,7 +845,7 @@
 
 
     <!-- =========================
-         3 — X-RAYS
+         X-RAYS
          ========================= -->
 
     <article
@@ -851,13 +857,15 @@
         class="project-image"
         src="X-ray_(1).jpg"
         alt="X-Rays of the Modern Cities"
-        loading="lazy"
-        decoding="async"
-        fetchpriority="auto"
       >
 
-      <div class="arrow arrow-left">&#8249;</div>
-      <div class="arrow arrow-right">&#8250;</div>
+      <div class="arrow arrow-left">
+        &#8249;
+      </div>
+
+      <div class="arrow arrow-right">
+        &#8250;
+      </div>
 
       <div class="project-info">
 
@@ -877,7 +885,7 @@
 
 
     <!-- =========================
-         4 — SMITHSON
+         SMITHSON
          ========================= -->
 
     <article
@@ -889,13 +897,15 @@
         class="project-image"
         src="Smithson_1.png"
         alt="Places Inspired by Robert Smithson"
-        loading="lazy"
-        decoding="async"
-        fetchpriority="auto"
       >
 
-      <div class="arrow arrow-left">&#8249;</div>
-      <div class="arrow arrow-right">&#8250;</div>
+      <div class="arrow arrow-left">
+        &#8249;
+      </div>
+
+      <div class="arrow arrow-right">
+        &#8250;
+      </div>
 
       <div class="project-info">
 
@@ -911,7 +921,7 @@
 
 
     <!-- =========================
-         5 — URBAN DESIGN
+         URBAN DESIGN
          ========================= -->
 
     <article
@@ -923,13 +933,15 @@
         class="project-image"
         src="Urban_1.png"
         alt="Urban Design"
-        loading="lazy"
-        decoding="async"
-        fetchpriority="auto"
       >
 
-      <div class="arrow arrow-left">&#8249;</div>
-      <div class="arrow arrow-right">&#8250;</div>
+      <div class="arrow arrow-left">
+        &#8249;
+      </div>
+
+      <div class="arrow arrow-right">
+        &#8250;
+      </div>
 
       <div class="project-info">
 
@@ -945,7 +957,7 @@
 
 
     <!-- =========================
-         6 — CATWALK
+         CATWALK
          ========================= -->
 
     <article
@@ -957,13 +969,15 @@
         class="project-image"
         src="CATWALK_(1).jpg"
         alt="Catwalk"
-        loading="lazy"
-        decoding="async"
-        fetchpriority="auto"
       >
 
-      <div class="arrow arrow-left">&#8249;</div>
-      <div class="arrow arrow-right">&#8250;</div>
+      <div class="arrow arrow-left">
+        &#8249;
+      </div>
+
+      <div class="arrow arrow-right">
+        &#8250;
+      </div>
 
       <div class="project-info">
 
@@ -997,7 +1011,7 @@
 
 
     <!-- =========================
-         7 — WISHWALL
+         WISHWALL
          ========================= -->
 
     <article
@@ -1009,13 +1023,15 @@
         class="project-image"
         src="WISHWALL_1.jpg"
         alt="Wishwall"
-        loading="lazy"
-        decoding="async"
-        fetchpriority="auto"
       >
 
-      <div class="arrow arrow-left">&#8249;</div>
-      <div class="arrow arrow-right">&#8250;</div>
+      <div class="arrow arrow-left">
+        &#8249;
+      </div>
+
+      <div class="arrow arrow-right">
+        &#8250;
+      </div>
 
       <div class="project-info">
 
@@ -1051,7 +1067,7 @@
 
 
     <!-- =========================
-         8 — YTONG MODEL
+         YTONG MODEL
          ========================= -->
 
     <article
@@ -1063,13 +1079,15 @@
         class="project-image"
         src="model_1.jpg"
         alt="Ytong Model"
-        loading="lazy"
-        decoding="async"
-        fetchpriority="auto"
       >
 
-      <div class="arrow arrow-left">&#8249;</div>
-      <div class="arrow arrow-right">&#8250;</div>
+      <div class="arrow arrow-left">
+        &#8249;
+      </div>
+
+      <div class="arrow arrow-right">
+        &#8250;
+      </div>
 
       <div class="project-info">
 
@@ -1085,7 +1103,7 @@
 
 
     <!-- =========================
-         9 — EXPERIMENTAL MODEL
+         EXPERIMENTAL MODEL
          ========================= -->
 
     <article
@@ -1097,9 +1115,6 @@
         class="project-image"
         src="model_2.jpg"
         alt="Experimental Model"
-        loading="lazy"
-        decoding="async"
-        fetchpriority="auto"
       >
 
       <div class="project-info">
@@ -1116,7 +1131,7 @@
 
 
     <!-- =========================
-         10 — SPATIAL INVESTIGATIONS
+         SPATIAL INVESTIGATIONS
          ========================= -->
 
     <article
@@ -1128,13 +1143,15 @@
         class="project-image"
         src="TeclaSala_7.jpg"
         alt="Spatial Investigations"
-        loading="lazy"
-        decoding="async"
-        fetchpriority="auto"
       >
 
-      <div class="arrow arrow-left">&#8249;</div>
-      <div class="arrow arrow-right">&#8250;</div>
+      <div class="arrow arrow-left">
+        &#8249;
+      </div>
+
+      <div class="arrow arrow-right">
+        &#8250;
+      </div>
 
       <div class="project-info">
 
@@ -1163,7 +1180,7 @@
 
 
     <!-- =========================
-         11 — RESIDENTIAL COMPLEX
+         RESIDENTIAL COMPLEX
          ========================= -->
 
     <article
@@ -1175,13 +1192,15 @@
         class="project-image"
         src="ResidentialBuilding_1.png"
         alt="Residential Complex"
-        loading="lazy"
-        decoding="async"
-        fetchpriority="auto"
       >
 
-      <div class="arrow arrow-left">&#8249;</div>
-      <div class="arrow arrow-right">&#8250;</div>
+      <div class="arrow arrow-left">
+        &#8249;
+      </div>
+
+      <div class="arrow arrow-right">
+        &#8250;
+      </div>
 
       <div class="project-info">
 
@@ -1204,7 +1223,7 @@
 
 
     <!-- =========================
-         12 — DRYPOINT PRINTING
+         DRYPOINT PRINTING
          ========================= -->
 
     <article
@@ -1216,9 +1235,6 @@
         class="project-image"
         src="Drypoint_1.jpg"
         alt="Drypoint Printing"
-        loading="lazy"
-        decoding="async"
-        fetchpriority="auto"
       >
 
       <div class="project-info">
@@ -1235,7 +1251,7 @@
 
 
     <!-- =========================
-         13 — POSTER
+         POSTER
          ========================= -->
 
     <article
@@ -1247,13 +1263,15 @@
         class="project-image"
         src="Poster_1 (2).jpg"
         alt="Poster"
-        loading="lazy"
-        decoding="async"
-        fetchpriority="auto"
       >
 
-      <div class="arrow arrow-left">&#8249;</div>
-      <div class="arrow arrow-right">&#8250;</div>
+      <div class="arrow arrow-left">
+        &#8249;
+      </div>
+
+      <div class="arrow arrow-right">
+        &#8250;
+      </div>
 
       <div class="project-info">
 
@@ -1290,7 +1308,7 @@
 
 
     /* =====================================================
-       PROJECT IMAGE ARRAYS
+       PROJECT IMAGES
        ===================================================== */
 
     const projectImages = {
@@ -1401,88 +1419,18 @@
 
 
     /* =====================================================
-       CURRENT IMAGE INDEX
+       CURRENT IMAGE
        ===================================================== */
 
     const currentIndexes = {};
 
-    Object.keys(projectImages).forEach(function (id) {
+    Object.keys(projectImages).forEach(
+      function (id) {
 
-      currentIndexes[id] = 0;
+        currentIndexes[id] = 0;
 
-    });
-
-
-    /* =====================================================
-       PRELOAD SYSTEM
-       ===================================================== */
-
-    const preloadedImages = {};
-
-
-    function preloadImage(src) {
-
-      if (!src) {
-        return;
       }
-
-      if (preloadedImages[src]) {
-        return;
-      }
-
-      const img = new Image();
-
-      img.decoding = "async";
-
-      img.src = src;
-
-      preloadedImages[src] = img;
-
-    }
-
-
-    function preloadNextImage(projectId) {
-
-      const images =
-        projectImages[projectId];
-
-      if (!images || images.length <= 1) {
-        return;
-      }
-
-      const currentIndex =
-        currentIndexes[projectId] || 0;
-
-      const nextIndex =
-        (currentIndex + 1) % images.length;
-
-      preloadImage(
-        images[nextIndex]
-      );
-
-    }
-
-
-    function preloadPreviousImage(projectId) {
-
-      const images =
-        projectImages[projectId];
-
-      if (!images || images.length <= 1) {
-        return;
-      }
-
-      const currentIndex =
-        currentIndexes[projectId] || 0;
-
-      const previousIndex =
-        (currentIndex - 1 + images.length) % images.length;
-
-      preloadImage(
-        images[previousIndex]
-      );
-
-    }
+    );
 
 
     /* =====================================================
@@ -1497,68 +1445,32 @@
       const images =
         projectImages[projectId];
 
-      if (!images || images.length === 0) {
+      if (
+        !images ||
+        images.length === 0
+      ) {
+
         return;
+
       }
 
+
       const image =
-        project.querySelector(".project-image");
+        project.querySelector(
+          ".project-image"
+        );
 
       if (!image) {
         return;
       }
 
+
       const index =
         currentIndexes[projectId] || 0;
 
-      const newSrc =
+
+      image.src =
         images[index];
-
-
-      if (
-        image.getAttribute("src") !== newSrc
-      ) {
-
-        image.src = newSrc;
-
-        image.decoding = "async";
-
-      }
-
-
-      /*
-        Quietly prepare the next image.
-      */
-
-      if (
-        typeof window.requestIdleCallback ===
-        "function"
-      ) {
-
-        window.requestIdleCallback(
-          function () {
-
-            preloadNextImage(
-              projectId
-            );
-
-          }
-        );
-
-      } else {
-
-        setTimeout(
-          function () {
-
-            preloadNextImage(
-              projectId
-            );
-
-          },
-          300
-        );
-
-      }
 
     }
 
@@ -1568,8 +1480,7 @@
        ===================================================== */
 
     function selectProject(
-      project,
-      projectId
+      project
     ) {
 
       document
@@ -1579,7 +1490,9 @@
         .forEach(
           function (otherProject) {
 
-            if (otherProject !== project) {
+            if (
+              otherProject !== project
+            ) {
 
               otherProject.classList.remove(
                 "selected"
@@ -1596,36 +1509,8 @@
       );
 
 
-      project.style.zIndex = "500";
-
-
-      updateProjectImage(
-        project,
-        projectId
-      );
-
-    }
-
-
-    /* =====================================================
-       DESELECT PROJECTS
-       ===================================================== */
-
-    function deselectAllProjects() {
-
-      document
-        .querySelectorAll(
-          ".project.selected"
-        )
-        .forEach(
-          function (project) {
-
-            project.classList.remove(
-              "selected"
-            );
-
-          }
-        );
+      project.style.zIndex =
+        "500";
 
     }
 
@@ -1643,26 +1528,39 @@
       const images =
         projectImages[projectId];
 
-      if (!images || images.length <= 1) {
+
+      if (
+        !images ||
+        images.length <= 1
+      ) {
+
         return;
+
       }
+
 
       let index =
         currentIndexes[projectId] || 0;
 
+
       index += direction;
 
 
-      if (index >= images.length) {
+      if (
+        index >= images.length
+      ) {
 
         index = 0;
 
       }
 
 
-      if (index < 0) {
+      if (
+        index < 0
+      ) {
 
-        index = images.length - 1;
+        index =
+          images.length - 1;
 
       }
 
@@ -1684,7 +1582,9 @@
        ===================================================== */
 
     document
-      .querySelectorAll(".project")
+      .querySelectorAll(
+        ".project"
+      )
       .forEach(
         function (project) {
 
@@ -1696,7 +1596,7 @@
 
 
           /*
-            Arrows.
+            ARROWS
           */
 
           if (
@@ -1725,8 +1625,7 @@
 
 
                   selectProject(
-                    project,
-                    projectId
+                    project
                   );
 
 
@@ -1734,11 +1633,6 @@
                     project,
                     projectId,
                     -1
-                  );
-
-
-                  preloadPreviousImage(
-                    projectId
                   );
 
                 }
@@ -1757,8 +1651,7 @@
 
 
                   selectProject(
-                    project,
-                    projectId
+                    project
                   );
 
 
@@ -1766,11 +1659,6 @@
                     project,
                     projectId,
                     1
-                  );
-
-
-                  preloadNextImage(
-                    projectId
                   );
 
                 }
@@ -1782,7 +1670,7 @@
 
 
           /*
-            Click on project.
+            CLICK PROJECT
           */
 
           project.addEventListener(
@@ -1791,7 +1679,7 @@
 
 
               /*
-                Links in descriptions
+                Links inside descriptions
                 should work normally.
               */
 
@@ -1805,7 +1693,7 @@
 
 
               /*
-                Arrows have their own function.
+                Arrows have their own events.
               */
 
               if (
@@ -1818,13 +1706,12 @@
 
 
               selectProject(
-                project,
-                projectId
+                project
               );
 
 
               /*
-                Advance to next image.
+                Move to next image.
               */
 
               if (
@@ -1856,10 +1743,24 @@
       function (event) {
 
         if (
-          !event.target.closest(".project")
+          !event.target.closest(
+            ".project"
+          )
         ) {
 
-          deselectAllProjects();
+          document
+            .querySelectorAll(
+              ".project.selected"
+            )
+            .forEach(
+              function (project) {
+
+                project.classList.remove(
+                  "selected"
+                );
+
+              }
+            );
 
         }
 
@@ -1868,71 +1769,17 @@
 
 
     /* =====================================================
-       BACKGROUND PRELOADING
-       ===================================================== */
-
-    function startBackgroundPreloading() {
-
-      const projects =
-        document.querySelectorAll(
-          ".project"
-        );
-
-
-      projects.forEach(
-        function (project, index) {
-
-          const projectId =
-            project.dataset.project;
-
-          const images =
-            projectImages[projectId];
-
-
-          if (
-            !images ||
-            images.length <= 1
-          ) {
-
-            return;
-
-          }
-
-
-          /*
-            Spread requests over time
-            instead of downloading everything
-            simultaneously.
-          */
-
-          setTimeout(
-            function () {
-
-              preloadNextImage(
-                projectId
-              );
-
-            },
-            900 + index * 250
-          );
-
-        }
-      );
-
-    }
-
-
-    /* =====================================================
        MOBILE COLUMNS
        ===================================================== */
 
-    let mobileColumnsCreated = false;
+    function setupMobileColumns() {
 
+      if (
+        window.innerWidth > 650
+      ) {
 
-    function createMobileColumns() {
-
-      if (mobileColumnsCreated) {
         return;
+
       }
 
 
@@ -1942,22 +1789,22 @@
         );
 
 
-      if (!gallery) {
-        return;
-      }
-
-
       const projects =
         Array.from(
           gallery.querySelectorAll(
-            ".project"
+            ":scope > .project"
           )
         );
 
 
-      /*
-        Create two scrolling columns.
-      */
+      if (
+        projects.length === 0
+      ) {
+
+        return;
+
+      }
+
 
       const leftColumn =
         document.createElement(
@@ -1965,7 +1812,7 @@
         );
 
       leftColumn.className =
-        "mobile-column left-column";
+        "mobile-column";
 
 
       const rightColumn =
@@ -1974,23 +1821,12 @@
         );
 
       rightColumn.className =
-        "mobile-column right-column";
-
-
-      gallery.innerHTML = "";
-
-
-      gallery.appendChild(
-        leftColumn
-      );
-
-      gallery.appendChild(
-        rightColumn
-      );
+        "mobile-column";
 
 
       /*
-        Left column:
+        LEFT COLUMN
+
         VETCARD
         URBAN DESIGN
         EXPERIMENTAL MODEL
@@ -1999,7 +1835,7 @@
         DRYPOINT PRINTING
       */
 
-      const leftProjects = [
+      const leftIds = [
         "0",
         "4",
         "8",
@@ -2010,17 +1846,18 @@
 
 
       /*
-        Right column:
+        RIGHT COLUMN
+
         ECHOES
         X-RAYS
         SMITHSON
         CATWALK
         WISHWALL
-        YTONG
+        YTONG MODEL
         POSTER
       */
 
-      const rightProjects = [
+      const rightIds = [
         "1",
         "2",
         "3",
@@ -2039,7 +1876,7 @@
 
 
           if (
-            leftProjects.includes(id)
+            leftIds.includes(id)
           ) {
 
             leftColumn.appendChild(
@@ -2049,7 +1886,7 @@
           } else {
 
             if (
-              rightProjects.includes(id)
+              rightIds.includes(id)
             ) {
 
               rightColumn.appendChild(
@@ -2064,63 +1901,32 @@
       );
 
 
-      mobileColumnsCreated = true;
-
-    }
+      gallery.innerHTML = "";
 
 
-    /* =====================================================
-       DESKTOP RESTORE
-       ===================================================== */
+      gallery.appendChild(
+        leftColumn
+      );
 
-    function setupLayout() {
-
-      const isMobile =
-        window.innerWidth <= 650;
-
-
-      if (isMobile) {
-
-        createMobileColumns();
-
-      }
-
-    }
-
-
-    setupLayout();
-
-
-    /* =====================================================
-       LOAD PRELOADING
-       ===================================================== */
-
-    if (
-      document.readyState ===
-      "complete"
-    ) {
-
-      startBackgroundPreloading();
-
-    } else {
-
-      window.addEventListener(
-        "load",
-        function () {
-
-          startBackgroundPreloading();
-
-        }
+      gallery.appendChild(
+        rightColumn
       );
 
     }
 
 
     /* =====================================================
+       INITIAL MOBILE SETUP
+       ===================================================== */
+
+    setupMobileColumns();
+
+
+    /* =====================================================
        RESIZE
        ===================================================== */
 
-    let previousMobileState =
+    let wasMobile =
       window.innerWidth <= 650;
 
 
@@ -2128,23 +1934,16 @@
       "resize",
       function () {
 
-        const currentMobileState =
+        const isMobile =
           window.innerWidth <= 650;
 
 
         if (
-          currentMobileState !==
-          previousMobileState
+          isMobile !== wasMobile
         ) {
 
-          previousMobileState =
-            currentMobileState;
-
-
-          /*
-            Rebuild the page cleanly when
-            changing between desktop and mobile.
-          */
+          wasMobile =
+            isMobile;
 
           window.location.reload();
 
