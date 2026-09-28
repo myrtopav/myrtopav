@@ -118,6 +118,7 @@
       display: block;
       width: 100%;
       height: auto;
+      max-width: 100%;
 
       transition:
         transform 0.45s cubic-bezier(0.2, 0.7, 0.2, 1),
@@ -215,6 +216,19 @@
       color: #ffffff;
       text-decoration: underline;
       pointer-events: auto;
+    }
+
+    .project-note {
+      width: 100%;
+
+      margin-top: 5px;
+
+      color: #000000;
+
+      font-size: 9px;
+      line-height: 1.4;
+
+      text-transform: none;
     }
 
 
@@ -546,6 +560,8 @@
         display: block;
 
         z-index: 1;
+
+        text-align: center;
       }
 
       .mobile-column .project:first-child {
@@ -553,11 +569,20 @@
       }
 
 
-      /* MOBILE IMAGE */
+      /* MOBILE IMAGE
+         KEEP ENTIRE IMAGE VISIBLE */
 
       .mobile-column .project-image {
-        width: 100%;
+        display: block;
+
+        width: auto;
+        max-width: 100%;
         height: auto;
+
+        margin-left: auto;
+        margin-right: auto;
+
+        object-fit: contain;
 
         transform: scale(1);
 
@@ -578,7 +603,7 @@
       }
 
       .mobile-column .project.selected .project-image {
-        transform: scale(1.35);
+        transform: scale(1.25);
       }
 
 
@@ -610,6 +635,11 @@
       }
 
       .mobile-column .project-description {
+        font-size: 8px;
+        line-height: 1.35;
+      }
+
+      .mobile-column .project-note {
         font-size: 8px;
         line-height: 1.35;
       }
@@ -656,7 +686,7 @@
       }
 
       .mobile-column .project.selected .project-image {
-        transform: scale(1.28);
+        transform: scale(1.2);
       }
 
       .website-credit {
@@ -812,6 +842,15 @@
             SPATIAL INVESTIGATIONS
           </div>
 
+          <div class="project-description">
+            design studio in Auth,<br>
+            with Evi Taxi, 2022
+          </div>
+
+          <div class="project-note">
+            The project was exhibited at the HELEXPO 2022 in Thessaloniki
+          </div>
+
         </div>
 
       </div>
@@ -895,7 +934,7 @@
               MORADAVAGA
             </a>
             <br>
-            Faro, Portugal
+            Faro, Portugal, 2025
           </div>
 
         </div>
@@ -1013,7 +1052,7 @@
 
         <img
           class="project-image"
-          src="WISHWALL_4.jpg"
+          src="WISHWALL_1.jpg"
           alt="Wishwall"
         >
 
@@ -1153,13 +1192,13 @@
       ],
 
       6: [
+        "WISHWALL_1.jpg",
+        "WISHWALL_2.jpg",
+        "WISHWALL_3.jpg",
         "WISHWALL_4.jpg",
         "WISHWALL_5.jpg",
         "WISHWALL_6.jpg",
-        "WISHWALL_7.jpg",
-        "WISHWALL_1.jpg",
-        "WISHWALL_2.jpg",
-        "WISHWALL_3.jpg"
+        "WISHWALL_7.jpg"
       ],
 
       7: [
