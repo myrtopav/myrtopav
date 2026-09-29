@@ -296,7 +296,7 @@
        DESKTOP LAYOUT
     ========================= */
 
-    /* VETCARD — slightly larger */
+    /* VETCARD - slightly larger */
 
     .project-0 {
       width: 9vw;
@@ -304,7 +304,7 @@
       top: 17vh;
     }
 
-    /* ECHOES — slightly larger */
+    /* ECHOES - slightly larger */
 
     .project-1 {
       width: 8.5vw;
@@ -536,36 +536,44 @@
       body {
         width: 100%;
         height: auto;
-        overflow: auto;
+        min-height: 100%;
+        overflow-x: hidden;
+        overflow-y: auto;
       }
 
       body {
-        overflow-x: hidden;
+        position: relative;
       }
 
       header {
         position: relative;
+        width: 100%;
         height: auto;
         padding: 24px 5vw 0 5vw;
       }
 
       .gallery {
         position: relative;
-        height: auto;
         width: 100%;
+        height: auto;
+        min-height: 0;
         display: grid;
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+        align-items: start;
         gap: 0 8vw;
-        padding: 65px 5vw 80px 5vw;
+        padding: 65px 5vw 100px 5vw;
         overflow: visible;
       }
 
       .mobile-column {
         position: relative;
+        width: 100%;
+        min-width: 0;
+        height: auto;
         display: flex;
         flex-direction: column;
         gap: 30px;
-        min-width: 0;
+        overflow: visible;
       }
 
       .project {
@@ -573,15 +581,21 @@
         left: auto !important;
         top: auto !important;
         width: 100% !important;
+        height: auto !important;
         transform: none !important;
+        margin: 0;
         text-align: center;
       }
 
       .project-image {
+        display: block;
         width: auto;
         max-width: 100%;
         height: auto;
+        max-height: none;
         object-fit: contain;
+        margin-left: auto;
+        margin-right: auto;
       }
 
       .project:hover .project-image {
@@ -592,20 +606,25 @@
         position: relative !important;
         left: auto !important;
         top: auto !important;
-        transform: none !important;
         width: 100% !important;
+        height: auto !important;
+        transform: none !important;
+        margin: 0;
       }
 
       .project.selected .project-image {
-        transform: scale(1) !important;
-        opacity: 1;
-        z-index: 10;
         width: auto;
         max-width: 100%;
+        height: auto;
         max-height: none;
+        transform: scale(1) !important;
+        opacity: 1;
+        margin-left: auto;
+        margin-right: auto;
       }
 
       .project.selected .project-video {
+        display: block;
         width: 100%;
         height: auto;
         max-width: 100%;
@@ -614,8 +633,9 @@
       }
 
       .project-info {
-        margin-top: 8px;
+        position: relative;
         max-width: 100%;
+        margin-top: 8px;
       }
 
       .project-arrow {
@@ -627,6 +647,7 @@
         right: 5vw;
         bottom: 20px;
         font-size: 9px;
+        z-index: 1000;
       }
     }
 
@@ -1556,7 +1577,9 @@
       });
 
 
-      /* PREVIOUS ARROW */
+      /* =========================
+         PREVIOUS ARROW
+      ========================= */
 
       const prev =
         project.querySelector(".project-arrow.prev");
@@ -1576,7 +1599,9 @@
       }
 
 
-      /* NEXT ARROW */
+      /* =========================
+         NEXT ARROW
+      ========================= */
 
       const next =
         project.querySelector(".project-arrow.next");
