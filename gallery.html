@@ -2,7 +2,6 @@
 <html lang="en">
 
 <head>
-
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -39,32 +38,23 @@
       cursor: url("cursor2.png") 25 25, auto;
     }
 
-
     /* =========================
        HEADER
-       ========================= */
+    ========================= */
 
     header {
       position: fixed;
       top: 0;
       left: 0;
-
       width: 100%;
-      height: 65px;
-
-      padding: 25px 3vw 0 3vw;
-
+      height: 80px;
+      padding: 30px 3vw 0 3vw;
       display: grid;
       grid-template-columns: 1fr 1fr;
-
       align-items: start;
-
+      z-index: 1000;
       font-size: 10px;
       text-transform: uppercase;
-
-      z-index: 1000;
-
-      cursor: url("cursor2.png") 25 25, auto;
     }
 
     .name {
@@ -75,10 +65,7 @@
       color: #777777;
       font-size: 10px;
       text-decoration: none;
-
       transition: color 0.2s ease;
-
-      cursor: url("cursor2.png") 25 25, auto;
     }
 
     .name a:hover {
@@ -91,204 +78,104 @@
       font-size: 10px;
     }
 
-
     /* =========================
        GALLERY
-       ========================= */
+    ========================= */
 
     .gallery {
-      position: fixed;
-
-      top: 65px;
-      left: 0;
-
+      position: relative;
       width: 100%;
-      height: calc(100vh - 65px);
-
+      height: 100vh;
       overflow: hidden;
-
-      cursor: url("cursor2.png") 25 25, auto;
     }
-
-
-    /* =========================
-       PROJECT
-       ========================= */
 
     .project {
       position: absolute;
-
       display: block;
-
       text-align: center;
-
-      cursor: url("cursor2.png") 25 25, auto;
-
       z-index: 1;
+      transition:
+        transform 0.35s ease,
+        opacity 0.35s ease;
     }
 
     .project-image {
       display: block;
-
       width: 100%;
       height: auto;
-
       object-fit: contain;
-
       cursor: url("cursor2.png") 25 25, auto;
-
       transition:
-        transform 0.35s cubic-bezier(0.2, 0.7, 0.2, 1),
+        transform 0.4s cubic-bezier(0.2, 0.7, 0.2, 1),
         opacity 0.35s ease;
     }
 
-
-    /* =========================
-       HOVER
-       ========================= */
-
-    .project:not(.selected):hover {
-      z-index: 300;
+    .project:hover {
+      z-index: 100;
     }
 
-    .project:not(.selected):hover .project-image {
+    .project:hover .project-image {
       transform: scale(1.06);
-      opacity: 0.9;
     }
-
 
     /* =========================
        PROJECT INFO
-       ========================= */
+    ========================= */
 
     .project-info {
       position: relative;
-
-      display: inline-flex;
-
-      flex-direction: column;
-
-      align-items: center;
-      justify-content: center;
-
-      margin-top: 8px;
-
-      padding: 6px 9px 7px 9px;
-
+      display: inline-block;
+      max-width: 100%;
+      margin-top: 10px;
+      padding: 7px 9px 8px 9px;
       background: #2f6fff;
-
       color: #ffffff;
-
-      font-size: 10px;
-      line-height: 1.35;
-
       text-align: center;
-
       opacity: 0;
-
-      transform: translateY(-4px);
-
+      transform: translateY(-5px);
       transition:
-        opacity 0.25s ease,
-        transform 0.25s ease;
-
-      /*
-       * Important:
-       * the information area must be clickable
-       * so MORADAVAGA and Kelly can be opened.
-       */
+        opacity 0.3s ease,
+        transform 0.3s ease;
       pointer-events: none;
-
-      max-width: 330px;
+      z-index: 20;
     }
 
     .project:hover .project-info,
     .project.selected .project-info {
       opacity: 1;
       transform: translateY(0);
-
       pointer-events: auto;
     }
 
-
-    /* =========================
-       LINKS
-       MORADAVAGA + KELLY
-       ========================= */
-
-    .project-info a {
-      color: #7FE3C1;
-
-      text-decoration: none;
-
-      font-weight: 400;
-
-      cursor: url("cursor2.png") 25 25, auto;
-
-      transition: color 0.2s ease;
-    }
-
-    .project-info a:hover {
-      color: #45B995;
-    }
-
-
-    /* =========================
-       TITLE
-       ========================= */
-
     .project-title {
       color: #ffffff;
-
       font-size: 10px;
-      line-height: 1.35;
-
+      line-height: 1.3;
       text-transform: uppercase;
     }
 
-
-    /* =========================
-       DESCRIPTION
-       ========================= */
-
     .project-description {
       color: #ffffff;
-
-      font-size: 10px;
-      line-height: 1.35;
-
+      font-size: 9px;
+      line-height: 1.4;
+      margin-top: 3px;
       text-transform: none;
     }
-
-
-    /* =========================
-       COLLABORATOR
-       ========================= */
 
     .project-collaborator {
       color: #ffffff;
-
-      font-size: 10px;
-      line-height: 1.35;
-
+      font-size: 9px;
+      line-height: 1.4;
+      margin-top: 2px;
       text-transform: none;
     }
 
-
-    /* =========================
-       SPATIAL INVESTIGATIONS NOTE
-       ========================= */
-
     .project-note {
       color: #000000;
-
       font-size: 9px;
       line-height: 1.4;
-
       margin-top: 8px;
-
       text-transform: none;
-
       opacity: 0;
     }
 
@@ -297,39 +184,45 @@
       opacity: 1;
     }
 
+    /* =========================
+       LINKS INSIDE INFO
+    ========================= */
+
+    .project-info a {
+      color: #7FE3C1;
+      text-decoration: none;
+      font-weight: 400;
+      cursor: url("cursor2.png") 25 25, auto;
+      transition: color 0.2s ease;
+    }
+
+    .project-info a:hover {
+      color: #45B995;
+    }
 
     /* =========================
        ARROWS
-       ========================= */
+    ========================= */
 
     .project-arrow {
       position: absolute;
-
       top: 50%;
-
-      width: 25px;
-      height: 35px;
-
-      margin-top: -17px;
-
+      width: 22px;
+      height: 22px;
+      margin-top: -11px;
       display: flex;
-
       align-items: center;
       justify-content: center;
-
       color: #000000;
-
-      font-size: 17px;
-      font-weight: 400;
-
+      background: transparent;
+      border: none;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 15px;
       line-height: 1;
-
+      padding: 0;
       opacity: 0;
-
       z-index: 30;
-
       cursor: url("cursor2.png") 25 25, auto;
-
       transition: opacity 0.2s ease;
     }
 
@@ -338,68 +231,50 @@
       opacity: 1;
     }
 
-    .project-arrow.left {
-      left: 4px;
+    .project-arrow.prev {
+      left: -28px;
     }
 
-    .project-arrow.right {
-      right: 4px;
+    .project-arrow.next {
+      right: -28px;
     }
-
 
     /* =========================
-       SELECTED PROJECT — DESKTOP
-       ========================= */
+       SELECTED PROJECT
+    ========================= */
 
     .project.selected {
       z-index: 500;
-
       position: fixed;
-
       left: 50% !important;
       top: 50% !important;
-
       width: auto !important;
-
       transform: translate(-50%, -50%);
-
       text-align: center;
-
-      cursor: url("cursor2.png") 25 25, auto;
     }
 
     .project.selected .project-image {
       display: block;
-
       width: auto;
       height: auto;
-
       max-width: calc(100vw - 80px);
       max-height: calc(100vh - 180px);
-
       margin-left: auto;
       margin-right: auto;
-
       object-fit: contain;
-
       transform: none;
-
       opacity: 1;
-
       z-index: 10;
-
       cursor: url("cursor2.png") 25 25, auto;
     }
 
-    .project.selected .project-info {
-      margin-left: auto;
-      margin-right: auto;
+    .project.selected .project-arrow {
+      opacity: 1;
     }
 
-
     /* =========================
-       DESKTOP POSITIONS
-       ========================= */
+       PROJECT POSITIONS
+    ========================= */
 
     .project-0 {
       width: 11vw;
@@ -503,10 +378,24 @@
       top: 54vh;
     }
 
+    /* =========================
+       CREDIT
+    ========================= */
+
+    .website-credit {
+      position: fixed;
+      right: 3vw;
+      bottom: 25px;
+      color: #777777;
+      font-size: 10px;
+      font-weight: 400;
+      text-align: right;
+      z-index: 1000;
+    }
 
     /* =========================
        TABLET
-       ========================= */
+    ========================= */
 
     @media (max-width: 1100px) and (min-width: 651px) {
 
@@ -611,233 +500,118 @@
         left: 86vw;
         top: 53vh;
       }
-
     }
-
-
-    /* =========================
-       WEBSITE CREDIT
-       ========================= */
-
-    .website-credit {
-      position: fixed;
-
-      right: 3vw;
-      bottom: 25px;
-
-      color: #777777;
-
-      font-size: 10px;
-      font-weight: 400;
-
-      text-align: right;
-
-      z-index: 1000;
-
-      cursor: url("cursor2.png") 25 25, auto;
-    }
-
 
     /* =========================
        MOBILE
-       ========================= */
+    ========================= */
 
     @media (max-width: 650px) {
 
       html,
       body {
         width: 100%;
-        height: 100%;
+        height: auto;
+        overflow: auto;
+      }
 
-        overflow: hidden;
+      body {
+        overflow-x: hidden;
       }
 
       header {
-        height: 65px;
-
+        position: relative;
+        height: auto;
         padding: 24px 5vw 0 5vw;
       }
 
       .gallery {
-        position: fixed;
-
-        top: 65px;
-        left: 0;
-
+        position: relative;
+        height: auto;
         width: 100%;
-        height: calc(100vh - 65px);
-
         display: grid;
-
         grid-template-columns: 1fr 1fr;
-
-        gap: 0;
-
-        overflow: hidden;
-      }
-
-      .desktop-project {
-        display: none !important;
+        gap: 0 8vw;
+        padding: 65px 5vw 80px 5vw;
+        overflow: visible;
       }
 
       .mobile-column {
-        width: 100%;
-        height: 100%;
-
-        overflow-y: auto;
-        overflow-x: hidden;
-
-        padding: 20px 5vw 80px 5vw;
-
-        scrollbar-width: none;
-
-        cursor: url("cursor2.png") 25 25, auto;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        min-width: 0;
       }
 
-      .mobile-column::-webkit-scrollbar {
+      .project {
+        position: relative !important;
+        left: auto !important;
+        top: auto !important;
+        width: 100% !important;
+        transform: none !important;
+        text-align: center;
+      }
+
+      .project-image {
+        width: auto;
+        max-width: 100%;
+        height: auto;
+        object-fit: contain;
+      }
+
+      .project:hover .project-image {
+        transform: scale(1.02);
+      }
+
+      .project.selected {
+        position: relative !important;
+        left: auto !important;
+        top: auto !important;
+        transform: none !important;
+        width: 100% !important;
+      }
+
+      .project.selected .project-image {
+        transform: scale(1) !important;
+        opacity: 1;
+        z-index: 10;
+        width: auto;
+        max-width: 100%;
+        max-height: none;
+      }
+
+      .project-info {
+        margin-top: 8px;
+        max-width: 100%;
+      }
+
+      .project-arrow {
         display: none;
       }
 
-      .mobile-column .project {
-        position: relative !important;
-
-        left: auto !important;
-        top: auto !important;
-
-        width: 100% !important;
-
-        margin-bottom: 30px;
-
-        transform: none !important;
-
-        text-align: center;
-
-        z-index: 1;
-
-        cursor: url("cursor2.png") 25 25, auto;
-      }
-
-      .mobile-column .project-image {
-        display: block;
-
-        width: auto;
-        max-width: 100%;
-
-        height: auto;
-        max-height: none;
-
-        margin-left: auto;
-        margin-right: auto;
-
-        object-fit: contain;
-
-        transform: scale(1) !important;
-
-        opacity: 1;
-
-        cursor: url("cursor2.png") 25 25, auto;
-      }
-
-      .mobile-column .project:not(.selected):hover .project-image {
-        transform: scale(1) !important;
-        opacity: 1;
-      }
-
-      .mobile-column .project.selected {
-        position: relative !important;
-
-        left: auto !important;
-        top: auto !important;
-
-        width: 100% !important;
-
-        transform: none !important;
-
-        z-index: 20;
-      }
-
-      .mobile-column .project.selected .project-image {
-        transform: scale(1) !important;
-
-        opacity: 1;
-
-        z-index: 10;
-
-        width: auto;
-
-        max-width: 100%;
-
-        max-height: none;
-      }
-
-      .mobile-column .project-info {
-        margin-top: 8px;
-      }
-
-      .mobile-column .project-arrow {
-        opacity: 0;
-      }
-
-      .mobile-column .project:hover .project-arrow,
-      .mobile-column .project.selected .project-arrow {
-        opacity: 1;
-      }
-
       .website-credit {
+        position: fixed;
         right: 5vw;
-        bottom: 15px;
-
+        bottom: 20px;
         font-size: 9px;
       }
-
-    }
-
-
-    /* =========================
-       SMALL MOBILE
-       ========================= */
-
-    @media (max-width: 450px) {
-
-      .mobile-column {
-        padding-left: 5vw;
-        padding-right: 5vw;
-
-        padding-top: 15px;
-        padding-bottom: 80px;
-      }
-
-      .mobile-column .project {
-        margin-bottom: 30px;
-      }
-
-      .website-credit {
-        right: 5vw;
-        bottom: 15px;
-
-        font-size: 9px;
-      }
-
     }
 
   </style>
-
 </head>
 
 
 <body>
 
-
   <!-- =========================
        HEADER
-       ========================= -->
+  ========================= -->
 
   <header>
 
     <div class="name">
-      <a href="index.html">
-        MYRTO PAVLOPOULOU
-      </a>
+      <a href="index.html">MYRTO PAVLOPOULOU</a>
     </div>
 
     <div class="profession">
@@ -849,16 +623,17 @@
 
   <!-- =========================
        GALLERY
-       ========================= -->
+  ========================= -->
 
   <main class="gallery">
 
+    <div class="mobile-column mobile-left"></div>
+    <div class="mobile-column mobile-right"></div>
 
-    <!-- =========================
-         0 — VETCARD
-         ========================= -->
 
-    <div class="project project-0 desktop-project" data-project="0">
+    <!-- 0 — VETCARD -->
+
+    <div class="project project-0" data-project="0">
 
       <img
         class="project-image"
@@ -866,13 +641,8 @@
         alt="VetCard"
       >
 
-      <div class="project-arrow left">
-        ‹
-      </div>
-
-      <div class="project-arrow right">
-        ›
-      </div>
+      <button class="project-arrow prev" type="button">‹</button>
+      <button class="project-arrow next" type="button">›</button>
 
       <div class="project-info">
 
@@ -889,11 +659,9 @@
     </div>
 
 
-    <!-- =========================
-         1 — ECHOES OF THE DEEP
-         ========================= -->
+    <!-- 1 — ECHOES OF THE DEEP -->
 
-    <div class="project project-1 desktop-project" data-project="1">
+    <div class="project project-1" data-project="1">
 
       <img
         class="project-image"
@@ -901,13 +669,8 @@
         alt="Echoes of the Deep"
       >
 
-      <div class="project-arrow left">
-        ‹
-      </div>
-
-      <div class="project-arrow right">
-        ›
-      </div>
+      <button class="project-arrow prev" type="button">‹</button>
+      <button class="project-arrow next" type="button">›</button>
 
       <div class="project-info">
 
@@ -920,9 +683,8 @@
           <a
             href="https://moradavaga.com/ECHOES-OF-THE-DEEP"
             target="_blank"
-          >
-            MORADAVAGA
-          </a>
+            rel="noopener noreferrer"
+          >MORADAVAGA</a>
           <br>
           Faro, Portugal, 2025
         </div>
@@ -932,25 +694,18 @@
     </div>
 
 
-    <!-- =========================
-         2 — X-RAYS
-         ========================= -->
+    <!-- 2 — X-RAYS OF THE MODERN CITIES -->
 
-    <div class="project project-2 desktop-project" data-project="2">
+    <div class="project project-2" data-project="2">
 
       <img
         class="project-image"
         src="X-ray_(1).jpg"
-        alt="X-rays of the Modern Cities"
+        alt="X-Rays of the Modern Cities"
       >
 
-      <div class="project-arrow left">
-        ‹
-      </div>
-
-      <div class="project-arrow right">
-        ›
-      </div>
+      <button class="project-arrow prev" type="button">‹</button>
+      <button class="project-arrow next" type="button">›</button>
 
       <div class="project-info">
 
@@ -967,11 +722,9 @@
     </div>
 
 
-    <!-- =========================
-         3 — SMITHSON
-         ========================= -->
+    <!-- 3 — PLACES INSPIRED BY ROBERT SMITHSON -->
 
-    <div class="project project-3 desktop-project" data-project="3">
+    <div class="project project-3" data-project="3">
 
       <img
         class="project-image"
@@ -979,13 +732,8 @@
         alt="Places Inspired by Robert Smithson"
       >
 
-      <div class="project-arrow left">
-        ‹
-      </div>
-
-      <div class="project-arrow right">
-        ›
-      </div>
+      <button class="project-arrow prev" type="button">‹</button>
+      <button class="project-arrow next" type="button">›</button>
 
       <div class="project-info">
 
@@ -998,11 +746,9 @@
     </div>
 
 
-    <!-- =========================
-         4 — URBAN DESIGN
-         ========================= -->
+    <!-- 4 — URBAN DESIGN -->
 
-    <div class="project project-4 desktop-project" data-project="4">
+    <div class="project project-4" data-project="4">
 
       <img
         class="project-image"
@@ -1010,13 +756,8 @@
         alt="Urban Design"
       >
 
-      <div class="project-arrow left">
-        ‹
-      </div>
-
-      <div class="project-arrow right">
-        ›
-      </div>
+      <button class="project-arrow prev" type="button">‹</button>
+      <button class="project-arrow next" type="button">›</button>
 
       <div class="project-info">
 
@@ -1029,11 +770,9 @@
     </div>
 
 
-    <!-- =========================
-         5 — CATWALK
-         ========================= -->
+    <!-- 5 — CATWALK -->
 
-    <div class="project project-5 desktop-project" data-project="5">
+    <div class="project project-5" data-project="5">
 
       <img
         class="project-image"
@@ -1041,13 +780,8 @@
         alt="Catwalk"
       >
 
-      <div class="project-arrow left">
-        ‹
-      </div>
-
-      <div class="project-arrow right">
-        ›
-      </div>
+      <button class="project-arrow prev" type="button">‹</button>
+      <button class="project-arrow next" type="button">›</button>
 
       <div class="project-info">
 
@@ -1060,9 +794,8 @@
           <a
             href="https://moradavaga.com/Exhibitions-Workshops-Lectures"
             target="_blank"
-          >
-            MORADAVAGA
-          </a>
+            rel="noopener noreferrer"
+          >MORADAVAGA</a>
           <br>
           Alte, Portugal, 2024
         </div>
@@ -1072,11 +805,9 @@
     </div>
 
 
-    <!-- =========================
-         6 — WISHWALL
-         ========================= -->
+    <!-- 6 — WISHWALL -->
 
-    <div class="project project-6 desktop-project" data-project="6">
+    <div class="project project-6" data-project="6">
 
       <img
         class="project-image"
@@ -1084,13 +815,8 @@
         alt="Wishwall"
       >
 
-      <div class="project-arrow left">
-        ‹
-      </div>
-
-      <div class="project-arrow right">
-        ›
-      </div>
+      <button class="project-arrow prev" type="button">‹</button>
+      <button class="project-arrow next" type="button">›</button>
 
       <div class="project-info">
 
@@ -1105,9 +831,8 @@
           <a
             href="https://moradavaga.com/WISHWALL"
             target="_blank"
-          >
-            MORADAVAGA
-          </a>,
+            rel="noopener noreferrer"
+          >MORADAVAGA</a>,
           Braga, Portugal, 2024
         </div>
 
@@ -1116,11 +841,9 @@
     </div>
 
 
-    <!-- =========================
-         7 — YTONG MODEL
-         ========================= -->
+    <!-- 7 — YTONG MODEL -->
 
-    <div class="project project-7 desktop-project" data-project="7">
+    <div class="project project-7" data-project="7">
 
       <img
         class="project-image"
@@ -1128,13 +851,8 @@
         alt="Ytong Model"
       >
 
-      <div class="project-arrow left">
-        ‹
-      </div>
-
-      <div class="project-arrow right">
-        ›
-      </div>
+      <button class="project-arrow prev" type="button">‹</button>
+      <button class="project-arrow next" type="button">›</button>
 
       <div class="project-info">
 
@@ -1147,11 +865,9 @@
     </div>
 
 
-    <!-- =========================
-         8 — EXPERIMENTAL MODEL
-         ========================= -->
+    <!-- 8 — EXPERIMENTAL MODEL -->
 
-    <div class="project project-8 desktop-project" data-project="8">
+    <div class="project project-8" data-project="8">
 
       <img
         class="project-image"
@@ -1170,25 +886,18 @@
     </div>
 
 
-    <!-- =========================
-         9 — SPATIAL INVESTIGATIONS
-         ========================= -->
+    <!-- 9 — SPATIAL INVESTIGATIONS -->
 
-    <div class="project project-9 desktop-project" data-project="9">
+    <div class="project project-9" data-project="9">
 
       <img
         class="project-image"
-        src="TeclaSala_7.jpg"
+        src="TeclaSala_1.jpg"
         alt="Spatial Investigations"
       >
 
-      <div class="project-arrow left">
-        ‹
-      </div>
-
-      <div class="project-arrow right">
-        ›
-      </div>
+      <button class="project-arrow prev" type="button">‹</button>
+      <button class="project-arrow next" type="button">›</button>
 
       <div class="project-info">
 
@@ -1211,11 +920,9 @@
     </div>
 
 
-    <!-- =========================
-         10 — RESIDENTIAL COMPLEX
-         ========================= -->
+    <!-- 10 — RESIDENTIAL COMPLEX -->
 
-    <div class="project project-10 desktop-project" data-project="10">
+    <div class="project project-10" data-project="10">
 
       <img
         class="project-image"
@@ -1223,13 +930,8 @@
         alt="Residential Complex"
       >
 
-      <div class="project-arrow left">
-        ‹
-      </div>
-
-      <div class="project-arrow right">
-        ›
-      </div>
+      <button class="project-arrow prev" type="button">‹</button>
+      <button class="project-arrow next" type="button">›</button>
 
       <div class="project-info">
 
@@ -1248,11 +950,9 @@
     </div>
 
 
-    <!-- =========================
-         11 — DRYPOINT PRINTING
-         ========================= -->
+    <!-- 11 — DRYPOINT PRINTING -->
 
-    <div class="project project-11 desktop-project" data-project="11">
+    <div class="project project-11" data-project="11">
 
       <img
         class="project-image"
@@ -1271,11 +971,9 @@
     </div>
 
 
-    <!-- =========================
-         12 — POSTER
-         ========================= -->
+    <!-- 12 — POSTER -->
 
-    <div class="project project-12 desktop-project" data-project="12">
+    <div class="project project-12" data-project="12">
 
       <img
         class="project-image"
@@ -1283,13 +981,8 @@
         alt="Poster"
       >
 
-      <div class="project-arrow left">
-        ‹
-      </div>
-
-      <div class="project-arrow right">
-        ›
-      </div>
+      <button class="project-arrow prev" type="button">‹</button>
+      <button class="project-arrow next" type="button">›</button>
 
       <div class="project-info">
 
@@ -1306,11 +999,9 @@
     </div>
 
 
-    <!-- =========================
-         13 — BOOKMARKS
-         ========================= -->
+    <!-- 13 — BOOKMARKS -->
 
-    <div class="project project-13 desktop-project" data-project="13">
+    <div class="project project-13" data-project="13">
 
       <img
         class="project-image"
@@ -1318,13 +1009,8 @@
         alt="Bookmarks"
       >
 
-      <div class="project-arrow left">
-        ‹
-      </div>
-
-      <div class="project-arrow right">
-        ›
-      </div>
+      <button class="project-arrow prev" type="button">‹</button>
+      <button class="project-arrow next" type="button">›</button>
 
       <div class="project-info">
 
@@ -1341,11 +1027,9 @@
     </div>
 
 
-    <!-- =========================
-         14 — APPARTMENT IN ILISSIA
-         ========================= -->
+    <!-- 14 — APPARTMENT IN ILISSIA -->
 
-    <div class="project project-14 desktop-project" data-project="14">
+    <div class="project project-14" data-project="14">
 
       <img
         class="project-image"
@@ -1353,18 +1037,13 @@
         alt="Appartment in Illisia"
       >
 
-      <div class="project-arrow left">
-        ‹
-      </div>
-
-      <div class="project-arrow right">
-        ›
-      </div>
+      <button class="project-arrow prev" type="button">‹</button>
+      <button class="project-arrow next" type="button">›</button>
 
       <div class="project-info">
 
         <div class="project-title">
-          APPARTMENT IN ILISSIA
+          Appartment in Illisia
         </div>
 
         <div class="project-description">
@@ -1377,9 +1056,7 @@
             href="https://kellyspanou.com"
             target="_blank"
             rel="noopener noreferrer"
-          >
-            Kelly
-          </a>
+          >Kelly</a>
         </div>
 
       </div>
@@ -1387,11 +1064,9 @@
     </div>
 
 
-    <!-- =========================
-         15 — RESIDENCE IN PRIASTRO, TINOS
-         ========================= -->
+    <!-- 15 — RESIDENCE IN PRIASTRO, TINOS -->
 
-    <div class="project project-15 desktop-project" data-project="15">
+    <div class="project project-15" data-project="15">
 
       <img
         class="project-image"
@@ -1402,7 +1077,7 @@
       <div class="project-info">
 
         <div class="project-title">
-          RESIDENCE IN PRIASTRO, TINOS
+          Residence in Priastro, Tinos
         </div>
 
         <div class="project-description">
@@ -1415,9 +1090,7 @@
             href="https://kellyspanou.com"
             target="_blank"
             rel="noopener noreferrer"
-          >
-            Kelly
-          </a>
+          >Kelly</a>
         </div>
 
       </div>
@@ -1425,12 +1098,9 @@
     </div>
 
 
-    <!-- =========================
-         16 — ISTERNIA
-         NO TITLE
-         ========================= -->
+    <!-- 16 — ISTERNIA -->
 
-    <div class="project project-16 desktop-project" data-project="16">
+    <div class="project project-16" data-project="16">
 
       <img
         class="project-image"
@@ -1450,9 +1120,7 @@
             href="https://kellyspanou.com"
             target="_blank"
             rel="noopener noreferrer"
-          >
-            Kelly
-          </a>
+          >Kelly</a>
         </div>
 
       </div>
@@ -1464,8 +1132,8 @@
 
 
   <!-- =========================
-       WEBSITE CREDIT
-       ========================= -->
+       CREDIT
+  ========================= -->
 
   <div class="website-credit">
     WEB DESIGN: MYRTO PAVLOPOULOU
@@ -1474,9 +1142,9 @@
 
   <script>
 
-    /* ==================================================
-       PROJECT IMAGES
-       ================================================== */
+    /* =========================
+       IMAGE ARRAYS
+    ========================= */
 
     const projectImages = {
 
@@ -1551,18 +1219,21 @@
         "model_2.jpg"
       ],
 
-9: [
-  "TeclaSala_1.jpg",
-  "TeclaSala_2.jpg",
-  "TeclaSala_3.jpg",
-  "TeclaSala_4.jpg",
-  "TeclaSala_5.jpg",
-  "TeclaSala_6.jpg",
-  "TeclaSala_7.jpg",
-  "TeclaSala_8.jpg",
-  "TeclaSala_9.jpg",
-  "TeclaSala_10.jpg"
-],
+      /* SPATIAL INVESTIGATIONS
+         ΣΕΙΡΑ 1 → 10
+      */
+
+      9: [
+        "TeclaSala_1.jpg",
+        "TeclaSala_2.jpg",
+        "TeclaSala_3.jpg",
+        "TeclaSala_4.jpg",
+        "TeclaSala_5.jpg",
+        "TeclaSala_6.jpg",
+        "TeclaSala_7.jpg",
+        "TeclaSala_8.jpg",
+        "TeclaSala_9.jpg",
+        "TeclaSala_10.jpg"
       ],
 
       10: [
@@ -1607,698 +1278,344 @@
     };
 
 
-    /* ==================================================
-       CURRENT IMAGE INDEX
-       ================================================== */
+    /* =========================
+       MOBILE ORDER
+    ========================= */
 
-    const currentIndexes = {};
+    const leftProjects = [
+      0,
+      9,
+      8,
+      14,
+      4,
+      10,
+      11,
+      16
+    ];
 
-    Object.keys(projectImages).forEach(function(projectId) {
+    const rightProjects = [
+      1,
+      2,
+      3,
+      5,
+      6,
+      7,
+      12,
+      13,
+      15
+    ];
 
-      currentIndexes[projectId] = 0;
+
+    /* =========================
+       VARIABLES
+    ========================= */
+
+    const projects =
+      document.querySelectorAll(".project");
+
+    const gallery =
+      document.querySelector(".gallery");
+
+    const mobileLeft =
+      document.querySelector(".mobile-left");
+
+    const mobileRight =
+      document.querySelector(".mobile-right");
+
+
+    const imageIndexes = {};
+
+    projects.forEach(function(project) {
+
+      const id =
+        Number(project.dataset.project);
+
+      imageIndexes[id] = 0;
 
     });
 
 
-    /* ==================================================
-       UPDATE PROJECT IMAGE
-       ================================================== */
+    /* =========================
+       CHANGE IMAGE
+    ========================= */
 
-    function updateProjectImage(projectElement) {
+    function changeImage(project, direction) {
 
-      const projectId =
-        projectElement.dataset.project;
+      const id =
+        Number(project.dataset.project);
 
       const images =
-        projectImages[projectId];
+        projectImages[id];
 
-      if (!images || images.length === 0) {
+      if (!images || images.length <= 1) {
         return;
       }
+
+      let currentIndex =
+        imageIndexes[id];
+
+      currentIndex += direction;
+
+      if (currentIndex >= images.length) {
+        currentIndex = 0;
+      }
+
+      if (currentIndex < 0) {
+        currentIndex = images.length - 1;
+      }
+
+      imageIndexes[id] =
+        currentIndex;
 
       const image =
-        projectElement.querySelector(".project-image");
+        project.querySelector(".project-image");
 
       image.src =
-        images[currentIndexes[projectId]];
+        images[currentIndex];
 
     }
 
 
-    /* ==================================================
-       UPDATE ARROWS
-       ================================================== */
-
-    function updateArrows(projectElement) {
-
-      const projectId =
-        projectElement.dataset.project;
-
-      const images =
-        projectImages[projectId];
-
-      const leftArrow =
-        projectElement.querySelector(".project-arrow.left");
-
-      const rightArrow =
-        projectElement.querySelector(".project-arrow.right");
-
-
-      if (!leftArrow || !rightArrow) {
-        return;
-      }
-
-
-      if (!images || images.length <= 1) {
-
-        leftArrow.style.display = "none";
-        rightArrow.style.display = "none";
-
-        return;
-
-      }
-
-
-      leftArrow.style.display = "flex";
-      rightArrow.style.display = "flex";
-
-    }
-
-
-    /* ==================================================
-       CHANGE IMAGE
-       ================================================== */
-
-    function changeImage(projectElement, direction) {
-
-      const projectId =
-        projectElement.dataset.project;
-
-      const images =
-        projectImages[projectId];
-
-
-      if (!images || images.length <= 1) {
-        return;
-      }
-
-
-      currentIndexes[projectId] += direction;
-
-
-      if (currentIndexes[projectId] < 0) {
-
-        currentIndexes[projectId] =
-          images.length - 1;
-
-      }
-
-
-      if (currentIndexes[projectId] >= images.length) {
-
-        currentIndexes[projectId] = 0;
-
-      }
-
-
-      updateProjectImage(projectElement);
-
-    }
-
-
-    /* ==================================================
+    /* =========================
        SELECT PROJECT
-       ================================================== */
+    ========================= */
 
-    function selectProject(projectElement) {
+    function selectProject(project) {
 
-      document
-        .querySelectorAll(".project.selected")
-        .forEach(function(selectedProject) {
+      projects.forEach(function(item) {
 
-          if (selectedProject !== projectElement) {
+        item.classList.remove("selected");
 
-            selectedProject.classList.remove("selected");
+      });
 
-          }
-
-        });
-
-
-      projectElement.classList.add("selected");
+      project.classList.add("selected");
 
     }
 
 
-    /* ==================================================
-       DESKTOP PROJECT SETUP
-       ================================================== */
+    /* =========================
+       DESELECT PROJECT
+    ========================= */
 
-    document
-      .querySelectorAll(".desktop-project")
-      .forEach(function(project) {
+    function deselectProject() {
 
+      projects.forEach(function(project) {
 
-        updateProjectImage(project);
+        project.classList.remove("selected");
 
-        updateArrows(project);
+      });
 
-
-        /* =========================
-           PROJECT CLICK
-           ========================= */
-
-        project.addEventListener(
-          "click",
-          function(event) {
+    }
 
 
-            /*
-             * LINKS ALWAYS HAVE PRIORITY.
-             *
-             * Clicking MORADAVAGA or Kelly
-             * must never change the image.
-             */
+    /* =========================
+       PROJECT CLICK
+    ========================= */
 
-            const clickedLink =
-              event.target.closest("a");
+    projects.forEach(function(project) {
 
+      project.addEventListener("click", function(event) {
 
-            if (clickedLink) {
+        const clickedLink =
+          event.target.closest("a");
 
-              event.stopPropagation();
+        if (clickedLink) {
 
-              return;
+          event.stopPropagation();
 
-            }
-
-
-            /*
-             * Arrow clicks are handled
-             * separately.
-             */
-
-            if (event.target.closest(".project-arrow")) {
-              return;
-            }
-
-
-            /*
-             * If already selected and the
-             * actual image is clicked:
-             *
-             * GO TO NEXT IMAGE.
-             *
-             * The project stays selected.
-             */
-
-            if (
-              project.classList.contains("selected") &&
-              event.target.closest(".project-image")
-            ) {
-
-              changeImage(project, 1);
-
-              return;
-
-            }
-
-
-            /*
-             * If project is not selected:
-             * open it.
-             */
-
-            if (!project.classList.contains("selected")) {
-
-              selectProject(project);
-
-              return;
-
-            }
-
-          }
-        );
-
-
-        /* =========================
-           LEFT ARROW
-           ========================= */
-
-        const leftArrow =
-          project.querySelector(".project-arrow.left");
-
-
-        if (leftArrow) {
-
-          leftArrow.addEventListener(
-            "click",
-            function(event) {
-
-              event.stopPropagation();
-
-              if (!project.classList.contains("selected")) {
-
-                selectProject(project);
-
-              }
-
-              changeImage(project, -1);
-
-            }
-          );
+          return;
 
         }
 
 
-        /* =========================
-           RIGHT ARROW
-           ========================= */
+        if (
+          event.target.closest(".project-arrow")
+        ) {
 
-        const rightArrow =
-          project.querySelector(".project-arrow.right");
+          return;
+
+        }
 
 
-        if (rightArrow) {
+        if (
+          project.classList.contains("selected") &&
+          event.target.closest(".project-image")
+        ) {
 
-          rightArrow.addEventListener(
-            "click",
-            function(event) {
+          changeImage(project, 1);
 
-              event.stopPropagation();
+          return;
 
-              if (!project.classList.contains("selected")) {
+        }
 
-                selectProject(project);
 
-              }
+        if (!project.classList.contains("selected")) {
 
-              changeImage(project, 1);
+          selectProject(project);
 
-            }
-          );
+          return;
 
         }
 
       });
 
 
-    /* ==================================================
-       CLICK OUTSIDE SELECTED PROJECT
-       ================================================== */
+      /* PREVIOUS ARROW */
 
-    document.addEventListener(
-      "click",
-      function(event) {
+      const prev =
+        project.querySelector(".project-arrow.prev");
 
+      if (prev) {
 
-        /*
-         * Do nothing if the click happened
-         * inside a project.
-         */
+        prev.addEventListener("click", function(event) {
 
-        if (event.target.closest(".project")) {
-          return;
-        }
+          event.stopPropagation();
 
+          selectProject(project);
 
-        /*
-         * Do nothing for header.
-         */
+          changeImage(project, -1);
 
-        if (event.target.closest("header")) {
-          return;
-        }
-
-
-        /*
-         * Do nothing for website credit.
-         */
-
-        if (event.target.closest(".website-credit")) {
-          return;
-        }
-
-
-        /*
-         * Any other click closes
-         * the selected project.
-         */
-
-        document
-          .querySelectorAll(".project.selected")
-          .forEach(function(project) {
-
-            project.classList.remove("selected");
-
-          });
+        });
 
       }
-    );
 
 
-    /* ==================================================
+      /* NEXT ARROW */
+
+      const next =
+        project.querySelector(".project-arrow.next");
+
+      if (next) {
+
+        next.addEventListener("click", function(event) {
+
+          event.stopPropagation();
+
+          selectProject(project);
+
+          changeImage(project, 1);
+
+        });
+
+      }
+
+    });
+
+
+    /* =========================
+       CLICK OUTSIDE
+    ========================= */
+
+    document.addEventListener("click", function(event) {
+
+      const insideProject =
+        event.target.closest(".project");
+
+      const insideHeader =
+        event.target.closest("header");
+
+      const insideCredit =
+        event.target.closest(".website-credit");
+
+      if (
+        !insideProject &&
+        !insideHeader &&
+        !insideCredit
+      ) {
+
+        deselectProject();
+
+      }
+
+    });
+
+
+    /* =========================
        MOBILE COLUMNS
-       ================================================== */
+    ========================= */
 
     function setupMobileColumns() {
 
+      const isMobile =
+        window.innerWidth <= 650;
 
-      if (window.innerWidth > 650) {
+      if (!isMobile) {
+
+        projects.forEach(function(project) {
+
+          gallery.appendChild(project);
+
+        });
+
         return;
+
       }
 
 
-      const gallery =
-        document.querySelector(".gallery");
+      leftProjects.forEach(function(id) {
 
-
-      const leftColumn =
-        document.createElement("div");
-
-      leftColumn.className =
-        "mobile-column mobile-left";
-
-
-      const rightColumn =
-        document.createElement("div");
-
-      rightColumn.className =
-        "mobile-column mobile-right";
-
-
-      /* ==================================================
-         MOBILE LEFT ORDER
-         ==================================================
-
-         1. VETCARD
-         2. SPATIAL INVESTIGATIONS
-         3. EXPERIMENTAL MODEL
-         4. APPARTMENT IN ILISSIA
-         5. URBAN DESIGN
-         6. RESIDENTIAL COMPLEX
-         7. DRYPOINT PRINTING
-         8. ISTERNIA
-
-      */
-
-      const leftProjects = [
-        0,
-        9,
-        8,
-        14,
-        4,
-        10,
-        11,
-        16
-      ];
-
-
-      /* ==================================================
-         MOBILE RIGHT ORDER
-         ================================================== */
-
-      const rightProjects = [
-        1,
-        2,
-        3,
-        5,
-        6,
-        7,
-        12,
-        13,
-        15
-      ];
-
-
-      /* =========================
-         LEFT COLUMN
-         ========================= */
-
-      leftProjects.forEach(function(projectId) {
-
-        const original =
+        const project =
           document.querySelector(
-            '.project[data-project="' + projectId + '"]'
+            '.project[data-project="' + id + '"]'
           );
 
+        if (project) {
 
-        if (!original) {
-          return;
+          mobileLeft.appendChild(project);
+
         }
-
-
-        const clone =
-          original.cloneNode(true);
-
-
-        clone.classList.remove("desktop-project");
-
-
-        leftColumn.appendChild(clone);
 
       });
 
 
-      /* =========================
-         RIGHT COLUMN
-         ========================= */
+      rightProjects.forEach(function(id) {
 
-      rightProjects.forEach(function(projectId) {
-
-        const original =
+        const project =
           document.querySelector(
-            '.project[data-project="' + projectId + '"]'
+            '.project[data-project="' + id + '"]'
           );
 
+        if (project) {
 
-        if (!original) {
-          return;
+          mobileRight.appendChild(project);
+
         }
 
-
-        const clone =
-          original.cloneNode(true);
-
-
-        clone.classList.remove("desktop-project");
-
-
-        rightColumn.appendChild(clone);
-
       });
-
-
-      /* =========================
-         HIDE DESKTOP PROJECTS
-         ========================= */
-
-      document
-        .querySelectorAll(".desktop-project")
-        .forEach(function(project) {
-
-          project.style.display = "none";
-
-        });
-
-
-      /* =========================
-         ADD MOBILE COLUMNS
-         ========================= */
-
-      gallery.appendChild(leftColumn);
-      gallery.appendChild(rightColumn);
-
-
-      /* =========================
-         MOBILE PROJECT SETUP
-         ========================= */
-
-      document
-        .querySelectorAll(".mobile-column .project")
-        .forEach(function(project) {
-
-
-          updateProjectImage(project);
-
-          updateArrows(project);
-
-
-          /* =========================
-             MOBILE PROJECT CLICK
-             ========================= */
-
-          project.addEventListener(
-            "click",
-            function(event) {
-
-
-              /*
-               * LINKS HAVE PRIORITY.
-               */
-
-              const clickedLink =
-                event.target.closest("a");
-
-
-              if (clickedLink) {
-
-                event.stopPropagation();
-
-                return;
-
-              }
-
-
-              /*
-               * Arrow clicks handled separately.
-               */
-
-              if (event.target.closest(".project-arrow")) {
-                return;
-              }
-
-
-              /*
-               * If already selected and
-               * image clicked:
-               * next image.
-               */
-
-              if (
-                project.classList.contains("selected") &&
-                event.target.closest(".project-image")
-              ) {
-
-                changeImage(project, 1);
-
-                return;
-
-              }
-
-
-              /*
-               * Select project.
-               */
-
-              if (!project.classList.contains("selected")) {
-
-                const column =
-                  project.closest(".mobile-column");
-
-
-                column
-                  .querySelectorAll(".project.selected")
-                  .forEach(function(selectedProject) {
-
-                    selectedProject.classList.remove("selected");
-
-                  });
-
-
-                project.classList.add("selected");
-
-                return;
-
-              }
-
-            }
-          );
-
-
-          /* =========================
-             MOBILE LEFT ARROW
-             ========================= */
-
-          const leftArrow =
-            project.querySelector(".project-arrow.left");
-
-
-          if (leftArrow) {
-
-            leftArrow.addEventListener(
-              "click",
-              function(event) {
-
-                event.stopPropagation();
-
-                project.classList.add("selected");
-
-                changeImage(project, -1);
-
-              }
-            );
-
-          }
-
-
-          /* =========================
-             MOBILE RIGHT ARROW
-             ========================= */
-
-          const rightArrow =
-            project.querySelector(".project-arrow.right");
-
-
-          if (rightArrow) {
-
-            rightArrow.addEventListener(
-              "click",
-              function(event) {
-
-                event.stopPropagation();
-
-                project.classList.add("selected");
-
-                changeImage(project, 1);
-
-              }
-            );
-
-          }
-
-        });
 
     }
 
 
-    /* ==================================================
-       START MOBILE
-       ================================================== */
+    /* =========================
+       INITIAL SETUP
+    ========================= */
 
     setupMobileColumns();
 
 
-    /* ==================================================
+    /* =========================
        RESIZE
-       ================================================== */
+    ========================= */
 
     let previousMobileState =
       window.innerWidth <= 650;
 
+    window.addEventListener("resize", function() {
 
-    window.addEventListener(
-      "resize",
-      function() {
+      const currentMobileState =
+        window.innerWidth <= 650;
 
-        const currentMobileState =
-          window.innerWidth <= 650;
+      if (
+        currentMobileState !== previousMobileState
+      ) {
 
-
-        if (
-          currentMobileState !==
-          previousMobileState
-        ) {
-
-          location.reload();
-
-        }
+        location.reload();
 
       }
-    );
+
+    });
 
   </script>
-
 
 </body>
 
