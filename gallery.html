@@ -192,6 +192,11 @@
         opacity 0.25s ease,
         transform 0.25s ease;
 
+      /*
+       * Important:
+       * the information area must be clickable
+       * so MORADAVAGA and Kelly can be opened.
+       */
       pointer-events: none;
 
       max-width: 330px;
@@ -201,7 +206,36 @@
     .project.selected .project-info {
       opacity: 1;
       transform: translateY(0);
+
+      pointer-events: auto;
     }
+
+
+    /* =========================
+       LINKS
+       MORADAVAGA + KELLY
+       ========================= */
+
+    .project-info a {
+      color: #7FE3C1;
+
+      text-decoration: none;
+
+      font-weight: 400;
+
+      cursor: url("cursor2.png") 25 25, auto;
+
+      transition: color 0.2s ease;
+    }
+
+    .project-info a:hover {
+      color: #45B995;
+    }
+
+
+    /* =========================
+       TITLE
+       ========================= */
 
     .project-title {
       color: #ffffff;
@@ -212,6 +246,11 @@
       text-transform: uppercase;
     }
 
+
+    /* =========================
+       DESCRIPTION
+       ========================= */
+
     .project-description {
       color: #ffffff;
 
@@ -220,6 +259,11 @@
 
       text-transform: none;
     }
+
+
+    /* =========================
+       COLLABORATOR
+       ========================= */
 
     .project-collaborator {
       color: #ffffff;
@@ -230,22 +274,9 @@
       text-transform: none;
     }
 
-.project-info a {
-  color: #7FE3C1;
-  text-decoration: none;
-  font-weight: 400;
-
-  cursor: url("cursor2.png") 25 25, auto;
-
-  transition: color 0.2s ease;
-}
-
-.project-info a:hover {
-  color: #45B995;
-}
 
     /* =========================
-       SPECIAL BLACK NOTE
+       SPATIAL INVESTIGATIONS NOTE
        ========================= */
 
     .project-note {
@@ -261,6 +292,7 @@
       opacity: 0;
     }
 
+    .project:hover .project-note,
     .project.selected .project-note {
       opacity: 1;
     }
@@ -1344,6 +1376,7 @@
           <a
             href="https://kellyspanou.com"
             target="_blank"
+            rel="noopener noreferrer"
           >
             Kelly
           </a>
@@ -1381,6 +1414,7 @@
           <a
             href="https://kellyspanou.com"
             target="_blank"
+            rel="noopener noreferrer"
           >
             Kelly
           </a>
@@ -1415,6 +1449,7 @@
           <a
             href="https://kellyspanou.com"
             target="_blank"
+            rel="noopener noreferrer"
           >
             Kelly
           </a>
@@ -1585,7 +1620,7 @@
 
 
     /* ==================================================
-       UPDATE IMAGE
+       UPDATE PROJECT IMAGE
        ================================================== */
 
     function updateProjectImage(projectElement) {
@@ -1691,14 +1726,10 @@
 
 
     /* ==================================================
-       OPEN PROJECT
+       SELECT PROJECT
        ================================================== */
 
     function selectProject(projectElement) {
-
-      /*
-       * Close every other selected desktop project.
-       */
 
       document
         .querySelectorAll(".project.selected")
@@ -1714,21 +1745,6 @@
 
 
       projectElement.classList.add("selected");
-
-    }
-
-
-    /* ==================================================
-       CLOSE PROJECT
-       ================================================== */
-
-    function deselectProject(projectElement) {
-
-      if (!projectElement) {
-        return;
-      }
-
-      projectElement.classList.remove("selected");
 
     }
 
@@ -1757,11 +1773,22 @@
 
 
             /*
-             * Links must remain links.
+             * LINKS ALWAYS HAVE PRIORITY.
+             *
+             * Clicking MORADAVAGA or Kelly
+             * must never change the image.
              */
 
-            if (event.target.closest("a")) {
+            const clickedLink =
+              event.target.closest("a");
+
+
+            if (clickedLink) {
+
+              event.stopPropagation();
+
               return;
+
             }
 
 
@@ -1776,13 +1803,12 @@
 
 
             /*
-             * IMPORTANT:
+             * If already selected and the
+             * actual image is clicked:
              *
-             * If the project is already selected
-             * and the user clicks directly on its
-             * IMAGE, go to the next image.
+             * GO TO NEXT IMAGE.
              *
-             * It does NOT deselect.
+             * The project stays selected.
              */
 
             if (
@@ -1798,7 +1824,7 @@
 
 
             /*
-             * If the project is not selected,
+             * If project is not selected:
              * open it.
              */
 
@@ -1830,12 +1856,10 @@
 
               event.stopPropagation();
 
-              /*
-               * Make sure project stays selected.
-               */
-
               if (!project.classList.contains("selected")) {
+
                 selectProject(project);
+
               }
 
               changeImage(project, -1);
@@ -1862,12 +1886,10 @@
 
               event.stopPropagation();
 
-              /*
-               * Make sure project stays selected.
-               */
-
               if (!project.classList.contains("selected")) {
+
                 selectProject(project);
+
               }
 
               changeImage(project, 1);
@@ -1890,7 +1912,8 @@
 
 
         /*
-         * Ignore clicks inside a project.
+         * Do nothing if the click happened
+         * inside a project.
          */
 
         if (event.target.closest(".project")) {
@@ -1899,7 +1922,7 @@
 
 
         /*
-         * Ignore clicks on the header.
+         * Do nothing for header.
          */
 
         if (event.target.closest("header")) {
@@ -1908,7 +1931,7 @@
 
 
         /*
-         * Ignore website credit.
+         * Do nothing for website credit.
          */
 
         if (event.target.closest(".website-credit")) {
@@ -1917,8 +1940,8 @@
 
 
         /*
-         * If we clicked anywhere else,
-         * close the selected project.
+         * Any other click closes
+         * the selected project.
          */
 
         document
@@ -2008,7 +2031,7 @@
 
 
       /* =========================
-         CREATE LEFT COLUMN
+         LEFT COLUMN
          ========================= */
 
       leftProjects.forEach(function(projectId) {
@@ -2037,7 +2060,7 @@
 
 
       /* =========================
-         CREATE RIGHT COLUMN
+         RIGHT COLUMN
          ========================= */
 
       rightProjects.forEach(function(projectId) {
@@ -2079,7 +2102,7 @@
 
 
       /* =========================
-         ADD COLUMNS
+         ADD MOBILE COLUMNS
          ========================= */
 
       gallery.appendChild(leftColumn);
@@ -2087,7 +2110,7 @@
 
 
       /* =========================
-         MOBILE PROJECTS
+         MOBILE PROJECT SETUP
          ========================= */
 
       document
@@ -2101,7 +2124,7 @@
 
 
           /* =========================
-             MOBILE CLICK
+             MOBILE PROJECT CLICK
              ========================= */
 
           project.addEventListener(
@@ -2110,16 +2133,24 @@
 
 
               /*
-               * Keep external links working.
+               * LINKS HAVE PRIORITY.
                */
 
-              if (event.target.closest("a")) {
+              const clickedLink =
+                event.target.closest("a");
+
+
+              if (clickedLink) {
+
+                event.stopPropagation();
+
                 return;
+
               }
 
 
               /*
-               * Arrow click is handled separately.
+               * Arrow clicks handled separately.
                */
 
               if (event.target.closest(".project-arrow")) {
@@ -2128,10 +2159,9 @@
 
 
               /*
-               * If selected and image clicked:
-               * advance to next image.
-               *
-               * The image does NOT enlarge on mobile.
+               * If already selected and
+               * image clicked:
+               * next image.
                */
 
               if (
@@ -2147,7 +2177,7 @@
 
 
               /*
-               * If not selected, select it.
+               * Select project.
                */
 
               if (!project.classList.contains("selected")) {
