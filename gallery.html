@@ -119,6 +119,26 @@
     }
 
     /* =========================
+       VIDEO
+    ========================= */
+
+    .project-video {
+      display: block;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      border: none;
+      background: #000000;
+      cursor: url("cursor2.png") 25 25, auto;
+    }
+
+    .project.selected .project-video {
+      width: min(900px, calc(100vw - 80px));
+      height: min(506px, calc(100vh - 180px));
+      max-width: calc(100vw - 80px);
+      max-height: calc(100vh - 180px);
+    }
+
+    /* =========================
        PROJECT INFO
     ========================= */
 
@@ -185,7 +205,7 @@
     }
 
     /* =========================
-       LINKS INSIDE INFO
+       LINKS
     ========================= */
 
     .project-info a {
@@ -273,109 +293,112 @@
     }
 
     /* =========================
-       PROJECT POSITIONS
+       DESKTOP LAYOUT
+       
+       VETCARD + ECHOES larger
+       and projects spread apart
     ========================= */
 
     .project-0 {
-      width: 11vw;
-      left: 5vw;
-      top: 5vh;
+      width: 15vw;
+      left: 4vw;
+      top: 12vh;
     }
 
     .project-1 {
-      width: 9vw;
-      left: 23vw;
-      top: 4vh;
+      width: 13vw;
+      left: 24vw;
+      top: 8vh;
     }
 
     .project-2 {
       width: 8vw;
-      left: 37vw;
-      top: 18vh;
+      left: 43vw;
+      top: 28vh;
     }
 
     .project-3 {
-      width: 10vw;
-      left: 49vw;
+      width: 9vw;
+      left: 58vw;
       top: 7vh;
     }
 
     .project-4 {
-      width: 9vw;
-      left: 67vw;
-      top: 3vh;
+      width: 8vw;
+      left: 78vw;
+      top: 5vh;
     }
 
     .project-5 {
-      width: 8vw;
-      left: 80vw;
-      top: 24vh;
+      width: 7vw;
+      left: 72vw;
+      top: 34vh;
     }
 
     .project-6 {
       width: 8vw;
-      left: 16vw;
-      top: 48vh;
+      left: 12vw;
+      top: 50vh;
     }
 
     .project-7 {
-      width: 7vw;
-      left: 84vw;
-      top: 8vh;
+      width: 6vw;
+      left: 89vw;
+      top: 30vh;
     }
 
     .project-8 {
       width: 7vw;
-      left: 10vw;
-      top: 32vh;
+      left: 4vw;
+      top: 34vh;
     }
 
     .project-9 {
       width: 9vw;
-      left: 34vw;
-      top: 30vh;
+      left: 29vw;
+      top: 44vh;
     }
 
     .project-10 {
-      width: 10vw;
-      left: 65vw;
-      top: 31vh;
+      width: 9vw;
+      left: 53vw;
+      top: 47vh;
     }
 
     .project-11 {
-      width: 8vw;
-      left: 24vw;
-      top: 72vh;
+      width: 7vw;
+      left: 22vw;
+      top: 75vh;
     }
 
     .project-12 {
-      width: 8vw;
-      left: 57vw;
-      top: 70vh;
+      width: 7vw;
+      left: 45vw;
+      top: 74vh;
     }
 
     .project-13 {
-      width: 8vw;
-      left: 76vw;
-      top: 68vh;
+      width: 7vw;
+      left: 67vw;
+      top: 72vh;
     }
 
     .project-14 {
-      width: 8vw;
-      left: 6vw;
-      top: 67vh;
+      width: 7vw;
+      left: 4vw;
+      top: 73vh;
     }
 
     .project-15 {
       width: 7vw;
-      left: 40vw;
-      top: 69vh;
+      left: 82vw;
+      top: 63vh;
     }
 
     .project-16 {
-      width: 7vw;
-      left: 88vw;
-      top: 54vh;
+      width: 6vw;
+      left: 89vw;
+      top: 76vh;
     }
 
     /* =========================
@@ -400,105 +423,105 @@
     @media (max-width: 1100px) and (min-width: 651px) {
 
       .project-0 {
-        width: 13vw;
-        left: 4vw;
-        top: 5vh;
+        width: 17vw;
+        left: 3vw;
+        top: 12vh;
       }
 
       .project-1 {
-        width: 11vw;
-        left: 23vw;
-        top: 4vh;
+        width: 15vw;
+        left: 25vw;
+        top: 8vh;
       }
 
       .project-2 {
-        width: 10vw;
-        left: 38vw;
-        top: 18vh;
+        width: 9vw;
+        left: 45vw;
+        top: 29vh;
       }
 
       .project-3 {
-        width: 12vw;
-        left: 51vw;
+        width: 10vw;
+        left: 60vw;
         top: 7vh;
       }
 
       .project-4 {
-        width: 11vw;
-        left: 69vw;
-        top: 3vh;
+        width: 9vw;
+        left: 78vw;
+        top: 5vh;
       }
 
       .project-5 {
-        width: 10vw;
-        left: 82vw;
-        top: 24vh;
+        width: 8vw;
+        left: 70vw;
+        top: 35vh;
       }
 
       .project-6 {
-        width: 10vw;
-        left: 15vw;
-        top: 48vh;
+        width: 9vw;
+        left: 12vw;
+        top: 51vh;
       }
 
       .project-7 {
-        width: 9vw;
-        left: 83vw;
-        top: 8vh;
-      }
-
-      .project-8 {
-        width: 9vw;
-        left: 9vw;
-        top: 32vh;
-      }
-
-      .project-9 {
-        width: 11vw;
-        left: 34vw;
+        width: 7vw;
+        left: 89vw;
         top: 30vh;
       }
 
+      .project-8 {
+        width: 8vw;
+        left: 4vw;
+        top: 35vh;
+      }
+
+      .project-9 {
+        width: 10vw;
+        left: 30vw;
+        top: 44vh;
+      }
+
       .project-10 {
-        width: 12vw;
-        left: 65vw;
-        top: 31vh;
+        width: 10vw;
+        left: 53vw;
+        top: 48vh;
       }
 
       .project-11 {
-        width: 10vw;
-        left: 22vw;
-        top: 72vh;
+        width: 8vw;
+        left: 21vw;
+        top: 75vh;
       }
 
       .project-12 {
-        width: 10vw;
-        left: 58vw;
-        top: 70vh;
+        width: 8vw;
+        left: 45vw;
+        top: 75vh;
       }
 
       .project-13 {
-        width: 10vw;
-        left: 76vw;
-        top: 68vh;
+        width: 8vw;
+        left: 68vw;
+        top: 72vh;
       }
 
       .project-14 {
-        width: 10vw;
-        left: 4vw;
-        top: 66vh;
+        width: 8vw;
+        left: 3vw;
+        top: 73vh;
       }
 
       .project-15 {
-        width: 9vw;
-        left: 40vw;
-        top: 68vh;
+        width: 8vw;
+        left: 81vw;
+        top: 63vh;
       }
 
       .project-16 {
-        width: 9vw;
-        left: 86vw;
-        top: 53vh;
+        width: 7vw;
+        left: 89vw;
+        top: 76vh;
       }
     }
 
@@ -579,6 +602,14 @@
         width: auto;
         max-width: 100%;
         max-height: none;
+      }
+
+      .project.selected .project-video {
+        width: 100%;
+        height: auto;
+        max-width: 100%;
+        max-height: none;
+        aspect-ratio: 16 / 9;
       }
 
       .project-info {
@@ -668,6 +699,15 @@
         src="Jelly_1.jpg"
         alt="Echoes of the Deep"
       >
+
+      <iframe
+        class="project-video"
+        src="https://player.vimeo.com/video/1081399010"
+        title="Echoes of the Deep"
+        allow="autoplay; fullscreen; picture-in-picture"
+        allowfullscreen
+        style="display: none;"
+      ></iframe>
 
       <button class="project-arrow prev" type="button">‹</button>
       <button class="project-arrow next" type="button">›</button>
@@ -811,7 +851,7 @@
 
       <img
         class="project-image"
-        src="WISHWALL_1.jpg"
+        src="WISHWALL_2.jpg"
         alt="Wishwall"
       >
 
@@ -1143,7 +1183,7 @@
   <script>
 
     /* =========================
-       IMAGE ARRAYS
+       IMAGE / VIDEO ARRAYS
     ========================= */
 
     const projectImages = {
@@ -1161,7 +1201,8 @@
         "Jelly_5.JPG",
         "Jelly_6.jpg",
         "Jelly_7.JPG",
-        "Jelly_8.JPG"
+        "Jelly_8.JPG",
+        "VIMEO_VIDEO"
       ],
 
       2: [
@@ -1200,13 +1241,13 @@
       ],
 
       6: [
-        "WISHWALL_1.jpg",
         "WISHWALL_2.jpg",
         "WISHWALL_3.jpg",
         "WISHWALL_4.jpg",
         "WISHWALL_5.jpg",
         "WISHWALL_6.jpg",
-        "WISHWALL_7.jpg"
+        "WISHWALL_7.jpg",
+        "WISHWALL_1.jpg"
       ],
 
       7: [
@@ -1218,10 +1259,6 @@
       8: [
         "model_2.jpg"
       ],
-
-      /* SPATIAL INVESTIGATIONS
-         ΣΕΙΡΑ 1 → 10
-      */
 
       9: [
         "TeclaSala_1.jpg",
@@ -1325,6 +1362,7 @@
 
     const imageIndexes = {};
 
+
     projects.forEach(function(project) {
 
       const id =
@@ -1336,7 +1374,58 @@
 
 
     /* =========================
-       CHANGE IMAGE
+       SHOW IMAGE / VIDEO
+    ========================= */
+
+    function displayProjectMedia(project) {
+
+      const id =
+        Number(project.dataset.project);
+
+      const images =
+        projectImages[id];
+
+      const currentIndex =
+        imageIndexes[id];
+
+      const currentMedia =
+        images[currentIndex];
+
+      const image =
+        project.querySelector(".project-image");
+
+      const video =
+        project.querySelector(".project-video");
+
+
+      if (currentMedia === "VIMEO_VIDEO") {
+
+        image.style.display = "none";
+
+        if (video) {
+          video.style.display = "block";
+        }
+
+        return;
+      }
+
+
+      image.src =
+        currentMedia;
+
+      image.style.display =
+        "block";
+
+      if (video) {
+        video.style.display =
+          "none";
+      }
+
+    }
+
+
+    /* =========================
+       CHANGE IMAGE / VIDEO
     ========================= */
 
     function changeImage(project, direction) {
@@ -1367,11 +1456,7 @@
       imageIndexes[id] =
         currentIndex;
 
-      const image =
-        project.querySelector(".project-image");
-
-      image.src =
-        images[currentIndex];
+      displayProjectMedia(project);
 
     }
 
@@ -1389,6 +1474,8 @@
       });
 
       project.classList.add("selected");
+
+      displayProjectMedia(project);
 
     }
 
@@ -1430,6 +1517,15 @@
 
         if (
           event.target.closest(".project-arrow")
+        ) {
+
+          return;
+
+        }
+
+
+        if (
+          event.target.closest(".project-video")
         ) {
 
           return;
