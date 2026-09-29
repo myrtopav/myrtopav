@@ -48,8 +48,10 @@
       position: fixed;
       top: 0;
       left: 0;
+
       width: 100%;
       height: 65px;
+
       padding: 25px 3vw 0 3vw;
 
       display: grid;
@@ -110,7 +112,7 @@
 
 
     /* =========================
-       PROJECTS
+       PROJECT
        ========================= */
 
     .project {
@@ -118,9 +120,9 @@
 
       display: block;
 
-      cursor: url("cursor2.png") 25 25, auto;
-
       text-align: center;
+
+      cursor: url("cursor2.png") 25 25, auto;
 
       z-index: 1;
     }
@@ -167,7 +169,6 @@
       flex-direction: column;
 
       align-items: center;
-
       justify-content: center;
 
       margin-top: 8px;
@@ -179,7 +180,6 @@
       color: #ffffff;
 
       font-size: 10px;
-
       line-height: 1.35;
 
       text-align: center;
@@ -338,7 +338,6 @@
       display: block;
 
       width: auto;
-
       height: auto;
 
       max-width: calc(100vw - 80px);
@@ -365,7 +364,7 @@
 
 
     /* =========================
-       DESKTOP PROJECT POSITIONS
+       DESKTOP POSITIONS
        ========================= */
 
     .project-0 {
@@ -691,7 +690,6 @@
         max-width: 100%;
 
         height: auto;
-
         max-height: none;
 
         margin-left: auto;
@@ -822,9 +820,9 @@
   <main class="gallery">
 
 
-    <!-- ==================================================
+    <!-- =========================
          0 — VETCARD
-         ================================================== -->
+         ========================= -->
 
     <div class="project project-0 desktop-project" data-project="0">
 
@@ -857,9 +855,9 @@
     </div>
 
 
-    <!-- ==================================================
+    <!-- =========================
          1 — ECHOES OF THE DEEP
-         ================================================== -->
+         ========================= -->
 
     <div class="project project-1 desktop-project" data-project="1">
 
@@ -900,9 +898,9 @@
     </div>
 
 
-    <!-- ==================================================
+    <!-- =========================
          2 — X-RAYS
-         ================================================== -->
+         ========================= -->
 
     <div class="project project-2 desktop-project" data-project="2">
 
@@ -935,9 +933,9 @@
     </div>
 
 
-    <!-- ==================================================
+    <!-- =========================
          3 — SMITHSON
-         ================================================== -->
+         ========================= -->
 
     <div class="project project-3 desktop-project" data-project="3">
 
@@ -966,9 +964,9 @@
     </div>
 
 
-    <!-- ==================================================
+    <!-- =========================
          4 — URBAN DESIGN
-         ================================================== -->
+         ========================= -->
 
     <div class="project project-4 desktop-project" data-project="4">
 
@@ -997,9 +995,9 @@
     </div>
 
 
-    <!-- ==================================================
+    <!-- =========================
          5 — CATWALK
-         ================================================== -->
+         ========================= -->
 
     <div class="project project-5 desktop-project" data-project="5">
 
@@ -1040,9 +1038,9 @@
     </div>
 
 
-    <!-- ==================================================
+    <!-- =========================
          6 — WISHWALL
-         ================================================== -->
+         ========================= -->
 
     <div class="project project-6 desktop-project" data-project="6">
 
@@ -1084,9 +1082,9 @@
     </div>
 
 
-    <!-- ==================================================
+    <!-- =========================
          7 — YTONG MODEL
-         ================================================== -->
+         ========================= -->
 
     <div class="project project-7 desktop-project" data-project="7">
 
@@ -1115,9 +1113,9 @@
     </div>
 
 
-    <!-- ==================================================
+    <!-- =========================
          8 — EXPERIMENTAL MODEL
-         ================================================== -->
+         ========================= -->
 
     <div class="project project-8 desktop-project" data-project="8">
 
@@ -1138,9 +1136,9 @@
     </div>
 
 
-    <!-- ==================================================
+    <!-- =========================
          9 — SPATIAL INVESTIGATIONS
-         ================================================== -->
+         ========================= -->
 
     <div class="project project-9 desktop-project" data-project="9">
 
@@ -1179,9 +1177,9 @@
     </div>
 
 
-    <!-- ==================================================
+    <!-- =========================
          10 — RESIDENTIAL COMPLEX
-         ================================================== -->
+         ========================= -->
 
     <div class="project project-10 desktop-project" data-project="10">
 
@@ -1216,9 +1214,9 @@
     </div>
 
 
-    <!-- ==================================================
+    <!-- =========================
          11 — DRYPOINT PRINTING
-         ================================================== -->
+         ========================= -->
 
     <div class="project project-11 desktop-project" data-project="11">
 
@@ -1239,9 +1237,9 @@
     </div>
 
 
-    <!-- ==================================================
+    <!-- =========================
          12 — POSTER
-         ================================================== -->
+         ========================= -->
 
     <div class="project project-12 desktop-project" data-project="12">
 
@@ -1274,9 +1272,9 @@
     </div>
 
 
-    <!-- ==================================================
+    <!-- =========================
          13 — BOOKMARKS
-         ================================================== -->
+         ========================= -->
 
     <div class="project project-13 desktop-project" data-project="13">
 
@@ -1309,9 +1307,9 @@
     </div>
 
 
-    <!-- ==================================================
+    <!-- =========================
          14 — APPARTMENT IN ILISSIA
-         ================================================== -->
+         ========================= -->
 
     <div class="project project-14 desktop-project" data-project="14">
 
@@ -1354,9 +1352,9 @@
     </div>
 
 
-    <!-- ==================================================
+    <!-- =========================
          15 — RESIDENCE IN PRIASTRO, TINOS
-         ================================================== -->
+         ========================= -->
 
     <div class="project project-15 desktop-project" data-project="15">
 
@@ -1391,10 +1389,10 @@
     </div>
 
 
-    <!-- ==================================================
+    <!-- =========================
          16 — ISTERNIA
          NO TITLE
-         ================================================== -->
+         ========================= -->
 
     <div class="project project-16 desktop-project" data-project="16">
 
@@ -1578,34 +1576,33 @@
     const currentIndexes = {};
 
     Object.keys(projectImages).forEach(function(projectId) {
+
       currentIndexes[projectId] = 0;
+
     });
 
 
     /* ==================================================
-       GET PROJECT ELEMENTS
-       ================================================== */
-
-    const projects = document.querySelectorAll(".project");
-
-
-    /* ==================================================
-       UPDATE PROJECT IMAGE
+       UPDATE IMAGE
        ================================================== */
 
     function updateProjectImage(projectElement) {
 
-      const projectId = projectElement.dataset.project;
+      const projectId =
+        projectElement.dataset.project;
 
-      const images = projectImages[projectId];
+      const images =
+        projectImages[projectId];
 
       if (!images || images.length === 0) {
         return;
       }
 
-      const image = projectElement.querySelector(".project-image");
+      const image =
+        projectElement.querySelector(".project-image");
 
-      image.src = images[currentIndexes[projectId]];
+      image.src =
+        images[currentIndexes[projectId]];
 
     }
 
@@ -1616,16 +1613,23 @@
 
     function updateArrows(projectElement) {
 
-      const projectId = projectElement.dataset.project;
+      const projectId =
+        projectElement.dataset.project;
 
-      const images = projectImages[projectId];
+      const images =
+        projectImages[projectId];
 
-      const leftArrow = projectElement.querySelector(".project-arrow.left");
-      const rightArrow = projectElement.querySelector(".project-arrow.right");
+      const leftArrow =
+        projectElement.querySelector(".project-arrow.left");
+
+      const rightArrow =
+        projectElement.querySelector(".project-arrow.right");
+
 
       if (!leftArrow || !rightArrow) {
         return;
       }
+
 
       if (!images || images.length <= 1) {
 
@@ -1633,10 +1637,13 @@
         rightArrow.style.display = "none";
 
         return;
+
       }
+
 
       leftArrow.style.display = "flex";
       rightArrow.style.display = "flex";
+
     }
 
 
@@ -1646,170 +1653,282 @@
 
     function changeImage(projectElement, direction) {
 
-      const projectId = projectElement.dataset.project;
+      const projectId =
+        projectElement.dataset.project;
 
-      const images = projectImages[projectId];
+      const images =
+        projectImages[projectId];
+
 
       if (!images || images.length <= 1) {
         return;
       }
 
+
       currentIndexes[projectId] += direction;
 
+
       if (currentIndexes[projectId] < 0) {
-        currentIndexes[projectId] = images.length - 1;
+
+        currentIndexes[projectId] =
+          images.length - 1;
+
       }
+
 
       if (currentIndexes[projectId] >= images.length) {
+
         currentIndexes[projectId] = 0;
+
       }
 
+
       updateProjectImage(projectElement);
+
     }
 
 
     /* ==================================================
-       INITIALIZE PROJECTS
+       OPEN PROJECT
        ================================================== */
 
-    projects.forEach(function(project) {
+    function selectProject(projectElement) {
 
-      const projectId = project.dataset.project;
+      /*
+       * Close every other selected desktop project.
+       */
 
-      updateProjectImage(project);
+      document
+        .querySelectorAll(".project.selected")
+        .forEach(function(selectedProject) {
 
-      updateArrows(project);
+          if (selectedProject !== projectElement) {
 
+            selectedProject.classList.remove("selected");
 
-      /* =========================
-         CLICK PROJECT
-         ========================= */
-
-      project.addEventListener("click", function(event) {
-
-        /*
-         * If the user clicked a link inside
-         * the project information, do not
-         * select the project.
-         */
-
-        if (event.target.closest("a")) {
-          return;
-        }
-
-
-        /*
-         * If an arrow was clicked,
-         * change the image only.
-         */
-
-        if (event.target.closest(".project-arrow")) {
-          return;
-        }
-
-
-        /*
-         * Mobile projects are handled
-         * in their own columns.
-         */
-
-        if (window.innerWidth <= 650) {
-
-          const currentlySelected =
-            project.classList.contains("selected");
-
-          document
-            .querySelectorAll(".mobile-column .project.selected")
-            .forEach(function(selectedProject) {
-
-              if (selectedProject !== project) {
-                selectedProject.classList.remove("selected");
-              }
-
-            });
-
-          if (currentlySelected) {
-            project.classList.remove("selected");
-          } else {
-            project.classList.add("selected");
           }
 
-          return;
+        });
+
+
+      projectElement.classList.add("selected");
+
+    }
+
+
+    /* ==================================================
+       CLOSE PROJECT
+       ================================================== */
+
+    function deselectProject(projectElement) {
+
+      if (!projectElement) {
+        return;
+      }
+
+      projectElement.classList.remove("selected");
+
+    }
+
+
+    /* ==================================================
+       DESKTOP PROJECT SETUP
+       ================================================== */
+
+    document
+      .querySelectorAll(".desktop-project")
+      .forEach(function(project) {
+
+
+        updateProjectImage(project);
+
+        updateArrows(project);
+
+
+        /* =========================
+           PROJECT CLICK
+           ========================= */
+
+        project.addEventListener(
+          "click",
+          function(event) {
+
+
+            /*
+             * Links must remain links.
+             */
+
+            if (event.target.closest("a")) {
+              return;
+            }
+
+
+            /*
+             * Arrow clicks are handled
+             * separately.
+             */
+
+            if (event.target.closest(".project-arrow")) {
+              return;
+            }
+
+
+            /*
+             * IMPORTANT:
+             *
+             * If the project is already selected
+             * and the user clicks directly on its
+             * IMAGE, go to the next image.
+             *
+             * It does NOT deselect.
+             */
+
+            if (
+              project.classList.contains("selected") &&
+              event.target.closest(".project-image")
+            ) {
+
+              changeImage(project, 1);
+
+              return;
+
+            }
+
+
+            /*
+             * If the project is not selected,
+             * open it.
+             */
+
+            if (!project.classList.contains("selected")) {
+
+              selectProject(project);
+
+              return;
+
+            }
+
+          }
+        );
+
+
+        /* =========================
+           LEFT ARROW
+           ========================= */
+
+        const leftArrow =
+          project.querySelector(".project-arrow.left");
+
+
+        if (leftArrow) {
+
+          leftArrow.addEventListener(
+            "click",
+            function(event) {
+
+              event.stopPropagation();
+
+              /*
+               * Make sure project stays selected.
+               */
+
+              if (!project.classList.contains("selected")) {
+                selectProject(project);
+              }
+
+              changeImage(project, -1);
+
+            }
+          );
+
         }
 
 
-        /*
-         * Desktop selection.
-         */
+        /* =========================
+           RIGHT ARROW
+           ========================= */
 
-        const currentlySelected =
-          project.classList.contains("selected");
+        const rightArrow =
+          project.querySelector(".project-arrow.right");
 
 
-        document
-          .querySelectorAll(".project.selected")
-          .forEach(function(selectedProject) {
+        if (rightArrow) {
 
-            if (selectedProject !== project) {
-              selectedProject.classList.remove("selected");
+          rightArrow.addEventListener(
+            "click",
+            function(event) {
+
+              event.stopPropagation();
+
+              /*
+               * Make sure project stays selected.
+               */
+
+              if (!project.classList.contains("selected")) {
+                selectProject(project);
+              }
+
+              changeImage(project, 1);
+
             }
-
-          });
-
-
-        if (currentlySelected) {
-
-          project.classList.remove("selected");
-
-        } else {
-
-          project.classList.add("selected");
+          );
 
         }
 
       });
 
 
-      /* =========================
-         LEFT ARROW
-         ========================= */
+    /* ==================================================
+       CLICK OUTSIDE SELECTED PROJECT
+       ================================================== */
 
-      const leftArrow =
-        project.querySelector(".project-arrow.left");
+    document.addEventListener(
+      "click",
+      function(event) {
 
-      if (leftArrow) {
 
-        leftArrow.addEventListener("click", function(event) {
+        /*
+         * Ignore clicks inside a project.
+         */
 
-          event.stopPropagation();
+        if (event.target.closest(".project")) {
+          return;
+        }
 
-          changeImage(project, -1);
 
-        });
+        /*
+         * Ignore clicks on the header.
+         */
+
+        if (event.target.closest("header")) {
+          return;
+        }
+
+
+        /*
+         * Ignore website credit.
+         */
+
+        if (event.target.closest(".website-credit")) {
+          return;
+        }
+
+
+        /*
+         * If we clicked anywhere else,
+         * close the selected project.
+         */
+
+        document
+          .querySelectorAll(".project.selected")
+          .forEach(function(project) {
+
+            project.classList.remove("selected");
+
+          });
 
       }
-
-
-      /* =========================
-         RIGHT ARROW
-         ========================= */
-
-      const rightArrow =
-        project.querySelector(".project-arrow.right");
-
-      if (rightArrow) {
-
-        rightArrow.addEventListener("click", function(event) {
-
-          event.stopPropagation();
-
-          changeImage(project, 1);
-
-        });
-
-      }
-
-    });
+    );
 
 
     /* ==================================================
@@ -1817,6 +1936,7 @@
        ================================================== */
 
     function setupMobileColumns() {
+
 
       if (window.innerWidth > 650) {
         return;
@@ -1826,10 +1946,6 @@
       const gallery =
         document.querySelector(".gallery");
 
-
-      /*
-       * Create the two columns.
-       */
 
       const leftColumn =
         document.createElement("div");
@@ -1845,19 +1961,20 @@
         "mobile-column mobile-right";
 
 
-      /*
-       * EXACT MOBILE ORDER
-       *
-       * LEFT:
-       * 1. VETCARD
-       * 2. SPATIAL INVESTIGATIONS
-       * 3. EXPERIMENTAL MODEL
-       * 4. APPARTMENT IN ILISSIA
-       * 5. URBAN DESIGN
-       * 6. RESIDENTIAL COMPLEX
-       * 7. DRYPOINT PRINTING
-       * 8. ISTERNIA
-       */
+      /* ==================================================
+         MOBILE LEFT ORDER
+         ==================================================
+
+         1. VETCARD
+         2. SPATIAL INVESTIGATIONS
+         3. EXPERIMENTAL MODEL
+         4. APPARTMENT IN ILISSIA
+         5. URBAN DESIGN
+         6. RESIDENTIAL COMPLEX
+         7. DRYPOINT PRINTING
+         8. ISTERNIA
+
+      */
 
       const leftProjects = [
         0,
@@ -1871,18 +1988,9 @@
       ];
 
 
-      /*
-       * RIGHT:
-       * 1. ECHOES
-       * 2. X-RAYS
-       * 3. SMITHSON
-       * 4. CATWALK
-       * 5. WISHWALL
-       * 6. YTONG
-       * 7. POSTER
-       * 8. BOOKMARKS
-       * 9. RESIDENCE IN PRIASTRO
-       */
+      /* ==================================================
+         MOBILE RIGHT ORDER
+         ================================================== */
 
       const rightProjects = [
         1,
@@ -1897,9 +2005,9 @@
       ];
 
 
-      /*
-       * Clone projects into columns.
-       */
+      /* =========================
+         CREATE LEFT COLUMN
+         ========================= */
 
       leftProjects.forEach(function(projectId) {
 
@@ -1908,19 +2016,27 @@
             '.project[data-project="' + projectId + '"]'
           );
 
+
         if (!original) {
           return;
         }
 
+
         const clone =
           original.cloneNode(true);
 
+
         clone.classList.remove("desktop-project");
+
 
         leftColumn.appendChild(clone);
 
       });
 
+
+      /* =========================
+         CREATE RIGHT COLUMN
+         ========================= */
 
       rightProjects.forEach(function(projectId) {
 
@@ -1929,23 +2045,27 @@
             '.project[data-project="' + projectId + '"]'
           );
 
+
         if (!original) {
           return;
         }
 
+
         const clone =
           original.cloneNode(true);
 
+
         clone.classList.remove("desktop-project");
+
 
         rightColumn.appendChild(clone);
 
       });
 
 
-      /*
-       * Hide original desktop projects.
-       */
+      /* =========================
+         HIDE DESKTOP PROJECTS
+         ========================= */
 
       document
         .querySelectorAll(".desktop-project")
@@ -1956,24 +2076,22 @@
         });
 
 
-      /*
-       * Add columns.
-       */
+      /* =========================
+         ADD COLUMNS
+         ========================= */
 
       gallery.appendChild(leftColumn);
       gallery.appendChild(rightColumn);
 
 
-      /*
-       * Setup cloned projects.
-       */
+      /* =========================
+         MOBILE PROJECTS
+         ========================= */
 
       document
         .querySelectorAll(".mobile-column .project")
         .forEach(function(project) {
 
-          const projectId =
-            project.dataset.project;
 
           updateProjectImage(project);
 
@@ -1981,53 +2099,73 @@
 
 
           /* =========================
-             CLICK
+             MOBILE CLICK
              ========================= */
 
           project.addEventListener(
             "click",
             function(event) {
 
+
+              /*
+               * Keep external links working.
+               */
+
               if (event.target.closest("a")) {
                 return;
               }
+
+
+              /*
+               * Arrow click is handled separately.
+               */
 
               if (event.target.closest(".project-arrow")) {
                 return;
               }
 
 
-              const currentlySelected =
-                project.classList.contains("selected");
+              /*
+               * If selected and image clicked:
+               * advance to next image.
+               *
+               * The image does NOT enlarge on mobile.
+               */
+
+              if (
+                project.classList.contains("selected") &&
+                event.target.closest(".project-image")
+              ) {
+
+                changeImage(project, 1);
+
+                return;
+
+              }
 
 
               /*
-               * Only one selected project
-               * per mobile column.
+               * If not selected, select it.
                */
 
-              const column =
-                project.closest(".mobile-column");
+              if (!project.classList.contains("selected")) {
+
+                const column =
+                  project.closest(".mobile-column");
 
 
-              column
-                .querySelectorAll(".project.selected")
-                .forEach(function(selectedProject) {
+                column
+                  .querySelectorAll(".project.selected")
+                  .forEach(function(selectedProject) {
 
-                  if (selectedProject !== project) {
                     selectedProject.classList.remove("selected");
-                  }
 
-                });
+                  });
 
-
-              if (currentlySelected) {
-
-                project.classList.remove("selected");
-
-              } else {
 
                 project.classList.add("selected");
+
+                return;
 
               }
 
@@ -2036,7 +2174,7 @@
 
 
           /* =========================
-             LEFT ARROW
+             MOBILE LEFT ARROW
              ========================= */
 
           const leftArrow =
@@ -2051,6 +2189,8 @@
 
                 event.stopPropagation();
 
+                project.classList.add("selected");
+
                 changeImage(project, -1);
 
               }
@@ -2060,7 +2200,7 @@
 
 
           /* =========================
-             RIGHT ARROW
+             MOBILE RIGHT ARROW
              ========================= */
 
           const rightArrow =
@@ -2074,6 +2214,8 @@
               function(event) {
 
                 event.stopPropagation();
+
+                project.classList.add("selected");
 
                 changeImage(project, 1);
 
@@ -2095,7 +2237,7 @@
 
 
     /* ==================================================
-       HANDLE RESIZE
+       RESIZE
        ================================================== */
 
     let previousMobileState =
@@ -2110,12 +2252,10 @@
           window.innerWidth <= 650;
 
 
-        /*
-         * Reload only when crossing
-         * desktop/mobile breakpoint.
-         */
-
-        if (currentMobileState !== previousMobileState) {
+        if (
+          currentMobileState !==
+          previousMobileState
+        ) {
 
           location.reload();
 
