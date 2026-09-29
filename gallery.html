@@ -20,7 +20,7 @@
     html,
     body {
       width: 100%;
-      min-height: 100%;
+      height: 100%;
       background: #ffffff;
     }
 
@@ -29,8 +29,14 @@
       font-family: Arial, Helvetica, sans-serif;
       font-size: 10px;
       font-weight: 400;
+
       cursor: url("cursor2.png") 25 25, auto;
-      overflow-x: hidden;
+
+      /*
+        IMPORTANT:
+        No page scrolling on desktop.
+      */
+      overflow: hidden;
     }
 
     a {
@@ -45,6 +51,7 @@
 
     header {
       position: fixed;
+
       top: 0;
       left: 0;
 
@@ -55,9 +62,11 @@
 
       display: grid;
       grid-template-columns: 1fr 1fr;
+
       align-items: start;
 
       z-index: 1000;
+
       pointer-events: none;
     }
 
@@ -68,8 +77,11 @@
 
     .name a {
       color: #777777;
+
       font-size: 10px;
+
       text-decoration: none;
+
       transition: color 0.2s ease;
     }
 
@@ -79,7 +91,9 @@
 
     .profession {
       text-align: right;
+
       color: #777777;
+
       font-size: 10px;
     }
 
@@ -90,9 +104,13 @@
 
     .gallery {
       position: relative;
+
       width: 100%;
-      height: 135vh;
-      margin-top: 0;
+      height: 100vh;
+
+      margin: 0;
+
+      overflow: hidden;
     }
 
 
@@ -102,18 +120,15 @@
 
     .project {
       position: absolute;
+
       display: block;
 
       text-align: center;
 
-      cursor: grab;
+      cursor: pointer;
 
       user-select: none;
       -webkit-user-select: none;
-    }
-
-    .project.dragging {
-      cursor: grabbing;
     }
 
 
@@ -141,11 +156,12 @@
 
 
     /* =========================
-       DESKTOP HOVER
+       HOVER
        ========================= */
 
     .project:hover .project-image {
       transform: scale(1.08);
+
       opacity: 0.9;
     }
 
@@ -160,23 +176,24 @@
 
 
     /*
-      The selected image becomes much larger.
+      When an image is selected:
 
-      Instead of using a fixed scale such as 2.4,
-      the image is allowed to grow up to the size
-      of the browser window.
-
-      This prevents cropping on all four sides.
+      - it becomes large
+      - but it can NEVER become larger
+        than the visible browser window
+      - it keeps its original proportions
+      - it is never cropped
     */
 
     .project.selected .project-image {
+
       position: relative;
 
       width: auto;
       height: auto;
 
       max-width: calc(100vw - 60px);
-      max-height: calc(100vh - 120px);
+      max-height: calc(100vh - 100px);
 
       margin-left: auto;
       margin-right: auto;
@@ -199,12 +216,14 @@
       position: absolute;
 
       top: 50%;
+
       transform: translateY(-50%);
 
       width: 18px;
       height: 30px;
 
       display: flex;
+
       align-items: center;
       justify-content: center;
 
@@ -247,6 +266,7 @@
        ========================= */
 
     .project-info {
+
       position: relative;
 
       width: 100%;
@@ -273,13 +293,16 @@
 
     .project:hover .project-info,
     .project.selected .project-info {
+
       opacity: 1;
+
       transform: translateY(0);
 
       z-index: 50;
     }
 
     .project.selected .project-info {
+
       background: #2f6fff;
 
       color: #ffffff;
@@ -292,9 +315,11 @@
     }
 
     .project-title {
+
       color: #2f6fff;
 
       font-size: 10px;
+
       line-height: 1.35;
 
       text-transform: uppercase;
@@ -305,9 +330,11 @@
     }
 
     .project-description {
+
       color: #2f6fff;
 
       font-size: 10px;
+
       line-height: 1.35;
 
       text-transform: none;
@@ -323,9 +350,11 @@
        ========================= */
 
     .project-note {
+
       color: #000000;
 
       font-size: 9px;
+
       line-height: 1.4;
 
       margin-top: 8px;
@@ -341,13 +370,16 @@
 
 
     /* =========================
-       PROJECT POSITIONS
+       DESKTOP POSITIONS
        ========================= */
+
 
     /* 0 — VETCARD */
 
     .project-0 {
+
       width: 11vw;
+
       left: 5vw;
       top: 5vh;
     }
@@ -356,7 +388,9 @@
     /* 1 — ECHOES OF THE DEEP */
 
     .project-1 {
+
       width: 9vw;
+
       left: 23vw;
       top: 4vh;
     }
@@ -365,7 +399,9 @@
     /* 2 — X-RAYS OF THE MODERN CITIES */
 
     .project-2 {
+
       width: 8vw;
+
       left: 37vw;
       top: 18vh;
     }
@@ -374,7 +410,9 @@
     /* 3 — PLACES INSPIRED BY ROBERT SMITHSON */
 
     .project-3 {
+
       width: 10vw;
+
       left: 49vw;
       top: 7vh;
     }
@@ -383,7 +421,9 @@
     /* 4 — URBAN DESIGN */
 
     .project-4 {
+
       width: 9vw;
+
       left: 67vw;
       top: 3vh;
     }
@@ -392,7 +432,9 @@
     /* 5 — CATWALK */
 
     .project-5 {
+
       width: 8vw;
+
       left: 80vw;
       top: 24vh;
     }
@@ -401,7 +443,9 @@
     /* 6 — WISHWALL */
 
     .project-6 {
+
       width: 8vw;
+
       left: 16vw;
       top: 48vh;
     }
@@ -410,7 +454,9 @@
     /* 7 — YTONG MODEL */
 
     .project-7 {
+
       width: 7vw;
+
       left: 84vw;
       top: 8vh;
     }
@@ -419,7 +465,9 @@
     /* 8 — EXPERIMENTAL MODEL */
 
     .project-8 {
+
       width: 7vw;
+
       left: 10vw;
       top: 32vh;
     }
@@ -428,7 +476,9 @@
     /* 9 — SPATIAL INVESTIGATIONS */
 
     .project-9 {
+
       width: 9vw;
+
       left: 34vw;
       top: 30vh;
     }
@@ -437,7 +487,9 @@
     /* 10 — RESIDENTIAL COMPLEX */
 
     .project-10 {
+
       width: 10vw;
+
       left: 65vw;
       top: 31vh;
     }
@@ -446,7 +498,9 @@
     /* 11 — DRYPOINT PRINTING */
 
     .project-11 {
+
       width: 8vw;
+
       left: 24vw;
       top: 72vh;
     }
@@ -455,7 +509,9 @@
     /* 12 — POSTER */
 
     .project-12 {
+
       width: 8vw;
+
       left: 57vw;
       top: 70vh;
     }
@@ -464,7 +520,9 @@
     /* 13 — BOOKMARKS */
 
     .project-13 {
+
       width: 8vw;
+
       left: 76vw;
       top: 68vh;
     }
@@ -475,6 +533,7 @@
        ========================= */
 
     .website-credit {
+
       position: fixed;
 
       right: 3vw;
@@ -483,6 +542,7 @@
       color: #777777;
 
       font-size: 10px;
+
       font-weight: 400;
 
       text-align: right;
@@ -592,6 +652,7 @@
 
       html,
       body {
+
         width: 100%;
         height: 100%;
 
@@ -606,6 +667,7 @@
       /* HEADER */
 
       header {
+
         position: fixed;
 
         top: 0;
@@ -623,12 +685,14 @@
       /* GALLERY */
 
       .gallery {
+
         position: fixed;
 
         top: 65px;
         left: 0;
 
         width: 100%;
+
         height: calc(100vh - 65px);
 
         display: grid;
@@ -642,6 +706,7 @@
       /* MOBILE COLUMNS */
 
       .mobile-column {
+
         position: relative;
 
         width: 100%;
@@ -665,6 +730,7 @@
       /* MOBILE PROJECT */
 
       .mobile-column .project {
+
         position: relative !important;
 
         width: 100% !important;
@@ -687,6 +753,7 @@
       /* MOBILE IMAGE */
 
       .mobile-column .project-image {
+
         display: block;
 
         width: auto;
@@ -701,8 +768,7 @@
         object-fit: contain;
 
         /*
-          IMPORTANT:
-          The image NEVER grows when selected.
+          No enlargement on mobile.
         */
 
         transform: scale(1) !important;
@@ -710,24 +776,20 @@
         opacity: 1;
       }
 
-
       .mobile-column .project:hover .project-image {
+
         transform: scale(1) !important;
 
         opacity: 1;
       }
 
-
       .mobile-column .project.selected .project-image {
+
         transform: scale(1) !important;
 
         opacity: 1;
 
         z-index: 10;
-
-        /*
-          Keep the original image dimensions on mobile.
-        */
 
         width: auto;
 
@@ -740,7 +802,9 @@
       /* MOBILE INFO */
 
       .mobile-column .project-info {
+
         width: 100%;
+
         max-width: 100%;
 
         margin-top: 10px;
@@ -751,6 +815,7 @@
       }
 
       .mobile-column .project.selected .project-info {
+
         padding: 7px 7px 8px 7px;
 
         z-index: 50;
@@ -778,6 +843,7 @@
       /* CREDIT */
 
       .website-credit {
+
         right: 5vw;
 
         bottom: 20px;
@@ -795,10 +861,12 @@
     @media (max-width: 450px) {
 
       .mobile-column .project {
+
         margin-bottom: 30px;
       }
 
       .mobile-column .project.selected .project-image {
+
         transform: scale(1) !important;
       }
 
@@ -822,9 +890,11 @@
   <header>
 
     <div class="name">
+
       <a href="index.html">
         MYRTO PAVLOPOULOU
       </a>
+
     </div>
 
     <div class="profession">
@@ -846,13 +916,16 @@
          0 — VETCARD
          ========================= -->
 
-    <div class="project project-0"
-         data-project="0">
+    <div
+      class="project project-0"
+      data-project="0"
+    >
 
       <img
         class="project-image"
         src="VetCard_1.jpg"
-        alt="VetCard">
+        alt="VetCard"
+      >
 
       <div class="arrow arrow-left">
         &#8592;
@@ -882,13 +955,16 @@
          1 — ECHOES OF THE DEEP
          ========================= -->
 
-    <div class="project project-1"
-         data-project="1">
+    <div
+      class="project project-1"
+      data-project="1"
+    >
 
       <img
         class="project-image"
         src="Jelly_1.jpg"
-        alt="Echoes of the Deep">
+        alt="Echoes of the Deep"
+      >
 
       <div class="arrow arrow-left">
         &#8592;
@@ -932,13 +1008,16 @@
          2 — X-RAYS OF THE MODERN CITIES
          ========================= -->
 
-    <div class="project project-2"
-         data-project="2">
+    <div
+      class="project project-2"
+      data-project="2"
+    >
 
       <img
         class="project-image"
         src="X-ray_(1).jpg"
-        alt="X-Rays of the Modern Cities">
+        alt="X-Rays of the Modern Cities"
+      >
 
       <div class="arrow arrow-left">
         &#8592;
@@ -968,13 +1047,16 @@
          3 — PLACES INSPIRED BY ROBERT SMITHSON
          ========================= -->
 
-    <div class="project project-3"
-         data-project="3">
+    <div
+      class="project project-3"
+      data-project="3"
+    >
 
       <img
         class="project-image"
         src="Smithson_1.png"
-        alt="Places Inspired by Robert Smithson">
+        alt="Places Inspired by Robert Smithson"
+      >
 
       <div class="arrow arrow-left">
         &#8592;
@@ -1000,13 +1082,16 @@
          4 — URBAN DESIGN
          ========================= -->
 
-    <div class="project project-4"
-         data-project="4">
+    <div
+      class="project project-4"
+      data-project="4"
+    >
 
       <img
         class="project-image"
         src="Urban_1.png"
-        alt="Urban Design">
+        alt="Urban Design"
+      >
 
       <div class="arrow arrow-left">
         &#8592;
@@ -1032,13 +1117,16 @@
          5 — CATWALK
          ========================= -->
 
-    <div class="project project-5"
-         data-project="5">
+    <div
+      class="project project-5"
+      data-project="5"
+    >
 
       <img
         class="project-image"
         src="CATWALK_(1).jpg"
-        alt="Catwalk">
+        alt="Catwalk"
+      >
 
       <div class="arrow arrow-left">
         &#8592;
@@ -1082,13 +1170,16 @@
          6 — WISHWALL
          ========================= -->
 
-    <div class="project project-6"
-         data-project="6">
+    <div
+      class="project project-6"
+      data-project="6"
+    >
 
       <img
         class="project-image"
         src="WISHWALL_1.jpg"
-        alt="Wishwall">
+        alt="Wishwall"
+      >
 
       <div class="arrow arrow-left">
         &#8592;
@@ -1134,13 +1225,16 @@
          7 — YTONG MODEL
          ========================= -->
 
-    <div class="project project-7"
-         data-project="7">
+    <div
+      class="project project-7"
+      data-project="7"
+    >
 
       <img
         class="project-image"
         src="model_1.jpg"
-        alt="Ytong Model">
+        alt="Ytong Model"
+      >
 
       <div class="arrow arrow-left">
         &#8592;
@@ -1166,13 +1260,16 @@
          8 — EXPERIMENTAL MODEL
          ========================= -->
 
-    <div class="project project-8"
-         data-project="8">
+    <div
+      class="project project-8"
+      data-project="8"
+    >
 
       <img
         class="project-image"
         src="model_2.jpg"
-        alt="Experimental Model">
+        alt="Experimental Model"
+      >
 
       <div class="project-info">
 
@@ -1190,13 +1287,16 @@
          9 — SPATIAL INVESTIGATIONS
          ========================= -->
 
-    <div class="project project-9"
-         data-project="9">
+    <div
+      class="project project-9"
+      data-project="9"
+    >
 
       <img
         class="project-image"
         src="TeclaSala_7.jpg"
-        alt="Spatial Investigations">
+        alt="Spatial Investigations"
+      >
 
       <div class="arrow arrow-left">
         &#8592;
@@ -1238,13 +1338,16 @@
          10 — RESIDENTIAL COMPLEX
          ========================= -->
 
-    <div class="project project-10"
-         data-project="10">
+    <div
+      class="project project-10"
+      data-project="10"
+    >
 
       <img
         class="project-image"
         src="ResidentialBuilding_1.png"
-        alt="Residential Complex">
+        alt="Residential Complex"
+      >
 
       <div class="arrow arrow-left">
         &#8592;
@@ -1280,13 +1383,16 @@
          11 — DRYPOINT PRINTING
          ========================= -->
 
-    <div class="project project-11"
-         data-project="11">
+    <div
+      class="project project-11"
+      data-project="11"
+    >
 
       <img
         class="project-image"
         src="Drypoint_1.jpg"
-        alt="Drypoint Printing">
+        alt="Drypoint Printing"
+      >
 
       <div class="project-info">
 
@@ -1304,13 +1410,16 @@
          12 — POSTER
          ========================= -->
 
-    <div class="project project-12"
-         data-project="12">
+    <div
+      class="project project-12"
+      data-project="12"
+    >
 
       <img
         class="project-image"
         src="Poster_1 (2).jpg"
-        alt="Poster">
+        alt="Poster"
+      >
 
       <div class="arrow arrow-left">
         &#8592;
@@ -1342,13 +1451,16 @@
          13 — BOOKMARKS
          ========================= -->
 
-    <div class="project project-13"
-         data-project="13">
+    <div
+      class="project project-13"
+      data-project="13"
+    >
 
       <img
         class="project-image"
         src="BOOKMARKS_1.jpg"
-        alt="Bookmarks">
+        alt="Bookmarks"
+      >
 
       <div class="arrow arrow-left">
         &#8592;
@@ -1388,6 +1500,7 @@
 
 
   <script>
+
 
     /* =====================================================
        PROJECT IMAGES
@@ -1526,13 +1639,17 @@
 
     function updateProjectImage(project, projectId) {
 
-      const image = project.querySelector(".project-image");
+      const image =
+        project.querySelector(".project-image");
 
-      const images = projectImages[projectId];
+      const images =
+        projectImages[projectId];
 
-      const index = currentIndexes[projectId];
+      const index =
+        currentIndexes[projectId];
 
-      image.src = images[index];
+      image.src =
+        images[index];
 
     }
 
@@ -1543,17 +1660,19 @@
 
     function selectProject(project) {
 
-      document.querySelectorAll(".project").forEach(function(item) {
+      document.querySelectorAll(".project").forEach(
+        function(item) {
 
-        if (item !== project) {
+          if (item !== project) {
 
-          item.classList.remove("selected");
+            item.classList.remove("selected");
 
-          item.style.zIndex = "";
+            item.style.zIndex = "";
+
+          }
 
         }
-
-      });
+      );
 
       project.classList.add("selected");
 
@@ -1566,9 +1685,14 @@
        CHANGE PROJECT IMAGE
        ===================================================== */
 
-    function changeProjectImage(project, projectId, direction) {
+    function changeProjectImage(
+      project,
+      projectId,
+      direction
+    ) {
 
-      const images = projectImages[projectId];
+      const images =
+        projectImages[projectId];
 
       if (images.length <= 1) {
         return;
@@ -1579,301 +1703,156 @@
 
       if (currentIndexes[projectId] < 0) {
 
-        currentIndexes[projectId] = images.length - 1;
+        currentIndexes[projectId] =
+          images.length - 1;
 
       }
 
 
-      if (currentIndexes[projectId] >= images.length) {
+      if (
+        currentIndexes[projectId] >=
+        images.length
+      ) {
 
         currentIndexes[projectId] = 0;
 
       }
 
-      updateProjectImage(project, projectId);
+
+      updateProjectImage(
+        project,
+        projectId
+      );
 
     }
 
 
     /* =====================================================
-       PROJECT CLICK
+       PROJECT EVENTS
        ===================================================== */
 
-    document.querySelectorAll(".project").forEach(function(project) {
+    document.querySelectorAll(".project").forEach(
+      function(project) {
 
-      const projectId = project.dataset.project;
-
-      updateProjectImage(project, projectId);
-
-
-      project.addEventListener("click", function(event) {
-
-        /*
-          If the user dragged the image,
-          do NOT treat it as a normal click.
-        */
-
-        if (project.dataset.wasDragged === "true") {
-
-          project.dataset.wasDragged = "false";
-
-          return;
-
-        }
+        const projectId =
+          project.dataset.project;
 
 
-        /* Ignore links */
-
-        if (event.target.closest("a")) {
-          return;
-        }
-
-
-        /* Ignore arrows */
-
-        if (event.target.closest(".arrow")) {
-          return;
-        }
+        updateProjectImage(
+          project,
+          projectId
+        );
 
 
-        /* Select project */
+        /* =========================
+           PROJECT CLICK
+           ========================= */
 
-        selectProject(project);
+        project.addEventListener(
+          "click",
+          function(event) {
 
 
-        /*
-          Normal click changes to next image.
-        */
+            /*
+              Ignore links.
+            */
 
-        const images = projectImages[projectId];
+            if (event.target.closest("a")) {
+              return;
+            }
 
-        if (images.length > 1) {
 
-          changeProjectImage(
-            project,
-            projectId,
-            1
+            /*
+              Ignore arrows.
+            */
+
+            if (event.target.closest(".arrow")) {
+              return;
+            }
+
+
+            /*
+              Select project.
+            */
+
+            selectProject(project);
+
+
+            /*
+              Change to next image.
+            */
+
+            const images =
+              projectImages[projectId];
+
+
+            if (images.length > 1) {
+
+              changeProjectImage(
+                project,
+                projectId,
+                1
+              );
+
+            }
+
+          }
+        );
+
+
+        /* =========================
+           LEFT ARROW
+           ========================= */
+
+        const leftArrow =
+          project.querySelector(".arrow-left");
+
+
+        if (leftArrow) {
+
+          leftArrow.addEventListener(
+            "click",
+            function(event) {
+
+              event.stopPropagation();
+
+              selectProject(project);
+
+              changeProjectImage(
+                project,
+                projectId,
+                -1
+              );
+
+            }
           );
 
         }
 
-      });
 
+        /* =========================
+           RIGHT ARROW
+           ========================= */
 
-      /* =====================================================
-         LEFT ARROW
-         ===================================================== */
+        const rightArrow =
+          project.querySelector(".arrow-right");
 
-      const leftArrow = project.querySelector(".arrow-left");
 
-      if (leftArrow) {
+        if (rightArrow) {
 
-        leftArrow.addEventListener("click", function(event) {
+          rightArrow.addEventListener(
+            "click",
+            function(event) {
 
-          event.stopPropagation();
+              event.stopPropagation();
 
-          selectProject(project);
+              selectProject(project);
 
-          changeProjectImage(
-            project,
-            projectId,
-            -1
-          );
-
-        });
-
-      }
-
-
-      /* =====================================================
-         RIGHT ARROW
-         ===================================================== */
-
-      const rightArrow = project.querySelector(".arrow-right");
-
-      if (rightArrow) {
-
-        rightArrow.addEventListener("click", function(event) {
-
-          event.stopPropagation();
-
-          selectProject(project);
-
-          changeProjectImage(
-            project,
-            projectId,
-            1
-          );
-
-        });
-
-      }
-
-    });
-
-
-    /* =====================================================
-       DESKTOP DRAGGING
-       ===================================================== */
-
-    let draggedProject = null;
-
-    let dragStartX = 0;
-    let dragStartY = 0;
-
-    let originalLeft = 0;
-    let originalTop = 0;
-
-    let hasDragged = false;
-
-
-    document.querySelectorAll(".project").forEach(function(project) {
-
-      project.addEventListener("mousedown", function(event) {
-
-        /*
-          Dragging is only enabled on desktop.
-        */
-
-        if (window.innerWidth <= 650) {
-          return;
-        }
-
-
-        /*
-          Do not start dragging from arrows or links.
-        */
-
-        if (event.target.closest(".arrow")) {
-          return;
-        }
-
-        if (event.target.closest("a")) {
-          return;
-        }
-
-
-        draggedProject = project;
-
-        hasDragged = false;
-
-        dragStartX = event.clientX;
-        dragStartY = event.clientY;
-
-
-        /*
-          Convert the current position into pixels.
-
-          This means the project can then be moved freely
-          without changing its original position permanently.
-        */
-
-        originalLeft = project.offsetLeft;
-        originalTop = project.offsetTop;
-
-
-        project.style.left = originalLeft + "px";
-        project.style.top = originalTop + "px";
-
-
-        project.classList.add("dragging");
-
-        project.style.zIndex = "600";
-
-
-        event.preventDefault();
-
-      });
-
-    });
-
-
-    /* =====================================================
-       DRAG MOVE
-       ===================================================== */
-
-    document.addEventListener("mousemove", function(event) {
-
-      if (!draggedProject) {
-        return;
-      }
-
-
-      const distanceX =
-        event.clientX - dragStartX;
-
-      const distanceY =
-        event.clientY - dragStartY;
-
-
-      /*
-        A tiny movement is still considered a click.
-
-        Only after 5px do we consider it a drag.
-      */
-
-      if (
-        Math.abs(distanceX) > 5 ||
-        Math.abs(distanceY) > 5
-      ) {
-
-        hasDragged = true;
-
-      }
-
-
-      if (!hasDragged) {
-        return;
-      }
-
-
-      draggedProject.style.left =
-        (originalLeft + distanceX) + "px";
-
-      draggedProject.style.top =
-        (originalTop + distanceY) + "px";
-
-
-      draggedProject.dataset.wasDragged = "true";
-
-    });
-
-
-    /* =====================================================
-       DRAG END
-       ===================================================== */
-
-    document.addEventListener("mouseup", function() {
-
-      if (!draggedProject) {
-        return;
-      }
-
-      draggedProject.classList.remove("dragging");
-
-      draggedProject = null;
-
-      hasDragged = false;
-
-    });
-
-
-    /* =====================================================
-       CLICK OUTSIDE
-       ===================================================== */
-
-    document.querySelector(".gallery").addEventListener(
-      "click",
-      function(event) {
-
-        if (!event.target.closest(".project")) {
-
-          document.querySelectorAll(".project").forEach(
-            function(project) {
-
-              project.classList.remove("selected");
-
-              project.style.zIndex = "";
+              changeProjectImage(
+                project,
+                projectId,
+                1
+              );
 
             }
           );
@@ -1882,6 +1861,40 @@
 
       }
     );
+
+
+    /* =====================================================
+       CLICK OUTSIDE
+       ===================================================== */
+
+    document
+      .querySelector(".gallery")
+      .addEventListener(
+        "click",
+        function(event) {
+
+          if (
+            !event.target.closest(".project")
+          ) {
+
+            document
+              .querySelectorAll(".project")
+              .forEach(
+                function(project) {
+
+                  project.classList.remove(
+                    "selected"
+                  );
+
+                  project.style.zIndex = "";
+
+                }
+              );
+
+          }
+
+        }
+      );
 
 
     /* =====================================================
@@ -1900,13 +1913,17 @@
 
 
       if (
-        gallery.dataset.mobileReady === "true"
+        gallery.dataset.mobileReady ===
+        "true"
       ) {
+
         return;
+
       }
 
 
-      gallery.dataset.mobileReady = "true";
+      gallery.dataset.mobileReady =
+        "true";
 
 
       const projects =
@@ -1918,12 +1935,14 @@
       const leftColumn =
         document.createElement("div");
 
+
       const rightColumn =
         document.createElement("div");
 
 
       leftColumn.className =
         "mobile-column";
+
 
       rightColumn.className =
         "mobile-column";
@@ -1932,9 +1951,14 @@
       gallery.innerHTML = "";
 
 
-      gallery.appendChild(leftColumn);
+      gallery.appendChild(
+        leftColumn
+      );
 
-      gallery.appendChild(rightColumn);
+
+      gallery.appendChild(
+        rightColumn
+      );
 
 
       /* =========================
@@ -1967,25 +1991,37 @@
       ];
 
 
-      projects.forEach(function(project) {
+      projects.forEach(
+        function(project) {
 
-        const id =
-          Number(project.dataset.project);
+          const id =
+            Number(
+              project.dataset.project
+            );
 
 
-        if (leftProjects.includes(id)) {
+          if (
+            leftProjects.includes(id)
+          ) {
 
-          leftColumn.appendChild(project);
+            leftColumn.appendChild(
+              project
+            );
+
+          }
+
+          else if (
+            rightProjects.includes(id)
+          ) {
+
+            rightColumn.appendChild(
+              project
+            );
+
+          }
 
         }
-
-        else if (rightProjects.includes(id)) {
-
-          rightColumn.appendChild(project);
-
-        }
-
-      });
+      );
 
     }
 
