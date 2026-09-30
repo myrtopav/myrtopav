@@ -2,56 +2,104 @@
 <html lang="en">
 
 <head>
+
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Nisyros-(+100)- — Myrto Pavlopoulou</title>
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
 
-  <link rel="icon" type="image/jpeg" href="profile.jpg">
+  <title>
+    Nisyros-(+100)- — Myrto Pavlopoulou
+  </title>
+
+  <link
+    rel="icon"
+    type="image/jpeg"
+    href="profile.jpg"
+  >
+
 
   <!-- Google Sans Code -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+  >
+
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  >
 
   <link
     href="https://fonts.googleapis.com/css2?family=Google+Sans+Code:wght@300;400;700&display=swap"
     rel="stylesheet"
   >
 
+
   <style>
 
+
+    /* ==================================================
+       RESET
+    ================================================== */
+
     * {
+
       box-sizing: border-box;
+
       margin: 0;
+
       padding: 0;
+
     }
 
 
     html,
     body {
+
       width: 100%;
+
       min-height: 100%;
 
       background: #ffffff;
+
       color: #000000;
 
-      font-family: Arial, Helvetica, sans-serif;
+      font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
       font-size: 10px;
+
       font-weight: 400;
 
-      cursor: url("cursor2.png") 25 25, auto;
+      cursor:
+        url("cursor2.png") 25 25,
+        auto;
+
     }
 
 
     body {
+
       overflow-x: hidden;
+
     }
 
 
     a {
+
       text-decoration: none;
 
-      cursor: url("cursor2.png") 25 25, auto;
+      cursor:
+        url("cursor2.png") 25 25,
+        auto;
+
     }
 
 
@@ -61,51 +109,73 @@
     ================================================== */
 
     header {
+
       position: fixed;
 
       top: 0;
+
       left: 0;
 
       width: 100%;
+
       height: 70px;
 
-      padding: 30px 3vw 0 3vw;
+      padding:
+        30px
+        3vw
+        0
+        3vw;
 
       display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
+
+      justify-content:
+        space-between;
+
+      align-items:
+        flex-start;
 
       z-index: 1000;
 
       pointer-events: none;
 
-      text-transform: uppercase;
+      text-transform:
+        uppercase;
+
     }
 
 
     .name {
+
       pointer-events: auto;
+
     }
 
 
     .name a {
+
       color: #777777;
 
       font-size: 10px;
 
-      transition: color 0.2s ease;
+      transition:
+        color 0.2s ease;
+
     }
 
 
     .name a:hover {
+
       color: #2f6fff;
+
     }
 
 
     .profession {
+
       color: #777777;
 
       font-size: 10px;
+
     }
 
 
@@ -119,6 +189,7 @@
       position: relative;
 
       height: 170vh;
+
     }
 
 
@@ -129,15 +200,17 @@
       top: 0;
 
       width: 100%;
+
       height: 100vh;
 
       overflow: hidden;
+
     }
 
 
 
     /* ==================================================
-       CENTRAL TEXT + GIF
+       CENTRAL CONTENT
     ================================================== */
 
     .intro-cluster {
@@ -145,31 +218,48 @@
       position: absolute;
 
       left: 50%;
-      top: 80px;
 
-      /*
-        The same width is used for both
-        black text blocks.
-      */
+      top: 80px;
 
       width: 680px;
 
-      transform: translateX(-50%);
+      transform:
+        translateX(-50%);
 
       text-align: left;
+
     }
 
 
 
     /*
-      TOP TEXT
+      IMPORTANT:
+
+      Both black text blocks have EXACTLY
+      the same width.
+
+      This is the visual frame for both texts.
     */
+
+    .intro-text,
+    .intro-second-text {
+
+      width: 680px;
+
+      max-width: 680px;
+
+    }
+
+
+
+    /* ==================================================
+       TOP TEXT
+    ================================================== */
 
     .intro-text {
 
-      width: 100%;
-
       font-size: 11px;
+
       line-height: 1.35;
 
       color: #000000;
@@ -177,64 +267,80 @@
       text-align: center;
 
       white-space: nowrap;
+
     }
 
 
 
-    /*
-      GIF
-    */
+    /* ==================================================
+       GIF
+    ================================================== */
 
     .intro-gif {
 
       display: block;
 
       width: 510px;
+
       height: auto;
 
-      margin: 64px auto 0 auto;
+      margin:
+        64px
+        auto
+        0
+        auto;
+
     }
 
 
 
-    /*
-      Coordinate under the GIF
-    */
+    /* ==================================================
+       COORDINATE
+    ================================================== */
 
     .intro-coordinate {
 
       width: 510px;
 
-      margin: 5px auto 0 auto;
+      margin:
+        5px
+        auto
+        0
+        auto;
 
       text-align: right;
 
       font-size: 6px;
+
       line-height: 1;
 
       color: #777777;
+
     }
 
 
 
-    /*
-      LOWER TEXT
-
-      Exactly the same width as the upper text.
-    */
+    /* ==================================================
+       LOWER TEXT
+    ================================================== */
 
     .intro-second-text {
-
-      width: 100%;
 
       margin-top: 38px;
 
       font-size: 11px;
+
       line-height: 1.35;
 
       color: #000000;
 
+      /*
+        LEFT aligned inside the exact same
+        680px frame as the upper text.
+      */
+
       text-align: left;
+
     }
 
 
@@ -248,49 +354,62 @@
       position: absolute;
 
       /*
-        Right edge aligned with the
-        central text field.
+        Its right edge sits near the right edge
+        of the central text field.
       */
 
-      left: calc(50% + 350px);
+      left:
+        calc(50% + 350px);
 
       /*
-        Starts below the visible screen.
+        Starts completely below the screen.
       */
 
       top: 100vh;
 
       width: 100px;
 
-      padding: 8px 8px 10px 8px;
+      padding:
+        8px
+        8px
+        10px
+        8px;
 
-      background: #dce5ff;
+      background:
+        #dce5ff;
 
-      color: #2f6fff;
+      color:
+        #2f6fff;
 
-      font-family: "Google Sans Code", monospace;
+      font-family:
+        "Google Sans Code",
+        monospace;
 
       font-size: 7px;
 
       /*
-        Normal weight for the body text.
+        Normal weight for body text.
       */
 
       font-weight: 400;
 
       line-height: 1.35;
 
-      transform: translateY(0);
+      transform:
+        translateY(0);
 
-      will-change: transform;
+      will-change:
+        transform;
 
       z-index: 20;
+
     }
 
 
-    /*
-      ONLY THE TITLE IS BOLD
-    */
+
+    /* ==================================================
+       BLUE TITLE
+    ================================================== */
 
     .island-title {
 
@@ -298,36 +417,52 @@
 
       color: #2f6fff;
 
+      font-family:
+        "Google Sans Code",
+        monospace;
+
       font-size: 7px;
 
       line-height: 1.2;
 
       font-weight: 700;
+
     }
 
 
-    /*
-      BLUE BODY TEXT IS NORMAL
-    */
+
+    /* ==================================================
+       BLUE BODY
+    ================================================== */
 
     .island-text {
 
       color: #2f6fff;
 
+      font-family:
+        "Google Sans Code",
+        monospace;
+
+      font-size: 7px;
+
+      line-height: 1.35;
+
       font-weight: 400;
+
     }
 
 
-    /*
-      ONLY "THEREFORE, THE ISLAND."
-      IS BOLD.
-    */
+
+    /* ==================================================
+       ONLY SPECIFIC PHRASES ARE BOLD
+    ================================================== */
 
     .island-text strong {
 
       color: #2f6fff;
 
       font-weight: 700;
+
     }
 
 
@@ -340,7 +475,9 @@
 
       min-height: 100vh;
 
-      background: #ffffff;
+      background:
+        #ffffff;
+
     }
 
 
@@ -354,16 +491,19 @@
       position: fixed;
 
       right: 3vw;
+
       bottom: 25px;
 
       color: #777777;
 
       font-size: 10px;
+
       font-weight: 400;
 
       text-align: right;
 
       z-index: 1100;
+
     }
 
 
@@ -374,23 +514,31 @@
 
     @media (max-width: 650px) {
 
+
       header {
 
         height: 60px;
 
-        padding: 24px 5vw 0 5vw;
+        padding:
+          24px
+          5vw
+          0
+          5vw;
+
       }
 
 
       .intro-scene {
 
         height: 165vh;
+
       }
 
 
       .intro-sticky {
 
         height: 100vh;
+
       }
 
 
@@ -399,18 +547,35 @@
         top: 70px;
 
         width: 90vw;
+
+      }
+
+
+      /*
+        On mobile both text blocks still have
+        exactly the same width.
+      */
+
+      .intro-text,
+      .intro-second-text {
+
+        width: 90vw;
+
+        max-width: 90vw;
+
       }
 
 
       .intro-text {
 
-        width: 100%;
-
         font-size: 11px;
+
+        line-height: 1.35;
 
         white-space: normal;
 
         text-align: center;
+
       }
 
 
@@ -421,6 +586,7 @@
         max-width: 510px;
 
         margin-top: 42px;
+
       }
 
 
@@ -431,12 +597,11 @@
         max-width: 510px;
 
         font-size: 5px;
+
       }
 
 
       .intro-second-text {
-
-        width: 100%;
 
         margin-top: 28px;
 
@@ -445,6 +610,7 @@
         line-height: 1.35;
 
         text-align: left;
+
       }
 
 
@@ -463,6 +629,7 @@
         font-size: 6.5px;
 
         font-weight: 400;
+
       }
 
 
@@ -471,18 +638,23 @@
         font-size: 6.5px;
 
         font-weight: 700;
+
       }
 
 
       .island-text {
 
+        font-size: 6.5px;
+
         font-weight: 400;
+
       }
 
 
       .island-text strong {
 
         font-weight: 700;
+
       }
 
 
@@ -493,9 +665,11 @@
         bottom: 15px;
 
         font-size: 9px;
+
       }
 
     }
+
 
   </style>
 
@@ -511,18 +685,24 @@
 
   <header>
 
+
     <div class="name">
 
       <a href="index.html">
+
         MYRTO PAVLOPOULOU
+
       </a>
 
     </div>
 
 
     <div class="profession">
+
       ARCHITECT
+
     </div>
+
 
   </header>
 
@@ -533,6 +713,7 @@
   ================================================== -->
 
   <section class="intro-scene">
+
 
     <div class="intro-sticky">
 
@@ -567,7 +748,9 @@
         <!-- COORDINATE -->
 
         <div class="intro-coordinate">
+
           Nisyros
+
         </div>
 
 
@@ -601,25 +784,37 @@
 
         <div class="island-text">
 
+
           For Ruggiero Romano, an island is a space of experimentation—a laboratory where specific economic and social phenomena can be observed in their most essential forms, often isolated from the complexity of larger continental environments.
 
+
           <br><br>
+
 
           At the same time, islands are often associated with the idea of the utopian place, occupying a unique position in the human imagination that wavers between escape, tranquility, and inner exploration.
 
+
           <br><br>
+
 
           In literature, as a reflection of the human imagination, islands are frequently portrayed as places of both isolation and renewal.
 
+
           <br><br>
+
 
           In his essay Desert Islands, Gilles Deleuze writes: “Whether one dreams of islands with anxiety or with joy.”
 
+
           <br><br>
 
+
           <strong>
+
             Therefore, the island.
+
           </strong>
+
 
         </div>
 
@@ -628,6 +823,7 @@
 
 
     </div>
+
 
   </section>
 
@@ -660,42 +856,53 @@
 
   <script>
 
+
     const scene =
-      document.querySelector(".intro-scene");
+      document.querySelector(
+        ".intro-scene"
+      );
+
 
     const islandBlock =
-      document.querySelector(".island-block");
+      document.querySelector(
+        ".island-block"
+      );
 
 
     function updateIslandPosition() {
 
+
       const sceneTop =
         scene.offsetTop;
+
 
       const viewportHeight =
         window.innerHeight;
 
 
       /*
-        Amount of scrolling inside
-        the first scene.
+        How far the user has scrolled
+        inside the first scene.
       */
 
       const scrollInsideScene =
-        window.scrollY - sceneTop;
+        window.scrollY -
+        sceneTop;
 
 
       /*
         The blue box moves during
-        approximately 70vh of scrolling.
+        approximately 70vh.
       */
 
       const movementDistance =
-        viewportHeight * 0.70;
+        viewportHeight *
+        0.70;
 
 
       let progress =
-        scrollInsideScene / movementDistance;
+        scrollInsideScene /
+        movementDistance;
 
 
       /*
@@ -705,13 +912,15 @@
       progress =
         Math.max(
           0,
-          Math.min(1, progress)
+          Math.min(
+            1,
+            progress
+          )
         );
 
 
       /*
-        Measure the actual height of
-        the blue box.
+        Measure actual blue-box height.
       */
 
       const boxHeight =
@@ -724,25 +933,33 @@
       */
 
       const startPosition =
-        viewportHeight + boxHeight;
+        viewportHeight +
+        boxHeight;
 
 
       /*
         Final position:
-        the center of the screen.
+        centered vertically.
       */
 
       const finalPosition =
-        (viewportHeight - boxHeight) / 2;
+        (
+          viewportHeight -
+          boxHeight
+        ) / 2;
 
 
       /*
-        Interpolate between the two positions.
+        Smooth movement from below
+        the screen to the center.
       */
 
       const currentPosition =
         startPosition +
-        (finalPosition - startPosition) *
+        (
+          finalPosition -
+          startPosition
+        ) *
         progress;
 
 
@@ -768,6 +985,7 @@
 
 
     updateIslandPosition();
+
 
   </script>
 
