@@ -207,7 +207,7 @@
     /* ==================================================
        COMMON TEXT FRAME
 
-       THIS IS THE ACTUAL FRAME FOR BOTH TEXTS
+       BOTH TEXTS USE THIS EXACT SAME FRAME.
     ================================================== */
 
     .text-frame {
@@ -230,8 +230,10 @@
     /* ==================================================
        TOP TEXT
 
-       THE TEXT ITSELF IS CENTERED INSIDE
-       THE 660PX FRAME.
+       ONE LINE.
+       THE WORD SPACING IS STRETCHED SO THAT
+       THE FIRST AND LAST WORD TOUCH THE SAME
+       LEFT AND RIGHT LIMITS AS THE LOWER TEXT.
     ================================================== */
 
     .intro-text {
@@ -254,9 +256,18 @@
 
       color: #000000;
 
-      text-align: center;
+      text-align: justify;
 
-      white-space: nowrap;
+      text-align-last: justify;
+
+      /*
+        Do NOT use nowrap here.
+        The sentence fits on one line and
+        the justification stretches it across
+        the full 660px frame.
+      */
+
+      white-space: normal;
     }
 
 
@@ -310,7 +321,7 @@
     /* ==================================================
        LOWER TEXT
 
-       EXACTLY THE SAME FRAME AS THE TOP TEXT.
+       EXACTLY THE SAME 660PX FRAME.
     ================================================== */
 
     .intro-second-text {
@@ -335,11 +346,6 @@
       color: #000000;
 
       text-align: left;
-
-      /*
-        This prevents any unusually long
-        text segment from visually escaping.
-      */
 
       overflow-wrap: break-word;
 
@@ -559,9 +565,11 @@
 
         line-height: 1.35;
 
-        white-space: normal;
+        text-align: justify;
 
-        text-align: center;
+        text-align-last: justify;
+
+        white-space: normal;
       }
 
 
