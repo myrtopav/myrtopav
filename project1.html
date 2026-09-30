@@ -160,13 +160,17 @@
 
     /* ==================================================
        FIRST SCROLL SCENE
+
+       The scene is longer now so the blue box
+       has enough scrolling distance to travel
+       from below the screen to above it.
     ================================================== */
 
     .intro-scene {
 
       position: relative;
 
-      height: 170vh;
+      height: 250vh;
     }
 
 
@@ -281,8 +285,6 @@
 
     /* ==================================================
        LOWER TEXT
-
-       EXACTLY TWO LINES.
     ================================================== */
 
     .intro-second-text {
@@ -320,6 +322,10 @@
 
       left:
         calc(50% + 350px);
+
+      /*
+        Initial position is below the viewport.
+      */
 
       top: 100vh;
 
@@ -475,7 +481,7 @@
 
       .intro-scene {
 
-        height: 165vh;
+        height: 230vh;
       }
 
 
@@ -764,7 +770,7 @@
 
   <!-- ==================================================
        NEXT SECTION
-  ================================================== -->
+    ================================================== -->
 
   <section class="next-section">
   </section>
@@ -813,20 +819,37 @@
         window.innerHeight;
 
 
+      /*
+        How far the user has scrolled
+        inside this first scene.
+      */
+
       const scrollInsideScene =
         window.scrollY -
         sceneTop;
 
 
+      /*
+        The blue box travels through
+        the entire viewport.
+
+        It starts below the screen
+        and ends above the screen.
+      */
+
       const movementDistance =
-        viewportHeight *
-        0.70;
+        viewportHeight * 1.50;
 
 
       let progress =
         scrollInsideScene /
         movementDistance;
 
+
+      /*
+        Keep the animation between
+        its starting and ending positions.
+      */
 
       progress =
         Math.max(
@@ -838,21 +861,40 @@
         );
 
 
+      /*
+        Measure the actual height
+        of the blue box.
+      */
+
       const boxHeight =
         islandBlock.offsetHeight;
 
+
+      /*
+        START:
+        the entire box is below
+        the viewport.
+      */
 
       const startPosition =
         viewportHeight +
         boxHeight;
 
 
-      const finalPosition =
-        (
-          viewportHeight -
-          boxHeight
-        ) / 2;
+      /*
+        END:
+        the entire box has moved
+        above the viewport.
+      */
 
+      const finalPosition =
+        -boxHeight;
+
+
+      /*
+        Move continuously from
+        bottom -> top.
+      */
 
       const currentPosition =
         startPosition +
