@@ -21,7 +21,7 @@
   >
 
 
-  <!-- Google Sans Code -->
+  <!-- GOOGLE SANS CODE -->
 
   <link
     rel="preconnect"
@@ -210,7 +210,7 @@
 
 
     /* ==================================================
-       CENTRAL CONTENT
+       CENTRAL CLUSTER
     ================================================== */
 
     .intro-cluster {
@@ -221,8 +221,6 @@
 
       top: 80px;
 
-      width: 680px;
-
       transform:
         translateX(-50%);
 
@@ -232,21 +230,18 @@
 
 
 
-    /*
-      IMPORTANT:
+    /* ==================================================
+       COMMON TEXT FRAME
 
-      Both black text blocks have EXACTLY
-      the same width.
+       THIS IS THE IMPORTANT PART.
 
-      This is the visual frame for both texts.
-    */
+       Both black texts use EXACTLY
+       the same physical width.
+    ================================================== */
 
-    .intro-text,
-    .intro-second-text {
+    .text-frame {
 
-      width: 680px;
-
-      max-width: 680px;
+      width: 660px;
 
     }
 
@@ -257,6 +252,8 @@
     ================================================== */
 
     .intro-text {
+
+      width: 660px;
 
       font-size: 11px;
 
@@ -322,9 +319,13 @@
 
     /* ==================================================
        LOWER TEXT
+
+       SAME EXACT 660PX FRAME.
     ================================================== */
 
     .intro-second-text {
+
+      width: 660px;
 
       margin-top: 38px;
 
@@ -333,11 +334,6 @@
       line-height: 1.35;
 
       color: #000000;
-
-      /*
-        LEFT aligned inside the exact same
-        680px frame as the upper text.
-      */
 
       text-align: left;
 
@@ -353,17 +349,8 @@
 
       position: absolute;
 
-      /*
-        Its right edge sits near the right edge
-        of the central text field.
-      */
-
       left:
         calc(50% + 350px);
-
-      /*
-        Starts completely below the screen.
-      */
 
       top: 100vh;
 
@@ -386,10 +373,6 @@
         monospace;
 
       font-size: 7px;
-
-      /*
-        Normal weight for body text.
-      */
 
       font-weight: 400;
 
@@ -551,22 +534,16 @@
       }
 
 
-      /*
-        On mobile both text blocks still have
-        exactly the same width.
-      */
-
-      .intro-text,
-      .intro-second-text {
+      .text-frame {
 
         width: 90vw;
-
-        max-width: 90vw;
 
       }
 
 
       .intro-text {
+
+        width: 90vw;
 
         font-size: 11px;
 
@@ -602,6 +579,8 @@
 
 
       .intro-second-text {
+
+        width: 90vw;
 
         margin-top: 28px;
 
@@ -725,41 +704,47 @@
       <div class="intro-cluster">
 
 
-        <!-- TOP TEXT -->
-
-        <div class="intro-text">
-
-          This project is a poetic inquiry into the deconstruction of place and an exploration of its future ruins.
-
-        </div>
+        <div class="text-frame">
 
 
+          <!-- TOP TEXT -->
 
-        <!-- GIF -->
+          <div class="intro-text">
 
-        <img
-          class="intro-gif"
-          src="diploma/dipl_1.gif"
-          alt="Nisyros"
-        >
+            This project is a poetic inquiry into the deconstruction of place and an exploration of its future ruins.
+
+          </div>
 
 
 
-        <!-- COORDINATE -->
+          <!-- GIF -->
 
-        <div class="intro-coordinate">
+          <img
+            class="intro-gif"
+            src="diploma/dipl_1.gif"
+            alt="Nisyros"
+          >
 
-          Nisyros
-
-        </div>
 
 
+          <!-- COORDINATE -->
 
-        <!-- LOWER TEXT -->
+          <div class="intro-coordinate">
 
-        <div class="intro-second-text">
+            Nisyros
 
-          The investigation did not follow a linear trajectory. Instead, it unfolded through continuous shifts of perspective between the fragment and the whole, and from the whole back to the fragment.
+          </div>
+
+
+
+          <!-- LOWER TEXT -->
+
+          <div class="intro-second-text">
+
+            The investigation did not follow a linear trajectory. Instead, it unfolded through continuous shifts of perspective between the fragment and the whole, and from the whole back to the fragment.
+
+          </div>
+
 
         </div>
 
@@ -880,20 +865,10 @@
         window.innerHeight;
 
 
-      /*
-        How far the user has scrolled
-        inside the first scene.
-      */
-
       const scrollInsideScene =
         window.scrollY -
         sceneTop;
 
-
-      /*
-        The blue box moves during
-        approximately 70vh.
-      */
 
       const movementDistance =
         viewportHeight *
@@ -905,10 +880,6 @@
         movementDistance;
 
 
-      /*
-        Keep progress between 0 and 1.
-      */
-
       progress =
         Math.max(
           0,
@@ -919,28 +890,14 @@
         );
 
 
-      /*
-        Measure actual blue-box height.
-      */
-
       const boxHeight =
         islandBlock.offsetHeight;
 
-
-      /*
-        Starting position:
-        completely below the screen.
-      */
 
       const startPosition =
         viewportHeight +
         boxHeight;
 
-
-      /*
-        Final position:
-        centered vertically.
-      */
 
       const finalPosition =
         (
@@ -948,11 +905,6 @@
           boxHeight
         ) / 2;
 
-
-      /*
-        Smooth movement from below
-        the screen to the center.
-      */
 
       const currentPosition =
         startPosition +
