@@ -196,55 +196,25 @@
 
       top: 80px;
 
-      width: 660px;
+      width: 100%;
 
       transform:
         translateX(-50%);
-    }
 
-
-
-    /* ==================================================
-       COMMON TEXT FRAME
-
-       BOTH TEXTS USE THIS EXACT SAME FRAME.
-    ================================================== */
-
-    .text-frame {
-
-      display: block;
-
-      width: 660px;
-
-      min-width: 660px;
-
-      max-width: 660px;
-
-      margin: 0 auto;
-
-      padding: 0;
+      text-align: center;
     }
 
 
 
     /* ==================================================
        TOP TEXT
-
-       ONE LINE.
-       THE WORD SPACING IS STRETCHED SO THAT
-       THE FIRST AND LAST WORD TOUCH THE SAME
-       LEFT AND RIGHT LIMITS AS THE LOWER TEXT.
     ================================================== */
 
     .intro-text {
 
       display: block;
 
-      width: 660px;
-
-      min-width: 660px;
-
-      max-width: 660px;
+      width: 100%;
 
       margin: 0;
 
@@ -256,18 +226,9 @@
 
       color: #000000;
 
-      text-align: justify;
+      text-align: center;
 
-      text-align-last: justify;
-
-      /*
-        Do NOT use nowrap here.
-        The sentence fits on one line and
-        the justification stretches it across
-        the full 660px frame.
-      */
-
-      white-space: normal;
+      white-space: nowrap;
     }
 
 
@@ -321,21 +282,18 @@
     /* ==================================================
        LOWER TEXT
 
-       EXACTLY THE SAME 660PX FRAME.
+       EXACTLY TWO LINES.
     ================================================== */
 
     .intro-second-text {
 
       display: block;
 
-      width: 660px;
-
-      min-width: 660px;
-
-      max-width: 660px;
+      width: 100%;
 
       margin:
-        38px 0 0 0;
+        38px auto
+        0 auto;
 
       padding: 0;
 
@@ -345,11 +303,7 @@
 
       color: #000000;
 
-      text-align: left;
-
-      overflow-wrap: break-word;
-
-      word-wrap: break-word;
+      text-align: center;
 
       white-space: normal;
     }
@@ -535,21 +489,11 @@
 
         top: 70px;
 
-        width: 90vw;
+        width: 100%;
 
         min-width: 0;
 
-        max-width: 90vw;
-      }
-
-
-      .text-frame {
-
-        width: 90vw;
-
-        min-width: 0;
-
-        max-width: 90vw;
+        max-width: 100%;
       }
 
 
@@ -557,19 +501,16 @@
 
         width: 90vw;
 
-        min-width: 0;
-
-        max-width: 90vw;
+        margin:
+          0 auto;
 
         font-size: 11px;
 
         line-height: 1.35;
 
-        text-align: justify;
-
-        text-align-last: justify;
-
         white-space: normal;
+
+        text-align: center;
       }
 
 
@@ -597,21 +538,15 @@
 
         width: 90vw;
 
-        min-width: 0;
-
-        max-width: 90vw;
-
-        margin-top: 28px;
+        margin:
+          28px auto
+          0 auto;
 
         font-size: 11px;
 
         line-height: 1.35;
 
-        text-align: left;
-
-        overflow-wrap: break-word;
-
-        word-wrap: break-word;
+        text-align: center;
       }
 
 
@@ -721,47 +656,43 @@
       <div class="intro-cluster">
 
 
-        <div class="text-frame">
+        <!-- TOP TEXT -->
 
+        <div class="intro-text">
 
-          <!-- TOP TEXT -->
+          This project is a poetic inquiry into the deconstruction of place and an exploration of its future ruins.
 
-          <div class="intro-text">
-
-            This project is a poetic inquiry into the deconstruction of place and an exploration of its future ruins.
-
-          </div>
+        </div>
 
 
 
-          <!-- GIF -->
+        <!-- GIF -->
 
-          <img
-            class="intro-gif"
-            src="diploma/dipl_1.gif"
-            alt="Nisyros"
-          >
-
-
-
-          <!-- COORDINATE -->
-
-          <div class="intro-coordinate">
-
-            Nisyros
-
-          </div>
+        <img
+          class="intro-gif"
+          src="diploma/dipl_1.gif"
+          alt="Nisyros"
+        >
 
 
 
-          <!-- LOWER TEXT -->
+        <!-- COORDINATE -->
 
-          <div class="intro-second-text">
+        <div class="intro-coordinate">
 
-            The investigation did not follow a linear trajectory. Instead, it unfolded through continuous shifts of perspective between the fragment and the whole, and from the whole back to the fragment.
+          Nisyros
 
-          </div>
+        </div>
 
+
+
+        <!-- LOWER TEXT -->
+
+        <div class="intro-second-text">
+
+          The investigation did not follow a linear trajectory. Instead, it unfolded through continuous shifts of<br>
+
+          perspective between the fragment and the whole, and from the whole back to the fragment.
 
         </div>
 
