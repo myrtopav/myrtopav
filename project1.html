@@ -20,7 +20,6 @@
     href="profile.jpg"
   >
 
-
   <!-- GOOGLE SANS CODE -->
 
   <link
@@ -166,7 +165,7 @@
 
       position: relative;
 
-      height: 145vh;
+      height: 200vh;
     }
 
 
@@ -312,9 +311,6 @@
 
     /* ==================================================
        BLUE BOX
-
-       The blue box stays fixed so it can have
-       its own independent movement rhythm.
     ================================================== */
 
     .island-block {
@@ -475,7 +471,7 @@
 
       .intro-scene {
 
-        height: 140vh;
+        height: 200vh;
       }
 
 
@@ -790,52 +786,35 @@
   <script>
 
 
-    /*
-      ==================================================
-      MAIN PARAMETERS
-      ==================================================
-
-      The normal page begins to move a little
-      earlier than in the previous version.
-    */
-
-    const handoffScrollRatio =
-      0.85;
-
-
-    /*
-      Position of the blue box when the
-      normal page scroll begins.
-
-      Approximately the position shown
-      in your screenshot.
-    */
-
-    const handoffPositionRatio =
-      0.29;
-
-
-    /*
-      Speed of the blue box after the
-      normal page starts.
-
-      1.00 = same speed as page.
-
-      1.20 = 20% faster than page.
-
-      This creates the subtle independent
-      rhythm that we want.
-    */
-
-    const blueSpeed =
-      1.20;
-
-
-
     const islandBlock =
       document.querySelector(
         ".island-block"
       );
+
+
+    /*
+      ==================================================
+      HANDOFF
+
+      The normal page scroll begins when the blue
+      box reaches the position shown in the screenshot.
+
+      1.00 = one full viewport
+    ================================================== */
+
+    const handoffScrollRatio =
+      1.00;
+
+
+    /*
+      ==================================================
+      BLUE BOX POSITION AT HANDOFF
+
+      Approximately the position from the screenshot.
+    ================================================== */
+
+    const handoffPositionRatio =
+      0.29;
 
 
 
@@ -855,8 +834,8 @@
 
 
       /*
-        Exact scroll point where the
-        normal page begins.
+        The exact scroll point where normal
+        page scrolling begins.
       */
 
       const handoffScroll =
@@ -865,8 +844,8 @@
 
 
       /*
-        Exact vertical position of the
-        blue box at that moment.
+        Exact position of the blue box
+        at that moment.
       */
 
       const handoffTop =
@@ -878,9 +857,8 @@
       /* ==================================================
          PHASE 1
 
-         The blue box enters from below and
-         travels continuously toward the handoff
-         position.
+         Blue box enters from below and travels
+         continuously toward the handoff position.
       ================================================== */
 
       if (
@@ -917,6 +895,10 @@
           progress;
 
 
+        islandBlock.style.position =
+          "fixed";
+
+
         islandBlock.style.top =
           `${currentTop}px`;
 
@@ -927,33 +909,31 @@
       /* ==================================================
          PHASE 2
 
-         The rest of the page is now scrolling.
+         The normal page scroll has started.
 
-         The blue box NEVER stops.
-
-         It continues upward from exactly the
-         handoff position, but 20% faster than
-         the normal scroll.
+         The blue box becomes part of the normal
+         document flow and continues upward naturally.
       ================================================== */
 
       else {
 
 
-        const extraScroll =
-          scrollY -
-          handoffScroll;
+        islandBlock.style.position =
+          "absolute";
 
 
-        const currentTop =
-          handoffTop -
-          (
-            extraScroll *
-            blueSpeed
-          );
+        /*
+          Preserve the exact visual position
+          at the handoff moment.
+        */
+
+        const documentTop =
+          handoffScroll +
+          handoffTop;
 
 
         islandBlock.style.top =
-          `${currentTop}px`;
+          `${documentTop}px`;
 
       }
 
