@@ -161,19 +161,14 @@
     /* ==================================================
        FIRST SCROLL SCENE
 
-       The first scene lasts 200vh.
-
-       The sticky part occupies the first 100vh
-       of scrolling.
-
-       At that point the normal page scroll begins.
+       The normal page scroll begins earlier.
     ================================================== */
 
     .intro-scene {
 
       position: relative;
 
-      height: 200vh;
+      height: 145vh;
     }
 
 
@@ -290,8 +285,6 @@
 
     /* ==================================================
        LOWER TEXT
-
-       EXACTLY TWO LINES
     ================================================== */
 
     .intro-second-text {
@@ -322,12 +315,10 @@
     /* ==================================================
        BLUE BOX
 
-       During the first part it is FIXED and travels
-       through the viewport.
+       The blue box is ALWAYS fixed.
 
-       When it reaches the handoff position it becomes
-       ABSOLUTE and therefore continues naturally with
-       the page scroll.
+       This is what allows it to have its own
+       independent scrolling rhythm.
     ================================================== */
 
     .island-block {
@@ -363,7 +354,7 @@
 
       line-height: 1.35;
 
-      z-index: 50;
+      z-index: 1050;
 
       will-change:
         top;
@@ -430,9 +421,6 @@
 
     /* ==================================================
        NEXT SECTION
-
-       This starts immediately after the first
-       200vh scene.
     ================================================== */
 
     .next-section {
@@ -491,7 +479,7 @@
 
       .intro-scene {
 
-        height: 200vh;
+        height: 140vh;
       }
 
 
@@ -722,11 +710,6 @@
 
     <!-- ==================================================
          BLUE BOX
-
-         IMPORTANT:
-         It is outside the sticky container so that,
-         after the handoff, it can continue moving
-         naturally with the page.
     ================================================== -->
 
     <div class="island-block">
@@ -818,31 +801,61 @@
 
 
     /*
-      The blue box should reach this vertical
-      position before normal page scrolling begins.
+      ==================================================
+      MAIN PARAMETERS
+      ==================================================
 
-      29vh corresponds approximately to the
-      position shown in your screenshot.
+      HANDOFF_SCROLL
+
+      This determines when the normal page content
+      begins to move.
+
+      Previously this was approximately 100vh.
+
+      We now start the normal page scroll earlier:
+      78vh.
     */
 
-    const handoffPosition =
-      29;
+    const handoffScrollRatio =
+      0.78;
 
 
     /*
-      The handoff happens after one full
-      viewport of scrolling.
+      ==================================================
+      HANDOFF POSITION
+
+      This is approximately the position from
+      your screenshot.
     */
+
+    const handoffPositionRatio =
+      0.29;
+
+
+    /*
+      ==================================================
+      BLUE BOX SPEED AFTER HANDOFF
+
+      1.00 = moves exactly with the page.
+
+      0.50 = moves at half the speed.
+
+      0.65 = slightly slower than the page.
+
+      We use 0.65 so the box feels like it is
+      travelling in another layer.
+    */
+
+    const bluePostHandoffSpeed =
+      0.65;
+
+
 
     function updateIslandPosition() {
 
 
       const viewportHeight =
         window.innerHeight;
-
-
-      const handoffScroll =
-        viewportHeight;
 
 
       const scrollY =
@@ -854,20 +867,38 @@
 
 
       /*
-        ----------------------------------------------
-        PHASE 1
-        ----------------------------------------------
-
-        Blue box travels from below the screen
-        to the position shown in your screenshot.
+        The point where normal page scrolling
+        effectively begins.
       */
 
-      if (scrollY < handoffScroll) {
+      const handoffScroll =
+        viewportHeight *
+        handoffScrollRatio;
 
 
-        /*
-          Progress from 0 to 1.
-        */
+      /*
+        Position of the blue box at the
+        handoff moment.
+      */
+
+      const handoffTop =
+        viewportHeight *
+        handoffPositionRatio;
+
+
+
+      /* ==================================================
+         PHASE 1
+
+         Blue box enters from below the screen.
+
+         It moves toward the screenshot position.
+      ================================================== */
+
+      if (
+        scrollY <= handoffScroll
+      ) {
+
 
         let progress =
           scrollY /
@@ -884,41 +915,18 @@
           );
 
 
-        /*
-          Start completely below viewport.
-        */
-
         const startTop =
           viewportHeight +
           boxHeight;
 
 
-        /*
-          End at approximately 29vh.
-        */
-
-        const targetTop =
-          viewportHeight *
-          (
-            handoffPosition / 100
-          );
-
-
-        /*
-          Smooth linear movement.
-        */
-
         const currentTop =
           startTop +
           (
-            targetTop -
+            handoffTop -
             startTop
           ) *
           progress;
-
-
-        islandBlock.style.position =
-          "fixed";
 
 
         islandBlock.style.top =
@@ -927,45 +935,36 @@
       }
 
 
-      /*
-        ----------------------------------------------
-        PHASE 2
-        ----------------------------------------------
 
-        The first sticky scene has finished.
+      /* ==================================================
+         PHASE 2
 
-        The blue box becomes part of the normal
-        document and therefore continues moving
-        upwards naturally as the user scrolls.
-      */
+         NORMAL PAGE SCROLL HAS STARTED.
+
+         The blue box DOES NOT stop.
+
+         It continues moving independently,
+         at 65% of the normal scroll speed.
+      ================================================== */
 
       else {
 
 
-        islandBlock.style.position =
-          "absolute";
+        const extraScroll =
+          scrollY -
+          handoffScroll;
 
 
-        /*
-          At the exact handoff moment:
-
-          document position =
-          current scroll position +
-          target viewport position.
-        */
-
-        const documentTop =
-          handoffScroll +
+        const currentTop =
+          handoffTop -
           (
-            viewportHeight *
-            (
-              handoffPosition / 100
-            )
+            extraScroll *
+            bluePostHandoffSpeed
           );
 
 
         islandBlock.style.top =
-          `${documentTop}px`;
+          `${currentTop}px`;
 
       }
 
