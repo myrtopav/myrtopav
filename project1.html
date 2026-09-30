@@ -160,8 +160,6 @@
 
     /* ==================================================
        FIRST SCROLL SCENE
-
-       The normal page scroll begins earlier.
     ================================================== */
 
     .intro-scene {
@@ -315,10 +313,8 @@
     /* ==================================================
        BLUE BOX
 
-       The blue box is ALWAYS fixed.
-
-       This is what allows it to have its own
-       independent scrolling rhythm.
+       The blue box stays fixed so it can have
+       its own independent movement rhythm.
     ================================================== */
 
     .island-block {
@@ -794,38 +790,25 @@
   <script>
 
 
-    const islandBlock =
-      document.querySelector(
-        ".island-block"
-      );
-
-
     /*
       ==================================================
       MAIN PARAMETERS
       ==================================================
 
-      HANDOFF_SCROLL
-
-      This determines when the normal page content
-      begins to move.
-
-      Previously this was approximately 100vh.
-
-      We now start the normal page scroll earlier:
-      78vh.
+      The normal page begins to move a little
+      earlier than in the previous version.
     */
 
     const handoffScrollRatio =
-      0.78;
+      0.85;
 
 
     /*
-      ==================================================
-      HANDOFF POSITION
+      Position of the blue box when the
+      normal page scroll begins.
 
-      This is approximately the position from
-      your screenshot.
+      Approximately the position shown
+      in your screenshot.
     */
 
     const handoffPositionRatio =
@@ -833,21 +816,26 @@
 
 
     /*
-      ==================================================
-      BLUE BOX SPEED AFTER HANDOFF
+      Speed of the blue box after the
+      normal page starts.
 
-      1.00 = moves exactly with the page.
+      1.00 = same speed as page.
 
-      0.50 = moves at half the speed.
+      1.20 = 20% faster than page.
 
-      0.65 = slightly slower than the page.
-
-      We use 0.65 so the box feels like it is
-      travelling in another layer.
+      This creates the subtle independent
+      rhythm that we want.
     */
 
-    const bluePostHandoffSpeed =
-      0.65;
+    const blueSpeed =
+      1.20;
+
+
+
+    const islandBlock =
+      document.querySelector(
+        ".island-block"
+      );
 
 
 
@@ -867,8 +855,8 @@
 
 
       /*
-        The point where normal page scrolling
-        effectively begins.
+        Exact scroll point where the
+        normal page begins.
       */
 
       const handoffScroll =
@@ -877,8 +865,8 @@
 
 
       /*
-        Position of the blue box at the
-        handoff moment.
+        Exact vertical position of the
+        blue box at that moment.
       */
 
       const handoffTop =
@@ -890,9 +878,9 @@
       /* ==================================================
          PHASE 1
 
-         Blue box enters from below the screen.
-
-         It moves toward the screenshot position.
+         The blue box enters from below and
+         travels continuously toward the handoff
+         position.
       ================================================== */
 
       if (
@@ -939,12 +927,13 @@
       /* ==================================================
          PHASE 2
 
-         NORMAL PAGE SCROLL HAS STARTED.
+         The rest of the page is now scrolling.
 
-         The blue box DOES NOT stop.
+         The blue box NEVER stops.
 
-         It continues moving independently,
-         at 65% of the normal scroll speed.
+         It continues upward from exactly the
+         handoff position, but 20% faster than
+         the normal scroll.
       ================================================== */
 
       else {
@@ -959,7 +948,7 @@
           handoffTop -
           (
             extraScroll *
-            bluePostHandoffSpeed
+            blueSpeed
           );
 
 
@@ -969,6 +958,7 @@
       }
 
     }
+
 
 
     window.addEventListener(
