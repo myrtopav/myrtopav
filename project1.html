@@ -9,6 +9,14 @@
 
   <link rel="icon" type="image/jpeg" href="profile.jpg">
 
+  <!-- Google Sans Code -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Google+Sans+Code:wght@300;400&display=swap"
+    rel="stylesheet"
+  >
+
   <style>
 
     * {
@@ -17,36 +25,46 @@
       padding: 0;
     }
 
+
     html,
     body {
       width: 100%;
       min-height: 100%;
+
       background: #ffffff;
       color: #000000;
+
       font-family: Arial, Helvetica, sans-serif;
       font-size: 10px;
       font-weight: 400;
+
       cursor: url("cursor2.png") 25 25, auto;
     }
+
 
     body {
       overflow-x: hidden;
     }
 
+
     a {
       text-decoration: none;
+
       cursor: url("cursor2.png") 25 25, auto;
     }
 
 
-    /* =========================================
+
+    /* ==================================================
        HEADER
-    ========================================= */
+    ================================================== */
 
     header {
       position: fixed;
+
       top: 0;
       left: 0;
+
       width: 100%;
       height: 70px;
 
@@ -59,46 +77,64 @@
       z-index: 1000;
 
       pointer-events: none;
+
       text-transform: uppercase;
     }
+
 
     .name {
       pointer-events: auto;
     }
 
+
     .name a {
       color: #777777;
+
       font-size: 10px;
+
       transition: color 0.2s ease;
     }
+
 
     .name a:hover {
       color: #2f6fff;
     }
 
+
     .profession {
       color: #777777;
+
       font-size: 10px;
     }
 
 
-    /* =========================================
-       FIRST SCROLL SCENE
-    ========================================= */
+
+    /* ==================================================
+       FIRST SCENE
+    ================================================== */
 
     .intro-scene {
+
+      /*
+        100vh is the visible screen.
+
+        The additional 70vh is the scroll distance
+        during which the blue box moves upward.
+
+        Only after this movement is completed
+        can the page continue downward.
+      */
+
       position: relative;
-      height: 180vh;
+
+      height: 170vh;
     }
 
 
-    /*
-      This is the part that stays fixed while
-      the user scrolls through the first scene.
-    */
-
     .intro-sticky {
+
       position: sticky;
+
       top: 0;
 
       width: 100%;
@@ -108,46 +144,70 @@
     }
 
 
-    /* =========================================
-       INTRO TEXT + GIF
-    ========================================= */
+
+    /* ==================================================
+       CENTRAL CONTENT
+    ================================================== */
 
     .intro-cluster {
+
       position: absolute;
 
-      left: 38%;
-      top: 7.5vh;
+      top: 12vh;
+      left: 50%;
 
-      width: 180px;
+      width: 700px;
+
+      transform: translateX(-50%);
 
       text-align: left;
     }
 
+
+    /*
+      TOP TEXT
+      One single line.
+    */
+
     .intro-text {
-      width: 175px;
+
+      width: 100%;
 
       font-size: 8px;
       line-height: 1.35;
 
       color: #000000;
 
-      margin-bottom: 17px;
+      white-space: nowrap;
     }
+
+
+
+    /*
+      GIF
+    */
 
     .intro-gif {
+
       display: block;
 
-      width: 120px;
+      width: 380px;
       height: auto;
 
-      margin-left: 4px;
+      margin: 22px auto 0 auto;
     }
 
-    .intro-coordinate {
-      width: 120px;
 
-      margin-top: 3px;
-      margin-left: 4px;
+
+    /*
+      Small coordinate under the GIF
+    */
+
+    .intro-coordinate {
+
+      width: 380px;
+
+      margin: 4px auto 0 auto;
 
       text-align: right;
 
@@ -157,10 +217,19 @@
       color: #777777;
     }
 
-    .intro-second-text {
-      width: 175px;
 
-      margin-top: 18px;
+
+    /*
+      LOWER TEXT
+
+      Exactly the same width as the upper text.
+    */
+
+    .intro-second-text {
+
+      width: 100%;
+
+      margin-top: 24px;
 
       font-size: 8px;
       line-height: 1.35;
@@ -169,84 +238,99 @@
     }
 
 
-    /* =========================================
-       BLUE TEXT BLOCK
-    ========================================= */
+
+    /* ==================================================
+       BLUE BOX
+    ================================================== */
 
     .island-block {
 
       position: absolute;
 
       /*
-        Starting position:
-        lower and to the right, as in your drawing.
+        The right edge of the blue box is exactly
+        aligned with the right edge of the text.
       */
 
-      right: 33.5%;
-      top: 38vh;
-
-      width: 70px;
-
-      padding: 6px 7px 8px 7px;
-
-      background: #dce5ff;
-      color: #2f6fff;
-
-      font-size: 7px;
-      line-height: 1.3;
+      left: calc(50% + 350px);
 
       /*
-        The JavaScript changes this variable
-        as the page scrolls.
+        Initially it is lower than the final position.
+      */
+
+      top: 68vh;
+
+      width: 100px;
+
+      padding: 8px 8px 10px 8px;
+
+      background: #dce5ff;
+
+      color: #2f6fff;
+
+      font-family: "Google Sans Code", monospace;
+
+      font-size: 7px;
+      font-weight: 400;
+
+      line-height: 1.35;
+
+      /*
+        Hidden when the page first opens.
+      */
+
+      opacity: 0;
+
+      /*
+        JavaScript controls the vertical movement.
       */
 
       transform: translateY(0);
 
-      will-change: transform;
+      will-change: transform, opacity;
+
+      z-index: 20;
     }
 
+
     .island-title {
-      margin-bottom: 6px;
+
+      margin-bottom: 7px;
 
       color: #2f6fff;
 
       font-size: 7px;
       line-height: 1.2;
-      font-weight: 400;
     }
 
+
     .island-text {
+
       color: #2f6fff;
     }
 
 
-    /* =========================================
+
+    /* ==================================================
        NEXT SECTION
-       Empty for now.
-    ========================================= */
+       EMPTY FOR NOW
+    ================================================== */
 
     .next-section {
+
       min-height: 100vh;
-
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      padding: 15vh 8vw;
 
       background: #ffffff;
     }
 
-    .next-section-placeholder {
-      display: none;
-    }
 
 
-    /* =========================================
+    /* ==================================================
        WEBSITE CREDIT
-    ========================================= */
+    ================================================== */
 
     .website-credit {
+
       position: fixed;
 
       right: 3vw;
@@ -263,73 +347,104 @@
     }
 
 
-    /* =========================================
+
+    /* ==================================================
        MOBILE
-    ========================================= */
+    ================================================== */
 
     @media (max-width: 650px) {
 
       header {
+
         height: 60px;
 
         padding: 24px 5vw 0 5vw;
       }
 
+
       .intro-scene {
-        height: 170vh;
+
+        height: 165vh;
       }
 
+
       .intro-sticky {
+
         height: 100vh;
       }
 
-      .intro-cluster {
-        left: 29%;
-        top: 9vh;
 
-        width: 150px;
+      .intro-cluster {
+
+        top: 13vh;
+
+        width: 90vw;
       }
+
 
       .intro-text {
-        width: 145px;
+
+        width: 100%;
 
         font-size: 7px;
+
+        white-space: normal;
       }
+
 
       .intro-gif {
-        width: 100px;
+
+        width: 75vw;
+
+        max-width: 380px;
+
+        margin-top: 22px;
       }
 
+
       .intro-coordinate {
-        width: 100px;
+
+        width: 75vw;
+
+        max-width: 380px;
 
         font-size: 5px;
       }
 
+
       .intro-second-text {
-        width: 145px;
+
+        width: 100%;
+
+        margin-top: 22px;
 
         font-size: 7px;
       }
 
+
       .island-block {
-        right: 13%;
 
-        top: 36vh;
+        left: auto;
+        right: 5vw;
 
-        width: 68px;
+        width: 82px;
 
-        padding: 6px;
+        top: 67vh;
+
+        padding: 7px;
 
         font-size: 6.5px;
-        line-height: 1.3;
       }
+
 
       .island-title {
+
         font-size: 6.5px;
       }
 
+
       .website-credit {
+
         right: 5vw;
         bottom: 15px;
 
@@ -339,21 +454,27 @@
     }
 
   </style>
+
 </head>
 
 
 <body>
 
 
-  <!-- =========================================
+  <!-- ==================================================
        HEADER
-  ========================================== -->
+  ================================================== -->
 
   <header>
 
     <div class="name">
-      <a href="index.html">MYRTO PAVLOPOULOU</a>
+
+      <a href="index.html">
+        MYRTO PAVLOPOULOU
+      </a>
+
     </div>
+
 
     <div class="profession">
       ARCHITECT
@@ -363,26 +484,28 @@
 
 
 
-  <!-- =========================================
+  <!-- ==================================================
        FIRST SCROLL SCENE
-  ========================================== -->
+  ================================================== -->
 
   <section class="intro-scene">
 
     <div class="intro-sticky">
 
 
-      <!-- INTRODUCTION -->
+      <!-- CENTRAL TEXT + GIF -->
 
       <div class="intro-cluster">
 
+
+        <!-- TOP TEXT -->
+
         <div class="intro-text">
 
-          This project is a poetic inquiry into the
-          deconstruction of place and an exploration
-          of its future ruins.
+          This project is a poetic inquiry into the deconstruction of place and an exploration of its future ruins.
 
         </div>
+
 
 
         <!-- GIF -->
@@ -394,26 +517,31 @@
         >
 
 
+
+        <!-- COORDINATE -->
+
         <div class="intro-coordinate">
           Nisyros
         </div>
 
 
+
+        <!-- LOWER TEXT -->
+
         <div class="intro-second-text">
 
-          The investigation did not follow a linear
-          trajectory. Instead, it unfolded through
-          continuous shifts of perspective between
-          the fragment and the whole, and from the
-          whole back to the fragment.
+          The investigation did not follow a linear trajectory. Instead, it unfolded through continuous shifts of perspective between the fragment and the whole, and from the whole back to the fragment.
 
         </div>
+
 
       </div>
 
 
 
-      <!-- WHY AN ISLAND -->
+      <!-- ==================================================
+           BLUE BOX
+      ================================================== -->
 
       <div class="island-block">
 
@@ -421,28 +549,22 @@
           Why an island?
         </div>
 
+
         <div class="island-text">
 
-          For Ruggiero Romano, an island is a space
-          of experimentation—a laboratory where
-          specific economic and social phenomena
-          can be observed in their most essential
-          forms, often isolated from the complexity
-          of larger continental environments.
+          For Ruggiero Romano, an island is a space of experimentation—a laboratory where specific economic and social phenomena can be observed in their most essential forms, often isolated from the complexity of larger continental environments.
 
           <br><br>
 
-          At the same time, islands are often
-          associated with the idea of the utopian
-          place, occupying a unique position in the
-          human imagination that wavers between
-          escape, tranquility, and inner exploration.
+          At the same time, islands are often associated with the idea of the utopian place, occupying a unique position in the human imagination that wavers between escape, tranquility, and inner exploration.
 
           <br><br>
 
-          In literature, as a reflection of the human
-          imagination, islands are frequently portrayed
-          as places of both isolation and renewal.
+          In literature, as a reflection of the human imagination, islands are frequently portrayed as places of both isolation and renewal.
+
+          <br><br>
+
+          In his essay Desert Islands, Gilles Deleuze writes: “Whether one dreams of islands with anxiety or with joy matters little.”
 
         </div>
 
@@ -455,78 +577,124 @@
 
 
 
-  <!-- =========================================
-       NEXT PART — WE WILL BUILD THIS LATER
-  ========================================== -->
+  <!-- ==================================================
+       NEXT PART
+  ================================================== -->
 
   <section class="next-section">
-
-    <div class="next-section-placeholder"></div>
-
   </section>
 
 
 
-  <!-- =========================================
-       CREDIT
-  ========================================== -->
+  <!-- ==================================================
+       WEBSITE CREDIT
+  ================================================== -->
 
   <div class="website-credit">
+
     WEB DESIGN: MYRTO PAVLOPOULOU
+
   </div>
 
 
 
-  <!-- =========================================
+  <!-- ==================================================
        SCROLL ANIMATION
-  ========================================== -->
+  ================================================== -->
 
   <script>
 
-    const scene = document.querySelector(".intro-scene");
-    const islandBlock = document.querySelector(".island-block");
+    const scene =
+      document.querySelector(".intro-scene");
+
+    const islandBlock =
+      document.querySelector(".island-block");
+
 
     function updateIslandPosition() {
 
-      const sceneTop = scene.offsetTop;
-      const sceneHeight = scene.offsetHeight;
-      const viewportHeight = window.innerHeight;
+      const sceneTop =
+        scene.offsetTop;
+
+      const sceneHeight =
+        scene.offsetHeight;
+
+      const viewportHeight =
+        window.innerHeight;
+
+
+      /*
+        How far the user has scrolled
+        inside the first scene.
+      */
 
       const scrollInsideScene =
         window.scrollY - sceneTop;
 
+
       /*
-        We only use the first part of the scene
-        for the movement of the blue box.
+        The blue box begins appearing
+        immediately when scrolling starts.
+
+        It completes its movement when the
+        user has scrolled approximately 70vh.
       */
 
       const movementDistance =
-        viewportHeight * 0.42;
+        viewportHeight * 0.70;
+
 
       let progress =
         scrollInsideScene / movementDistance;
 
+
       /*
-        Keep progress between 0 and 1.
+        Keep the value between 0 and 1.
       */
 
-      progress = Math.max(0, Math.min(1, progress));
+      progress =
+        Math.max(
+          0,
+          Math.min(1, progress)
+        );
 
 
       /*
-        Starting position:
-        38vh
+        Fade in very quickly.
 
-        Final position:
+        At the very first position:
+        opacity = 0
+
+        Shortly after scrolling:
+        opacity = 1
+      */
+
+      const opacity =
+        Math.min(
+          1,
+          progress * 12
+        );
+
+
+      islandBlock.style.opacity =
+        opacity;
+
+
+      /*
+        Starting point:
+        68vh
+
+        Final point:
         approximately 50vh
 
-        Since the block itself has a height,
-        this places it approximately around
-        the middle of the screen.
+        Therefore the blue box moves
+        upward by 18vh.
       */
 
       const movement =
-        -viewportHeight * 0.30 * progress;
+        -viewportHeight *
+        0.18 *
+        progress;
 
 
       islandBlock.style.transform =
@@ -538,7 +706,9 @@
     window.addEventListener(
       "scroll",
       updateIslandPosition,
-      { passive: true }
+      {
+        passive: true
+      }
     );
 
 
