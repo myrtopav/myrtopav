@@ -44,16 +44,11 @@ body {
 a {
     color: inherit;
     text-decoration: none;
-
     cursor: url("cursor2.png"), pointer;
 }
 
 a:hover {
     color: #2f6fff;
-}
-
-img {
-    cursor: url("cursor2.png"), auto;
 }
 
 
@@ -72,7 +67,7 @@ img {
 
     padding: 14px 15px 0 15px;
 
-    z-index: 10000;
+    z-index: 5000;
 
     pointer-events: none;
 }
@@ -122,7 +117,7 @@ img {
     font-size: 8px;
     line-height: 1;
 
-    z-index: 10000;
+    z-index: 5000;
 
     pointer-events: none;
 }
@@ -176,7 +171,7 @@ img {
     line-height: 1.25;
     font-weight: 400;
 
-    z-index: 100;
+    z-index: 10;
 }
 
 
@@ -197,7 +192,7 @@ img {
 
     display: block;
 
-    z-index: 100;
+    z-index: 10;
 
     pointer-events: none;
 }
@@ -220,7 +215,7 @@ img {
 
     white-space: nowrap;
 
-    z-index: 100;
+    z-index: 10;
 }
 
 
@@ -247,7 +242,7 @@ img {
     line-height: 1.3;
     font-weight: 400;
 
-    z-index: 3000;
+    z-index: 20;
 
     pointer-events: none;
 }
@@ -275,7 +270,7 @@ img {
     font-size: 7px;
     line-height: 1.28;
 
-    z-index: 4000;
+    z-index: 1050;
 
     opacity: 1;
 
@@ -298,43 +293,55 @@ img {
 
 
 /* =========================================================
-   PHOTO STACK
+   PHOTO CLUSTER SECTION
 ========================================================= */
 
 /*
-   IMPORTANT:
+   Το cluster δεν υπάρχει μέσα στην αρχική viewport.
 
-   Αυτή είναι μόνο η δοκιμαστική έκδοση.
-
-   Όλες οι εικόνες βρίσκονται σε σταθερό σημείο.
-   Δεν κινούνται.
-   Δεν πέφτουν.
-   Δεν κάνουν animation.
-
-   Είναι σαν να είναι καρφιτσωμένες στον τοίχο.
+   Η αρχική σκηνή τελειώνει πρώτα.
+   Μετά υπάρχει αυτό το μικρό επιπλέον διάστημα
+   και στη συνέχεια συναντάμε το cluster.
 */
 
-.photo-stack {
-    position: fixed;
+.photo-cluster-section {
+    position: relative;
+
+    width: 100%;
+
+    height: 100vh;
+
+    margin-top: 45vh;
+
+    z-index: 30;
+}
+
+
+/* =========================================================
+   PHOTO CLUSTER
+========================================================= */
+
+.photo-cluster {
+    position: absolute;
 
     left: 7vw;
-    bottom: 7vh;
+    top: 50%;
 
-    width: 260px;
-    height: 260px;
+    width: 300px;
+    height: 300px;
 
-    z-index: 1500;
+    transform: translateY(-50%);
 
-    pointer-events: none;
+    z-index: 30;
 }
 
 
 /*
-   Κάθε εικόνα βρίσκεται ΑΚΡΙΒΩΣ
+   Όλες οι εικόνες είναι ακριβώς
    στην ίδια θέση.
 */
 
-.photo-stack-item {
+.photo-cluster img {
     position: absolute;
 
     left: 0;
@@ -349,18 +356,6 @@ img {
     padding: 0;
 
     opacity: 1;
-
-    pointer-events: none;
-}
-
-.photo-stack-item img {
-    display: block;
-
-    width: 100%;
-    height: auto;
-
-    margin: 0;
-    padding: 0;
 
     user-select: none;
     -webkit-user-drag: none;
@@ -470,18 +465,25 @@ img {
 
 
     /* -----------------------------------------------------
-       PHOTO STACK
+       PHOTO CLUSTER
     ----------------------------------------------------- */
 
-    .photo-stack {
+    .photo-cluster-section {
+        height: 80vh;
+
+        margin-top: 35vh;
+    }
+
+    .photo-cluster {
         left: 5vw;
-        bottom: 7vh;
+
+        top: 50%;
 
         width: 220px;
         height: 220px;
     }
 
-    .photo-stack-item {
+    .photo-cluster img {
         width: 120px;
     }
 
@@ -516,7 +518,7 @@ img {
 
 
 <!-- =======================================================
-     INTRO
+     INTRO SCENE
 ======================================================= -->
 
 <section class="intro-scene">
@@ -612,573 +614,327 @@ img {
 
 
 <!-- =======================================================
-     PHOTO STACK — TEST VERSION
+     PHOTO CLUSTER
 ======================================================= -->
 
-<div class="photo-stack">
+<section class="photo-cluster-section">
+
+    <div class="photo-cluster">
 
 
-    <div
-        class="photo-stack-item"
-        style="z-index: 1;"
-    >
         <img
             src="diploma/photoalbum/1.jpg"
             alt=""
+            style="z-index: 1;"
         >
-    </div>
 
-
-    <div
-        class="photo-stack-item"
-        style="z-index: 2;"
-    >
         <img
             src="diploma/photoalbum/2.jpg"
             alt=""
+            style="z-index: 2;"
         >
-    </div>
 
-
-    <div
-        class="photo-stack-item"
-        style="z-index: 3;"
-    >
         <img
             src="diploma/photoalbum/3.jpg"
             alt=""
+            style="z-index: 3;"
         >
-    </div>
 
-
-    <div
-        class="photo-stack-item"
-        style="z-index: 4;"
-    >
         <img
             src="diploma/photoalbum/4.jpg"
             alt=""
+            style="z-index: 4;"
         >
-    </div>
 
-
-    <div
-        class="photo-stack-item"
-        style="z-index: 5;"
-    >
         <img
             src="diploma/photoalbum/5.jpg"
             alt=""
+            style="z-index: 5;"
         >
-    </div>
 
-
-    <div
-        class="photo-stack-item"
-        style="z-index: 6;"
-    >
         <img
             src="diploma/photoalbum/6.jpg"
             alt=""
+            style="z-index: 6;"
         >
-    </div>
 
-
-    <div
-        class="photo-stack-item"
-        style="z-index: 7;"
-    >
         <img
             src="diploma/photoalbum/7.jpg"
             alt=""
+            style="z-index: 7;"
         >
-    </div>
 
-
-    <div
-        class="photo-stack-item"
-        style="z-index: 8;"
-    >
         <img
             src="diploma/photoalbum/8.jpg"
             alt=""
+            style="z-index: 8;"
         >
-    </div>
 
-
-    <div
-        class="photo-stack-item"
-        style="z-index: 9;"
-    >
         <img
             src="diploma/photoalbum/9.jpg"
             alt=""
+            style="z-index: 9;"
         >
-    </div>
 
-
-    <div
-        class="photo-stack-item"
-        style="z-index: 10;"
-    >
         <img
             src="diploma/photoalbum/10.jpg"
             alt=""
+            style="z-index: 10;"
         >
-    </div>
 
-
-    <div
-        class="photo-stack-item"
-        style="z-index: 11;"
-    >
         <img
             src="diploma/photoalbum/11.jpg"
             alt=""
+            style="z-index: 11;"
         >
-    </div>
 
-
-    <div
-        class="photo-stack-item"
-        style="z-index: 12;"
-    >
         <img
             src="diploma/photoalbum/12.jpg"
             alt=""
+            style="z-index: 12;"
         >
-    </div>
 
-
-    <div
-        class="photo-stack-item"
-        style="z-index: 13;"
-    >
         <img
             src="diploma/photoalbum/13.jpg"
             alt=""
+            style="z-index: 13;"
         >
-    </div>
 
-
-    <div
-        class="photo-stack-item"
-        style="z-index: 14;"
-    >
         <img
             src="diploma/photoalbum/14.jpg"
             alt=""
+            style="z-index: 14;"
         >
-    </div>
 
-
-    <div
-        class="photo-stack-item"
-        style="z-index: 15;"
-    >
         <img
             src="diploma/photoalbum/15.jpg"
             alt=""
+            style="z-index: 15;"
         >
-    </div>
 
-
-    <div
-        class="photo-stack-item"
-        style="z-index: 16;"
-    >
         <img
             src="diploma/photoalbum/16.jpg"
             alt=""
+            style="z-index: 16;"
         >
-    </div>
 
-
-    <div
-        class="photo-stack-item"
-        style="z-index: 17;"
-    >
         <img
             src="diploma/photoalbum/17.jpg"
             alt=""
+            style="z-index: 17;"
         >
-    </div>
 
-
-    <div
-        class="photo-stack-item"
-        style="z-index: 18;"
-    >
         <img
             src="diploma/photoalbum/18.jpg"
             alt=""
+            style="z-index: 18;"
         >
-    </div>
 
-
-    <div
-        class="photo-stack-item"
-        style="z-index: 19;"
-    >
         <img
             src="diploma/photoalbum/19.jpg"
             alt=""
+            style="z-index: 19;"
         >
-    </div>
 
-
-    <div
-        class="photo-stack-item"
-        style="z-index: 20;"
-    >
         <img
             src="diploma/photoalbum/20.jpg"
             alt=""
+            style="z-index: 20;"
         >
-    </div>
 
-
-    <div
-        class="photo-stack-item"
-        style="z-index: 21;"
-    >
         <img
             src="diploma/photoalbum/21.jpg"
             alt=""
+            style="z-index: 21;"
         >
-    </div>
 
-
-    <div
-        class="photo-stack-item"
-        style="z-index: 22;"
-    >
         <img
             src="diploma/photoalbum/22.jpg"
             alt=""
+            style="z-index: 22;"
         >
-    </div>
 
-
-    <div
-        class="photo-stack-item"
-        style="z-index: 23;"
-    >
         <img
             src="diploma/photoalbum/23.jpg"
             alt=""
+            style="z-index: 23;"
         >
-    </div>
 
-
-    <div
-        class="photo-stack-item"
-        style="z-index: 24;"
-    >
         <img
             src="diploma/photoalbum/24.jpg"
             alt=""
+            style="z-index: 24;"
         >
-    </div>
 
-
-    <div
-        class="photo-stack-item"
-        style="z-index: 25;"
-    >
         <img
             src="diploma/photoalbum/25.jpg"
             alt=""
+            style="z-index: 25;"
         >
-    </div>
 
-
-    <div
-        class="photo-stack-item"
-        style="z-index: 26;"
-    >
         <img
             src="diploma/photoalbum/26.jpg"
             alt=""
+            style="z-index: 26;"
         >
-    </div>
 
-
-    <div
-        class="photo-stack-item"
-        style="z-index: 27;"
-    >
         <img
             src="diploma/photoalbum/27.jpg"
             alt=""
+            style="z-index: 27;"
         >
-    </div>
 
-
-    <div
-        class="photo-stack-item"
-        style="z-index: 28;"
-    >
         <img
             src="diploma/photoalbum/28.jpg"
             alt=""
+            style="z-index: 28;"
         >
-    </div>
 
-
-    <div
-        class="photo-stack-item"
-        style="z-index: 29;"
-    >
         <img
             src="diploma/photoalbum/29.jpg"
             alt=""
+            style="z-index: 29;"
         >
-    </div>
 
-
-    <div
-        class="photo-stack-item"
-        style="z-index: 30;"
-    >
         <img
             src="diploma/photoalbum/30.jpg"
             alt=""
+            style="z-index: 30;"
         >
-    </div>
 
-
-    <div
-        class="photo-stack-item"
-        style="z-index: 31;"
-    >
         <img
             src="diploma/photoalbum/31.jpg"
             alt=""
+            style="z-index: 31;"
         >
-    </div>
 
 
-    <div
-        class="photo-stack-item"
-        style="z-index: 32;"
-    >
+        <!-- 32 και 33 δεν υπάρχουν -->
+
+
         <img
             src="diploma/photoalbum/34.jpg"
             alt=""
+            style="z-index: 32;"
         >
-    </div>
 
-
-    <div
-        class="photo-stack-item"
-        style="z-index: 33;"
-    >
         <img
             src="diploma/photoalbum/35.jpg"
             alt=""
+            style="z-index: 33;"
         >
-    </div>
 
-
-    <div
-        class="photo-stack-item"
-        style="z-index: 34;"
-    >
         <img
             src="diploma/photoalbum/36.jpg"
             alt=""
+            style="z-index: 34;"
         >
-    </div>
 
-
-    <div
-        class="photo-stack-item"
-        style="z-index: 35;"
-    >
         <img
             src="diploma/photoalbum/37.jpg"
             alt=""
+            style="z-index: 35;"
         >
-    </div>
 
-
-    <div
-        class="photo-stack-item"
-        style="z-index: 36;"
-    >
         <img
             src="diploma/photoalbum/38.jpg"
             alt=""
+            style="z-index: 36;"
         >
-    </div>
 
-
-    <div
-        class="photo-stack-item"
-        style="z-index: 37;"
-    >
         <img
             src="diploma/photoalbum/39.jpg"
             alt=""
+            style="z-index: 37;"
         >
-    </div>
 
-
-    <div
-        class="photo-stack-item"
-        style="z-index: 38;"
-    >
         <img
             src="diploma/photoalbum/40.jpg"
             alt=""
+            style="z-index: 38;"
         >
-    </div>
 
-
-    <div
-        class="photo-stack-item"
-        style="z-index: 39;"
-    >
         <img
             src="diploma/photoalbum/41.jpg"
             alt=""
+            style="z-index: 39;"
         >
-    </div>
 
-
-    <div
-        class="photo-stack-item"
-        style="z-index: 40;"
-    >
         <img
             src="diploma/photoalbum/42.jpg"
             alt=""
+            style="z-index: 40;"
         >
-    </div>
 
-
-    <div
-        class="photo-stack-item"
-        style="z-index: 41;"
-    >
         <img
             src="diploma/photoalbum/43.jpg"
             alt=""
+            style="z-index: 41;"
         >
-    </div>
 
-
-    <div
-        class="photo-stack-item"
-        style="z-index: 42;"
-    >
         <img
             src="diploma/photoalbum/44.jpg"
             alt=""
+            style="z-index: 42;"
         >
-    </div>
 
-
-    <div
-        class="photo-stack-item"
-        style="z-index: 43;"
-    >
         <img
             src="diploma/photoalbum/45.jpg"
             alt=""
+            style="z-index: 43;"
         >
-    </div>
 
-
-    <div
-        class="photo-stack-item"
-        style="z-index: 44;"
-    >
         <img
             src="diploma/photoalbum/46.jpg"
             alt=""
+            style="z-index: 44;"
         >
-    </div>
 
-
-    <div
-        class="photo-stack-item"
-        style="z-index: 45;"
-    >
         <img
             src="diploma/photoalbum/47.jpg"
             alt=""
+            style="z-index: 45;"
         >
-    </div>
 
-
-    <div
-        class="photo-stack-item"
-        style="z-index: 46;"
-    >
         <img
             src="diploma/photoalbum/48.jpg"
             alt=""
+            style="z-index: 46;"
         >
-    </div>
 
-
-    <div
-        class="photo-stack-item"
-        style="z-index: 47;"
-    >
         <img
             src="diploma/photoalbum/49.jpg"
             alt=""
+            style="z-index: 47;"
         >
-    </div>
 
-
-    <div
-        class="photo-stack-item"
-        style="z-index: 48;"
-    >
         <img
             src="diploma/photoalbum/50.jpg"
             alt=""
+            style="z-index: 48;"
         >
-    </div>
 
-
-    <div
-        class="photo-stack-item"
-        style="z-index: 49;"
-    >
         <img
             src="diploma/photoalbum/51.jpg"
             alt=""
+            style="z-index: 49;"
         >
-    </div>
 
-
-    <div
-        class="photo-stack-item"
-        style="z-index: 50;"
-    >
         <img
             src="diploma/photoalbum/52.jpg"
             alt=""
+            style="z-index: 50;"
         >
-    </div>
 
-
-    <div
-        class="photo-stack-item"
-        style="z-index: 51;"
-    >
         <img
             src="diploma/photoalbum/53.jpg"
             alt=""
+            style="z-index: 51;"
         >
+
     </div>
 
-</div>
+</section>
 
 
 <!-- =======================================================
@@ -1215,7 +971,7 @@ let handoffTop =
 
 
 /* =========================================================
-   SCROLL
+   UPDATE SCROLL
 ========================================================= */
 
 function updateHandoff() {
@@ -1300,7 +1056,6 @@ function updateHandoff() {
 
         islandBlock.style.transform =
             "translateY(0)";
-
     }
 
 }
