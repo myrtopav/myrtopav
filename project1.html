@@ -161,16 +161,19 @@
     /* ==================================================
        FIRST SCROLL SCENE
 
-       The scene is longer now so the blue box
-       has enough scrolling distance to travel
-       from below the screen to above it.
+       The first scene lasts 200vh.
+
+       The sticky part occupies the first 100vh
+       of scrolling.
+
+       At that point the normal page scroll begins.
     ================================================== */
 
     .intro-scene {
 
       position: relative;
 
-      height: 250vh;
+      height: 200vh;
     }
 
 
@@ -184,12 +187,14 @@
       height: 100vh;
 
       overflow: hidden;
+
+      z-index: 5;
     }
 
 
 
     /* ==================================================
-       CENTRAL CLUSTER
+       CENTRAL CONTENT
     ================================================== */
 
     .intro-cluster {
@@ -285,6 +290,8 @@
 
     /* ==================================================
        LOWER TEXT
+
+       EXACTLY TWO LINES
     ================================================== */
 
     .intro-second-text {
@@ -313,19 +320,22 @@
 
 
     /* ==================================================
-       BLUE TEXT BLOCK
+       BLUE BOX
+
+       During the first part it is FIXED and travels
+       through the viewport.
+
+       When it reaches the handoff position it becomes
+       ABSOLUTE and therefore continues naturally with
+       the page scroll.
     ================================================== */
 
     .island-block {
 
-      position: absolute;
+      position: fixed;
 
       left:
         calc(50% + 350px);
-
-      /*
-        Initial position is below the viewport.
-      */
 
       top: 100vh;
 
@@ -353,13 +363,10 @@
 
       line-height: 1.35;
 
-      transform:
-        translateY(0);
+      z-index: 50;
 
       will-change:
-        transform;
-
-      z-index: 20;
+        top;
     }
 
 
@@ -409,7 +416,7 @@
 
 
     /* ==================================================
-       ONLY THE REQUESTED PHRASES ARE BOLD
+       ONLY REQUESTED PHRASES BOLD
     ================================================== */
 
     .island-text strong {
@@ -423,6 +430,9 @@
 
     /* ==================================================
        NEXT SECTION
+
+       This starts immediately after the first
+       200vh scene.
     ================================================== */
 
     .next-section {
@@ -481,7 +491,7 @@
 
       .intro-scene {
 
-        height: 230vh;
+        height: 200vh;
       }
 
 
@@ -706,56 +716,61 @@
       </div>
 
 
-
-      <!-- ==================================================
-           BLUE BOX
-      ================================================== -->
-
-      <div class="island-block">
+    </div>
 
 
-        <div class="island-title">
 
-          Why an island?
+    <!-- ==================================================
+         BLUE BOX
 
-        </div>
+         IMPORTANT:
+         It is outside the sticky container so that,
+         after the handoff, it can continue moving
+         naturally with the page.
+    ================================================== -->
 
-
-        <div class="island-text">
-
-
-          For Ruggiero Romano, an island is a space of experimentation—a laboratory where specific economic and social phenomena can be observed in their most essential forms, often isolated from the complexity of larger continental environments.
-
-
-          <br><br>
+    <div class="island-block">
 
 
-          At the same time, islands are often associated with the idea of the utopian place, occupying a unique position in the human imagination that wavers between escape, tranquility, and inner exploration.
+      <div class="island-title">
+
+        Why an island?
+
+      </div>
 
 
-          <br><br>
+      <div class="island-text">
 
 
-          In literature, as a reflection of the human imagination, islands are frequently portrayed as places of both isolation and renewal.
+        For Ruggiero Romano, an island is a space of experimentation—a laboratory where specific economic and social phenomena can be observed in their most essential forms, often isolated from the complexity of larger continental environments.
 
 
-          <br><br>
+        <br><br>
 
 
-          In his essay Desert Islands, Gilles Deleuze writes: “Whether one dreams of islands with anxiety or with joy.”
+        At the same time, islands are often associated with the idea of the utopian place, occupying a unique position in the human imagination that wavers between escape, tranquility, and inner exploration.
 
 
-          <br><br>
+        <br><br>
 
 
-          <strong>
-
-            Therefore, the island.
-
-          </strong>
+        In literature, as a reflection of the human imagination, islands are frequently portrayed as places of both isolation and renewal.
 
 
-        </div>
+        <br><br>
+
+
+        In his essay Desert Islands, Gilles Deleuze writes: “Whether one dreams of islands with anxiety or with joy.”
+
+
+        <br><br>
+
+
+        <strong>
+
+          Therefore, the island.
+
+        </strong>
 
 
       </div>
@@ -770,7 +785,7 @@
 
   <!-- ==================================================
        NEXT SECTION
-    ================================================== -->
+  ================================================== -->
 
   <section class="next-section">
   </section>
@@ -796,117 +811,163 @@
   <script>
 
 
-    const scene =
-      document.querySelector(
-        ".intro-scene"
-      );
-
-
     const islandBlock =
       document.querySelector(
         ".island-block"
       );
 
 
+    /*
+      The blue box should reach this vertical
+      position before normal page scrolling begins.
+
+      29vh corresponds approximately to the
+      position shown in your screenshot.
+    */
+
+    const handoffPosition =
+      29;
+
+
+    /*
+      The handoff happens after one full
+      viewport of scrolling.
+    */
+
     function updateIslandPosition() {
-
-
-      const sceneTop =
-        scene.offsetTop;
 
 
       const viewportHeight =
         window.innerHeight;
 
 
-      /*
-        How far the user has scrolled
-        inside this first scene.
-      */
-
-      const scrollInsideScene =
-        window.scrollY -
-        sceneTop;
+      const handoffScroll =
+        viewportHeight;
 
 
-      /*
-        The blue box travels through
-        the entire viewport.
+      const scrollY =
+        window.scrollY;
 
-        It starts below the screen
-        and ends above the screen.
-      */
-
-      const movementDistance =
-        viewportHeight * 1.50;
-
-
-      let progress =
-        scrollInsideScene /
-        movementDistance;
-
-
-      /*
-        Keep the animation between
-        its starting and ending positions.
-      */
-
-      progress =
-        Math.max(
-          0,
-          Math.min(
-            1,
-            progress
-          )
-        );
-
-
-      /*
-        Measure the actual height
-        of the blue box.
-      */
 
       const boxHeight =
         islandBlock.offsetHeight;
 
 
       /*
-        START:
-        the entire box is below
-        the viewport.
+        ----------------------------------------------
+        PHASE 1
+        ----------------------------------------------
+
+        Blue box travels from below the screen
+        to the position shown in your screenshot.
       */
 
-      const startPosition =
-        viewportHeight +
-        boxHeight;
+      if (scrollY < handoffScroll) {
+
+
+        /*
+          Progress from 0 to 1.
+        */
+
+        let progress =
+          scrollY /
+          handoffScroll;
+
+
+        progress =
+          Math.max(
+            0,
+            Math.min(
+              1,
+              progress
+            )
+          );
+
+
+        /*
+          Start completely below viewport.
+        */
+
+        const startTop =
+          viewportHeight +
+          boxHeight;
+
+
+        /*
+          End at approximately 29vh.
+        */
+
+        const targetTop =
+          viewportHeight *
+          (
+            handoffPosition / 100
+          );
+
+
+        /*
+          Smooth linear movement.
+        */
+
+        const currentTop =
+          startTop +
+          (
+            targetTop -
+            startTop
+          ) *
+          progress;
+
+
+        islandBlock.style.position =
+          "fixed";
+
+
+        islandBlock.style.top =
+          `${currentTop}px`;
+
+      }
 
 
       /*
-        END:
-        the entire box has moved
-        above the viewport.
+        ----------------------------------------------
+        PHASE 2
+        ----------------------------------------------
+
+        The first sticky scene has finished.
+
+        The blue box becomes part of the normal
+        document and therefore continues moving
+        upwards naturally as the user scrolls.
       */
 
-      const finalPosition =
-        -boxHeight;
+      else {
 
 
-      /*
-        Move continuously from
-        bottom -> top.
-      */
-
-      const currentPosition =
-        startPosition +
-        (
-          finalPosition -
-          startPosition
-        ) *
-        progress;
+        islandBlock.style.position =
+          "absolute";
 
 
-      islandBlock.style.top =
-        `${currentPosition}px`;
+        /*
+          At the exact handoff moment:
+
+          document position =
+          current scroll position +
+          target viewport position.
+        */
+
+        const documentTop =
+          handoffScroll +
+          (
+            viewportHeight *
+            (
+              handoffPosition / 100
+            )
+          );
+
+
+        islandBlock.style.top =
+          `${documentTop}px`;
+
+      }
 
     }
 
