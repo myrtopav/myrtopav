@@ -2,14 +2,27 @@
 <html lang="en">
 
 <head>
+
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
 
   <title>Gallery — Myrto Pavlopoulou</title>
 
-  <link rel="icon" type="image/jpeg" href="profile.jpg">
+  <link
+    rel="icon"
+    type="image/jpeg"
+    href="profile.jpg"
+  >
 
   <style>
+
+    /* ==================================================
+       RESET
+    ================================================== */
 
     * {
       box-sizing: border-box;
@@ -23,224 +36,370 @@
       height: 100%;
     }
 
+
+    /* ==================================================
+       BODY
+    ================================================== */
+
     body {
       background: #ffffff;
       color: #000000;
-      font-family: Arial, Helvetica, sans-serif;
+
+      font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
       font-size: 10px;
       font-weight: 400;
+
       overflow: hidden;
-      cursor: url("cursor2.png") 25 25, auto;
+
+      cursor:
+        url("cursor2.png") 25 25,
+        auto;
     }
+
 
     a {
       text-decoration: none;
-      cursor: url("cursor2.png") 25 25, auto;
+
+      cursor:
+        url("cursor2.png") 25 25,
+        auto;
     }
 
 
-    /* =========================
+    /* ==================================================
        HEADER
-    ========================= */
+    ================================================== */
 
     header {
+
       position: fixed;
+
       top: 0;
       left: 0;
+
       width: 100%;
       height: 80px;
-      padding: 30px 3vw 0 3vw;
+
+      padding:
+        30px
+        3vw
+        0
+        3vw;
+
       display: grid;
-      grid-template-columns: 1fr 1fr;
+
+      grid-template-columns:
+        1fr
+        1fr;
+
       align-items: start;
+
       z-index: 1000;
+
       font-size: 10px;
+
       text-transform: uppercase;
+
       pointer-events: none;
     }
 
+
     .name {
+
       text-align: left;
+
       pointer-events: auto;
     }
 
+
     .name a {
+
       color: #777777;
+
       font-size: 10px;
+
       text-decoration: none;
-      transition: color 0.2s ease;
+
+      transition:
+        color 0.2s ease;
     }
+
 
     .name a:hover {
       color: #2f6fff;
     }
 
+
     .profession {
+
       text-align: right;
+
       color: #777777;
+
       font-size: 10px;
     }
 
 
-    /* =========================
+    /* ==================================================
        GALLERY
-    ========================= */
+    ================================================== */
 
     .gallery {
+
       position: relative;
+
       width: 100%;
       height: 100vh;
+
       overflow: hidden;
     }
 
 
-    /* =========================
+    /* ==================================================
        PROJECT
-    ========================= */
+    ================================================== */
 
     .project {
+
       position: absolute;
+
       display: block;
+
       text-align: center;
+
       z-index: 1;
     }
 
+
     .project-image {
+
       display: block;
+
       width: 100%;
       height: auto;
+
       object-fit: contain;
-      cursor: url("cursor2.png") 25 25, auto;
+
+      cursor:
+        url("cursor2.png") 25 25,
+        auto;
 
       transition:
-        transform 0.4s cubic-bezier(0.2, 0.7, 0.2, 1),
+        transform 0.4s
+        cubic-bezier(0.2, 0.7, 0.2, 1),
+
         opacity 0.35s ease;
     }
+
 
     .project:hover {
       z-index: 100;
     }
 
+
     .project:hover .project-image {
-      transform: scale(1.06);
+
+      transform:
+        scale(1.06);
     }
 
 
-    /* =========================
+    /* ==================================================
        VIDEO
-    ========================= */
+    ================================================== */
 
     .project-video {
+
       display: block;
+
       width: 100%;
+
       aspect-ratio: 16 / 9;
+
       border: none;
+
       background: #000000;
-      cursor: url("cursor2.png") 25 25, auto;
+
+      cursor:
+        url("cursor2.png") 25 25,
+        auto;
     }
+
 
     .project.selected .project-video {
-      width: min(900px, calc(100vw - 80px));
-      height: min(506px, calc(100vh - 180px));
-      max-width: calc(100vw - 80px);
-      max-height: calc(100vh - 180px);
+
+      width:
+        min(
+          900px,
+          calc(100vw - 80px)
+        );
+
+      height:
+        min(
+          506px,
+          calc(100vh - 180px)
+        );
+
+      max-width:
+        calc(100vw - 80px);
+
+      max-height:
+        calc(100vh - 180px);
     }
 
 
-    /* =========================
+    /* ==================================================
        PROJECT INFO
-    ========================= */
+    ================================================== */
 
     .project-info {
+
       position: relative;
+
       display: inline-block;
+
       max-width: 100%;
+
       margin-top: 10px;
-      padding: 7px 9px 8px 9px;
+
+      padding:
+        7px
+        9px
+        8px
+        9px;
 
       background: #2f6fff;
+
       color: #ffffff;
 
       text-align: center;
 
       opacity: 0;
-      transform: translateY(-5px);
+
+      transform:
+        translateY(-5px);
 
       transition:
         opacity 0.3s ease,
         transform 0.3s ease;
 
       pointer-events: none;
+
       z-index: 20;
     }
 
+
     .project:hover .project-info,
     .project.selected .project-info {
+
       opacity: 1;
-      transform: translateY(0);
+
+      transform:
+        translateY(0);
+
       pointer-events: auto;
     }
 
+
     .project-title {
+
       color: #ffffff;
+
       font-size: 10px;
+
       line-height: 1.3;
+
       text-transform: uppercase;
     }
 
+
     .project-description {
+
       color: #ffffff;
+
       font-size: 9px;
+
       line-height: 1.4;
+
       margin-top: 3px;
+
       text-transform: none;
     }
+
 
     .project-collaborator {
+
       color: #ffffff;
+
       font-size: 9px;
+
       line-height: 1.4;
+
       margin-top: 2px;
+
       text-transform: none;
     }
 
+
     .project-note {
+
       color: #000000;
+
       font-size: 9px;
+
       line-height: 1.4;
+
       margin-top: 8px;
+
       text-transform: none;
+
       opacity: 0;
     }
 
+
     .project:hover .project-note,
     .project.selected .project-note {
+
       opacity: 1;
     }
 
 
-    /* =========================
+    /* ==================================================
        LINKS
-    ========================= */
+    ================================================== */
 
     .project-info a {
+
       color: #7FE3C1;
+
       text-decoration: none;
+
       font-weight: 400;
-      cursor: url("cursor2.png") 25 25, auto;
-      transition: color 0.2s ease;
+
+      cursor:
+        url("cursor2.png") 25 25,
+        auto;
+
+      transition:
+        color 0.2s ease;
     }
+
 
     .project-info a:hover {
       color: #45B995;
     }
 
 
-    /* =========================
+    /* ==================================================
        ARROWS
-    ========================= */
+    ================================================== */
 
     .project-arrow {
+
       position: absolute;
 
       top: 50%;
@@ -251,15 +410,23 @@
       margin-top: -11px;
 
       display: flex;
+
       align-items: center;
       justify-content: center;
 
       color: #000000;
+
       background: transparent;
+
       border: none;
 
-      font-family: Arial, Helvetica, sans-serif;
+      font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
       font-size: 15px;
+
       line-height: 1;
 
       padding: 0;
@@ -268,52 +435,71 @@
 
       z-index: 30;
 
-      cursor: url("cursor2.png") 25 25, auto;
+      cursor:
+        url("cursor2.png") 25 25,
+        auto;
 
-      transition: opacity 0.2s ease;
+      transition:
+        opacity 0.2s ease;
     }
+
 
     .project:hover .project-arrow,
     .project.selected .project-arrow {
+
       opacity: 1;
     }
+
 
     .project-arrow.prev {
       left: -28px;
     }
+
 
     .project-arrow.next {
       right: -28px;
     }
 
 
-    /* =========================
+    /* ==================================================
        SELECTED PROJECT
-    ========================= */
+    ================================================== */
 
     .project.selected {
+
       z-index: 500;
 
       position: fixed;
 
       left: 50% !important;
+
       top: 50% !important;
 
       width: auto !important;
 
-      transform: translate(-50%, -50%);
+      transform:
+        translate(
+          -50%,
+          -50%
+        );
 
       text-align: center;
     }
 
+
     .project.selected .project-image {
+
       display: block;
 
       width: auto;
+
       height: auto;
 
-      max-width: calc(100vw - 80px);
-      max-height: calc(100vh - 180px);
+      max-width:
+        calc(100vw - 80px);
+
+      max-height:
+        calc(100vh - 180px);
 
       margin-left: auto;
       margin-right: auto;
@@ -321,136 +507,246 @@
       object-fit: contain;
 
       transform: none;
+
       opacity: 1;
 
       z-index: 10;
 
-      cursor: url("cursor2.png") 25 25, auto;
+      cursor:
+        url("cursor2.png") 25 25,
+        auto;
     }
+
 
     .project.selected .project-arrow {
       opacity: 1;
     }
 
 
-    /* =========================
+    /* ==================================================
        DESKTOP POSITIONS
-    ========================= */
+    ================================================== */
+
+    /* VETCARD */
 
     .project-0 {
+
       width: 9vw;
+
       left: 6vw;
+
       top: 17vh;
     }
 
+
+    /* ECHOES */
+
     .project-1 {
+
       width: 8.5vw;
+
       left: 66vw;
+
       top: 11vh;
     }
 
+
+    /* X-RAYS */
+
     .project-2 {
+
       width: 7vw;
+
       left: 38vw;
+
       top: 13vh;
     }
 
+
+    /* SMITHSON */
+
     .project-3 {
+
       width: 7vw;
+
       left: 51vw;
+
       top: 7vh;
     }
 
+
+    /* URBAN */
+
     .project-4 {
+
       width: 7vw;
+
       left: 84vw;
+
       top: 8vh;
     }
 
+
+    /* CATWALK */
+
     .project-5 {
+
       width: 6.5vw;
+
       left: 79vw;
+
       top: 38vh;
     }
 
+
+    /* WISHWALL */
+
     .project-6 {
+
       width: 7vw;
+
       left: 17vw;
+
       top: 47vh;
     }
 
+
+    /* YTONG */
+
     .project-7 {
+
       width: 6vw;
+
       left: 88vw;
+
       top: 27vh;
     }
 
+
+    /* EXPERIMENTAL */
+
     .project-8 {
+
       width: 6.5vw;
+
       left: 4vw;
+
       top: 42vh;
     }
 
+
+    /* SPATIAL */
+
     .project-9 {
+
       width: 8vw;
+
       left: 34vw;
+
       top: 39vh;
     }
 
+
+    /* RESIDENTIAL */
+
     .project-10 {
+
       width: 8vw;
+
       left: 55vw;
+
       top: 48vh;
     }
 
+
+    /* DRYPOINT */
+
     .project-11 {
+
       width: 6.5vw;
+
       left: 23vw;
+
       top: 74vh;
     }
 
+
+    /* POSTER */
+
     .project-12 {
+
       width: 6.5vw;
+
       left: 47vw;
+
       top: 75vh;
     }
 
+
+    /* BOOKMARKS */
+
     .project-13 {
+
       width: 6.5vw;
+
       left: 69vw;
+
       top: 73vh;
     }
 
+
+    /* APPARTMENT */
+
     .project-14 {
+
       width: 6.5vw;
+
       left: 6vw;
+
       top: 72vh;
     }
 
+
+    /* PRIASTRO */
+
     .project-15 {
+
       width: 6.5vw;
+
       left: 84vw;
+
       top: 62vh;
     }
 
+
+    /* ISTERNIA */
+
     .project-16 {
+
       width: 6vw;
+
       left: 91vw;
+
       top: 76vh;
     }
 
 
-    /* =========================
+    /* ==================================================
        CREDIT
-    ========================= */
+    ================================================== */
 
     .website-credit {
+
       position: fixed;
+
       right: 3vw;
+
       bottom: 25px;
 
       color: #777777;
+
       font-size: 10px;
+
       font-weight: 400;
 
       text-align: right;
@@ -459,163 +755,251 @@
     }
 
 
-    /* =========================
+    /* ==================================================
        TABLET
-    ========================= */
+    ================================================== */
 
-    @media (max-width: 1100px) and (min-width: 651px) {
+    @media (max-width: 1100px)
+    and (min-width: 651px) {
+
 
       .project-0 {
+
         width: 10vw;
+
         left: 5vw;
+
         top: 16vh;
       }
 
+
       .project-1 {
+
         width: 9.5vw;
+
         left: 65vw;
+
         top: 10vh;
       }
 
+
       .project-2 {
+
         width: 8vw;
+
         left: 37vw;
+
         top: 14vh;
       }
 
+
       .project-3 {
+
         width: 8vw;
+
         left: 51vw;
+
         top: 7vh;
       }
 
+
       .project-4 {
+
         width: 8vw;
+
         left: 83vw;
+
         top: 8vh;
       }
 
+
       .project-5 {
+
         width: 7.5vw;
+
         left: 77vw;
+
         top: 39vh;
       }
 
+
       .project-6 {
+
         width: 8vw;
+
         left: 16vw;
+
         top: 47vh;
       }
 
+
       .project-7 {
+
         width: 7vw;
+
         left: 88vw;
+
         top: 27vh;
       }
 
+
       .project-8 {
+
         width: 7.5vw;
+
         left: 4vw;
+
         top: 42vh;
       }
 
+
       .project-9 {
+
         width: 9vw;
+
         left: 33vw;
+
         top: 39vh;
       }
 
+
       .project-10 {
+
         width: 9vw;
+
         left: 55vw;
+
         top: 48vh;
       }
 
+
       .project-11 {
+
         width: 7.5vw;
+
         left: 22vw;
+
         top: 74vh;
       }
 
+
       .project-12 {
+
         width: 7.5vw;
+
         left: 47vw;
+
         top: 75vh;
       }
 
+
       .project-13 {
+
         width: 7.5vw;
+
         left: 69vw;
+
         top: 73vh;
       }
 
+
       .project-14 {
+
         width: 7.5vw;
+
         left: 5vw;
+
         top: 72vh;
       }
 
+
       .project-15 {
+
         width: 7.5vw;
+
         left: 83vw;
+
         top: 62vh;
       }
 
+
       .project-16 {
+
         width: 7vw;
+
         left: 90vw;
+
         top: 76vh;
       }
+
     }
 
 
     /* ==================================================
-       MOBILE — TWO INDEPENDENT SCROLLING COLUMNS
+       MOBILE
+       TWO INDEPENDENT COLUMNS
+       50% + 50%
+       ZERO GAP
     ================================================== */
 
     @media (max-width: 650px) {
 
+
       html,
       body {
+
         width: 100%;
+
         height: 100%;
+
         min-height: 100%;
+
         overflow: hidden;
       }
+
 
       body {
         position: relative;
       }
 
 
-      /* =========================
+      /* ==================================================
          MOBILE HEADER
-      ========================= */
+      ================================================== */
 
       header {
+
         position: fixed;
 
         top: 0;
         left: 0;
 
         width: 100%;
+
         height: 60px;
 
-        padding: 24px 5vw 0 5vw;
+        padding:
+          24px
+          5vw
+          0
+          5vw;
 
         z-index: 2000;
 
         pointer-events: none;
       }
 
+
       .name {
         pointer-events: auto;
       }
 
 
-      /* =========================
+      /* ==================================================
          MOBILE GALLERY
-      ========================= */
+         FULL WIDTH
+         NO GAP
+      ================================================== */
 
       .gallery {
 
@@ -625,21 +1009,22 @@
         left: 0;
 
         width: 100%;
-        height: calc(100vh - 60px);
+
+        height:
+          calc(100vh - 60px);
 
         display: grid;
 
         grid-template-columns:
-          minmax(0, 1fr)
-          minmax(0, 1fr);
+          50% 50%;
 
-        column-gap: 8vw;
+        column-gap: 0;
 
         padding:
           15px
-          5vw
+          0
           80px
-          5vw;
+          0;
 
         overflow: hidden;
 
@@ -647,54 +1032,64 @@
       }
 
 
-      /* =========================
-         EACH COLUMN HAS ITS OWN SCROLL
-      ========================= */
+      /* ==================================================
+         MOBILE COLUMNS
+         EACH ONE SCROLLS INDEPENDENTLY
+      ================================================== */
 
       .mobile-column {
 
         position: relative;
 
         width: 100%;
+
         min-width: 0;
 
         height: 100%;
 
         display: flex;
+
         flex-direction: column;
 
         gap: 30px;
 
         overflow-y: auto;
+
         overflow-x: hidden;
 
         padding-top: 5px;
+
         padding-bottom: 80px;
 
-        -webkit-overflow-scrolling: touch;
+        -webkit-overflow-scrolling:
+          touch;
 
-        overscroll-behavior-y: contain;
+        overscroll-behavior-y:
+          contain;
 
         scrollbar-width: none;
       }
+
 
       .mobile-column::-webkit-scrollbar {
         display: none;
       }
 
 
-      /* =========================
+      /* ==================================================
          MOBILE PROJECTS
-      ========================= */
+      ================================================== */
 
       .project {
 
         position: relative !important;
 
         left: auto !important;
+
         top: auto !important;
 
         width: 100% !important;
+
         height: auto !important;
 
         flex: 0 0 auto;
@@ -709,9 +1104,9 @@
       }
 
 
-      /* =========================
+      /* ==================================================
          MOBILE IMAGES
-      ========================= */
+      ================================================== */
 
       .project-image {
 
@@ -728,28 +1123,34 @@
         object-fit: contain;
 
         margin-left: auto;
+
         margin-right: auto;
 
         transform: none;
       }
 
+
       .project:hover .project-image {
-        transform: scale(1.02);
+
+        transform:
+          scale(1.02);
       }
 
 
-      /* =========================
+      /* ==================================================
          MOBILE SELECTED PROJECT
-      ========================= */
+      ================================================== */
 
       .project.selected {
 
         position: relative !important;
 
         left: auto !important;
+
         top: auto !important;
 
         width: 100% !important;
+
         height: auto !important;
 
         margin: 0;
@@ -758,6 +1159,7 @@
 
         z-index: 500;
       }
+
 
       .project.selected .project-image {
 
@@ -772,17 +1174,19 @@
         max-height: none;
 
         margin-left: auto;
+
         margin-right: auto;
 
-        transform: scale(1) !important;
+        transform:
+          scale(1) !important;
 
         opacity: 1;
       }
 
 
-      /* =========================
+      /* ==================================================
          MOBILE VIDEO
-      ========================= */
+      ================================================== */
 
       .project.selected .project-video {
 
@@ -800,9 +1204,9 @@
       }
 
 
-      /* =========================
+      /* ==================================================
          MOBILE INFO
-      ========================= */
+      ================================================== */
 
       .project-info {
 
@@ -814,24 +1218,25 @@
       }
 
 
-      /* =========================
+      /* ==================================================
          MOBILE ARROWS
-      ========================= */
+      ================================================== */
 
       .project-arrow {
         display: none;
       }
 
 
-      /* =========================
+      /* ==================================================
          MOBILE CREDIT
-      ========================= */
+      ================================================== */
 
       .website-credit {
 
         position: fixed;
 
         right: 5vw;
+
         bottom: 15px;
 
         font-size: 9px;
@@ -849,9 +1254,9 @@
 <body>
 
 
-  <!-- =========================
+  <!-- ==================================================
        HEADER
-  ========================= -->
+  ================================================== -->
 
   <header>
 
@@ -863,6 +1268,7 @@
 
     </div>
 
+
     <div class="profession">
       ARCHITECT
     </div>
@@ -870,22 +1276,28 @@
   </header>
 
 
-  <!-- =========================
+  <!-- ==================================================
        GALLERY
-  ========================= -->
+  ================================================== -->
 
   <main class="gallery">
+
+
+    <!-- MOBILE COLUMNS -->
 
     <div class="mobile-column mobile-left"></div>
 
     <div class="mobile-column mobile-right"></div>
 
 
-    <!-- =========================
+    <!-- ==================================================
          0 — VETCARD
-    ========================= -->
+    ================================================== -->
 
-    <div class="project project-0" data-project="0">
+    <div
+      class="project project-0"
+      data-project="0"
+    >
 
       <img
         class="project-image"
@@ -893,21 +1305,29 @@
         alt="VetCard"
       >
 
+
       <button
         class="project-arrow prev"
         type="button"
-      >‹</button>
+      >
+        ‹
+      </button>
+
 
       <button
         class="project-arrow next"
         type="button"
-      >›</button>
+      >
+        ›
+      </button>
+
 
       <div class="project-info">
 
         <div class="project-title">
           VETCARD
         </div>
+
 
         <div class="project-description">
           professional card and logo design for a veterinarian, 2026
@@ -918,17 +1338,21 @@
     </div>
 
 
-    <!-- =========================
+    <!-- ==================================================
          1 — ECHOES OF THE DEEP
-    ========================= -->
+    ================================================== -->
 
-    <div class="project project-1" data-project="1">
+    <div
+      class="project project-1"
+      data-project="1"
+    >
 
       <img
         class="project-image"
         src="Jelly_1.jpg"
         alt="Echoes of the Deep"
       >
+
 
       <iframe
         class="project-video"
@@ -939,15 +1363,22 @@
         style="display: none;"
       ></iframe>
 
+
       <button
         class="project-arrow prev"
         type="button"
-      >‹</button>
+      >
+        ‹
+      </button>
+
 
       <button
         class="project-arrow next"
         type="button"
-      >›</button>
+      >
+        ›
+      </button>
+
 
       <div class="project-info">
 
@@ -955,15 +1386,23 @@
           ECHOES OF THE DEEP
         </div>
 
+
         <div class="project-description">
+
           an interactive light and sound installation for Mar Motto festival’s 2025 edition with
+
           <a
             href="https://moradavaga.com/ECHOES-OF-THE-DEEP"
             target="_blank"
             rel="noopener noreferrer"
-          >MORADAVAGA</a>
+          >
+            MORADAVAGA
+          </a>
+
           <br>
+
           Faro, Portugal, 2025
+
         </div>
 
       </div>
@@ -971,11 +1410,14 @@
     </div>
 
 
-    <!-- =========================
-         2 — X-RAYS
-    ========================= -->
+    <!-- ==================================================
+         2 — X-RAYS OF THE MODERN CITIES
+    ================================================== -->
 
-    <div class="project project-2" data-project="2">
+    <div
+      class="project project-2"
+      data-project="2"
+    >
 
       <img
         class="project-image"
@@ -983,21 +1425,29 @@
         alt="X-Rays of the Modern Cities"
       >
 
+
       <button
         class="project-arrow prev"
         type="button"
-      >‹</button>
+      >
+        ‹
+      </button>
+
 
       <button
         class="project-arrow next"
         type="button"
-      >›</button>
+      >
+        ›
+      </button>
+
 
       <div class="project-info">
 
         <div class="project-title">
           X-RAYS OF THE MODERN CITIES
         </div>
+
 
         <div class="project-description">
           photography project, ongoing
@@ -1008,11 +1458,14 @@
     </div>
 
 
-    <!-- =========================
-         3 — SMITHSON
-    ========================= -->
+    <!-- ==================================================
+         3 — PLACES INSPIRED BY ROBERT SMITHSON
+    ================================================== -->
 
-    <div class="project project-3" data-project="3">
+    <div
+      class="project project-3"
+      data-project="3"
+    >
 
       <img
         class="project-image"
@@ -1020,15 +1473,22 @@
         alt="Places Inspired by Robert Smithson"
       >
 
+
       <button
         class="project-arrow prev"
         type="button"
-      >‹</button>
+      >
+        ‹
+      </button>
+
 
       <button
         class="project-arrow next"
         type="button"
-      >›</button>
+      >
+        ›
+      </button>
+
 
       <div class="project-info">
 
@@ -1041,11 +1501,14 @@
     </div>
 
 
-    <!-- =========================
+    <!-- ==================================================
          4 — URBAN DESIGN
-    ========================= -->
+    ================================================== -->
 
-    <div class="project project-4" data-project="4">
+    <div
+      class="project project-4"
+      data-project="4"
+    >
 
       <img
         class="project-image"
@@ -1053,15 +1516,22 @@
         alt="Urban Design"
       >
 
+
       <button
         class="project-arrow prev"
         type="button"
-      >‹</button>
+      >
+        ‹
+      </button>
+
 
       <button
         class="project-arrow next"
         type="button"
-      >›</button>
+      >
+        ›
+      </button>
+
 
       <div class="project-info">
 
@@ -1074,11 +1544,14 @@
     </div>
 
 
-    <!-- =========================
+    <!-- ==================================================
          5 — CATWALK
-    ========================= -->
+    ================================================== -->
 
-    <div class="project project-5" data-project="5">
+    <div
+      class="project project-5"
+      data-project="5"
+    >
 
       <img
         class="project-image"
@@ -1086,15 +1559,22 @@
         alt="Catwalk"
       >
 
+
       <button
         class="project-arrow prev"
         type="button"
-      >‹</button>
+      >
+        ‹
+      </button>
+
 
       <button
         class="project-arrow next"
         type="button"
-      >›</button>
+      >
+        ›
+      </button>
+
 
       <div class="project-info">
 
@@ -1102,15 +1582,23 @@
           CATWALK
         </div>
 
+
         <div class="project-description">
+
           small urban intervention with
+
           <a
             href="https://moradavaga.com/Exhibitions-Workshops-Lectures"
             target="_blank"
             rel="noopener noreferrer"
-          >MORADAVAGA</a>
+          >
+            MORADAVAGA
+          </a>
+
           <br>
+
           Alte, Portugal, 2024
+
         </div>
 
       </div>
@@ -1118,11 +1606,14 @@
     </div>
 
 
-    <!-- =========================
+    <!-- ==================================================
          6 — WISHWALL
-    ========================= -->
+    ================================================== -->
 
-    <div class="project project-6" data-project="6">
+    <div
+      class="project project-6"
+      data-project="6"
+    >
 
       <img
         class="project-image"
@@ -1130,15 +1621,22 @@
         alt="Wishwall"
       >
 
+
       <button
         class="project-arrow prev"
         type="button"
-      >‹</button>
+      >
+        ‹
+      </button>
+
 
       <button
         class="project-arrow next"
         type="button"
-      >›</button>
+      >
+        ›
+      </button>
+
 
       <div class="project-info">
 
@@ -1146,16 +1644,25 @@
           WISHWALL
         </div>
 
+
         <div class="project-description">
+
           Interactive Installation,
+
           <br>
+
           with
+
           <a
             href="https://moradavaga.com/WISHWALL"
             target="_blank"
             rel="noopener noreferrer"
-          >MORADAVAGA</a>,
+          >
+            MORADAVAGA
+          </a>,
+
           Braga, Portugal, 2024
+
         </div>
 
       </div>
@@ -1163,11 +1670,14 @@
     </div>
 
 
-    <!-- =========================
+    <!-- ==================================================
          7 — YTONG MODEL
-    ========================= -->
+    ================================================== -->
 
-    <div class="project project-7" data-project="7">
+    <div
+      class="project project-7"
+      data-project="7"
+    >
 
       <img
         class="project-image"
@@ -1175,15 +1685,22 @@
         alt="Ytong Model"
       >
 
+
       <button
         class="project-arrow prev"
         type="button"
-      >‹</button>
+      >
+        ‹
+      </button>
+
 
       <button
         class="project-arrow next"
         type="button"
-      >›</button>
+      >
+        ›
+      </button>
+
 
       <div class="project-info">
 
@@ -1196,17 +1713,21 @@
     </div>
 
 
-    <!-- =========================
+    <!-- ==================================================
          8 — EXPERIMENTAL MODEL
-    ========================= -->
+    ================================================== -->
 
-    <div class="project project-8" data-project="8">
+    <div
+      class="project project-8"
+      data-project="8"
+    >
 
       <img
         class="project-image"
         src="model_2.jpg"
         alt="Experimental Model"
       >
+
 
       <div class="project-info">
 
@@ -1219,11 +1740,14 @@
     </div>
 
 
-    <!-- =========================
+    <!-- ==================================================
          9 — SPATIAL INVESTIGATIONS
-    ========================= -->
+    ================================================== -->
 
-    <div class="project project-9" data-project="9">
+    <div
+      class="project project-9"
+      data-project="9"
+    >
 
       <img
         class="project-image"
@@ -1231,15 +1755,22 @@
         alt="Spatial Investigations"
       >
 
+
       <button
         class="project-arrow prev"
         type="button"
-      >‹</button>
+      >
+        ‹
+      </button>
+
 
       <button
         class="project-arrow next"
         type="button"
-      >›</button>
+      >
+        ›
+      </button>
+
 
       <div class="project-info">
 
@@ -1247,14 +1778,22 @@
           SPATIAL INVESTIGATIONS
         </div>
 
+
         <div class="project-description">
+
           design studio in Auth,
+
           <br>
+
           with Evi Taxi, 2022
+
         </div>
 
+
         <div class="project-note">
+
           The project was exhibited at the HELEXPO 2022 in Thessaloniki
+
         </div>
 
       </div>
@@ -1262,11 +1801,14 @@
     </div>
 
 
-    <!-- =========================
+    <!-- ==================================================
          10 — RESIDENTIAL COMPLEX
-    ========================= -->
+    ================================================== -->
 
-    <div class="project project-10" data-project="10">
+    <div
+      class="project project-10"
+      data-project="10"
+    >
 
       <img
         class="project-image"
@@ -1274,15 +1816,22 @@
         alt="Residential Complex"
       >
 
+
       <button
         class="project-arrow prev"
         type="button"
-      >‹</button>
+      >
+        ‹
+      </button>
+
 
       <button
         class="project-arrow next"
         type="button"
-      >›</button>
+      >
+        ›
+      </button>
+
 
       <div class="project-info">
 
@@ -1290,10 +1839,15 @@
           RESIDENTIAL COMPLEX
         </div>
 
+
         <div class="project-description">
+
           Design Studio in Auth,
+
           <br>
+
           with Dimitrios Athanasiou and Pinelopi Kosta, 2022
+
         </div>
 
       </div>
@@ -1301,17 +1855,21 @@
     </div>
 
 
-    <!-- =========================
+    <!-- ==================================================
          11 — DRYPOINT PRINTING
-    ========================= -->
+    ================================================== -->
 
-    <div class="project project-11" data-project="11">
+    <div
+      class="project project-11"
+      data-project="11"
+    >
 
       <img
         class="project-image"
         src="Drypoint_1.jpg"
         alt="Drypoint Printing"
       >
+
 
       <div class="project-info">
 
@@ -1324,11 +1882,14 @@
     </div>
 
 
-    <!-- =========================
+    <!-- ==================================================
          12 — POSTER
-    ========================= -->
+    ================================================== -->
 
-    <div class="project project-12" data-project="12">
+    <div
+      class="project project-12"
+      data-project="12"
+    >
 
       <img
         class="project-image"
@@ -1336,15 +1897,22 @@
         alt="Poster"
       >
 
+
       <button
         class="project-arrow prev"
         type="button"
-      >‹</button>
+      >
+        ‹
+      </button>
+
 
       <button
         class="project-arrow next"
         type="button"
-      >›</button>
+      >
+        ›
+      </button>
+
 
       <div class="project-info">
 
@@ -1352,8 +1920,11 @@
           POSTER
         </div>
 
+
         <div class="project-description">
+
           Design of the poster for a christmas show in an aerial arts school, 2025
+
         </div>
 
       </div>
@@ -1361,11 +1932,14 @@
     </div>
 
 
-    <!-- =========================
+    <!-- ==================================================
          13 — BOOKMARKS
-    ========================= -->
+    ================================================== -->
 
-    <div class="project project-13" data-project="13">
+    <div
+      class="project project-13"
+      data-project="13"
+    >
 
       <img
         class="project-image"
@@ -1373,21 +1947,29 @@
         alt="Bookmarks"
       >
 
+
       <button
         class="project-arrow prev"
         type="button"
-      >‹</button>
+      >
+        ‹
+      </button>
+
 
       <button
         class="project-arrow next"
         type="button"
-      >›</button>
+      >
+        ›
+      </button>
+
 
       <div class="project-info">
 
         <div class="project-title">
           BOOKMARKS
         </div>
+
 
         <div class="project-description">
           graphic design
@@ -1398,11 +1980,14 @@
     </div>
 
 
-    <!-- =========================
+    <!-- ==================================================
          14 — APPARTMENT IN ILISSIA
-    ========================= -->
+    ================================================== -->
 
-    <div class="project project-14" data-project="14">
+    <div
+      class="project project-14"
+      data-project="14"
+    >
 
       <img
         class="project-image"
@@ -1410,15 +1995,22 @@
         alt="Appartment in Illisia"
       >
 
+
       <button
         class="project-arrow prev"
         type="button"
-      >‹</button>
+      >
+        ‹
+      </button>
+
 
       <button
         class="project-arrow next"
         type="button"
-      >›</button>
+      >
+        ›
+      </button>
+
 
       <div class="project-info">
 
@@ -1426,17 +2018,24 @@
           Appartment in Illisia
         </div>
 
+
         <div class="project-description">
           In Progress
         </div>
 
+
         <div class="project-collaborator">
+
           with
+
           <a
             href="https://kellyspanou.com"
             target="_blank"
             rel="noopener noreferrer"
-          >Kelly</a>
+          >
+            Kelly
+          </a>
+
         </div>
 
       </div>
@@ -1444,11 +2043,14 @@
     </div>
 
 
-    <!-- =========================
-         15 — RESIDENCE IN PRIASTRO
-    ========================= -->
+    <!-- ==================================================
+         15 — RESIDENCE IN PRIASTRO, TINOS
+    ================================================== -->
 
-    <div class="project project-15" data-project="15">
+    <div
+      class="project project-15"
+      data-project="15"
+    >
 
       <img
         class="project-image"
@@ -1456,23 +2058,31 @@
         alt="Residence in Priastro, Tinos"
       >
 
+
       <div class="project-info">
 
         <div class="project-title">
           Residence in Priastro, Tinos
         </div>
 
+
         <div class="project-description">
           In Progress
         </div>
 
+
         <div class="project-collaborator">
+
           with
+
           <a
             href="https://kellyspanou.com"
             target="_blank"
             rel="noopener noreferrer"
-          >Kelly</a>
+          >
+            Kelly
+          </a>
+
         </div>
 
       </div>
@@ -1480,11 +2090,14 @@
     </div>
 
 
-    <!-- =========================
+    <!-- ==================================================
          16 — ISTERNIA
-    ========================= -->
+    ================================================== -->
 
-    <div class="project project-16" data-project="16">
+    <div
+      class="project project-16"
+      data-project="16"
+    >
 
       <img
         class="project-image"
@@ -1492,19 +2105,26 @@
         alt="Isternia"
       >
 
+
       <div class="project-info">
 
         <div class="project-description">
           In Progress
         </div>
 
+
         <div class="project-collaborator">
+
           with
+
           <a
             href="https://kellyspanou.com"
             target="_blank"
             rel="noopener noreferrer"
-          >Kelly</a>
+          >
+            Kelly
+          </a>
+
         </div>
 
       </div>
@@ -1515,9 +2135,9 @@
   </main>
 
 
-  <!-- =========================
+  <!-- ==================================================
        CREDIT
-  ========================= -->
+  ================================================== -->
 
   <div class="website-credit">
     WEB DESIGN: MYRTO PAVLOPOULOU
@@ -1526,9 +2146,10 @@
 
   <script>
 
-    /* =========================
+
+    /* ==================================================
        PROJECT IMAGES
-    ========================= */
+    ================================================== */
 
     const projectImages = {
 
@@ -1536,6 +2157,7 @@
         "VetCard_1.jpg",
         "VetCard2.jpg"
       ],
+
 
       1: [
         "Jelly_1.jpg",
@@ -1549,6 +2171,7 @@
         "VIMEO_VIDEO"
       ],
 
+
       2: [
         "X-ray_(1).jpg",
         "X-ray_(2).jpg",
@@ -1557,6 +2180,7 @@
         "X-ray_(5).jpg",
         "X-ray_(6).jpg"
       ],
+
 
       3: [
         "Smithson_1.png",
@@ -1571,11 +2195,13 @@
         "Smithson_10.png"
       ],
 
+
       4: [
         "Urban_1.png",
         "Urban_2.jpg",
         "Urban_3.jpg"
       ],
+
 
       5: [
         "CATWALK_(1).jpg",
@@ -1583,6 +2209,7 @@
         "CATWALK_(3).jpg",
         "CATWALK_(4).jpg"
       ],
+
 
       6: [
         "WISHWALL_2.jpg",
@@ -1594,15 +2221,18 @@
         "WISHWALL_1.jpg"
       ],
 
+
       7: [
         "model_1.jpg",
         "model_1(2).jpg",
         "model_1(3).jpg"
       ],
 
+
       8: [
         "model_2.jpg"
       ],
+
 
       9: [
         "TeclaSala_1.jpg",
@@ -1617,6 +2247,7 @@
         "TeclaSala_10.jpg"
       ],
 
+
       10: [
         "ResidentialBuilding_1.png",
         "ResidentialBuilding_2.jpg",
@@ -1626,14 +2257,17 @@
         "ResidentialBuilding_6.jpg"
       ],
 
+
       11: [
         "Drypoint_1.jpg"
       ],
+
 
       12: [
         "Poster_1 (2).jpg",
         "Poster_1 (1).jpg"
       ],
+
 
       13: [
         "BOOKMARKS_1.jpg",
@@ -1642,15 +2276,18 @@
         "BOOKMARKS_1 (4).jpg"
       ],
 
+
       14: [
         "Michalakopoulou4_3.jpg.jpg",
         "Michalakopoulou4_2.jpg.jpg",
         "Michalakopoulou4_1.jpg"
       ],
 
+
       15: [
         "Priastros_1.jpg"
       ],
+
 
       16: [
         "Isternia_1.jpg"
@@ -1659,12 +2296,14 @@
     };
 
 
-    /* =========================
-       MOBILE COLUMN ORDER
-       9 LEFT / 8 RIGHT
-    ========================= */
+    /* ==================================================
+       MOBILE ORDER
+       LEFT = 9
+       RIGHT = 8
+    ================================================== */
 
     const leftProjects = [
+
       0,
       2,
       4,
@@ -1674,9 +2313,12 @@
       12,
       14,
       16
+
     ];
 
+
     const rightProjects = [
+
       1,
       3,
       5,
@@ -1685,24 +2327,29 @@
       11,
       13,
       15
+
     ];
 
 
-    /* =========================
+    /* ==================================================
        VARIABLES
-    ========================= */
+    ================================================== */
 
     const projects =
       document.querySelectorAll(".project");
 
+
     const gallery =
       document.querySelector(".gallery");
+
 
     const mobileLeft =
       document.querySelector(".mobile-left");
 
+
     const mobileRight =
       document.querySelector(".mobile-right");
+
 
     const imageIndexes = {};
 
@@ -1710,44 +2357,64 @@
     projects.forEach(function(project) {
 
       const id =
-        Number(project.dataset.project);
+        Number(
+          project.dataset.project
+        );
 
       imageIndexes[id] = 0;
 
     });
 
 
-    /* =========================
-       DISPLAY CURRENT MEDIA
-    ========================= */
+    /* ==================================================
+       DISPLAY MEDIA
+    ================================================== */
 
     function displayProjectMedia(project) {
 
       const id =
-        Number(project.dataset.project);
+        Number(
+          project.dataset.project
+        );
+
 
       const images =
         projectImages[id];
 
+
       const currentIndex =
         imageIndexes[id];
+
 
       const currentMedia =
         images[currentIndex];
 
+
       const image =
-        project.querySelector(".project-image");
+        project.querySelector(
+          ".project-image"
+        );
+
 
       const video =
-        project.querySelector(".project-video");
+        project.querySelector(
+          ".project-video"
+        );
 
 
-      if (currentMedia === "VIMEO_VIDEO") {
+      if (
+        currentMedia === "VIMEO_VIDEO"
+      ) {
 
-        image.style.display = "none";
+        image.style.display =
+          "none";
+
 
         if (video) {
-          video.style.display = "block";
+
+          video.style.display =
+            "block";
+
         }
 
         return;
@@ -1757,8 +2424,10 @@
       image.src =
         currentMedia;
 
+
       image.style.display =
         "block";
+
 
       if (video) {
 
@@ -1770,222 +2439,333 @@
     }
 
 
-    /* =========================
-       CHANGE MEDIA
-    ========================= */
+    /* ==================================================
+       CHANGE IMAGE
+    ================================================== */
 
-    function changeImage(project, direction) {
+    function changeImage(
+      project,
+      direction
+    ) {
 
       const id =
-        Number(project.dataset.project);
+        Number(
+          project.dataset.project
+        );
+
 
       const images =
         projectImages[id];
 
-      if (!images || images.length <= 1) {
+
+      if (
+        !images ||
+        images.length <= 1
+      ) {
+
         return;
+
       }
+
 
       let currentIndex =
         imageIndexes[id];
 
-      currentIndex += direction;
+
+      currentIndex +=
+        direction;
 
 
-      if (currentIndex >= images.length) {
+      if (
+        currentIndex >=
+        images.length
+      ) {
+
         currentIndex = 0;
+
       }
 
 
-      if (currentIndex < 0) {
-        currentIndex = images.length - 1;
+      if (
+        currentIndex < 0
+      ) {
+
+        currentIndex =
+          images.length - 1;
+
       }
 
 
       imageIndexes[id] =
         currentIndex;
 
-      displayProjectMedia(project);
+
+      displayProjectMedia(
+        project
+      );
 
     }
 
 
-    /* =========================
+    /* ==================================================
        SELECT PROJECT
-    ========================= */
+    ================================================== */
 
-    function selectProject(project) {
+    function selectProject(
+      project
+    ) {
 
-      projects.forEach(function(item) {
+      projects.forEach(
+        function(item) {
 
-        item.classList.remove("selected");
+          item.classList.remove(
+            "selected"
+          );
 
-      });
+        }
+      );
 
-      project.classList.add("selected");
 
-      displayProjectMedia(project);
+      project.classList.add(
+        "selected"
+      );
+
+
+      displayProjectMedia(
+        project
+      );
 
     }
 
 
-    /* =========================
-       DESELECT
-    ========================= */
+    /* ==================================================
+       DESELECT PROJECT
+    ================================================== */
 
     function deselectProject() {
 
-      projects.forEach(function(project) {
+      projects.forEach(
+        function(project) {
 
-        project.classList.remove("selected");
+          project.classList.remove(
+            "selected"
+          );
 
-      });
+        }
+      );
 
     }
 
 
-    /* =========================
+    /* ==================================================
        PROJECT CLICK
-    ========================= */
+    ================================================== */
 
-    projects.forEach(function(project) {
+    projects.forEach(
+      function(project) {
 
-      project.addEventListener("click", function(event) {
+
+        project.addEventListener(
+          "click",
+          function(event) {
 
 
-        const clickedLink =
-          event.target.closest("a");
+            const clickedLink =
+              event.target.closest(
+                "a"
+              );
 
-        if (clickedLink) {
 
-          event.stopPropagation();
+            if (clickedLink) {
 
-          return;
+              event.stopPropagation();
+
+              return;
+
+            }
+
+
+            if (
+              event.target.closest(
+                ".project-arrow"
+              )
+            ) {
+
+              return;
+
+            }
+
+
+            if (
+              event.target.closest(
+                ".project-video"
+              )
+            ) {
+
+              return;
+
+            }
+
+
+            if (
+
+              project.classList.contains(
+                "selected"
+              )
+
+              &&
+
+              event.target.closest(
+                ".project-image"
+              )
+
+            ) {
+
+              changeImage(
+                project,
+                1
+              );
+
+              return;
+
+            }
+
+
+            if (
+              !project.classList.contains(
+                "selected"
+              )
+            ) {
+
+              selectProject(
+                project
+              );
+
+              return;
+
+            }
+
+          }
+        );
+
+
+        /* =========================
+           PREVIOUS
+        ========================= */
+
+        const prev =
+          project.querySelector(
+            ".project-arrow.prev"
+          );
+
+
+        if (prev) {
+
+          prev.addEventListener(
+            "click",
+            function(event) {
+
+              event.stopPropagation();
+
+              selectProject(
+                project
+              );
+
+              changeImage(
+                project,
+                -1
+              );
+
+            }
+          );
 
         }
 
 
-        if (
-          event.target.closest(".project-arrow")
-        ) {
+        /* =========================
+           NEXT
+        ========================= */
 
-          return;
-
-        }
-
-
-        if (
-          event.target.closest(".project-video")
-        ) {
-
-          return;
-
-        }
+        const next =
+          project.querySelector(
+            ".project-arrow.next"
+          );
 
 
-        if (
-          project.classList.contains("selected") &&
-          event.target.closest(".project-image")
-        ) {
+        if (next) {
 
-          changeImage(project, 1);
+          next.addEventListener(
+            "click",
+            function(event) {
 
-          return;
+              event.stopPropagation();
 
-        }
+              selectProject(
+                project
+              );
 
+              changeImage(
+                project,
+                1
+              );
 
-        if (
-          !project.classList.contains("selected")
-        ) {
-
-          selectProject(project);
-
-          return;
+            }
+          );
 
         }
-
-      });
-
-
-      /* =========================
-         PREVIOUS
-      ========================= */
-
-      const prev =
-        project.querySelector(".project-arrow.prev");
-
-      if (prev) {
-
-        prev.addEventListener("click", function(event) {
-
-          event.stopPropagation();
-
-          selectProject(project);
-
-          changeImage(project, -1);
-
-        });
 
       }
+    );
 
 
-      /* =========================
-         NEXT
-      ========================= */
-
-      const next =
-        project.querySelector(".project-arrow.next");
-
-      if (next) {
-
-        next.addEventListener("click", function(event) {
-
-          event.stopPropagation();
-
-          selectProject(project);
-
-          changeImage(project, 1);
-
-        });
-
-      }
-
-    });
-
-
-    /* =========================
+    /* ==================================================
        CLICK OUTSIDE
-    ========================= */
+    ================================================== */
 
-    document.addEventListener("click", function(event) {
-
-      const insideProject =
-        event.target.closest(".project");
-
-      const insideHeader =
-        event.target.closest("header");
-
-      const insideCredit =
-        event.target.closest(".website-credit");
+    document.addEventListener(
+      "click",
+      function(event) {
 
 
-      if (
-        !insideProject &&
-        !insideHeader &&
-        !insideCredit
-      ) {
+        const insideProject =
+          event.target.closest(
+            ".project"
+          );
 
-        deselectProject();
+
+        const insideHeader =
+          event.target.closest(
+            "header"
+          );
+
+
+        const insideCredit =
+          event.target.closest(
+            ".website-credit"
+          );
+
+
+        if (
+
+          !insideProject
+          &&
+          !insideHeader
+          &&
+          !insideCredit
+
+        ) {
+
+          deselectProject();
+
+        }
 
       }
+    );
 
-    });
 
-
-    /* =========================
+    /* ==================================================
        MOBILE COLUMNS
-    ========================= */
+    ================================================== */
 
     function setupMobileColumns() {
 
@@ -1995,83 +2775,113 @@
 
       if (!isMobile) {
 
-        projects.forEach(function(project) {
+        projects.forEach(
+          function(project) {
 
-          gallery.appendChild(project);
+            gallery.appendChild(
+              project
+            );
 
-        });
+          }
+        );
 
         return;
-
       }
 
 
-      leftProjects.forEach(function(id) {
+      /* =========================
+         LEFT COLUMN
+      ========================= */
 
-        const project =
-          document.querySelector(
-            '.project[data-project="' + id + '"]'
-          );
-
-
-        if (project) {
-
-          mobileLeft.appendChild(project);
-
-        }
-
-      });
+      leftProjects.forEach(
+        function(id) {
 
 
-      rightProjects.forEach(function(id) {
+          const project =
+            document.querySelector(
+              '.project[data-project="' +
+              id +
+              '"]'
+            );
 
-        const project =
-          document.querySelector(
-            '.project[data-project="' + id + '"]'
-          );
 
+          if (project) {
 
-        if (project) {
+            mobileLeft.appendChild(
+              project
+            );
 
-          mobileRight.appendChild(project);
+          }
 
         }
+      );
 
-      });
+
+      /* =========================
+         RIGHT COLUMN
+      ========================= */
+
+      rightProjects.forEach(
+        function(id) {
+
+
+          const project =
+            document.querySelector(
+              '.project[data-project="' +
+              id +
+              '"]'
+            );
+
+
+          if (project) {
+
+            mobileRight.appendChild(
+              project
+            );
+
+          }
+
+        }
+      );
 
     }
 
 
-    /* =========================
+    /* ==================================================
        INITIALIZE
-    ========================= */
+    ================================================== */
 
     setupMobileColumns();
 
 
-    /* =========================
+    /* ==================================================
        RESIZE
-    ========================= */
+    ================================================== */
 
     let previousMobileState =
       window.innerWidth <= 650;
 
 
-    window.addEventListener("resize", function() {
+    window.addEventListener(
+      "resize",
+      function() {
 
-      const currentMobileState =
-        window.innerWidth <= 650;
+
+        const currentMobileState =
+          window.innerWidth <= 650;
 
 
-      if (
-        currentMobileState !== previousMobileState
-      ) {
+        if (
+          currentMobileState !==
+          previousMobileState
+        ) {
 
-        location.reload();
+          location.reload();
+
+        }
 
       }
-
-    });
+    );
 
   </script>
 
