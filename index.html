@@ -5,18 +5,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Nisyros-(+100)- — Myrto Pavlopoulou</title>
+  <title>Myrto Pavlopoulou — Architect</title>
 
   <link rel="icon" type="image/jpeg" href="profile.jpg">
-
-  <!-- Google Sans Code -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-  <link
-    href="https://fonts.googleapis.com/css2?family=Google+Sans+Code:wght@300;400;700&display=swap"
-    rel="stylesheet"
-  >
 
   <style>
 
@@ -30,21 +21,22 @@
     html,
     body {
       width: 100%;
-      min-height: 100%;
-
-      background: #ffffff;
-      color: #000000;
-
-      font-family: Arial, Helvetica, sans-serif;
-      font-size: 10px;
-      font-weight: 400;
-
-      cursor: url("cursor2.png") 25 25, auto;
+      height: 100%;
     }
 
 
     body {
-      overflow-x: hidden;
+      background: #ffffff;
+
+      color: #000000;
+
+      font-family: Arial, Helvetica, sans-serif;
+
+      font-size: 10px;
+
+      font-weight: 400;
+
+      cursor: url("cursor2.png") 25 25, auto;
     }
 
 
@@ -61,34 +53,84 @@
     ================================================== */
 
     header {
-      position: fixed;
 
-      top: 0;
-      left: 0;
+      position: relative;
 
-      width: 100%;
-      height: 70px;
+      height: 12vh;
+
+      min-height: 70px;
 
       padding: 30px 3vw 0 3vw;
 
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
+      display: grid;
 
-      z-index: 1000;
+      grid-template-columns: 1fr 1fr;
 
-      pointer-events: none;
+      align-items: start;
+
+      font-size: 10px;
 
       text-transform: uppercase;
     }
 
 
     .name {
-      pointer-events: auto;
+
+      text-align: left;
     }
 
 
     .name a {
+
+      color: #000000;
+
+      font-size: 10px;
+
+      text-decoration: none;
+
+      transition: color 0.2s ease;
+    }
+
+
+    .name a:hover {
+
+      color: #2f6fff;
+    }
+
+
+    .profession {
+
+      text-align: right;
+
+      color: #000000;
+    }
+
+
+
+    /* ==================================================
+       NAVIGATION
+    ================================================== */
+
+    .navigation {
+
+      position: absolute;
+
+      left: 3vw;
+
+      bottom: 0;
+
+      display: flex;
+
+      gap: 25px;
+
+      font-size: 10px;
+
+      text-transform: uppercase;
+    }
+
+
+    .navigation a {
+
       color: #777777;
 
       font-size: 10px;
@@ -97,239 +139,173 @@
     }
 
 
-    .name a:hover {
+    .navigation a:hover {
+
       color: #2f6fff;
     }
 
 
-    .profession {
-      color: #777777;
 
-      font-size: 10px;
+    /* ==================================================
+       MAIN
+    ================================================== */
+
+    main {
+
+      height: 76vh;
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
     }
 
 
 
     /* ==================================================
-       FIRST SCROLL SCENE
+       SELECTED WORK
     ================================================== */
 
-    .intro-scene {
+    .selected-work {
 
-      /*
-        The first 100vh is the visible scene.
+      width: 72%;
 
-        The extra height is used for the movement
-        of the blue text block.
-      */
+      display: grid;
 
-      position: relative;
+      grid-template-columns: repeat(4, 1fr);
 
-      height: 170vh;
-    }
+      gap: 3vw;
 
-
-    .intro-sticky {
-
-      position: sticky;
-
-      top: 0;
-
-      width: 100%;
-      height: 100vh;
-
-      overflow: hidden;
+      align-items: start;
     }
 
 
 
     /* ==================================================
-       CENTRAL TEXT + GIF
+       PROJECT
     ================================================== */
 
-    .intro-cluster {
-
-      position: absolute;
-
-      left: 50%;
-      top: 80px;
-
-      width: 820px;
-
-      transform: translateX(-50%);
-
-      text-align: left;
-    }
-
-
-
-    /*
-      TOP TEXT
-
-      One line and centered with the GIF.
-    */
-
-    .intro-text {
-
-      width: 100%;
-
-      font-size: 11px;
-      line-height: 1.35;
-
-      color: #000000;
-
-      text-align: center;
-
-      white-space: nowrap;
-    }
-
-
-
-    /*
-      GIF
-    */
-
-    .intro-gif {
+    .project {
 
       display: block;
 
-      width: 510px;
-      height: auto;
+      position: relative;
 
-      margin: 64px auto 0 auto;
+      text-align: center;
     }
 
 
 
-    /*
-      Coordinate under the GIF
-    */
+    .project-image {
 
-    .intro-coordinate {
-
-      width: 510px;
-
-      margin: 5px auto 0 auto;
-
-      text-align: right;
-
-      font-size: 6px;
-      line-height: 1;
-
-      color: #777777;
-    }
-
-
-
-    /*
-      LOWER TEXT
-
-      Same exact width as the upper text.
-    */
-
-    .intro-second-text {
+      display: block;
 
       width: 100%;
 
-      margin-top: 38px;
+      aspect-ratio: 1 / 1;
 
-      font-size: 11px;
-      line-height: 1.35;
+      object-fit: contain;
 
-      color: #000000;
+      transition:
+        transform 0.5s cubic-bezier(0.2, 0.7, 0.2, 1),
+        opacity 0.5s ease;
+    }
 
-      text-align: left;
+
+    .project:hover .project-image {
+
+      transform: scale(1.06);
+
+      opacity: 0.9;
     }
 
 
 
     /* ==================================================
-       BLUE TEXT BLOCK
+       PROJECT INFO
     ================================================== */
 
-    .island-block {
+    .project-info {
 
-      position: absolute;
+      display: flex;
 
-      /*
-        The right edge of the blue box is aligned
-        with the right edge of the central text.
-      */
+      flex-direction: column;
 
-      left: calc(50% + 350px);
+      align-items: center;
 
-      /*
-        The box begins below the screen.
-      */
-
-      top: 100vh;
-
-      width: 100px;
-
-      padding: 8px 8px 10px 8px;
-
-      background: #dce5ff;
+      margin-top: 12px;
 
       color: #2f6fff;
 
-      font-family: "Google Sans Code", monospace;
+      opacity: 0;
 
-      font-size: 7px;
+      transform: translateY(-5px);
 
-      /*
-        Strong blue typography.
-      */
+      transition:
+        opacity 0.35s ease,
+        transform 0.35s ease;
 
-      font-weight: 700;
+      pointer-events: none;
+    }
 
-      line-height: 1.35;
+
+    .project:hover .project-info {
+
+      opacity: 1;
 
       transform: translateY(0);
-
-      will-change: transform;
-
-      z-index: 20;
-    }
-
-
-    .island-title {
-
-      margin-bottom: 7px;
-
-      color: #2f6fff;
-
-      font-size: 7px;
-
-      line-height: 1.2;
-
-      font-weight: 700;
-    }
-
-
-    .island-text {
-
-      color: #2f6fff;
-
-      font-weight: 700;
-    }
-
-
-    .island-text strong {
-
-      font-weight: 700;
     }
 
 
 
     /* ==================================================
-       NEXT SECTION
+       BLUE LINE
     ================================================== */
 
-    .next-section {
+    .project-line {
 
-      min-height: 100vh;
+      width: 22px;
 
-      background: #ffffff;
+      height: 1px;
+
+      background: #2f6fff;
+
+      margin-bottom: 9px;
+    }
+
+
+
+    /* ==================================================
+       PROJECT TITLE
+    ================================================== */
+
+    .project-title {
+
+      color: #2f6fff;
+
+      font-size: 10px;
+
+      line-height: 1.35;
+
+      text-transform: uppercase;
+    }
+
+
+
+    /* ==================================================
+       PROJECT SUBTITLE
+    ================================================== */
+
+    .project-subtitle {
+
+      color: #777777;
+
+      font-size: 10px;
+
+      line-height: 1.35;
+
+      text-transform: none;
     }
 
 
@@ -343,16 +319,33 @@
       position: fixed;
 
       right: 3vw;
+
       bottom: 25px;
 
       color: #777777;
 
       font-size: 10px;
+
       font-weight: 400;
 
       text-align: right;
+    }
 
-      z-index: 1100;
+
+
+    /* ==================================================
+       TABLET
+    ================================================== */
+
+    @media (max-width: 900px) {
+
+      .selected-work {
+
+        width: 82%;
+
+        gap: 4vw;
+      }
+
     }
 
 
@@ -363,99 +356,46 @@
 
     @media (max-width: 650px) {
 
+      html,
+      body {
+
+        height: auto;
+      }
+
+
       header {
 
-        height: 60px;
+        height: auto;
 
         padding: 24px 5vw 0 5vw;
       }
 
 
-      .intro-scene {
+      .navigation {
 
-        height: 165vh;
+        position: static;
+
+        margin-top: 45px;
+
+        gap: 20px;
       }
 
 
-      .intro-sticky {
+      main {
 
-        height: 100vh;
+        height: auto;
+
+        padding: 70px 5vw 60px 5vw;
       }
 
 
-      .intro-cluster {
-
-        top: 70px;
-
-        width: 90vw;
-      }
-
-
-      .intro-text {
+      .selected-work {
 
         width: 100%;
 
-        font-size: 11px;
+        grid-template-columns: repeat(2, 1fr);
 
-        white-space: normal;
-      }
-
-
-      .intro-gif {
-
-        width: 75vw;
-
-        max-width: 510px;
-
-        margin-top: 42px;
-      }
-
-
-      .intro-coordinate {
-
-        width: 75vw;
-
-        max-width: 510px;
-
-        font-size: 5px;
-      }
-
-
-      .intro-second-text {
-
-        width: 100%;
-
-        margin-top: 28px;
-
-        font-size: 11px;
-
-        line-height: 1.35;
-      }
-
-
-      .island-block {
-
-        left: auto;
-
-        right: 5vw;
-
-        width: 82px;
-
-        top: 100vh;
-
-        padding: 7px;
-
-        font-size: 6.5px;
-
-        font-weight: 700;
-      }
-
-
-      .island-title {
-
-        font-size: 6.5px;
-
-        font-weight: 700;
+        gap: 35px 8vw;
       }
 
 
@@ -463,7 +403,30 @@
 
         right: 5vw;
 
-        bottom: 15px;
+        bottom: 20px;
+      }
+
+    }
+
+
+
+    /* ==================================================
+       SMALL MOBILE
+    ================================================== */
+
+    @media (max-width: 450px) {
+
+      .selected-work {
+
+        grid-template-columns: 1fr;
+
+        gap: 45px;
+
+        width: 75%;
+      }
+
+
+      .website-credit {
 
         font-size: 9px;
       }
@@ -484,6 +447,9 @@
 
   <header>
 
+
+    <!-- NAME -->
+
     <div class="name">
 
       <a href="index.html">
@@ -493,123 +459,164 @@
     </div>
 
 
+    <!-- PROFESSION -->
+
     <div class="profession">
       ARCHITECT
     </div>
+
+
+    <!-- NAVIGATION -->
+
+    <nav class="navigation">
+
+      <a href="about.html">
+        ABOUT
+      </a>
+
+      <a href="contact.html">
+        CONTACT
+      </a>
+
+    </nav>
+
 
   </header>
 
 
 
   <!-- ==================================================
-       FIRST SCROLL SCENE
+       MAIN
   ================================================== -->
 
-  <section class="intro-scene">
-
-    <div class="intro-sticky">
+  <main>
 
 
-      <!-- CENTRAL CONTENT -->
-
-      <div class="intro-cluster">
+    <section class="selected-work">
 
 
-        <!-- TOP TEXT -->
+      <!-- ==================================================
+           GALLERY
+      ================================================== -->
 
-        <div class="intro-text">
-
-          This project is a poetic inquiry into the deconstruction of place and an exploration of its future ruins.
-
-        </div>
-
-
-
-        <!-- GIF -->
+      <a
+        href="gallery.html"
+        class="project"
+      >
 
         <img
-          class="intro-gif"
-          src="diploma/dipl_1.gif"
-          alt="Nisyros"
+          class="project-image"
+          src="GALLERY2.jpg"
+          alt="Gallery"
         >
 
+        <div class="project-info">
 
+          <div class="project-line"></div>
 
-        <!-- COORDINATE -->
-
-        <div class="intro-coordinate">
-          Nisyros
-        </div>
-
-
-
-        <!-- LOWER TEXT -->
-
-        <div class="intro-second-text">
-
-          The investigation did not follow a linear trajectory. Instead, it unfolded through continuous shifts of perspective between the fragment and the whole, and from the whole back to the fragment.
+          <div class="project-title">
+            GALLERY
+          </div>
 
         </div>
 
-
-      </div>
+      </a>
 
 
 
       <!-- ==================================================
-           BLUE BOX
+           NISYROS
       ================================================== -->
 
-      <div class="island-block">
+      <a
+        href="project1.html"
+        class="project"
+      >
 
+        <img
+          class="project-image"
+          src="Nisyros4.jpg"
+          alt="Nisyros"
+        >
 
-        <div class="island-title">
+        <div class="project-info">
 
-          Why an island?
+          <div class="project-line"></div>
 
-        </div>
+          <div class="project-title">
+            NISYROS-(+100)-
+          </div>
 
-
-        <div class="island-text">
-
-          For Ruggiero Romano, an island is a space of experimentation—a laboratory where specific economic and social phenomena can be observed in their most essential forms, often isolated from the complexity of larger continental environments.
-
-          <br><br>
-
-          At the same time, islands are often associated with the idea of the utopian place, occupying a unique position in the human imagination that wavers between escape, tranquility, and inner exploration.
-
-          <br><br>
-
-          In literature, as a reflection of the human imagination, islands are frequently portrayed as places of both isolation and renewal.
-
-          <br><br>
-
-          In his essay Desert Islands, Gilles Deleuze writes: “Whether one dreams of islands with anxiety or with joy.”
-
-          <br><br>
-
-          <strong>
-            Therefore, the island.
-          </strong>
+          <div class="project-subtitle">
+            diploma thesis
+          </div>
 
         </div>
 
-
-      </div>
-
-
-    </div>
-
-  </section>
+      </a>
 
 
 
-  <!-- ==================================================
-       NEXT PART
-    ================================================== -->
+      <!-- ==================================================
+           THE BRIDGE
+      ================================================== -->
 
-  <section class="next-section">
-  </section>
+      <a
+        href="project3.html"
+        class="project"
+      >
+
+        <img
+          class="project-image"
+          src="Gefura.jpg"
+          alt="The Bridge"
+        >
+
+        <div class="project-info">
+
+          <div class="project-line"></div>
+
+          <div class="project-title">
+            THE BRIDGE
+          </div>
+
+        </div>
+
+      </a>
+
+
+
+      <!-- ==================================================
+           RESEARCH
+      ================================================== -->
+
+      <a
+        href="project2.html"
+        class="project"
+      >
+
+        <img
+          class="project-image"
+          src="research.png"
+          alt="Research"
+        >
+
+        <div class="project-info">
+
+          <div class="project-line"></div>
+
+          <div class="project-title">
+            RESEARCH
+          </div>
+
+        </div>
+
+      </a>
+
+
+    </section>
+
+  </main>
 
 
 
@@ -622,115 +629,6 @@
     WEB DESIGN: MYRTO PAVLOPOULOU
 
   </div>
-
-
-
-  <!-- ==================================================
-       SCROLL ANIMATION
-  ================================================== -->
-
-  <script>
-
-    const scene =
-      document.querySelector(".intro-scene");
-
-    const islandBlock =
-      document.querySelector(".island-block");
-
-
-    function updateIslandPosition() {
-
-      const sceneTop =
-        scene.offsetTop;
-
-      const viewportHeight =
-        window.innerHeight;
-
-
-      /*
-        Amount of scrolling inside
-        the first scene.
-      */
-
-      const scrollInsideScene =
-        window.scrollY - sceneTop;
-
-
-      /*
-        The blue box moves during
-        approximately 70vh of scrolling.
-      */
-
-      const movementDistance =
-        viewportHeight * 0.70;
-
-
-      let progress =
-        scrollInsideScene / movementDistance;
-
-
-      /*
-        Keep progress between 0 and 1.
-      */
-
-      progress =
-        Math.max(
-          0,
-          Math.min(1, progress)
-        );
-
-
-      /*
-        We want the entire blue box to
-        finish approximately in the
-        vertical center of the screen.
-
-        Its initial position is below
-        the viewport.
-      */
-
-      const boxHeight =
-        islandBlock.offsetHeight;
-
-
-      const startPosition =
-        viewportHeight + boxHeight;
-
-
-      const finalPosition =
-        (viewportHeight - boxHeight) / 2;
-
-
-      const currentPosition =
-        startPosition +
-        (finalPosition - startPosition) *
-        progress;
-
-
-      islandBlock.style.top =
-        `${currentPosition}px`;
-
-    }
-
-
-    window.addEventListener(
-      "scroll",
-      updateIslandPosition,
-      {
-        passive: true
-      }
-    );
-
-
-    window.addEventListener(
-      "resize",
-      updateIslandPosition
-    );
-
-
-    updateIslandPosition();
-
-  </script>
 
 
 </body>
