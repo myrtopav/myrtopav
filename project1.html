@@ -48,13 +48,9 @@
     ================================================== */
 
     * {
-
       box-sizing: border-box;
-
       margin: 0;
-
       padding: 0;
-
     }
 
 
@@ -62,11 +58,9 @@
     body {
 
       width: 100%;
-
       min-height: 100%;
 
       background: #ffffff;
-
       color: #000000;
 
       font-family:
@@ -75,31 +69,25 @@
         sans-serif;
 
       font-size: 10px;
-
       font-weight: 400;
 
       cursor:
         url("cursor2.png") 25 25,
         auto;
-
     }
 
 
     body {
-
       overflow-x: hidden;
-
     }
 
 
     a {
-
       text-decoration: none;
 
       cursor:
         url("cursor2.png") 25 25,
         auto;
-
     }
 
 
@@ -113,11 +101,9 @@
       position: fixed;
 
       top: 0;
-
       left: 0;
 
       width: 100%;
-
       height: 70px;
 
       padding:
@@ -138,16 +124,12 @@
 
       pointer-events: none;
 
-      text-transform:
-        uppercase;
-
+      text-transform: uppercase;
     }
 
 
     .name {
-
       pointer-events: auto;
-
     }
 
 
@@ -159,14 +141,11 @@
 
       transition:
         color 0.2s ease;
-
     }
 
 
     .name a:hover {
-
       color: #2f6fff;
-
     }
 
 
@@ -175,7 +154,6 @@
       color: #777777;
 
       font-size: 10px;
-
     }
 
 
@@ -189,7 +167,6 @@
       position: relative;
 
       height: 170vh;
-
     }
 
 
@@ -200,11 +177,9 @@
       top: 0;
 
       width: 100%;
-
       height: 100vh;
 
       overflow: hidden;
-
     }
 
 
@@ -221,11 +196,10 @@
 
       top: 80px;
 
+      width: 660px;
+
       transform:
         translateX(-50%);
-
-      text-align: left;
-
     }
 
 
@@ -233,27 +207,46 @@
     /* ==================================================
        COMMON TEXT FRAME
 
-       THIS IS THE IMPORTANT PART.
-
-       Both black texts use EXACTLY
-       the same physical width.
+       THIS IS THE ACTUAL FRAME FOR BOTH TEXTS
     ================================================== */
 
     .text-frame {
 
+      display: block;
+
       width: 660px;
 
+      min-width: 660px;
+
+      max-width: 660px;
+
+      margin: 0 auto;
+
+      padding: 0;
     }
 
 
 
     /* ==================================================
        TOP TEXT
+
+       THE TEXT ITSELF IS CENTERED INSIDE
+       THE 660PX FRAME.
     ================================================== */
 
     .intro-text {
 
+      display: block;
+
       width: 660px;
+
+      min-width: 660px;
+
+      max-width: 660px;
+
+      margin: 0;
+
+      padding: 0;
 
       font-size: 11px;
 
@@ -264,7 +257,6 @@
       text-align: center;
 
       white-space: nowrap;
-
     }
 
 
@@ -282,11 +274,8 @@
       height: auto;
 
       margin:
-        64px
-        auto
-        0
-        auto;
-
+        64px auto
+        0 auto;
     }
 
 
@@ -297,13 +286,15 @@
 
     .intro-coordinate {
 
+      display: block;
+
       width: 510px;
 
       margin:
-        5px
-        auto
-        0
-        auto;
+        5px auto
+        0 auto;
+
+      padding: 0;
 
       text-align: right;
 
@@ -312,7 +303,6 @@
       line-height: 1;
 
       color: #777777;
-
     }
 
 
@@ -320,14 +310,23 @@
     /* ==================================================
        LOWER TEXT
 
-       SAME EXACT 660PX FRAME.
+       EXACTLY THE SAME FRAME AS THE TOP TEXT.
     ================================================== */
 
     .intro-second-text {
 
+      display: block;
+
       width: 660px;
 
-      margin-top: 38px;
+      min-width: 660px;
+
+      max-width: 660px;
+
+      margin:
+        38px 0 0 0;
+
+      padding: 0;
 
       font-size: 11px;
 
@@ -337,6 +336,16 @@
 
       text-align: left;
 
+      /*
+        This prevents any unusually long
+        text segment from visually escaping.
+      */
+
+      overflow-wrap: break-word;
+
+      word-wrap: break-word;
+
+      white-space: normal;
     }
 
 
@@ -385,7 +394,6 @@
         transform;
 
       z-index: 20;
-
     }
 
 
@@ -409,7 +417,6 @@
       line-height: 1.2;
 
       font-weight: 700;
-
     }
 
 
@@ -431,13 +438,12 @@
       line-height: 1.35;
 
       font-weight: 400;
-
     }
 
 
 
     /* ==================================================
-       ONLY SPECIFIC PHRASES ARE BOLD
+       ONLY THE REQUESTED PHRASES ARE BOLD
     ================================================== */
 
     .island-text strong {
@@ -445,7 +451,6 @@
       color: #2f6fff;
 
       font-weight: 700;
-
     }
 
 
@@ -460,7 +465,6 @@
 
       background:
         #ffffff;
-
     }
 
 
@@ -486,7 +490,6 @@
       text-align: right;
 
       z-index: 1100;
-
     }
 
 
@@ -507,21 +510,18 @@
           5vw
           0
           5vw;
-
       }
 
 
       .intro-scene {
 
         height: 165vh;
-
       }
 
 
       .intro-sticky {
 
         height: 100vh;
-
       }
 
 
@@ -531,6 +531,9 @@
 
         width: 90vw;
 
+        min-width: 0;
+
+        max-width: 90vw;
       }
 
 
@@ -538,12 +541,19 @@
 
         width: 90vw;
 
+        min-width: 0;
+
+        max-width: 90vw;
       }
 
 
       .intro-text {
 
         width: 90vw;
+
+        min-width: 0;
+
+        max-width: 90vw;
 
         font-size: 11px;
 
@@ -552,7 +562,6 @@
         white-space: normal;
 
         text-align: center;
-
       }
 
 
@@ -563,7 +572,6 @@
         max-width: 510px;
 
         margin-top: 42px;
-
       }
 
 
@@ -574,13 +582,16 @@
         max-width: 510px;
 
         font-size: 5px;
-
       }
 
 
       .intro-second-text {
 
         width: 90vw;
+
+        min-width: 0;
+
+        max-width: 90vw;
 
         margin-top: 28px;
 
@@ -590,6 +601,9 @@
 
         text-align: left;
 
+        overflow-wrap: break-word;
+
+        word-wrap: break-word;
       }
 
 
@@ -608,7 +622,6 @@
         font-size: 6.5px;
 
         font-weight: 400;
-
       }
 
 
@@ -617,7 +630,6 @@
         font-size: 6.5px;
 
         font-weight: 700;
-
       }
 
 
@@ -626,14 +638,12 @@
         font-size: 6.5px;
 
         font-weight: 400;
-
       }
 
 
       .island-text strong {
 
         font-weight: 700;
-
       }
 
 
@@ -644,7 +654,6 @@
         bottom: 15px;
 
         font-size: 9px;
-
       }
 
     }
@@ -815,7 +824,7 @@
 
 
   <!-- ==================================================
-       NEXT PART
+       NEXT SECTION
   ================================================== -->
 
   <section class="next-section">
