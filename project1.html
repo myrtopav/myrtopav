@@ -1155,82 +1155,180 @@ showNextPhoto();
 setInterval(showNextPhoto, 1000);
 
 
-/* =========================
-   BLUE BOX SCROLL
-========================= */
+    /*
+      ==================================================
+      HANDOFF
 
-const islandBlock = document.querySelector(".island-block");
+      The normal page scroll begins when the blue
+      box reaches the position shown in the screenshot.
 
-const handoffScrollRatio = 1.00;
-const handoffPositionRatio = 0.29;
+      1.00 = one full viewport
+      ==================================================
+    */
 
-let handoffScroll = null;
-let handoffTop = null;
+    const handoffScrollRatio =
+      1.00;
 
-function updateIsland() {
 
-    const scrollY = window.scrollY;
-    const viewportHeight = window.innerHeight;
+    /*
+      ==================================================
+      BLUE BOX POSITION AT HANDOFF
 
-    const handoffPoint =
-        viewportHeight * handoffScrollRatio;
+      Approximately the position from the screenshot.
+      ==================================================
+    */
 
-    if (scrollY <= handoffPoint) {
+    const handoffPositionRatio =
+      0.29;
 
-        islandBlock.style.position = "fixed";
 
-        const progress = Math.min(
-            scrollY / handoffPoint,
-            1
-        );
 
-        const startTop = viewportHeight;
+    function updateIslandPosition() {
 
-        const targetTop =
-            viewportHeight * handoffPositionRatio;
+
+      const viewportHeight =
+        window.innerHeight;
+
+
+      const scrollY =
+        window.scrollY;
+
+
+      const boxHeight =
+        islandBlock.offsetHeight;
+
+
+      /*
+        ==================================================
+        The exact scroll point where normal
+        page scrolling begins.
+      */
+
+      const handoffScroll =
+        viewportHeight *
+        handoffScrollRatio;
+
+
+      /*
+        ==================================================
+        Exact position of the blue box
+        at that moment.
+      */
+
+      const handoffTop =
+        viewportHeight *
+        handoffPositionRatio;
+
+
+
+      /* ==================================================
+         PHASE 1
+
+         Blue box enters from below and travels
+         continuously toward the handoff position.
+      ================================================== */
+
+      if (
+        scrollY <= handoffScroll
+      ) {
+
+
+        let progress =
+          scrollY /
+          handoffScroll;
+
+
+        progress =
+          Math.max(
+            0,
+            Math.min(
+              1,
+              progress
+            )
+          );
+
+
+        const startTop =
+          viewportHeight +
+          boxHeight;
+
 
         const currentTop =
-            startTop +
-            (targetTop - startTop) * progress;
+          startTop +
+          (
+            handoffTop -
+            startTop
+          ) *
+          progress;
 
-        islandBlock.style.top =
-            currentTop + "px";
-
-        handoffScroll = null;
-        handoffTop = null;
-
-    } else {
-
-        if (handoffScroll === null) {
-
-            handoffScroll = handoffPoint;
-
-            handoffTop =
-                viewportHeight *
-                handoffPositionRatio;
-        }
 
         islandBlock.style.position =
-            "absolute";
+          "fixed";
+
 
         islandBlock.style.top =
-            (handoffScroll + handoffTop) + "px";
+          `${currentTop}px`;
+
+      }
+
+
+
+      /* ==================================================
+         PHASE 2
+
+         The normal page scroll has started.
+
+         The blue box becomes part of the normal
+         document flow and continues upward naturally.
+      ================================================== */
+
+      else {
+
+
+        islandBlock.style.position =
+          "absolute";
+
+
+        /*
+          Preserve the exact visual position
+          at the handoff moment.
+        */
+
+        const documentTop =
+          handoffScroll +
+          handoffTop;
+
+
+        islandBlock.style.top =
+          `${documentTop}px`;
+
+      }
+
     }
-}
 
-window.addEventListener(
-    "scroll",
-    updateIsland
-);
 
-window.addEventListener(
-    "resize",
-    updateIsland
-);
 
-updateIsland();
+    window.addEventListener(
+      "scroll",
+      updateIslandPosition,
+      {
+        passive: true
+      }
+    );
 
-</script>
+
+    window.addEventListener(
+      "resize",
+      updateIslandPosition
+    );
+
+
+    updateIslandPosition();
+
+
+  </script>
+
 
 </body>
+
 </html>
