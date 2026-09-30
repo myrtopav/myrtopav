@@ -38,6 +38,7 @@
       cursor: url("cursor2.png") 25 25, auto;
     }
 
+
     /* =========================
        HEADER
     ========================= */
@@ -55,10 +56,12 @@
       z-index: 1000;
       font-size: 10px;
       text-transform: uppercase;
+      pointer-events: none;
     }
 
     .name {
       text-align: left;
+      pointer-events: auto;
     }
 
     .name a {
@@ -78,6 +81,7 @@
       font-size: 10px;
     }
 
+
     /* =========================
        GALLERY
     ========================= */
@@ -89,14 +93,16 @@
       overflow: hidden;
     }
 
+
+    /* =========================
+       PROJECT
+    ========================= */
+
     .project {
       position: absolute;
       display: block;
       text-align: center;
       z-index: 1;
-      transition:
-        transform 0.35s ease,
-        opacity 0.35s ease;
     }
 
     .project-image {
@@ -105,6 +111,7 @@
       height: auto;
       object-fit: contain;
       cursor: url("cursor2.png") 25 25, auto;
+
       transition:
         transform 0.4s cubic-bezier(0.2, 0.7, 0.2, 1),
         opacity 0.35s ease;
@@ -117,6 +124,7 @@
     .project:hover .project-image {
       transform: scale(1.06);
     }
+
 
     /* =========================
        VIDEO
@@ -138,6 +146,7 @@
       max-height: calc(100vh - 180px);
     }
 
+
     /* =========================
        PROJECT INFO
     ========================= */
@@ -148,14 +157,19 @@
       max-width: 100%;
       margin-top: 10px;
       padding: 7px 9px 8px 9px;
+
       background: #2f6fff;
       color: #ffffff;
+
       text-align: center;
+
       opacity: 0;
       transform: translateY(-5px);
+
       transition:
         opacity 0.3s ease,
         transform 0.3s ease;
+
       pointer-events: none;
       z-index: 20;
     }
@@ -204,6 +218,7 @@
       opacity: 1;
     }
 
+
     /* =========================
        LINKS
     ========================= */
@@ -220,29 +235,41 @@
       color: #45B995;
     }
 
+
     /* =========================
        ARROWS
     ========================= */
 
     .project-arrow {
       position: absolute;
+
       top: 50%;
+
       width: 22px;
       height: 22px;
+
       margin-top: -11px;
+
       display: flex;
       align-items: center;
       justify-content: center;
+
       color: #000000;
       background: transparent;
       border: none;
+
       font-family: Arial, Helvetica, sans-serif;
       font-size: 15px;
       line-height: 1;
+
       padding: 0;
+
       opacity: 0;
+
       z-index: 30;
+
       cursor: url("cursor2.png") 25 25, auto;
+
       transition: opacity 0.2s ease;
     }
 
@@ -259,32 +286,45 @@
       right: -28px;
     }
 
+
     /* =========================
        SELECTED PROJECT
     ========================= */
 
     .project.selected {
       z-index: 500;
+
       position: fixed;
+
       left: 50% !important;
       top: 50% !important;
+
       width: auto !important;
+
       transform: translate(-50%, -50%);
+
       text-align: center;
     }
 
     .project.selected .project-image {
       display: block;
+
       width: auto;
       height: auto;
+
       max-width: calc(100vw - 80px);
       max-height: calc(100vh - 180px);
+
       margin-left: auto;
       margin-right: auto;
+
       object-fit: contain;
+
       transform: none;
       opacity: 1;
+
       z-index: 10;
+
       cursor: url("cursor2.png") 25 25, auto;
     }
 
@@ -292,19 +332,16 @@
       opacity: 1;
     }
 
-    /* =========================
-       DESKTOP LAYOUT
-    ========================= */
 
-    /* VETCARD - slightly larger */
+    /* =========================
+       DESKTOP POSITIONS
+    ========================= */
 
     .project-0 {
       width: 9vw;
       left: 6vw;
       top: 17vh;
     }
-
-    /* ECHOES - slightly larger */
 
     .project-1 {
       width: 8.5vw;
@@ -402,6 +439,7 @@
       top: 76vh;
     }
 
+
     /* =========================
        CREDIT
     ========================= */
@@ -410,12 +448,16 @@
       position: fixed;
       right: 3vw;
       bottom: 25px;
+
       color: #777777;
       font-size: 10px;
       font-weight: 400;
+
       text-align: right;
+
       z-index: 1000;
     }
+
 
     /* =========================
        TABLET
@@ -526,136 +568,286 @@
       }
     }
 
-    /* =========================
-       MOBILE
-    ========================= */
+
+    /* ==================================================
+       MOBILE — TWO INDEPENDENT SCROLLING COLUMNS
+    ================================================== */
 
     @media (max-width: 650px) {
 
       html,
       body {
         width: 100%;
-        height: auto;
+        height: 100%;
         min-height: 100%;
-        overflow-x: hidden;
-        overflow-y: auto;
+        overflow: hidden;
       }
 
       body {
         position: relative;
       }
 
+
+      /* =========================
+         MOBILE HEADER
+      ========================= */
+
       header {
-        position: relative;
+        position: fixed;
+
+        top: 0;
+        left: 0;
+
         width: 100%;
-        height: auto;
+        height: 60px;
+
         padding: 24px 5vw 0 5vw;
+
+        z-index: 2000;
+
+        pointer-events: none;
       }
+
+      .name {
+        pointer-events: auto;
+      }
+
+
+      /* =========================
+         MOBILE GALLERY
+      ========================= */
 
       .gallery {
-        position: relative;
+
+        position: fixed;
+
+        top: 60px;
+        left: 0;
+
         width: 100%;
-        height: auto;
-        min-height: 0;
+        height: calc(100vh - 60px);
+
         display: grid;
-        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-        align-items: start;
-        gap: 0 8vw;
-        padding: 65px 5vw 100px 5vw;
-        overflow: visible;
+
+        grid-template-columns:
+          minmax(0, 1fr)
+          minmax(0, 1fr);
+
+        column-gap: 8vw;
+
+        padding:
+          15px
+          5vw
+          80px
+          5vw;
+
+        overflow: hidden;
+
+        align-items: stretch;
       }
+
+
+      /* =========================
+         EACH COLUMN HAS ITS OWN SCROLL
+      ========================= */
 
       .mobile-column {
+
         position: relative;
+
         width: 100%;
         min-width: 0;
-        height: auto;
+
+        height: 100%;
+
         display: flex;
         flex-direction: column;
+
         gap: 30px;
-        overflow: visible;
+
+        overflow-y: auto;
+        overflow-x: hidden;
+
+        padding-top: 5px;
+        padding-bottom: 80px;
+
+        -webkit-overflow-scrolling: touch;
+
+        overscroll-behavior-y: contain;
+
+        scrollbar-width: none;
       }
+
+      .mobile-column::-webkit-scrollbar {
+        display: none;
+      }
+
+
+      /* =========================
+         MOBILE PROJECTS
+      ========================= */
 
       .project {
+
         position: relative !important;
+
         left: auto !important;
         top: auto !important;
+
         width: 100% !important;
         height: auto !important;
-        transform: none !important;
+
+        flex: 0 0 auto;
+
         margin: 0;
+
+        transform: none !important;
+
         text-align: center;
+
+        z-index: 1;
       }
 
+
+      /* =========================
+         MOBILE IMAGES
+      ========================= */
+
       .project-image {
+
         display: block;
+
         width: auto;
+
         max-width: 100%;
+
         height: auto;
+
         max-height: none;
+
         object-fit: contain;
+
         margin-left: auto;
         margin-right: auto;
+
+        transform: none;
       }
 
       .project:hover .project-image {
         transform: scale(1.02);
       }
 
+
+      /* =========================
+         MOBILE SELECTED PROJECT
+      ========================= */
+
       .project.selected {
+
         position: relative !important;
+
         left: auto !important;
         top: auto !important;
+
         width: 100% !important;
         height: auto !important;
-        transform: none !important;
+
         margin: 0;
+
+        transform: none !important;
+
+        z-index: 500;
       }
 
       .project.selected .project-image {
+
+        display: block;
+
         width: auto;
+
         max-width: 100%;
+
         height: auto;
+
         max-height: none;
-        transform: scale(1) !important;
-        opacity: 1;
+
         margin-left: auto;
         margin-right: auto;
+
+        transform: scale(1) !important;
+
+        opacity: 1;
       }
 
+
+      /* =========================
+         MOBILE VIDEO
+      ========================= */
+
       .project.selected .project-video {
+
         display: block;
+
         width: 100%;
+
         height: auto;
+
         max-width: 100%;
+
         max-height: none;
+
         aspect-ratio: 16 / 9;
       }
 
+
+      /* =========================
+         MOBILE INFO
+      ========================= */
+
       .project-info {
+
         position: relative;
+
         max-width: 100%;
+
         margin-top: 8px;
       }
+
+
+      /* =========================
+         MOBILE ARROWS
+      ========================= */
 
       .project-arrow {
         display: none;
       }
 
+
+      /* =========================
+         MOBILE CREDIT
+      ========================= */
+
       .website-credit {
+
         position: fixed;
+
         right: 5vw;
-        bottom: 20px;
+        bottom: 15px;
+
         font-size: 9px;
-        z-index: 1000;
+
+        z-index: 3000;
       }
+
     }
 
   </style>
+
 </head>
 
 
 <body>
+
 
   <!-- =========================
        HEADER
@@ -664,7 +856,11 @@
   <header>
 
     <div class="name">
-      <a href="index.html">MYRTO PAVLOPOULOU</a>
+
+      <a href="index.html">
+        MYRTO PAVLOPOULOU
+      </a>
+
     </div>
 
     <div class="profession">
@@ -681,10 +877,13 @@
   <main class="gallery">
 
     <div class="mobile-column mobile-left"></div>
+
     <div class="mobile-column mobile-right"></div>
 
 
-    <!-- 0 — VETCARD -->
+    <!-- =========================
+         0 — VETCARD
+    ========================= -->
 
     <div class="project project-0" data-project="0">
 
@@ -694,8 +893,15 @@
         alt="VetCard"
       >
 
-      <button class="project-arrow prev" type="button">‹</button>
-      <button class="project-arrow next" type="button">›</button>
+      <button
+        class="project-arrow prev"
+        type="button"
+      >‹</button>
+
+      <button
+        class="project-arrow next"
+        type="button"
+      >›</button>
 
       <div class="project-info">
 
@@ -712,7 +918,9 @@
     </div>
 
 
-    <!-- 1 — ECHOES OF THE DEEP -->
+    <!-- =========================
+         1 — ECHOES OF THE DEEP
+    ========================= -->
 
     <div class="project project-1" data-project="1">
 
@@ -731,8 +939,15 @@
         style="display: none;"
       ></iframe>
 
-      <button class="project-arrow prev" type="button">‹</button>
-      <button class="project-arrow next" type="button">›</button>
+      <button
+        class="project-arrow prev"
+        type="button"
+      >‹</button>
+
+      <button
+        class="project-arrow next"
+        type="button"
+      >›</button>
 
       <div class="project-info">
 
@@ -756,7 +971,9 @@
     </div>
 
 
-    <!-- 2 — X-RAYS OF THE MODERN CITIES -->
+    <!-- =========================
+         2 — X-RAYS
+    ========================= -->
 
     <div class="project project-2" data-project="2">
 
@@ -766,8 +983,15 @@
         alt="X-Rays of the Modern Cities"
       >
 
-      <button class="project-arrow prev" type="button">‹</button>
-      <button class="project-arrow next" type="button">›</button>
+      <button
+        class="project-arrow prev"
+        type="button"
+      >‹</button>
+
+      <button
+        class="project-arrow next"
+        type="button"
+      >›</button>
 
       <div class="project-info">
 
@@ -784,7 +1008,9 @@
     </div>
 
 
-    <!-- 3 — PLACES INSPIRED BY ROBERT SMITHSON -->
+    <!-- =========================
+         3 — SMITHSON
+    ========================= -->
 
     <div class="project project-3" data-project="3">
 
@@ -794,8 +1020,15 @@
         alt="Places Inspired by Robert Smithson"
       >
 
-      <button class="project-arrow prev" type="button">‹</button>
-      <button class="project-arrow next" type="button">›</button>
+      <button
+        class="project-arrow prev"
+        type="button"
+      >‹</button>
+
+      <button
+        class="project-arrow next"
+        type="button"
+      >›</button>
 
       <div class="project-info">
 
@@ -808,7 +1041,9 @@
     </div>
 
 
-    <!-- 4 — URBAN DESIGN -->
+    <!-- =========================
+         4 — URBAN DESIGN
+    ========================= -->
 
     <div class="project project-4" data-project="4">
 
@@ -818,8 +1053,15 @@
         alt="Urban Design"
       >
 
-      <button class="project-arrow prev" type="button">‹</button>
-      <button class="project-arrow next" type="button">›</button>
+      <button
+        class="project-arrow prev"
+        type="button"
+      >‹</button>
+
+      <button
+        class="project-arrow next"
+        type="button"
+      >›</button>
 
       <div class="project-info">
 
@@ -832,7 +1074,9 @@
     </div>
 
 
-    <!-- 5 — CATWALK -->
+    <!-- =========================
+         5 — CATWALK
+    ========================= -->
 
     <div class="project project-5" data-project="5">
 
@@ -842,8 +1086,15 @@
         alt="Catwalk"
       >
 
-      <button class="project-arrow prev" type="button">‹</button>
-      <button class="project-arrow next" type="button">›</button>
+      <button
+        class="project-arrow prev"
+        type="button"
+      >‹</button>
+
+      <button
+        class="project-arrow next"
+        type="button"
+      >›</button>
 
       <div class="project-info">
 
@@ -867,7 +1118,9 @@
     </div>
 
 
-    <!-- 6 — WISHWALL -->
+    <!-- =========================
+         6 — WISHWALL
+    ========================= -->
 
     <div class="project project-6" data-project="6">
 
@@ -877,8 +1130,15 @@
         alt="Wishwall"
       >
 
-      <button class="project-arrow prev" type="button">‹</button>
-      <button class="project-arrow next" type="button">›</button>
+      <button
+        class="project-arrow prev"
+        type="button"
+      >‹</button>
+
+      <button
+        class="project-arrow next"
+        type="button"
+      >›</button>
 
       <div class="project-info">
 
@@ -903,7 +1163,9 @@
     </div>
 
 
-    <!-- 7 — YTONG MODEL -->
+    <!-- =========================
+         7 — YTONG MODEL
+    ========================= -->
 
     <div class="project project-7" data-project="7">
 
@@ -913,8 +1175,15 @@
         alt="Ytong Model"
       >
 
-      <button class="project-arrow prev" type="button">‹</button>
-      <button class="project-arrow next" type="button">›</button>
+      <button
+        class="project-arrow prev"
+        type="button"
+      >‹</button>
+
+      <button
+        class="project-arrow next"
+        type="button"
+      >›</button>
 
       <div class="project-info">
 
@@ -927,7 +1196,9 @@
     </div>
 
 
-    <!-- 8 — EXPERIMENTAL MODEL -->
+    <!-- =========================
+         8 — EXPERIMENTAL MODEL
+    ========================= -->
 
     <div class="project project-8" data-project="8">
 
@@ -948,7 +1219,9 @@
     </div>
 
 
-    <!-- 9 — SPATIAL INVESTIGATIONS -->
+    <!-- =========================
+         9 — SPATIAL INVESTIGATIONS
+    ========================= -->
 
     <div class="project project-9" data-project="9">
 
@@ -958,8 +1231,15 @@
         alt="Spatial Investigations"
       >
 
-      <button class="project-arrow prev" type="button">‹</button>
-      <button class="project-arrow next" type="button">›</button>
+      <button
+        class="project-arrow prev"
+        type="button"
+      >‹</button>
+
+      <button
+        class="project-arrow next"
+        type="button"
+      >›</button>
 
       <div class="project-info">
 
@@ -982,7 +1262,9 @@
     </div>
 
 
-    <!-- 10 — RESIDENTIAL COMPLEX -->
+    <!-- =========================
+         10 — RESIDENTIAL COMPLEX
+    ========================= -->
 
     <div class="project project-10" data-project="10">
 
@@ -992,8 +1274,15 @@
         alt="Residential Complex"
       >
 
-      <button class="project-arrow prev" type="button">‹</button>
-      <button class="project-arrow next" type="button">›</button>
+      <button
+        class="project-arrow prev"
+        type="button"
+      >‹</button>
+
+      <button
+        class="project-arrow next"
+        type="button"
+      >›</button>
 
       <div class="project-info">
 
@@ -1012,7 +1301,9 @@
     </div>
 
 
-    <!-- 11 — DRYPOINT PRINTING -->
+    <!-- =========================
+         11 — DRYPOINT PRINTING
+    ========================= -->
 
     <div class="project project-11" data-project="11">
 
@@ -1033,7 +1324,9 @@
     </div>
 
 
-    <!-- 12 — POSTER -->
+    <!-- =========================
+         12 — POSTER
+    ========================= -->
 
     <div class="project project-12" data-project="12">
 
@@ -1043,8 +1336,15 @@
         alt="Poster"
       >
 
-      <button class="project-arrow prev" type="button">‹</button>
-      <button class="project-arrow next" type="button">›</button>
+      <button
+        class="project-arrow prev"
+        type="button"
+      >‹</button>
+
+      <button
+        class="project-arrow next"
+        type="button"
+      >›</button>
 
       <div class="project-info">
 
@@ -1061,7 +1361,9 @@
     </div>
 
 
-    <!-- 13 — BOOKMARKS -->
+    <!-- =========================
+         13 — BOOKMARKS
+    ========================= -->
 
     <div class="project project-13" data-project="13">
 
@@ -1071,8 +1373,15 @@
         alt="Bookmarks"
       >
 
-      <button class="project-arrow prev" type="button">‹</button>
-      <button class="project-arrow next" type="button">›</button>
+      <button
+        class="project-arrow prev"
+        type="button"
+      >‹</button>
+
+      <button
+        class="project-arrow next"
+        type="button"
+      >›</button>
 
       <div class="project-info">
 
@@ -1089,7 +1398,9 @@
     </div>
 
 
-    <!-- 14 — APPARTMENT IN ILISSIA -->
+    <!-- =========================
+         14 — APPARTMENT IN ILISSIA
+    ========================= -->
 
     <div class="project project-14" data-project="14">
 
@@ -1099,8 +1410,15 @@
         alt="Appartment in Illisia"
       >
 
-      <button class="project-arrow prev" type="button">‹</button>
-      <button class="project-arrow next" type="button">›</button>
+      <button
+        class="project-arrow prev"
+        type="button"
+      >‹</button>
+
+      <button
+        class="project-arrow next"
+        type="button"
+      >›</button>
 
       <div class="project-info">
 
@@ -1126,7 +1444,9 @@
     </div>
 
 
-    <!-- 15 — RESIDENCE IN PRIASTRO, TINOS -->
+    <!-- =========================
+         15 — RESIDENCE IN PRIASTRO
+    ========================= -->
 
     <div class="project project-15" data-project="15">
 
@@ -1160,7 +1480,9 @@
     </div>
 
 
-    <!-- 16 — ISTERNIA -->
+    <!-- =========================
+         16 — ISTERNIA
+    ========================= -->
 
     <div class="project project-16" data-project="16">
 
@@ -1205,7 +1527,7 @@
   <script>
 
     /* =========================
-       IMAGE / VIDEO ARRAYS
+       PROJECT IMAGES
     ========================= */
 
     const projectImages = {
@@ -1338,28 +1660,29 @@
 
 
     /* =========================
-       MOBILE ORDER
+       MOBILE COLUMN ORDER
+       9 LEFT / 8 RIGHT
     ========================= */
 
     const leftProjects = [
       0,
-      9,
-      8,
-      14,
+      2,
       4,
+      6,
+      8,
       10,
-      11,
+      12,
+      14,
       16
     ];
 
     const rightProjects = [
       1,
-      2,
       3,
       5,
-      6,
       7,
-      12,
+      9,
+      11,
       13,
       15
     ];
@@ -1395,7 +1718,7 @@
 
 
     /* =========================
-       SHOW IMAGE / VIDEO
+       DISPLAY CURRENT MEDIA
     ========================= */
 
     function displayProjectMedia(project) {
@@ -1438,15 +1761,17 @@
         "block";
 
       if (video) {
+
         video.style.display =
           "none";
+
       }
 
     }
 
 
     /* =========================
-       CHANGE IMAGE / VIDEO
+       CHANGE MEDIA
     ========================= */
 
     function changeImage(project, direction) {
@@ -1466,13 +1791,16 @@
 
       currentIndex += direction;
 
+
       if (currentIndex >= images.length) {
         currentIndex = 0;
       }
 
+
       if (currentIndex < 0) {
         currentIndex = images.length - 1;
       }
+
 
       imageIndexes[id] =
         currentIndex;
@@ -1502,7 +1830,7 @@
 
 
     /* =========================
-       DESELECT PROJECT
+       DESELECT
     ========================= */
 
     function deselectProject() {
@@ -1523,6 +1851,7 @@
     projects.forEach(function(project) {
 
       project.addEventListener("click", function(event) {
+
 
         const clickedLink =
           event.target.closest("a");
@@ -1566,7 +1895,9 @@
         }
 
 
-        if (!project.classList.contains("selected")) {
+        if (
+          !project.classList.contains("selected")
+        ) {
 
           selectProject(project);
 
@@ -1578,7 +1909,7 @@
 
 
       /* =========================
-         PREVIOUS ARROW
+         PREVIOUS
       ========================= */
 
       const prev =
@@ -1600,7 +1931,7 @@
 
 
       /* =========================
-         NEXT ARROW
+         NEXT
       ========================= */
 
       const next =
@@ -1638,6 +1969,7 @@
       const insideCredit =
         event.target.closest(".website-credit");
 
+
       if (
         !insideProject &&
         !insideHeader &&
@@ -1660,6 +1992,7 @@
       const isMobile =
         window.innerWidth <= 650;
 
+
       if (!isMobile) {
 
         projects.forEach(function(project) {
@@ -1680,6 +2013,7 @@
             '.project[data-project="' + id + '"]'
           );
 
+
         if (project) {
 
           mobileLeft.appendChild(project);
@@ -1696,6 +2030,7 @@
             '.project[data-project="' + id + '"]'
           );
 
+
         if (project) {
 
           mobileRight.appendChild(project);
@@ -1708,7 +2043,7 @@
 
 
     /* =========================
-       INITIAL SETUP
+       INITIALIZE
     ========================= */
 
     setupMobileColumns();
@@ -1721,10 +2056,12 @@
     let previousMobileState =
       window.innerWidth <= 650;
 
+
     window.addEventListener("resize", function() {
 
       const currentMobileState =
         window.innerWidth <= 650;
+
 
       if (
         currentMobileState !== previousMobileState
