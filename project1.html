@@ -1,1885 +1,1183 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <meta charset="UTF-8">
+<title>Nisyros-(+100)-</title>
 
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-  >
+<link rel="icon" type="image/jpeg" href="profile.jpg">
 
-  <title>
-    Nisyros-(+100)- — Myrto Pavlopoulou
-  </title>
+<style>
 
-  <link
-    rel="icon"
-    type="image/jpeg"
-    href="profile.jpg"
-  >
+html,
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    background: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 10px;
+    color: #000;
+    cursor: url("cursor2.png"), auto;
+}
 
-  <!-- GOOGLE SANS CODE -->
+a {
+    color: inherit;
+    text-decoration: none;
+}
 
-  <link
-    rel="preconnect"
-    href="https://fonts.googleapis.com"
-  >
-
-  <link
-    rel="preconnect"
-    href="https://fonts.gstatic.com"
-    crossorigin
-  >
-
-  <link
-    href="https://fonts.googleapis.com/css2?family=Google+Sans+Code:wght@300;400;700&display=swap"
-    rel="stylesheet"
-  >
+a:hover {
+    color: #2f6fff;
+}
 
 
-  <style>
+/* =========================
+   HEADER
+========================= */
+
+.site-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 40px;
+    z-index: 2000;
+    pointer-events: none;
+}
+
+.site-name {
+    position: absolute;
+    top: 15px;
+    left: 20px;
+    color: #777;
+    pointer-events: auto;
+}
+
+.site-name:hover {
+    color: #2f6fff;
+}
+
+.site-role {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    color: #777;
+}
 
 
-    /* ==================================================
-       RESET
-    ================================================== */
+/* =========================
+   INTRO SCENE
+========================= */
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
+.intro-scene {
+    height: 200vh;
+    position: relative;
+}
+
+.intro-sticky {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    overflow: hidden;
+    z-index: 5;
+}
+
+.intro-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    text-align: center;
+}
+
+.intro-main {
+    width: 100%;
+    text-align: center;
+    font-size: 11px;
+    line-height: 1.35;
+    margin-bottom: 24px;
+}
+
+.intro-gif {
+    display: block;
+    width: 510px;
+    max-width: 80vw;
+    height: auto;
+    margin: 0 auto;
+}
+
+.intro-lower {
+    margin-top: 25px;
+    font-size: 11px;
+    line-height: 1.35;
+    text-align: center;
+}
+
+
+/* =========================
+   BLUE BOX
+========================= */
+
+.island-block {
+    position: fixed;
+    left: calc(50% + 350px);
+    top: 100vh;
+    width: 100px;
+    background: #dce5ff;
+    color: #2f6fff;
+    padding: 10px;
+    box-sizing: border-box;
+    z-index: 1050;
+    font-family: "Google Sans Code", monospace;
+    font-size: 7px;
+    line-height: 1.35;
+}
+
+.island-block strong {
+    font-weight: 700;
+}
+
+.island-title {
+    margin-bottom: 7px;
+}
+
+
+/* =========================
+   NEXT SECTION
+========================= */
+
+.next-section {
+    position: relative;
+    min-height: 100vh;
+    background: #fff;
+}
+
+
+/* =========================
+   PHOTO CLUSTER
+========================= */
+
+.photo-cluster {
+    position: relative;
+    left: 3.4vw;
+    top: 0;
+    width: 500px;
+    height: 410px;
+    z-index: 20;
+    pointer-events: none;
+}
+
+.photo-cluster img {
+    position: absolute;
+    display: block;
+    height: auto;
+    object-fit: contain;
+    opacity: 0;
+    transition: opacity 0.15s linear;
+}
+
+
+/* =========================
+   COMPACT CLUSTER POSITIONS
+========================= */
+
+.photo-1 {
+    left: 0px;
+    top: 0px;
+    width: 150px;
+    transform: rotate(-4deg);
+}
+
+.photo-2 {
+    left: 35px;
+    top: 15px;
+    width: 135px;
+    transform: rotate(3deg);
+}
+
+.photo-3 {
+    left: 70px;
+    top: 5px;
+    width: 145px;
+    transform: rotate(-2deg);
+}
+
+.photo-4 {
+    left: 105px;
+    top: 25px;
+    width: 125px;
+    transform: rotate(5deg);
+}
+
+.photo-5 {
+    left: 140px;
+    top: 10px;
+    width: 140px;
+    transform: rotate(-5deg);
+}
+
+.photo-6 {
+    left: 175px;
+    top: 35px;
+    width: 130px;
+    transform: rotate(2deg);
+}
+
+.photo-7 {
+    left: 210px;
+    top: 5px;
+    width: 145px;
+    transform: rotate(-3deg);
+}
+
+.photo-8 {
+    left: 245px;
+    top: 25px;
+    width: 125px;
+    transform: rotate(4deg);
+}
+
+.photo-9 {
+    left: 280px;
+    top: 10px;
+    width: 140px;
+    transform: rotate(-4deg);
+}
+
+.photo-10 {
+    left: 315px;
+    top: 35px;
+    width: 130px;
+    transform: rotate(3deg);
+}
+
+.photo-11 {
+    left: 20px;
+    top: 65px;
+    width: 140px;
+    transform: rotate(2deg);
+}
+
+.photo-12 {
+    left: 55px;
+    top: 80px;
+    width: 125px;
+    transform: rotate(-5deg);
+}
+
+.photo-13 {
+    left: 90px;
+    top: 65px;
+    width: 150px;
+    transform: rotate(4deg);
+}
+
+.photo-14 {
+    left: 125px;
+    top: 90px;
+    width: 130px;
+    transform: rotate(-2deg);
+}
+
+.photo-15 {
+    left: 160px;
+    top: 70px;
+    width: 140px;
+    transform: rotate(5deg);
+}
+
+.photo-16 {
+    left: 195px;
+    top: 95px;
+    width: 125px;
+    transform: rotate(-4deg);
+}
+
+.photo-17 {
+    left: 230px;
+    top: 70px;
+    width: 145px;
+    transform: rotate(2deg);
+}
+
+.photo-18 {
+    left: 265px;
+    top: 90px;
+    width: 130px;
+    transform: rotate(-3deg);
+}
+
+.photo-19 {
+    left: 300px;
+    top: 70px;
+    width: 140px;
+    transform: rotate(4deg);
+}
+
+.photo-20 {
+    left: 335px;
+    top: 95px;
+    width: 125px;
+    transform: rotate(-5deg);
+}
+
+.photo-21 {
+    left: 5px;
+    top: 130px;
+    width: 145px;
+    transform: rotate(3deg);
+}
+
+.photo-22 {
+    left: 40px;
+    top: 145px;
+    width: 130px;
+    transform: rotate(-4deg);
+}
+
+.photo-23 {
+    left: 75px;
+    top: 125px;
+    width: 140px;
+    transform: rotate(2deg);
+}
+
+.photo-24 {
+    left: 110px;
+    top: 150px;
+    width: 125px;
+    transform: rotate(-3deg);
+}
+
+.photo-25 {
+    left: 145px;
+    top: 130px;
+    width: 150px;
+    transform: rotate(5deg);
+}
+
+.photo-26 {
+    left: 180px;
+    top: 155px;
+    width: 130px;
+    transform: rotate(-2deg);
+}
+
+.photo-27 {
+    left: 215px;
+    top: 130px;
+    width: 145px;
+    transform: rotate(4deg);
+}
+
+.photo-28 {
+    left: 250px;
+    top: 150px;
+    width: 125px;
+    transform: rotate(-5deg);
+}
+
+.photo-29 {
+    left: 285px;
+    top: 130px;
+    width: 140px;
+    transform: rotate(3deg);
+}
+
+.photo-30 {
+    left: 320px;
+    top: 155px;
+    width: 130px;
+    transform: rotate(-4deg);
+}
+
+.photo-31 {
+    left: 15px;
+    top: 195px;
+    width: 140px;
+    transform: rotate(2deg);
+}
+
+.photo-32 {
+    left: 50px;
+    top: 210px;
+    width: 130px;
+    transform: rotate(-3deg);
+}
+
+.photo-33 {
+    left: 85px;
+    top: 190px;
+    width: 145px;
+    transform: rotate(4deg);
+}
+
+.photo-34 {
+    left: 120px;
+    top: 215px;
+    width: 125px;
+    transform: rotate(-5deg);
+}
+
+.photo-35 {
+    left: 155px;
+    top: 195px;
+    width: 140px;
+    transform: rotate(3deg);
+}
+
+.photo-36 {
+    left: 190px;
+    top: 220px;
+    width: 130px;
+    transform: rotate(-2deg);
+}
+
+.photo-37 {
+    left: 225px;
+    top: 195px;
+    width: 145px;
+    transform: rotate(5deg);
+}
+
+.photo-38 {
+    left: 260px;
+    top: 215px;
+    width: 125px;
+    transform: rotate(-4deg);
+}
+
+.photo-39 {
+    left: 295px;
+    top: 195px;
+    width: 140px;
+    transform: rotate(2deg);
+}
+
+.photo-40 {
+    left: 330px;
+    top: 220px;
+    width: 130px;
+    transform: rotate(-3deg);
+}
+
+.photo-41 {
+    left: 25px;
+    top: 260px;
+    width: 145px;
+    transform: rotate(4deg);
+}
+
+.photo-42 {
+    left: 60px;
+    top: 275px;
+    width: 125px;
+    transform: rotate(-5deg);
+}
+
+.photo-43 {
+    left: 95px;
+    top: 255px;
+    width: 140px;
+    transform: rotate(3deg);
+}
+
+.photo-44 {
+    left: 130px;
+    top: 280px;
+    width: 130px;
+    transform: rotate(-2deg);
+}
+
+.photo-45 {
+    left: 165px;
+    top: 260px;
+    width: 150px;
+    transform: rotate(5deg);
+}
+
+.photo-46 {
+    left: 200px;
+    top: 285px;
+    width: 125px;
+    transform: rotate(-4deg);
+}
+
+.photo-47 {
+    left: 235px;
+    top: 260px;
+    width: 140px;
+    transform: rotate(2deg);
+}
+
+.photo-48 {
+    left: 270px;
+    top: 280px;
+    width: 130px;
+    transform: rotate(-3deg);
+}
+
+.photo-49 {
+    left: 305px;
+    top: 260px;
+    width: 145px;
+    transform: rotate(4deg);
+}
+
+.photo-50 {
+    left: 340px;
+    top: 285px;
+    width: 125px;
+    transform: rotate(-5deg);
+}
+
+.photo-51 {
+    left: 170px;
+    top: 315px;
+    width: 140px;
+    transform: rotate(3deg);
+}
+
+
+/* =========================
+   CREDIT
+========================= */
+
+.web-credit {
+    position: fixed;
+    right: 20px;
+    bottom: 15px;
+    color: #777;
+    font-size: 9px;
+    z-index: 3000;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 700px) {
+
+    .site-header {
+        height: 35px;
     }
 
-
-    html,
-    body {
-
-      width: 100%;
-      min-height: 100%;
-
-      background: #ffffff;
-      color: #000000;
-
-      font-family:
-        Arial,
-        Helvetica,
-        sans-serif;
-
-      font-size: 10px;
-      font-weight: 400;
-
-      cursor:
-        url("cursor2.png") 25 25,
-        auto;
+    .site-name {
+        top: 12px;
+        left: 12px;
     }
 
-
-    body {
-      overflow-x: hidden;
+    .site-role {
+        top: 12px;
+        right: 12px;
     }
 
-
-    a {
-      text-decoration: none;
-
-      cursor:
-        url("cursor2.png") 25 25,
-        auto;
+    .intro-main {
+        width: 85%;
+        margin-left: auto;
+        margin-right: auto;
+        font-size: 10px;
     }
-
-
-
-    /* ==================================================
-       HEADER
-    ================================================== */
-
-    header {
-
-      position: fixed;
-
-      top: 0;
-      left: 0;
-
-      width: 100%;
-      height: 70px;
-
-      padding:
-        30px
-        3vw
-        0
-        3vw;
-
-      display: flex;
-
-      justify-content:
-        space-between;
-
-      align-items:
-        flex-start;
-
-      z-index: 1000;
-
-      pointer-events: none;
-
-      text-transform: uppercase;
-    }
-
-
-    .name {
-      pointer-events: auto;
-    }
-
-
-    .name a {
-
-      color: #777777;
-
-      font-size: 10px;
-
-      transition:
-        color 0.2s ease;
-    }
-
-
-    .name a:hover {
-      color: #2f6fff;
-    }
-
-
-    .profession {
-
-      color: #777777;
-
-      font-size: 10px;
-    }
-
-
-
-    /* ==================================================
-       FIRST SCROLL SCENE
-    ================================================== */
-
-    .intro-scene {
-
-      position: relative;
-
-      height: 200vh;
-    }
-
-
-    .intro-sticky {
-
-      position: sticky;
-
-      top: 0;
-
-      width: 100%;
-      height: 100vh;
-
-      overflow: hidden;
-
-      z-index: 5;
-    }
-
-
-
-    /* ==================================================
-       CENTRAL CONTENT
-    ================================================== */
-
-    .intro-cluster {
-
-      position: absolute;
-
-      left: 50%;
-
-      top: 80px;
-
-      width: 100%;
-
-      transform:
-        translateX(-50%);
-
-      text-align: center;
-    }
-
-
-
-    /* ==================================================
-       TOP TEXT
-    ================================================== */
-
-    .intro-text {
-
-      display: block;
-
-      width: 100%;
-
-      margin: 0;
-
-      padding: 0;
-
-      font-size: 11px;
-
-      line-height: 1.35;
-
-      color: #000000;
-
-      text-align: center;
-
-      white-space: nowrap;
-    }
-
-
-
-    /* ==================================================
-       GIF
-    ================================================== */
 
     .intro-gif {
-
-      display: block;
-
-      width: 510px;
-
-      height: auto;
-
-      margin:
-        64px auto
-        0 auto;
+        width: 75vw;
+        max-width: none;
     }
 
-
-
-    /* ==================================================
-       LOWER TEXT
-    ================================================== */
-
-    .intro-second-text {
-
-      display: block;
-
-      width: 100%;
-
-      margin:
-        38px auto
-        0 auto;
-
-      padding: 0;
-
-      font-size: 11px;
-
-      line-height: 1.35;
-
-      color: #000000;
-
-      text-align: center;
-
-      white-space: normal;
+    .intro-lower {
+        width: 85%;
+        margin-left: auto;
+        margin-right: auto;
+        font-size: 10px;
     }
-
-
-
-    /* ==================================================
-       BLUE BOX
-    ================================================== */
 
     .island-block {
-
-      position: fixed;
-
-      left:
-        calc(50% + 350px);
-
-      top: 100vh;
-
-      width: 100px;
-
-      padding:
-        8px
-        8px
-        10px
-        8px;
-
-      background:
-        #dce5ff;
-
-      color:
-        #2f6fff;
-
-      font-family:
-        "Google Sans Code",
-        monospace;
-
-      font-size: 7px;
-
-      font-weight: 400;
-
-      line-height: 1.35;
-
-      z-index: 1050;
-
-      will-change:
-        top;
+        left: auto;
+        right: 15px;
+        width: 90px;
+        font-size: 6.5px;
     }
-
-
-
-    /* ==================================================
-       BLUE TITLE
-    ================================================== */
-
-    .island-title {
-
-      margin-bottom: 7px;
-
-      color: #2f6fff;
-
-      font-family:
-        "Google Sans Code",
-        monospace;
-
-      font-size: 7px;
-
-      line-height: 1.2;
-
-      font-weight: 700;
-    }
-
-
-
-    /* ==================================================
-       BLUE BODY
-    ================================================== */
-
-    .island-text {
-
-      color: #2f6fff;
-
-      font-family:
-        "Google Sans Code",
-        monospace;
-
-      font-size: 7px;
-
-      line-height: 1.35;
-
-      font-weight: 400;
-    }
-
-
-
-    /* ==================================================
-       ONLY REQUESTED PHRASES BOLD
-    ================================================== */
-
-    .island-text strong {
-
-      color: #2f6fff;
-
-      font-weight: 700;
-    }
-
-
-
-    /* ==================================================
-       NEXT SECTION
-    ================================================== */
-
-    .next-section {
-
-      position: relative;
-
-      min-height: 100vh;
-
-      background:
-        #ffffff;
-    }
-
-
-
-    /* ==================================================
-       PHOTO CLUSTER
-
-       NORMAL PAGE CONTENT
-
-       The cluster has no independent scroll.
-       It simply exists lower in the document
-       and moves naturally with the page scroll.
-    ================================================== */
 
     .photo-cluster {
-
-      position: relative;
-
-      left: 3.4vw;
-
-      top: 0;
-
-      width: 500px;
-
-      height: 410px;
-
-      z-index: 20;
-
-      pointer-events: none;
+        left: 3vw;
+        width: 94vw;
+        height: 410px;
     }
-
 
     .photo-cluster img {
-
-      position: absolute;
-
-      display: block;
-
-      height: auto;
-
-      object-fit: contain;
-
-      transform-origin: center center;
-
-      pointer-events: none;
-
-      opacity: 0;
+        max-width: none;
     }
-
-
-
-    /* ==================================================
-       COMPACT IMAGE POSITIONS
-    ================================================== */
-
 
     .photo-1 {
-      left: 48px;
-      top: 48px;
-      width: 168px;
-      transform: rotate(0deg);
-      z-index: 1;
+        left: 0px;
+        top: 0px;
+        width: 110px;
     }
-
 
     .photo-2 {
-      left: 145px;
-      top: 4px;
-      width: 75px;
-      transform: rotate(14deg);
-      z-index: 2;
+        left: 25px;
+        top: 10px;
+        width: 100px;
     }
-
 
     .photo-3 {
-      left: 220px;
-      top: 4px;
-      width: 132px;
-      transform: rotate(-5deg);
-      z-index: 3;
+        left: 50px;
+        top: 5px;
+        width: 105px;
     }
-
 
     .photo-4 {
-      left: 151px;
-      top: 59px;
-      width: 132px;
-      transform: rotate(0deg);
-      z-index: 4;
+        left: 75px;
+        top: 20px;
+        width: 95px;
     }
-
 
     .photo-5 {
-      left: 316px;
-      top: 56px;
-      width: 169px;
-      transform: rotate(-9deg);
-      z-index: 5;
+        left: 100px;
+        top: 5px;
+        width: 105px;
     }
-
 
     .photo-6 {
-      left: 7px;
-      top: 139px;
-      width: 103px;
-      transform: rotate(4deg);
-      z-index: 6;
+        left: 125px;
+        top: 25px;
+        width: 95px;
     }
-
 
     .photo-7 {
-      left: 58px;
-      top: 112px;
-      width: 178px;
-      transform: rotate(0deg);
-      z-index: 7;
+        left: 150px;
+        top: 5px;
+        width: 105px;
     }
-
 
     .photo-8 {
-      left: 108px;
-      top: 241px;
-      width: 98px;
-      transform: rotate(8deg);
-      z-index: 8;
+        left: 175px;
+        top: 20px;
+        width: 95px;
     }
-
 
     .photo-9 {
-      left: 184px;
-      top: 69px;
-      width: 137px;
-      transform: rotate(0deg);
-      z-index: 9;
+        left: 200px;
+        top: 5px;
+        width: 105px;
     }
-
 
     .photo-10 {
-      left: 251px;
-      top: 143px;
-      width: 137px;
-      transform: rotate(-5deg);
-      z-index: 10;
+        left: 225px;
+        top: 25px;
+        width: 95px;
     }
-
 
     .photo-11 {
-      left: 326px;
-      top: 143px;
-      width: 142px;
-      transform: rotate(0deg);
-      z-index: 11;
+        left: 15px;
+        top: 55px;
+        width: 105px;
     }
-
 
     .photo-12 {
-      left: 190px;
-      top: 264px;
-      width: 180px;
-      transform: rotate(0deg);
-      z-index: 12;
+        left: 40px;
+        top: 70px;
+        width: 95px;
     }
-
 
     .photo-13 {
-      left: 151px;
-      top: 307px;
-      width: 99px;
-      transform: rotate(0deg);
-      z-index: 13;
+        left: 65px;
+        top: 55px;
+        width: 110px;
     }
-
 
     .photo-14 {
-      left: 266px;
-      top: 329px;
-      width: 127px;
-      transform: rotate(0deg);
-      z-index: 14;
+        left: 90px;
+        top: 75px;
+        width: 95px;
     }
-
 
     .photo-15 {
-      left: 250px;
-      top: 67px;
-      width: 146px;
-      transform: rotate(0deg);
-      z-index: 15;
+        left: 115px;
+        top: 60px;
+        width: 105px;
     }
-
 
     .photo-16 {
-      left: 35px;
-      top: 218px;
-      width: 126px;
-      transform: rotate(-6deg);
-      z-index: 16;
+        left: 140px;
+        top: 80px;
+        width: 95px;
     }
-
 
     .photo-17 {
-      left: 75px;
-      top: 278px;
-      width: 136px;
-      transform: rotate(5deg);
-      z-index: 17;
+        left: 165px;
+        top: 60px;
+        width: 105px;
     }
-
 
     .photo-18 {
-      left: 305px;
-      top: 231px;
-      width: 122px;
-      transform: rotate(7deg);
-      z-index: 18;
+        left: 190px;
+        top: 75px;
+        width: 95px;
     }
-
 
     .photo-19 {
-      left: 15px;
-      top: 77px;
-      width: 119px;
-      transform: rotate(-4deg);
-      z-index: 19;
+        left: 215px;
+        top: 60px;
+        width: 105px;
     }
-
 
     .photo-20 {
-      left: 101px;
-      top: 24px;
-      width: 128px;
-      transform: rotate(5deg);
-      z-index: 20;
+        left: 240px;
+        top: 80px;
+        width: 95px;
     }
-
 
     .photo-21 {
-      left: 368px;
-      top: 22px;
-      width: 112px;
-      transform: rotate(-7deg);
-      z-index: 21;
+        left: 5px;
+        top: 115px;
+        width: 105px;
     }
-
 
     .photo-22 {
-      left: 384px;
-      top: 111px;
-      width: 105px;
-      transform: rotate(4deg);
-      z-index: 22;
+        left: 30px;
+        top: 130px;
+        width: 95px;
     }
-
 
     .photo-23 {
-      left: 14px;
-      top: 280px;
-      width: 121px;
-      transform: rotate(-7deg);
-      z-index: 23;
+        left: 55px;
+        top: 115px;
+        width: 105px;
     }
-
 
     .photo-24 {
-      left: 217px;
-      top: 219px;
-      width: 137px;
-      transform: rotate(4deg);
-      z-index: 24;
+        left: 80px;
+        top: 135px;
+        width: 95px;
     }
-
 
     .photo-25 {
-      left: 365px;
-      top: 282px;
-      width: 116px;
-      transform: rotate(-4deg);
-      z-index: 25;
+        left: 105px;
+        top: 115px;
+        width: 110px;
     }
-
 
     .photo-26 {
-      left: 119px;
-      top: 153px;
-      width: 121px;
-      transform: rotate(7deg);
-      z-index: 26;
+        left: 130px;
+        top: 140px;
+        width: 95px;
     }
-
 
     .photo-27 {
-      left: 211px;
-      top: 122px;
-      width: 130px;
-      transform: rotate(-6deg);
-      z-index: 27;
+        left: 155px;
+        top: 115px;
+        width: 105px;
     }
-
 
     .photo-28 {
-      left: 278px;
-      top: 25px;
-      width: 111px;
-      transform: rotate(6deg);
-      z-index: 28;
+        left: 180px;
+        top: 135px;
+        width: 95px;
     }
-
 
     .photo-29 {
-      left: 50px;
-      top: 338px;
-      width: 126px;
-      transform: rotate(-3deg);
-      z-index: 29;
+        left: 205px;
+        top: 115px;
+        width: 105px;
     }
-
 
     .photo-30 {
-      left: 345px;
-      top: 338px;
-      width: 112px;
-      transform: rotate(5deg);
-      z-index: 30;
+        left: 230px;
+        top: 140px;
+        width: 95px;
     }
-
 
     .photo-31 {
-      left: 224px;
-      top: 326px;
-      width: 128px;
-      transform: rotate(-7deg);
-      z-index: 31;
+        left: 10px;
+        top: 175px;
+        width: 105px;
     }
-
 
     .photo-32 {
-      left: 80px;
-      top: 67px;
-      width: 112px;
-      transform: rotate(3deg);
-      z-index: 32;
+        left: 35px;
+        top: 190px;
+        width: 95px;
     }
-
 
     .photo-33 {
-      left: 282px;
-      top: 93px;
-      width: 118px;
-      transform: rotate(-3deg);
-      z-index: 33;
+        left: 60px;
+        top: 175px;
+        width: 105px;
     }
-
 
     .photo-34 {
-      left: 172px;
-      top: 187px;
-      width: 127px;
-      transform: rotate(5deg);
-      z-index: 34;
+        left: 85px;
+        top: 200px;
+        width: 95px;
     }
-
 
     .photo-35 {
-      left: 397px;
-      top: 176px;
-      width: 95px;
-      transform: rotate(-6deg);
-      z-index: 35;
+        left: 110px;
+        top: 180px;
+        width: 105px;
     }
-
 
     .photo-36 {
-      left: 25px;
-      top: 173px;
-      width: 109px;
-      transform: rotate(6deg);
-      z-index: 36;
+        left: 135px;
+        top: 205px;
+        width: 95px;
     }
-
 
     .photo-37 {
-      left: 142px;
-      top: 95px;
-      width: 119px;
-      transform: rotate(-5deg);
-      z-index: 37;
+        left: 160px;
+        top: 180px;
+        width: 105px;
     }
-
 
     .photo-38 {
-      left: 327px;
-      top: 84px;
-      width: 114px;
-      transform: rotate(4deg);
-      z-index: 38;
+        left: 185px;
+        top: 200px;
+        width: 95px;
     }
-
 
     .photo-39 {
-      left: 89px;
-      top: 208px;
-      width: 125px;
-      transform: rotate(-7deg);
-      z-index: 39;
+        left: 210px;
+        top: 180px;
+        width: 105px;
     }
-
 
     .photo-40 {
-      left: 257px;
-      top: 204px;
-      width: 124px;
-      transform: rotate(6deg);
-      z-index: 40;
+        left: 235px;
+        top: 205px;
+        width: 95px;
     }
-
 
     .photo-41 {
-      left: 367px;
-      top: 221px;
-      width: 101px;
-      transform: rotate(-5deg);
-      z-index: 41;
+        left: 20px;
+        top: 240px;
+        width: 105px;
     }
-
 
     .photo-42 {
-      left: 188px;
-      top: 34px;
-      width: 106px;
-      transform: rotate(7deg);
-      z-index: 42;
+        left: 45px;
+        top: 255px;
+        width: 95px;
     }
-
 
     .photo-43 {
-      left: 2px;
-      top: 342px;
-      width: 110px;
-      transform: rotate(-5deg);
-      z-index: 43;
+        left: 70px;
+        top: 240px;
+        width: 105px;
     }
-
 
     .photo-44 {
-      left: 206px;
-      top: 255px;
-      width: 117px;
-      transform: rotate(3deg);
-      z-index: 44;
+        left: 95px;
+        top: 265px;
+        width: 95px;
     }
-
 
     .photo-45 {
-      left: 320px;
-      top: 302px;
-      width: 115px;
-      transform: rotate(-6deg);
-      z-index: 45;
+        left: 120px;
+        top: 245px;
+        width: 110px;
     }
-
 
     .photo-46 {
-      left: 56px;
-      top: 139px;
-      width: 108px;
-      transform: rotate(4deg);
-      z-index: 46;
+        left: 145px;
+        top: 270px;
+        width: 95px;
     }
-
 
     .photo-47 {
-      left: 155px;
-      top: 270px;
-      width: 121px;
-      transform: rotate(-4deg);
-      z-index: 47;
+        left: 170px;
+        top: 245px;
+        width: 105px;
     }
-
 
     .photo-48 {
-      left: 276px;
-      top: 269px;
-      width: 108px;
-      transform: rotate(6deg);
-      z-index: 48;
+        left: 195px;
+        top: 265px;
+        width: 95px;
     }
-
 
     .photo-49 {
-      left: 373px;
-      top: 59px;
-      width: 101px;
-      transform: rotate(-4deg);
-      z-index: 49;
+        left: 220px;
+        top: 245px;
+        width: 105px;
     }
-
 
     .photo-50 {
-      left: 116px;
-      top: 330px;
-      width: 111px;
-      transform: rotate(5deg);
-      z-index: 50;
+        left: 245px;
+        top: 270px;
+        width: 95px;
     }
-
 
     .photo-51 {
-      left: 343px;
-      top: 255px;
-      width: 113px;
-      transform: rotate(-5deg);
-      z-index: 51;
+        left: 120px;
+        top: 300px;
+        width: 105px;
     }
 
-
-
-    /* ==================================================
-       WEBSITE CREDIT
-    ================================================== */
-
-    .website-credit {
-
-      position: fixed;
-
-      right: 3vw;
-
-      bottom: 25px;
-
-      color: #777777;
-
-      font-size: 10px;
-
-      font-weight: 400;
-
-      text-align: right;
-
-      z-index: 1100;
+    .web-credit {
+        right: 12px;
+        bottom: 12px;
+        font-size: 8px;
     }
+}
 
-
-
-    /* ==================================================
-       MOBILE
-    ================================================== */
-
-    @media (max-width: 650px) {
-
-
-      header {
-
-        height: 60px;
-
-        padding:
-          24px
-          5vw
-          0
-          5vw;
-      }
-
-
-      .intro-scene {
-
-        height: 200vh;
-      }
-
-
-      .intro-sticky {
-
-        height: 100vh;
-      }
-
-
-      .intro-cluster {
-
-        top: 70px;
-
-        width: 100%;
-
-        min-width: 0;
-
-        max-width: 100%;
-      }
-
-
-      .intro-text {
-
-        width: 90vw;
-
-        margin:
-          0 auto;
-
-        font-size: 11px;
-
-        line-height: 1.35;
-
-        white-space: normal;
-
-        text-align: center;
-      }
-
-
-      .intro-gif {
-
-        width: 75vw;
-
-        max-width: 510px;
-
-        margin-top: 42px;
-      }
-
-
-      .intro-second-text {
-
-        width: 90vw;
-
-        margin:
-          28px auto
-          0 auto;
-
-        font-size: 11px;
-
-        line-height: 1.35;
-
-        text-align: center;
-      }
-
-
-      .island-block {
-
-        left: auto;
-
-        right: 5vw;
-
-        width: 82px;
-
-        top: 100vh;
-
-        padding: 7px;
-
-        font-size: 6.5px;
-
-        font-weight: 400;
-      }
-
-
-      .island-title {
-
-        font-size: 6.5px;
-
-        font-weight: 700;
-      }
-
-
-      .island-text {
-
-        font-size: 6.5px;
-
-        font-weight: 400;
-      }
-
-
-      .island-text strong {
-
-        font-weight: 700;
-      }
-
-
-      /* --------------------------------------------------
-         PHOTO CLUSTER — MOBILE
-      -------------------------------------------------- */
-
-      .photo-cluster {
-
-        left: 4vw;
-
-        top: 0;
-
-        width: 330px;
-
-        height: 300px;
-
-        transform: scale(0.62);
-
-        transform-origin: top left;
-      }
-
-
-      .website-credit {
-
-        right: 5vw;
-
-        bottom: 15px;
-
-        font-size: 9px;
-      }
-
-    }
-
-
-  </style>
-
+</style>
 </head>
 
 
 <body>
 
 
-  <!-- ==================================================
-       HEADER
-  ================================================== -->
+<!-- =========================
+     HEADER
+========================= -->
 
-  <header>
+<header class="site-header">
 
-
-    <div class="name">
-
-      <a href="index.html">
-
+    <a href="index.html" class="site-name">
         MYRTO PAVLOPOULOU
+    </a>
 
-      </a>
-
+    <div class="site-role">
+        ARCHITECT
     </div>
 
-
-    <div class="profession">
-
-      ARCHITECT
-
-    </div>
+</header>
 
 
-  </header>
+<!-- =========================
+     INTRO
+========================= -->
 
-
-
-  <!-- ==================================================
-       FIRST SCROLL SCENE
-  ================================================== -->
-
-  <section class="intro-scene">
-
+<section class="intro-scene">
 
     <div class="intro-sticky">
 
+        <div class="intro-content">
 
-      <!-- ==================================================
-           CENTRAL CONTENT
-      ================================================== -->
+            <div class="intro-main">
+                This project is a poetic inquiry into the deconstruction of place and an exploration of its future ruins.
+            </div>
 
-      <div class="intro-cluster">
+            <img
+                src="diploma/dipl_1.gif"
+                alt="Nisyros"
+                class="intro-gif"
+            >
 
-
-        <!-- TOP TEXT -->
-
-        <div class="intro-text">
-
-          This project is a poetic inquiry into the deconstruction of place and an exploration of its future ruins.
-
-        </div>
-
-
-
-        <!-- GIF -->
-
-        <img
-          class="intro-gif"
-          src="diploma/dipl_1.gif"
-          alt="Nisyros"
-        >
-
-
-
-        <!-- LOWER TEXT -->
-
-        <div class="intro-second-text">
-
-          The investigation did not follow a linear trajectory. Instead, it unfolded through continuous shifts of<br>
-
-          perspective between the fragment and the whole, and from the whole back to the fragment.
+            <div class="intro-lower">
+                The investigation did not follow a linear trajectory. Instead, it unfolded through continuous shifts of<br>
+                perspective between the fragment and the whole, and from the whole back to the fragment.
+            </div>
 
         </div>
 
 
-      </div>
+        <!-- =========================
+             BLUE BOX
+        ========================= -->
 
+        <div class="island-block">
 
-    </div>
+            <div class="island-title">
+                <strong>Why an island?</strong>
+            </div>
 
+            The island becomes a point of departure for an investigation into place, time, memory and transformation.
 
+            <br><br>
 
-    <!-- ==================================================
-         BLUE BOX
-    ================================================== -->
+            The island is understood not as an isolated entity, but as a condition of separation and rebeginning.
 
-    <div class="island-block">
+            <br><br>
 
+            <strong>Therefore, the island.</strong>
 
-      <div class="island-title">
-
-        Why an island?
-
-      </div>
-
-
-      <div class="island-text">
-
-
-        For Ruggiero Romano, an island is a space of experimentation—a laboratory where specific economic and social phenomena can be observed in their most essential forms, often isolated from the complexity of larger continental environments.
-
-
-        <br><br>
-
-
-        At the same time, islands are often associated with the idea of the utopian place, occupying a unique position in the human imagination that wavers between escape, tranquility, and inner exploration.
-
-
-        <br><br>
-
-
-        In literature, as a reflection of the human imagination, islands are frequently portrayed as places of both isolation and renewal.
-
-
-        <br><br>
-
-
-        In his essay Desert Islands, Gilles Deleuze writes: “Whether one dreams of islands with anxiety or with joy.”
-
-
-        <br><br>
-
-
-        <strong>
-
-          Therefore, the island.
-
-        </strong>
-
-
-      </div>
-
+        </div>
 
     </div>
 
-
-  </section>
-
+</section>
 
 
-  <!-- ==================================================
-       NEXT SECTION
-  ================================================== -->
+<!-- =========================
+     PHOTO CLUSTER
+========================= -->
 
-  <section class="next-section">
-
-
-    <!-- ==================================================
-         PHOTO CLUSTER
-
-         NORMAL PAGE CONTENT
-    ================================================== -->
+<section class="next-section">
 
     <div class="photo-cluster">
 
+        <img class="photo-1" src="diploma/photoalbum/1.jpg" alt="">
+        <img class="photo-2" src="diploma/photoalbum/2.jpg" alt="">
+        <img class="photo-3" src="diploma/photoalbum/3.jpg" alt="">
+        <img class="photo-4" src="diploma/photoalbum/4.jpg" alt="">
+        <img class="photo-5" src="diploma/photoalbum/5.jpg" alt="">
+        <img class="photo-6" src="diploma/photoalbum/6.jpg" alt="">
+        <img class="photo-7" src="diploma/photoalbum/7.jpg" alt="">
+        <img class="photo-8" src="diploma/photoalbum/8.jpg" alt="">
+        <img class="photo-9" src="diploma/photoalbum/9.jpg" alt="">
+        <img class="photo-10" src="diploma/photoalbum/10.jpg" alt="">
 
-      <img
-        class="photo-1"
-        src="diploma/photoalbum/1.jpg"
-        alt=""
-      >
+        <img class="photo-11" src="diploma/photoalbum/11.jpg" alt="">
+        <img class="photo-12" src="diploma/photoalbum/12.jpg" alt="">
+        <img class="photo-13" src="diploma/photoalbum/13.jpg" alt="">
+        <img class="photo-14" src="diploma/photoalbum/14.jpg" alt="">
+        <img class="photo-15" src="diploma/photoalbum/15.jpg" alt="">
+        <img class="photo-16" src="diploma/photoalbum/16.jpg" alt="">
+        <img class="photo-17" src="diploma/photoalbum/17.jpg" alt="">
+        <img class="photo-18" src="diploma/photoalbum/18.jpg" alt="">
+        <img class="photo-19" src="diploma/photoalbum/19.jpg" alt="">
+        <img class="photo-20" src="diploma/photoalbum/20.jpg" alt="">
 
-      <img
-        class="photo-2"
-        src="diploma/photoalbum/2.jpg"
-        alt=""
-      >
+        <img class="photo-21" src="diploma/photoalbum/21.jpg" alt="">
+        <img class="photo-22" src="diploma/photoalbum/22.jpg" alt="">
+        <img class="photo-23" src="diploma/photoalbum/23.jpg" alt="">
+        <img class="photo-24" src="diploma/photoalbum/24.jpg" alt="">
+        <img class="photo-25" src="diploma/photoalbum/25.jpg" alt="">
+        <img class="photo-26" src="diploma/photoalbum/26.jpg" alt="">
+        <img class="photo-27" src="diploma/photoalbum/27.jpg" alt="">
+        <img class="photo-28" src="diploma/photoalbum/28.jpg" alt="">
+        <img class="photo-29" src="diploma/photoalbum/29.jpg" alt="">
+        <img class="photo-30" src="diploma/photoalbum/30.jpg" alt="">
 
-      <img
-        class="photo-3"
-        src="diploma/photoalbum/3.jpg"
-        alt=""
-      >
+        <img class="photo-31" src="diploma/photoalbum/31.jpg" alt="">
+        <img class="photo-32" src="diploma/photoalbum/34.jpg" alt="">
+        <img class="photo-33" src="diploma/photoalbum/35.jpg" alt="">
+        <img class="photo-34" src="diploma/photoalbum/36.jpg" alt="">
+        <img class="photo-35" src="diploma/photoalbum/37.jpg" alt="">
+        <img class="photo-36" src="diploma/photoalbum/38.jpg" alt="">
+        <img class="photo-37" src="diploma/photoalbum/39.jpg" alt="">
+        <img class="photo-38" src="diploma/photoalbum/40.jpg" alt="">
+        <img class="photo-39" src="diploma/photoalbum/41.jpg" alt="">
+        <img class="photo-40" src="diploma/photoalbum/42.jpg" alt="">
 
-      <img
-        class="photo-4"
-        src="diploma/photoalbum/4.jpg"
-        alt=""
-      >
-
-      <img
-        class="photo-5"
-        src="diploma/photoalbum/5.jpg"
-        alt=""
-      >
-
-      <img
-        class="photo-6"
-        src="diploma/photoalbum/6.jpg"
-        alt=""
-      >
-
-      <img
-        class="photo-7"
-        src="diploma/photoalbum/7.jpg"
-        alt=""
-      >
-
-      <img
-        class="photo-8"
-        src="diploma/photoalbum/8.jpg"
-        alt=""
-      >
-
-      <img
-        class="photo-9"
-        src="diploma/photoalbum/9.jpg"
-        alt=""
-      >
-
-      <img
-        class="photo-10"
-        src="diploma/photoalbum/10.jpg"
-        alt=""
-      >
-
-      <img
-        class="photo-11"
-        src="diploma/photoalbum/11.jpg"
-        alt=""
-      >
-
-      <img
-        class="photo-12"
-        src="diploma/photoalbum/12.jpg"
-        alt=""
-      >
-
-      <img
-        class="photo-13"
-        src="diploma/photoalbum/13.jpg"
-        alt=""
-      >
-
-      <img
-        class="photo-14"
-        src="diploma/photoalbum/14.jpg"
-        alt=""
-      >
-
-      <img
-        class="photo-15"
-        src="diploma/photoalbum/15.jpg"
-        alt=""
-      >
-
-      <img
-        class="photo-16"
-        src="diploma/photoalbum/16.jpg"
-        alt=""
-      >
-
-      <img
-        class="photo-17"
-        src="diploma/photoalbum/17.jpg"
-        alt=""
-      >
-
-      <img
-        class="photo-18"
-        src="diploma/photoalbum/18.jpg"
-        alt=""
-      >
-
-      <img
-        class="photo-19"
-        src="diploma/photoalbum/19.jpg"
-        alt=""
-      >
-
-      <img
-        class="photo-20"
-        src="diploma/photoalbum/20.jpg"
-        alt=""
-      >
-
-      <img
-        class="photo-21"
-        src="diploma/photoalbum/21.jpg"
-        alt=""
-      >
-
-      <img
-        class="photo-22"
-        src="diploma/photoalbum/22.jpg"
-        alt=""
-      >
-
-      <img
-        class="photo-23"
-        src="diploma/photoalbum/23.jpg"
-        alt=""
-      >
-
-      <img
-        class="photo-24"
-        src="diploma/photoalbum/24.jpg"
-        alt=""
-      >
-
-      <img
-        class="photo-25"
-        src="diploma/photoalbum/25.jpg"
-        alt=""
-      >
-
-      <img
-        class="photo-26"
-        src="diploma/photoalbum/26.jpg"
-        alt=""
-      >
-
-      <img
-        class="photo-27"
-        src="diploma/photoalbum/27.jpg"
-        alt=""
-      >
-
-      <img
-        class="photo-28"
-        src="diploma/photoalbum/28.jpg"
-        alt=""
-      >
-
-      <img
-        class="photo-29"
-        src="diploma/photoalbum/29.jpg"
-        alt=""
-      >
-
-      <img
-        class="photo-30"
-        src="diploma/photoalbum/30.jpg"
-        alt=""
-      >
-
-      <img
-        class="photo-31"
-        src="diploma/photoalbum/31.jpg"
-        alt=""
-      >
-
-      <img
-        class="photo-32"
-        src="diploma/photoalbum/34.jpg"
-        alt=""
-      >
-
-      <img
-        class="photo-33"
-        src="diploma/photoalbum/35.jpg"
-        alt=""
-      >
-
-      <img
-        class="photo-34"
-        src="diploma/photoalbum/36.jpg"
-        alt=""
-      >
-
-      <img
-        class="photo-35"
-        src="diploma/photoalbum/37.jpg"
-        alt=""
-      >
-
-      <img
-        class="photo-36"
-        src="diploma/photoalbum/38.jpg"
-        alt=""
-      >
-
-      <img
-        class="photo-37"
-        src="diploma/photoalbum/39.jpg"
-        alt=""
-      >
-
-      <img
-        class="photo-38"
-        src="diploma/photoalbum/40.jpg"
-        alt=""
-      >
-
-      <img
-        class="photo-39"
-        src="diploma/photoalbum/41.jpg"
-        alt=""
-      >
-
-      <img
-        class="photo-40"
-        src="diploma/photoalbum/42.jpg"
-        alt=""
-      >
-
-      <img
-        class="photo-41"
-        src="diploma/photoalbum/43.jpg"
-        alt=""
-      >
-
-      <img
-        class="photo-42"
-        src="diploma/photoalbum/44.jpg"
-        alt=""
-      >
-
-      <img
-        class="photo-43"
-        src="diploma/photoalbum/45.jpg"
-        alt=""
-      >
-
-      <img
-        class="photo-44"
-        src="diploma/photoalbum/46.jpg"
-        alt=""
-      >
-
-      <img
-        class="photo-45"
-        src="diploma/photoalbum/47.jpg"
-        alt=""
-      >
-
-      <img
-        class="photo-46"
-        src="diploma/photoalbum/48.jpg"
-        alt=""
-      >
-
-      <img
-        class="photo-47"
-        src="diploma/photoalbum/49.jpg"
-        alt=""
-      >
-
-      <img
-        class="photo-48"
-        src="diploma/photoalbum/50.jpg"
-        alt=""
-      >
-
-      <img
-        class="photo-49"
-        src="diploma/photoalbum/51.jpg"
-        alt=""
-      >
-
-      <img
-        class="photo-50"
-        src="diploma/photoalbum/52.jpg"
-        alt=""
-      >
-
-      <img
-        class="photo-51"
-        src="diploma/photoalbum/53.jpg"
-        alt=""
-      >
-
+        <img class="photo-41" src="diploma/photoalbum/43.jpg" alt="">
+        <img class="photo-42" src="diploma/photoalbum/44.jpg" alt="">
+        <img class="photo-43" src="diploma/photoalbum/45.jpg" alt="">
+        <img class="photo-44" src="diploma/photoalbum/46.jpg" alt="">
+        <img class="photo-45" src="diploma/photoalbum/47.jpg" alt="">
+        <img class="photo-46" src="diploma/photoalbum/48.jpg" alt="">
+        <img class="photo-47" src="diploma/photoalbum/49.jpg" alt="">
+        <img class="photo-48" src="diploma/photoalbum/50.jpg" alt="">
+        <img class="photo-49" src="diploma/photoalbum/51.jpg" alt="">
+        <img class="photo-50" src="diploma/photoalbum/52.jpg" alt="">
+        <img class="photo-51" src="diploma/photoalbum/53.jpg" alt="">
 
     </div>
 
-
-  </section>
-
+</section>
 
 
-  <!-- ==================================================
-       WEBSITE CREDIT
-  ================================================== -->
+<!-- =========================
+     CREDIT
+========================= -->
 
-  <div class="website-credit">
-
+<div class="web-credit">
     WEB DESIGN: MYRTO PAVLOPOULOU
-
-  </div>
-
+</div>
 
 
-  <!-- ==================================================
-       SCROLL ANIMATION
-  ================================================== -->
+<script>
 
-  <script>
+/* =========================
+   PHOTO ANIMATION
+========================= */
 
+const photoImages = document.querySelectorAll(".photo-cluster img");
 
-    const islandBlock =
-      document.querySelector(
-        ".island-block"
-      );
+let currentPhoto = 0;
+let highestZIndex = 100;
 
+function showNextPhoto() {
 
-    /*
-      ==================================================
-      HANDOFF
+    const image = photoImages[currentPhoto];
 
-      The normal page scroll begins when the blue
-      box reaches the position shown in the screenshot.
+    image.style.opacity = "1";
 
-      1.00 = one full viewport
-      ==================================================
-    */
+    highestZIndex++;
+    image.style.zIndex = highestZIndex;
 
-    const handoffScrollRatio =
-      1.00;
+    currentPhoto++;
 
+    if (currentPhoto >= photoImages.length) {
+        currentPhoto = 0;
+    }
+}
 
-    /*
-      ==================================================
-      BLUE BOX POSITION AT HANDOFF
+showNextPhoto();
 
-      Approximately the position from the screenshot.
-      ==================================================
-    */
-
-    const handoffPositionRatio =
-      0.29;
+setInterval(showNextPhoto, 1000);
 
 
+/* =========================
+   BLUE BOX SCROLL
+========================= */
 
-    function updateIslandPosition() {
+const islandBlock = document.querySelector(".island-block");
 
+const handoffScrollRatio = 1.00;
+const handoffPositionRatio = 0.29;
 
-      const viewportHeight =
-        window.innerHeight;
+let handoffScroll = null;
+let handoffTop = null;
 
+function updateIsland() {
 
-      const scrollY =
-        window.scrollY;
+    const scrollY = window.scrollY;
+    const viewportHeight = window.innerHeight;
 
+    const handoffPoint = viewportHeight * handoffScrollRatio;
 
-      const boxHeight =
-        islandBlock.offsetHeight;
+    if (scrollY <= handoffPoint) {
 
+        islandBlock.style.position = "fixed";
 
-      /*
-        ==================================================
-        The exact scroll point where normal
-        page scrolling begins.
-      */
+        const progress = Math.min(
+            scrollY / handoffPoint,
+            1
+        );
 
-      const handoffScroll =
-        viewportHeight *
-        handoffScrollRatio;
+        const startTop = viewportHeight;
 
-
-      /*
-        ==================================================
-        Exact position of the blue box
-        at that moment.
-      */
-
-      const handoffTop =
-        viewportHeight *
-        handoffPositionRatio;
-
-
-
-      /* ==================================================
-         PHASE 1
-
-         Blue box enters from below and travels
-         continuously toward the handoff position.
-      ================================================== */
-
-      if (
-        scrollY <= handoffScroll
-      ) {
-
-
-        let progress =
-          scrollY /
-          handoffScroll;
-
-
-        progress =
-          Math.max(
-            0,
-            Math.min(
-              1,
-              progress
-            )
-          );
-
-
-        const startTop =
-          viewportHeight +
-          boxHeight;
-
+        const targetTop =
+            viewportHeight * handoffPositionRatio;
 
         const currentTop =
-          startTop +
-          (
-            handoffTop -
-            startTop
-          ) *
-          progress;
+            startTop +
+            (targetTop - startTop) * progress;
 
+        islandBlock.style.top = currentTop + "px";
 
-        islandBlock.style.position =
-          "fixed";
+        handoffScroll = null;
+        handoffTop = null;
 
+    } else {
 
-        islandBlock.style.top =
-          `${currentTop}px`;
+        if (handoffScroll === null) {
 
-      }
+            handoffScroll = handoffPoint;
+            handoffTop =
+                viewportHeight * handoffPositionRatio;
 
+        }
 
-
-      /* ==================================================
-         PHASE 2
-
-         The normal page scroll has started.
-
-         The blue box becomes part of the normal
-         document flow and continues upward naturally.
-      ================================================== */
-
-      else {
-
-
-        islandBlock.style.position =
-          "absolute";
-
-
-        /*
-          Preserve the exact visual position
-          at the handoff moment.
-        */
-
-        const documentTop =
-          handoffScroll +
-          handoffTop;
-
+        islandBlock.style.position = "absolute";
 
         islandBlock.style.top =
-          `${documentTop}px`;
-
-      }
-
+            (handoffScroll + handoffTop) + "px";
     }
+}
 
+window.addEventListener("scroll", updateIsland);
+window.addEventListener("resize", updateIsland);
 
+updateIsland();
 
-    window.addEventListener(
-      "scroll",
-      updateIslandPosition,
-      {
-        passive: true
-      }
-    );
-
-
-    window.addEventListener(
-      "resize",
-      updateIslandPosition
-    );
-
-
-    updateIslandPosition();
-
-
-
-    /* ==================================================
-       PHOTO ANIMATION
-
-       COMPLETELY INDEPENDENT FROM SCROLL
-
-       One new image appears every 1 second.
-
-       Already visible images NEVER disappear.
-
-       When the sequence reaches the last image,
-       it starts again from image 1.
-
-       Each new image is brought to the very front
-       of the existing collage.
-    ================================================== */
-
-
-    const photoImages =
-      document.querySelectorAll(
-        ".photo-cluster img"
-      );
-
-
-    let currentPhoto =
-      0;
-
-
-    let highestZIndex =
-      100;
-
-
-    function showNextPhoto() {
-
-
-      /*
-        The current image becomes visible.
-        Its position never changes.
-      */
-
-      const image =
-        photoImages[
-          currentPhoto
-        ];
-
-
-      image.style.opacity = "1";
-
-
-      /*
-        Every new appearance is placed
-        above everything that appeared before it.
-      */
-
-      highestZIndex++;
-
-
-      image.style.zIndex =
-        highestZIndex;
-
-
-      /*
-        Move to the next image.
-
-        When we reach the end, we simply
-        start again from image 1.
-
-        Nothing is hidden or removed.
-      */
-
-      currentPhoto++;
-
-
-      if (
-        currentPhoto >=
-        photoImages.length
-      ) {
-
-        currentPhoto = 0;
-
-      }
-
-    }
-
-
-    /*
-      Start immediately with image 1.
-    */
-
-    showNextPhoto();
-
-
-    /*
-      Then reveal exactly one new image
-      every 1 second.
-
-      This timer has absolutely no connection
-      to the page scroll.
-    */
-
-    setInterval(
-      showNextPhoto,
-      1000
-    );
-
-
-  </script>
-
+</script>
 
 </body>
-
 </html>
