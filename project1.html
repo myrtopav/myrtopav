@@ -412,21 +412,38 @@
 
 
     /* ==================================================
+       NEXT SECTION
+    ================================================== */
+
+    .next-section {
+
+      position: relative;
+
+      min-height: 100vh;
+
+      background:
+        #ffffff;
+    }
+
+
+
+    /* ==================================================
        PHOTO CLUSTER
-       
-       STATIC TEST VERSION
-       
-       The cluster is positioned independently.
-       Nothing else on the page is changed.
+
+       NORMAL PAGE CONTENT
+
+       The cluster has no independent scroll.
+       It simply exists lower in the document
+       and moves naturally with the page scroll.
     ================================================== */
 
     .photo-cluster {
 
-      position: absolute;
+      position: relative;
 
       left: 3.4vw;
 
-      top: 153vh;
+      top: 0;
 
       width: 530px;
 
@@ -651,20 +668,6 @@
 
 
     /* ==================================================
-       NEXT SECTION
-    ================================================== */
-
-    .next-section {
-
-      min-height: 100vh;
-
-      background:
-        #ffffff;
-    }
-
-
-
-    /* ==================================================
        WEBSITE CREDIT
     ================================================== */
 
@@ -833,7 +836,7 @@
 
         left: 4vw;
 
-        top: 150vh;
+        top: 0;
 
         width: 330px;
 
@@ -1013,11 +1016,21 @@
     </div>
 
 
+  </section>
+
+
+
+  <!-- ==================================================
+       NEXT SECTION
+  ================================================== -->
+
+  <section class="next-section">
+
 
     <!-- ==================================================
          PHOTO CLUSTER
-         
-         STATIC FIRST TEST
+
+         NORMAL PAGE CONTENT
     ================================================== -->
 
     <div class="photo-cluster">
@@ -1117,15 +1130,6 @@
     </div>
 
 
-  </section>
-
-
-
-  <!-- ==================================================
-       NEXT SECTION
-  ================================================== -->
-
-  <section class="next-section">
   </section>
 
 
