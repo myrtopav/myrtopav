@@ -1,2890 +1,1308 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Nisyros-(+100)-</title>
+
+<link rel="icon" type="image/jpeg" href="profile.jpg">
+
+<style>
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: #ffffff;
+  color: #000000;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 10px;
+  overflow-x: hidden;
+}
+
+body {
+  cursor: url("cursor2.png") 25 25, auto;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 70px;
+  z-index: 2000;
+  pointer-events: none;
+}
+
+.site-name,
+.site-role {
+  position: absolute;
+  top: 43px;
+  color: #777777;
+  font-size: 10px;
+  line-height: 1;
+  pointer-events: auto;
+}
+
+.site-name {
+  left: 3vw;
+}
+
+.site-role {
+  right: 3vw;
+}
+
+.site-name:hover {
+  color: #2f6fff;
+}
+
+
+/* =========================
+   INTRO SCENE
+========================= */
+
+.intro-scene {
+  position: relative;
+  height: 200vh;
+}
+
+.intro-sticky {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow: hidden;
+  z-index: 5;
+}
+
+.intro-cluster {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 650px;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.intro-text {
+  width: 100%;
+  margin-bottom: 92px;
+
+  color: #000000;
+  font-size: 11px;
+  line-height: 1.25;
+  text-align: center;
+}
+
+.intro-gif {
+  display: block;
+  width: 510px;
+  height: auto;
+  margin: 0 auto;
+}
 
-  <meta charset="UTF-8">
+.intro-coordinate {
+  width: 510px;
+  margin: 4px auto 0;
 
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-  >
+  color: #777777;
+  font-size: 7px;
+  line-height: 1;
+  text-align: right;
+}
 
-  <title>Gallery — Myrto Pavlopoulou</title>
+.intro-second-text {
+  width: 100%;
+  margin-top: 92px;
 
-  <link
-    rel="icon"
-    type="image/jpeg"
-    href="profile.jpg"
-  >
+  color: #000000;
+  font-size: 11px;
+  line-height: 1.25;
+  text-align: center;
+}
 
-  <style>
 
-    /* ==================================================
-       RESET
-    ================================================== */
+/* =========================
+   BLUE ISLAND BLOCK
+========================= */
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+.island-block {
+  position: fixed;
 
-    html,
-    body {
-      width: 100%;
-      height: 100%;
-    }
+  left: calc(50% + 350px);
+  top: 100vh;
 
+  width: 100px;
+  padding: 10px;
 
-    /* ==================================================
-       BODY
-    ================================================== */
+  background: #dce5ff;
+  color: #2f6fff;
 
-    body {
-      background: #ffffff;
-      color: #000000;
+  font-family: "Google Sans Code", monospace;
+  font-size: 7px;
+  line-height: 1.15;
 
-      font-family:
-        Arial,
-        Helvetica,
-        sans-serif;
+  z-index: 1050;
+}
 
-      font-size: 10px;
-      font-weight: 400;
+.island-title {
+  margin-bottom: 8px;
+  font-weight: 700;
+}
 
-      overflow: hidden;
+.island-text {
+  font-weight: 400;
+}
 
-      cursor:
-        url("cursor2.png") 25 25,
-        auto;
-    }
+.island-text strong {
+  font-weight: 700;
+}
 
 
-    a {
-      text-decoration: none;
+/* =========================
+   PHOTO ALBUM SECTION
+========================= */
 
-      cursor:
-        url("cursor2.png") 25 25,
-        auto;
-    }
+.photoalbum-section {
+  position: relative;
+  height: 160vh;
+  background: #ffffff;
+}
 
+.photoalbum-sticky {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow: hidden;
+}
 
-    /* ==================================================
-       HEADER
-    ================================================== */
 
-    header {
+/* =========================
+   PHOTO CLUSTER
+========================= */
 
-      position: fixed;
+.photo-cluster {
+  position: absolute;
 
-      top: 0;
-      left: 0;
+  left: 7vw;
+  top: 50%;
+  width: 560px;
+  height: 560px;
 
-      width: 100%;
-      height: 80px;
+  transform: translateY(-50%);
 
-      padding:
-        30px
-        3vw
-        0
-        3vw;
+  pointer-events: none;
+}
 
-      display: grid;
 
-      grid-template-columns:
-        1fr
-        1fr;
+/* =========================
+   INDIVIDUAL PHOTOS
+========================= */
 
-      align-items: start;
+.photo-item {
+  position: absolute;
 
-      z-index: 1000;
+  left: 50%;
+  top: 50%;
 
-      font-size: 10px;
+  width: 150px;
 
-      text-transform: uppercase;
+  opacity: 0;
 
-      pointer-events: none;
-    }
+  transform:
+    translate(-50%, -50%)
+    rotate(0deg)
+    scale(0.72);
 
+  transform-origin: center center;
 
-    .name {
-
-      text-align: left;
-
-      pointer-events: auto;
-    }
-
-
-    .name a {
-
-      color: #777777;
-
-      font-size: 10px;
-
-      text-decoration: none;
-
-      transition:
-        color 0.2s ease;
-    }
-
-
-    .name a:hover {
-      color: #2f6fff;
-    }
-
-
-    .profession {
-
-      text-align: right;
-
-      color: #777777;
-
-      font-size: 10px;
-    }
-
-
-    /* ==================================================
-       GALLERY
-    ================================================== */
-
-    .gallery {
-
-      position: relative;
-
-      width: 100%;
-      height: 100vh;
-
-      overflow: hidden;
-    }
-
-
-    /* ==================================================
-       PROJECT
-    ================================================== */
-
-    .project {
-
-      position: absolute;
-
-      display: block;
-
-      text-align: center;
-
-      z-index: 1;
-    }
-
-
-    .project-image {
-
-      display: block;
-
-      width: 100%;
-      height: auto;
-
-      object-fit: contain;
-
-      cursor:
-        url("cursor2.png") 25 25,
-        auto;
-
-      transition:
-        transform 0.4s
-        cubic-bezier(0.2, 0.7, 0.2, 1),
-
-        opacity 0.35s ease;
-    }
-
-
-    .project:hover {
-      z-index: 100;
-    }
-
-
-    .project:hover .project-image {
-
-      transform:
-        scale(1.06);
-    }
-
-
-    /* ==================================================
-       VIDEO
-    ================================================== */
-
-    .project-video {
-
-      display: block;
-
-      width: 100%;
-
-      aspect-ratio: 16 / 9;
-
-      border: none;
-
-      background: #000000;
-
-      cursor:
-        url("cursor2.png") 25 25,
-        auto;
-    }
-
-
-    .project.selected .project-video {
-
-      width:
-        min(
-          900px,
-          calc(100vw - 80px)
-        );
-
-      height:
-        min(
-          506px,
-          calc(100vh - 180px)
-        );
-
-      max-width:
-        calc(100vw - 80px);
-
-      max-height:
-        calc(100vh - 180px);
-    }
-
-
-    /* ==================================================
-       PROJECT INFO
-    ================================================== */
-
-    .project-info {
-
-      position: relative;
-
-      display: inline-block;
-
-      max-width: 100%;
-
-      margin-top: 10px;
-
-      padding:
-        7px
-        9px
-        8px
-        9px;
-
-      background: #2f6fff;
-
-      color: #ffffff;
-
-      text-align: center;
-
-      opacity: 0;
-
-      transform:
-        translateY(-5px);
-
-      transition:
-        opacity 0.3s ease,
-        transform 0.3s ease;
-
-      pointer-events: none;
-
-      z-index: 20;
-    }
-
-
-    .project:hover .project-info,
-    .project.selected .project-info {
-
-      opacity: 1;
-
-      transform:
-        translateY(0);
-
-      pointer-events: auto;
-    }
-
-
-    .project-title {
-
-      color: #ffffff;
-
-      font-size: 10px;
-
-      line-height: 1.3;
-
-      text-transform: uppercase;
-    }
-
-
-    .project-description {
-
-      color: #ffffff;
-
-      font-size: 9px;
-
-      line-height: 1.4;
-
-      margin-top: 3px;
-
-      text-transform: none;
-    }
-
-
-    .project-collaborator {
-
-      color: #ffffff;
-
-      font-size: 9px;
-
-      line-height: 1.4;
-
-      margin-top: 2px;
-
-      text-transform: none;
-    }
-
-
-    .project-note {
-
-      color: #000000;
-
-      font-size: 9px;
-
-      line-height: 1.4;
-
-      margin-top: 8px;
-
-      text-transform: none;
-
-      opacity: 0;
-    }
-
-
-    .project:hover .project-note,
-    .project.selected .project-note {
-
-      opacity: 1;
-    }
-
-
-    /* ==================================================
-       LINKS
-    ================================================== */
-
-    .project-info a {
-
-      color: #7FE3C1;
-
-      text-decoration: none;
-
-      font-weight: 400;
-
-      cursor:
-        url("cursor2.png") 25 25,
-        auto;
-
-      transition:
-        color 0.2s ease;
-    }
-
-
-    .project-info a:hover {
-      color: #45B995;
-    }
-
-
-    /* ==================================================
-       ARROWS
-    ================================================== */
-
-    .project-arrow {
-
-      position: absolute;
-
-      top: 50%;
-
-      width: 22px;
-      height: 22px;
-
-      margin-top: -11px;
-
-      display: flex;
-
-      align-items: center;
-      justify-content: center;
-
-      color: #000000;
-
-      background: transparent;
-
-      border: none;
-
-      font-family:
-        Arial,
-        Helvetica,
-        sans-serif;
-
-      font-size: 15px;
-
-      line-height: 1;
-
-      padding: 0;
-
-      opacity: 0;
-
-      z-index: 30;
-
-      cursor:
-        url("cursor2.png") 25 25,
-        auto;
-
-      transition:
-        opacity 0.2s ease;
-    }
-
-
-    .project:hover .project-arrow,
-    .project.selected .project-arrow {
-
-      opacity: 1;
-    }
-
-
-    .project-arrow.prev {
-      left: -28px;
-    }
-
-
-    .project-arrow.next {
-      right: -28px;
-    }
-
-
-    /* ==================================================
-       SELECTED PROJECT
-    ================================================== */
-
-    .project.selected {
-
-      z-index: 500;
-
-      position: fixed;
-
-      left: 50% !important;
-
-      top: 50% !important;
-
-      width: auto !important;
-
-      transform:
-        translate(
-          -50%,
-          -50%
-        );
-
-      text-align: center;
-    }
-
-
-    .project.selected .project-image {
-
-      display: block;
-
-      width: auto;
-
-      height: auto;
-
-      max-width:
-        calc(100vw - 80px);
-
-      max-height:
-        calc(100vh - 180px);
-
-      margin-left: auto;
-      margin-right: auto;
-
-      object-fit: contain;
-
-      transform: none;
-
-      opacity: 1;
-
-      z-index: 10;
-
-      cursor:
-        url("cursor2.png") 25 25,
-        auto;
-    }
-
-
-    .project.selected .project-arrow {
-      opacity: 1;
-    }
-
-
-    /* ==================================================
-       DESKTOP POSITIONS
-    ================================================== */
-
-    /* VETCARD */
-
-    .project-0 {
-
-      width: 9vw;
-
-      left: 6vw;
-
-      top: 17vh;
-    }
-
-
-    /* ECHOES */
-
-    .project-1 {
-
-      width: 8.5vw;
-
-      left: 66vw;
-
-      top: 11vh;
-    }
-
-
-    /* X-RAYS */
-
-    .project-2 {
-
-      width: 7vw;
-
-      left: 38vw;
-
-      top: 13vh;
-    }
-
-
-    /* SMITHSON */
-
-    .project-3 {
-
-      width: 7vw;
-
-      left: 51vw;
-
-      top: 7vh;
-    }
-
-
-    /* URBAN */
-
-    .project-4 {
-
-      width: 7vw;
-
-      left: 84vw;
-
-      top: 8vh;
-    }
-
-
-    /* CATWALK */
-
-    .project-5 {
-
-      width: 6.5vw;
-
-      left: 79vw;
-
-      top: 38vh;
-    }
-
-
-    /* WISHWALL */
-
-    .project-6 {
-
-      width: 7vw;
-
-      left: 17vw;
-
-      top: 47vh;
-    }
-
-
-    /* YTONG */
-
-    .project-7 {
-
-      width: 6vw;
-
-      left: 88vw;
-
-      top: 27vh;
-    }
-
-
-    /* EXPERIMENTAL */
-
-    .project-8 {
-
-      width: 6.5vw;
-
-      left: 4vw;
-
-      top: 42vh;
-    }
-
-
-    /* SPATIAL */
-
-    .project-9 {
-
-      width: 8vw;
-
-      left: 34vw;
-
-      top: 39vh;
-    }
-
-
-    /* RESIDENTIAL */
-
-    .project-10 {
-
-      width: 8vw;
-
-      left: 55vw;
-
-      top: 48vh;
-    }
-
-
-    /* DRYPOINT */
-
-    .project-11 {
-
-      width: 6.5vw;
-
-      left: 23vw;
-
-      top: 74vh;
-    }
-
-
-    /* POSTER */
-
-    .project-12 {
-
-      width: 6.5vw;
-
-      left: 47vw;
-
-      top: 75vh;
-    }
-
-
-    /* BOOKMARKS */
-
-    .project-13 {
-
-      width: 6.5vw;
-
-      left: 69vw;
-
-      top: 73vh;
-    }
-
-
-    /* APPARTMENT */
-
-    .project-14 {
-
-      width: 6.5vw;
-
-      left: 6vw;
-
-      top: 72vh;
-    }
-
-
-    /* PRIASTRO */
-
-    .project-15 {
-
-      width: 6.5vw;
-
-      left: 84vw;
-
-      top: 62vh;
-    }
-
-
-    /* ISTERNIA */
-
-    .project-16 {
-
-      width: 6vw;
-
-      left: 91vw;
-
-      top: 76vh;
-    }
-
-
-    /* ==================================================
-       CREDIT
-    ================================================== */
-
-    .website-credit {
-
-      position: fixed;
-
-      right: 3vw;
-
-      bottom: 25px;
-
-      color: #777777;
-
-      font-size: 10px;
-
-      font-weight: 400;
-
-      text-align: right;
-
-      z-index: 1000;
-    }
-
-
-    /* ==================================================
-       TABLET
-    ================================================== */
-
-    @media (max-width: 1100px)
-    and (min-width: 651px) {
-
-
-      .project-0 {
-
-        width: 10vw;
-
-        left: 5vw;
-
-        top: 16vh;
-      }
-
-
-      .project-1 {
-
-        width: 9.5vw;
-
-        left: 65vw;
-
-        top: 10vh;
-      }
-
-
-      .project-2 {
-
-        width: 8vw;
-
-        left: 37vw;
-
-        top: 14vh;
-      }
-
-
-      .project-3 {
-
-        width: 8vw;
-
-        left: 51vw;
-
-        top: 7vh;
-      }
-
-
-      .project-4 {
-
-        width: 8vw;
-
-        left: 83vw;
-
-        top: 8vh;
-      }
-
-
-      .project-5 {
-
-        width: 7.5vw;
-
-        left: 77vw;
-
-        top: 39vh;
-      }
-
-
-      .project-6 {
-
-        width: 8vw;
-
-        left: 16vw;
-
-        top: 47vh;
-      }
-
-
-      .project-7 {
-
-        width: 7vw;
-
-        left: 88vw;
-
-        top: 27vh;
-      }
-
-
-      .project-8 {
-
-        width: 7.5vw;
-
-        left: 4vw;
-
-        top: 42vh;
-      }
-
-
-      .project-9 {
-
-        width: 9vw;
-
-        left: 33vw;
-
-        top: 39vh;
-      }
-
-
-      .project-10 {
-
-        width: 9vw;
-
-        left: 55vw;
-
-        top: 48vh;
-      }
-
-
-      .project-11 {
-
-        width: 7.5vw;
-
-        left: 22vw;
-
-        top: 74vh;
-      }
-
-
-      .project-12 {
-
-        width: 7.5vw;
-
-        left: 47vw;
-
-        top: 75vh;
-      }
-
-
-      .project-13 {
-
-        width: 7.5vw;
-
-        left: 69vw;
-
-        top: 73vh;
-      }
-
-
-      .project-14 {
-
-        width: 7.5vw;
-
-        left: 5vw;
-
-        top: 72vh;
-      }
-
-
-      .project-15 {
-
-        width: 7.5vw;
-
-        left: 83vw;
-
-        top: 62vh;
-      }
-
-
-      .project-16 {
-
-        width: 7vw;
-
-        left: 90vw;
-
-        top: 76vh;
-      }
-
-    }
-
-
-    /* ==================================================
-       MOBILE
-       TWO INDEPENDENT COLUMNS
-       50% + 50%
-       ZERO GAP
-    ================================================== */
-
-    @media (max-width: 650px) {
-
-
-      html,
-      body {
-
-        width: 100%;
-
-        height: 100%;
-
-        min-height: 100%;
-
-        overflow: hidden;
-      }
-
-
-      body {
-        position: relative;
-      }
-
-
-      /* ==================================================
-         MOBILE HEADER
-      ================================================== */
-
-      header {
-
-        position: fixed;
-
-        top: 0;
-        left: 0;
-
-        width: 100%;
-
-        height: 60px;
-
-        padding:
-          24px
-          5vw
-          0
-          5vw;
-
-        z-index: 2000;
-
-        pointer-events: none;
-      }
-
-
-      .name {
-        pointer-events: auto;
-      }
-
-
-      /* ==================================================
-         MOBILE GALLERY
-         FULL WIDTH
-         NO GAP
-      ================================================== */
-
-      .gallery {
-
-        position: fixed;
-
-        top: 60px;
-        left: 0;
-
-        width: 100%;
-
-        height:
-          calc(100vh - 60px);
-
-        display: grid;
-
-        grid-template-columns:
-          50% 50%;
-
-        column-gap: 0;
-
-        padding:
-          15px
-          0
-          80px
-          0;
-
-        overflow: hidden;
-
-        align-items: stretch;
-      }
-
-
-      /* ==================================================
-         MOBILE COLUMNS
-         EACH ONE SCROLLS INDEPENDENTLY
-      ================================================== */
-
-      .mobile-column {
-
-        position: relative;
-
-        width: 100%;
-
-        min-width: 0;
-
-        height: 100%;
-
-        display: flex;
-
-        flex-direction: column;
-
-        gap: 30px;
-
-        overflow-y: auto;
-
-        overflow-x: hidden;
-
-        padding-top: 5px;
-
-        padding-bottom: 80px;
-
-        -webkit-overflow-scrolling:
-          touch;
-
-        overscroll-behavior-y:
-          contain;
-
-        scrollbar-width: none;
-      }
-
-
-      .mobile-column::-webkit-scrollbar {
-        display: none;
-      }
-
-
-      /* ==================================================
-         MOBILE PROJECTS
-      ================================================== */
-
-      .project {
-
-        position: relative !important;
-
-        left: auto !important;
-
-        top: auto !important;
-
-        width: 100% !important;
-
-        height: auto !important;
-
-        flex: 0 0 auto;
-
-        margin: 0;
-
-        transform: none !important;
-
-        text-align: center;
-
-        z-index: 1;
-      }
-
-
-      /* ==================================================
-         MOBILE IMAGES
-      ================================================== */
-
-      .project-image {
-
-        display: block;
-
-        width: auto;
-
-        max-width: 100%;
-
-        height: auto;
-
-        max-height: none;
-
-        object-fit: contain;
-
-        margin-left: auto;
-
-        margin-right: auto;
-
-        transform: none;
-      }
-
-
-      .project:hover .project-image {
-
-        transform:
-          scale(1.02);
-      }
-
-
-      /* ==================================================
-         MOBILE SELECTED PROJECT
-      ================================================== */
-
-      .project.selected {
-
-        position: relative !important;
-
-        left: auto !important;
-
-        top: auto !important;
-
-        width: 100% !important;
-
-        height: auto !important;
-
-        margin: 0;
-
-        transform: none !important;
-
-        z-index: 500;
-      }
-
-
-      .project.selected .project-image {
-
-        display: block;
-
-        width: auto;
-
-        max-width: 100%;
-
-        height: auto;
-
-        max-height: none;
-
-        margin-left: auto;
-
-        margin-right: auto;
-
-        transform:
-          scale(1) !important;
-
-        opacity: 1;
-      }
-
-
-      /* ==================================================
-         MOBILE VIDEO
-      ================================================== */
-
-      .project.selected .project-video {
-
-        display: block;
-
-        width: 100%;
-
-        height: auto;
-
-        max-width: 100%;
-
-        max-height: none;
-
-        aspect-ratio: 16 / 9;
-      }
-
-
-      /* ==================================================
-         MOBILE INFO
-      ================================================== */
-
-      .project-info {
-
-        position: relative;
-
-        max-width: 100%;
-
-        margin-top: 8px;
-      }
-
-
-      /* ==================================================
-         MOBILE ARROWS
-      ================================================== */
-
-      .project-arrow {
-        display: none;
-      }
-
-
-      /* ==================================================
-         MOBILE CREDIT
-      ================================================== */
-
-      .website-credit {
-
-        position: fixed;
-
-        right: 5vw;
-
-        bottom: 15px;
-
-        font-size: 9px;
-
-        z-index: 3000;
-      }
-
-    }
-
-  </style>
-
+  transition:
+    opacity 0.8s ease,
+    transform 1.15s cubic-bezier(.2,.75,.25,1);
+
+  will-change: transform, opacity;
+
+  box-shadow: none;
+}
+
+.photo-item img {
+  display: block;
+
+  width: 100%;
+  height: auto;
+
+  border: 0;
+  outline: 0;
+
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+
+/* όταν εμφανίζεται */
+
+.photo-item.visible {
+  opacity: 1;
+}
+
+
+/* =========================
+   DIFFERENT PHOTO POSITIONS
+========================= */
+
+/*
+   Οι εικόνες δεν έχουν όλες το ίδιο μέγεθος.
+   Οι θέσεις και οι περιστροφές δημιουργούν
+   το ακανόνιστο "πέσιμο" του cluster.
+*/
+
+
+.photo-item:nth-child(1) {
+  width: 170px;
+  left: 28%;
+  top: 30%;
+  transform: translate(-50%, -50%) rotate(-7deg) scale(1);
+}
+
+.photo-item:nth-child(2) {
+  width: 145px;
+  left: 49%;
+  top: 27%;
+  transform: translate(-50%, -50%) rotate(5deg) scale(1);
+}
+
+.photo-item:nth-child(3) {
+  width: 155px;
+  left: 68%;
+  top: 31%;
+  transform: translate(-50%, -50%) rotate(-3deg) scale(1);
+}
+
+.photo-item:nth-child(4) {
+  width: 135px;
+  left: 22%;
+  top: 47%;
+  transform: translate(-50%, -50%) rotate(4deg) scale(1);
+}
+
+.photo-item:nth-child(5) {
+  width: 175px;
+  left: 45%;
+  top: 43%;
+  transform: translate(-50%, -50%) rotate(-5deg) scale(1);
+}
+
+.photo-item:nth-child(6) {
+  width: 145px;
+  left: 67%;
+  top: 47%;
+  transform: translate(-50%, -50%) rotate(7deg) scale(1);
+}
+
+.photo-item:nth-child(7) {
+  width: 125px;
+  left: 13%;
+  top: 63%;
+  transform: translate(-50%, -50%) rotate(-8deg) scale(1);
+}
+
+.photo-item:nth-child(8) {
+  width: 160px;
+  left: 35%;
+  top: 59%;
+  transform: translate(-50%, -50%) rotate(3deg) scale(1);
+}
+
+.photo-item:nth-child(9) {
+  width: 145px;
+  left: 57%;
+  top: 61%;
+  transform: translate(-50%, -50%) rotate(-6deg) scale(1);
+}
+
+.photo-item:nth-child(10) {
+  width: 170px;
+  left: 77%;
+  top: 61%;
+  transform: translate(-50%, -50%) rotate(5deg) scale(1);
+}
+
+.photo-item:nth-child(11) {
+  width: 135px;
+  left: 28%;
+  top: 75%;
+  transform: translate(-50%, -50%) rotate(-4deg) scale(1);
+}
+
+.photo-item:nth-child(12) {
+  width: 155px;
+  left: 48%;
+  top: 75%;
+  transform: translate(-50%, -50%) rotate(8deg) scale(1);
+}
+
+.photo-item:nth-child(13) {
+  width: 130px;
+  left: 69%;
+  top: 77%;
+  transform: translate(-50%, -50%) rotate(-5deg) scale(1);
+}
+
+.photo-item:nth-child(14) {
+  width: 180px;
+  left: 38%;
+  top: 34%;
+  transform: translate(-50%, -50%) rotate(6deg) scale(1);
+}
+
+.photo-item:nth-child(15) {
+  width: 140px;
+  left: 57%;
+  top: 38%;
+  transform: translate(-50%, -50%) rotate(-8deg) scale(1);
+}
+
+.photo-item:nth-child(16) {
+  width: 155px;
+  left: 80%;
+  top: 40%;
+  transform: translate(-50%, -50%) rotate(3deg) scale(1);
+}
+
+.photo-item:nth-child(17) {
+  width: 125px;
+  left: 17%;
+  top: 36%;
+  transform: translate(-50%, -50%) rotate(-4deg) scale(1);
+}
+
+.photo-item:nth-child(18) {
+  width: 165px;
+  left: 34%;
+  top: 51%;
+  transform: translate(-50%, -50%) rotate(7deg) scale(1);
+}
+
+.photo-item:nth-child(19) {
+  width: 145px;
+  left: 51%;
+  top: 53%;
+  transform: translate(-50%, -50%) rotate(-6deg) scale(1);
+}
+
+.photo-item:nth-child(20) {
+  width: 170px;
+  left: 72%;
+  top: 53%;
+  transform: translate(-50%, -50%) rotate(4deg) scale(1);
+}
+
+.photo-item:nth-child(21) {
+  width: 135px;
+  left: 24%;
+  top: 68%;
+  transform: translate(-50%, -50%) rotate(-7deg) scale(1);
+}
+
+.photo-item:nth-child(22) {
+  width: 150px;
+  left: 43%;
+  top: 66%;
+  transform: translate(-50%, -50%) rotate(5deg) scale(1);
+}
+
+.photo-item:nth-child(23) {
+  width: 125px;
+  left: 62%;
+  top: 70%;
+  transform: translate(-50%, -50%) rotate(-3deg) scale(1);
+}
+
+.photo-item:nth-child(24) {
+  width: 160px;
+  left: 82%;
+  top: 70%;
+  transform: translate(-50%, -50%) rotate(8deg) scale(1);
+}
+
+.photo-item:nth-child(25) {
+  width: 145px;
+  left: 31%;
+  top: 83%;
+  transform: translate(-50%, -50%) rotate(-5deg) scale(1);
+}
+
+.photo-item:nth-child(26) {
+  width: 175px;
+  left: 52%;
+  top: 82%;
+  transform: translate(-50%, -50%) rotate(4deg) scale(1);
+}
+
+.photo-item:nth-child(27) {
+  width: 135px;
+  left: 73%;
+  top: 83%;
+  transform: translate(-50%, -50%) rotate(-7deg) scale(1);
+}
+
+.photo-item:nth-child(28) {
+  width: 150px;
+  left: 12%;
+  top: 52%;
+  transform: translate(-50%, -50%) rotate(6deg) scale(1);
+}
+
+.photo-item:nth-child(29) {
+  width: 165px;
+  left: 43%;
+  top: 24%;
+  transform: translate(-50%, -50%) rotate(-4deg) scale(1);
+}
+
+.photo-item:nth-child(30) {
+  width: 140px;
+  left: 61%;
+  top: 25%;
+  transform: translate(-50%, -50%) rotate(7deg) scale(1);
+}
+
+.photo-item:nth-child(31) {
+  width: 155px;
+  left: 86%;
+  top: 50%;
+  transform: translate(-50%, -50%) rotate(-5deg) scale(1);
+}
+
+.photo-item:nth-child(32) {
+  width: 130px;
+  left: 18%;
+  top: 78%;
+  transform: translate(-50%, -50%) rotate(3deg) scale(1);
+}
+
+.photo-item:nth-child(33) {
+  width: 175px;
+  left: 57%;
+  top: 87%;
+  transform: translate(-50%, -50%) rotate(-8deg) scale(1);
+}
+
+.photo-item:nth-child(34) {
+  width: 145px;
+  left: 76%;
+  top: 28%;
+  transform: translate(-50%, -50%) rotate(5deg) scale(1);
+}
+
+.photo-item:nth-child(35) {
+  width: 125px;
+  left: 7%;
+  top: 73%;
+  transform: translate(-50%, -50%) rotate(-6deg) scale(1);
+}
+
+.photo-item:nth-child(36) {
+  width: 160px;
+  left: 27%;
+  top: 57%;
+  transform: translate(-50%, -50%) rotate(4deg) scale(1);
+}
+
+.photo-item:nth-child(37) {
+  width: 140px;
+  left: 49%;
+  top: 58%;
+  transform: translate(-50%, -50%) rotate(-7deg) scale(1);
+}
+
+.photo-item:nth-child(38) {
+  width: 170px;
+  left: 70%;
+  top: 58%;
+  transform: translate(-50%, -50%) rotate(3deg) scale(1);
+}
+
+.photo-item:nth-child(39) {
+  width: 135px;
+  left: 88%;
+  top: 67%;
+  transform: translate(-50%, -50%) rotate(-4deg) scale(1);
+}
+
+.photo-item:nth-child(40) {
+  width: 155px;
+  left: 20%;
+  top: 27%;
+  transform: translate(-50%, -50%) rotate(7deg) scale(1);
+}
+
+.photo-item:nth-child(41) {
+  width: 145px;
+  left: 39%;
+  top: 29%;
+  transform: translate(-50%, -50%) rotate(-5deg) scale(1);
+}
+
+.photo-item:nth-child(42) {
+  width: 165px;
+  left: 63%;
+  top: 45%;
+  transform: translate(-50%, -50%) rotate(6deg) scale(1);
+}
+
+.photo-item:nth-child(43) {
+  width: 130px;
+  left: 78%;
+  top: 48%;
+  transform: translate(-50%, -50%) rotate(-8deg) scale(1);
+}
+
+.photo-item:nth-child(44) {
+  width: 175px;
+  left: 31%;
+  top: 72%;
+  transform: translate(-50%, -50%) rotate(4deg) scale(1);
+}
+
+.photo-item:nth-child(45) {
+  width: 140px;
+  left: 54%;
+  top: 72%;
+  transform: translate(-50%, -50%) rotate(-3deg) scale(1);
+}
+
+.photo-item:nth-child(46) {
+  width: 150px;
+  left: 74%;
+  top: 76%;
+  transform: translate(-50%, -50%) rotate(7deg) scale(1);
+}
+
+.photo-item:nth-child(47) {
+  width: 125px;
+  left: 10%;
+  top: 42%;
+  transform: translate(-50%, -50%) rotate(-5deg) scale(1);
+}
+
+.photo-item:nth-child(48) {
+  width: 165px;
+  left: 47%;
+  top: 39%;
+  transform: translate(-50%, -50%) rotate(4deg) scale(1);
+}
+
+.photo-item:nth-child(49) {
+  width: 140px;
+  left: 65%;
+  top: 35%;
+  transform: translate(-50%, -50%) rotate(-7deg) scale(1);
+}
+
+.photo-item:nth-child(50) {
+  width: 155px;
+  left: 36%;
+  top: 88%;
+  transform: translate(-50%, -50%) rotate(5deg) scale(1);
+}
+
+.photo-item:nth-child(51) {
+  width: 135px;
+  left: 85%;
+  top: 85%;
+  transform: translate(-50%, -50%) rotate(-4deg) scale(1);
+}
+
+
+/* =========================
+   NEXT SECTION
+========================= */
+
+.next-section {
+  position: relative;
+  height: 100vh;
+  background: #ffffff;
+}
+
+
+/* =========================
+   CREDIT
+========================= */
+
+.website-credit {
+  position: fixed;
+  right: 3vw;
+  bottom: 28px;
+
+  color: #777777;
+
+  font-size: 10px;
+  line-height: 1;
+
+  z-index: 3000;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 700px) {
+
+  html,
+  body {
+    font-size: 10px;
+  }
+
+  .site-header {
+    height: 60px;
+  }
+
+  .site-name,
+  .site-role {
+    top: 30px;
+    font-size: 10px;
+  }
+
+  .site-name {
+    left: 4vw;
+  }
+
+  .site-role {
+    right: 4vw;
+  }
+
+
+  /* INTRO */
+
+  .intro-scene {
+    height: 200vh;
+  }
+
+  .intro-sticky {
+    height: 100vh;
+  }
+
+  .intro-cluster {
+    width: 100%;
+    padding: 0 7vw;
+  }
+
+  .intro-text {
+    width: 100%;
+    margin-bottom: 55px;
+
+    font-size: 11px;
+    line-height: 1.25;
+  }
+
+  .intro-gif {
+    width: 75vw;
+    max-width: 510px;
+  }
+
+  .intro-coordinate {
+    width: 75vw;
+    max-width: 510px;
+    margin-top: 4px;
+
+    font-size: 6px;
+  }
+
+  .intro-second-text {
+    width: 100%;
+    margin-top: 55px;
+
+    font-size: 11px;
+    line-height: 1.25;
+  }
+
+
+  /* BLUE BLOCK */
+
+  .island-block {
+    left: auto;
+    right: 5vw;
+
+    width: 90px;
+
+    padding: 8px;
+
+    font-size: 6.5px;
+    line-height: 1.15;
+  }
+
+
+  /* PHOTO ALBUM */
+
+  .photoalbum-section {
+    height: 150vh;
+  }
+
+  .photoalbum-sticky {
+    height: 100vh;
+  }
+
+  .photo-cluster {
+    left: 50%;
+    top: 50%;
+
+    width: 92vw;
+    height: 92vw;
+
+    transform: translate(-50%, -50%);
+  }
+
+
+  /* Mobile photos are slightly smaller */
+
+  .photo-item:nth-child(1)  { width: 29vw; }
+  .photo-item:nth-child(2)  { width: 25vw; }
+  .photo-item:nth-child(3)  { width: 27vw; }
+  .photo-item:nth-child(4)  { width: 24vw; }
+  .photo-item:nth-child(5)  { width: 30vw; }
+  .photo-item:nth-child(6)  { width: 25vw; }
+  .photo-item:nth-child(7)  { width: 22vw; }
+  .photo-item:nth-child(8)  { width: 28vw; }
+  .photo-item:nth-child(9)  { width: 25vw; }
+  .photo-item:nth-child(10) { width: 29vw; }
+  .photo-item:nth-child(11) { width: 24vw; }
+  .photo-item:nth-child(12) { width: 27vw; }
+  .photo-item:nth-child(13) { width: 23vw; }
+  .photo-item:nth-child(14) { width: 31vw; }
+  .photo-item:nth-child(15) { width: 25vw; }
+  .photo-item:nth-child(16) { width: 28vw; }
+  .photo-item:nth-child(17) { width: 22vw; }
+  .photo-item:nth-child(18) { width: 29vw; }
+  .photo-item:nth-child(19) { width: 25vw; }
+  .photo-item:nth-child(20) { width: 30vw; }
+  .photo-item:nth-child(21) { width: 24vw; }
+  .photo-item:nth-child(22) { width: 27vw; }
+  .photo-item:nth-child(23) { width: 22vw; }
+  .photo-item:nth-child(24) { width: 29vw; }
+  .photo-item:nth-child(25) { width: 25vw; }
+  .photo-item:nth-child(26) { width: 30vw; }
+  .photo-item:nth-child(27) { width: 24vw; }
+  .photo-item:nth-child(28) { width: 26vw; }
+  .photo-item:nth-child(29) { width: 30vw; }
+  .photo-item:nth-child(30) { width: 24vw; }
+  .photo-item:nth-child(31) { width: 27vw; }
+  .photo-item:nth-child(32) { width: 23vw; }
+  .photo-item:nth-child(33) { width: 30vw; }
+  .photo-item:nth-child(34) { width: 25vw; }
+  .photo-item:nth-child(35) { width: 22vw; }
+  .photo-item:nth-child(36) { width: 28vw; }
+  .photo-item:nth-child(37) { width: 25vw; }
+  .photo-item:nth-child(38) { width: 29vw; }
+  .photo-item:nth-child(39) { width: 23vw; }
+  .photo-item:nth-child(40) { width: 27vw; }
+  .photo-item:nth-child(41) { width: 25vw; }
+  .photo-item:nth-child(42) { width: 29vw; }
+  .photo-item:nth-child(43) { width: 23vw; }
+  .photo-item:nth-child(44) { width: 30vw; }
+  .photo-item:nth-child(45) { width: 25vw; }
+  .photo-item:nth-child(46) { width: 27vw; }
+  .photo-item:nth-child(47) { width: 22vw; }
+  .photo-item:nth-child(48) { width: 29vw; }
+  .photo-item:nth-child(49) { width: 25vw; }
+  .photo-item:nth-child(50) { width: 28vw; }
+  .photo-item:nth-child(51) { width: 24vw; }
+
+
+  .website-credit {
+    right: 4vw;
+    bottom: 18px;
+
+    font-size: 9px;
+  }
+
+}
+
+</style>
 </head>
 
 
 <body>
 
 
-  <!-- ==================================================
-       HEADER
-  ================================================== -->
+<!-- =========================
+     HEADER
+========================= -->
 
-  <header>
+<header class="site-header">
 
-    <div class="name">
+  <a href="index.html" class="site-name">
+    MYRTO PAVLOPOULOU
+  </a>
 
-      <a href="index.html">
-        MYRTO PAVLOPOULOU
-      </a>
+  <div class="site-role">
+    ARCHITECT
+  </div>
 
-    </div>
-
-
-    <div class="profession">
-      ARCHITECT
-    </div>
-
-  </header>
+</header>
 
 
-  <!-- ==================================================
-       GALLERY
-  ================================================== -->
+<!-- =========================
+     INTRO
+========================= -->
 
-  <main class="gallery">
+<section class="intro-scene">
 
+  <div class="intro-sticky">
 
-    <!-- MOBILE COLUMNS -->
+    <div class="intro-cluster">
 
-    <div class="mobile-column mobile-left"></div>
-
-    <div class="mobile-column mobile-right"></div>
-
-
-    <!-- ==================================================
-         0 — VETCARD
-    ================================================== -->
-
-    <div
-      class="project project-0"
-      data-project="0"
-    >
+      <div class="intro-text">
+        This project is a poetic inquiry into the deconstruction of place and an exploration of its future ruins.
+      </div>
 
       <img
-        class="project-image"
-        src="VetCard_1.jpg"
-        alt="VetCard"
+        class="intro-gif"
+        src="diploma/dipl_1.gif"
+        alt="Nisyros"
       >
 
+      <div class="intro-coordinate">
+        Nisyros
+      </div>
 
-      <button
-        class="project-arrow prev"
-        type="button"
-      >
-        ‹
-      </button>
-
-
-      <button
-        class="project-arrow next"
-        type="button"
-      >
-        ›
-      </button>
-
-
-      <div class="project-info">
-
-        <div class="project-title">
-          VETCARD
-        </div>
-
-
-        <div class="project-description">
-          professional card and logo design for a veterinarian, 2026
-        </div>
-
+      <div class="intro-second-text">
+        The investigation did not follow a linear trajectory. Instead, it unfolded through continuous shifts of<br>
+        perspective between the fragment and the whole, and from the whole back to the fragment.
       </div>
 
     </div>
 
-
-    <!-- ==================================================
-         1 — ECHOES OF THE DEEP
-    ================================================== -->
-
-    <div
-      class="project project-1"
-      data-project="1"
-    >
-
-      <img
-        class="project-image"
-        src="Jelly_1.jpg"
-        alt="Echoes of the Deep"
-      >
-
-
-      <iframe
-        class="project-video"
-        src="https://player.vimeo.com/video/1081399010"
-        title="Echoes of the Deep"
-        allow="autoplay; fullscreen; picture-in-picture"
-        allowfullscreen
-        style="display: none;"
-      ></iframe>
-
-
-      <button
-        class="project-arrow prev"
-        type="button"
-      >
-        ‹
-      </button>
-
-
-      <button
-        class="project-arrow next"
-        type="button"
-      >
-        ›
-      </button>
-
-
-      <div class="project-info">
-
-        <div class="project-title">
-          ECHOES OF THE DEEP
-        </div>
-
-
-        <div class="project-description">
-
-          an interactive light and sound installation for Mar Motto festival’s 2025 edition with
-
-          <a
-            href="https://moradavaga.com/ECHOES-OF-THE-DEEP"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            MORADAVAGA
-          </a>
-
-          <br>
-
-          Faro, Portugal, 2025
-
-        </div>
-
-      </div>
-
-    </div>
-
-
-    <!-- ==================================================
-         2 — X-RAYS OF THE MODERN CITIES
-    ================================================== -->
-
-    <div
-      class="project project-2"
-      data-project="2"
-    >
-
-      <img
-        class="project-image"
-        src="X-ray_(1).jpg"
-        alt="X-Rays of the Modern Cities"
-      >
-
-
-      <button
-        class="project-arrow prev"
-        type="button"
-      >
-        ‹
-      </button>
-
-
-      <button
-        class="project-arrow next"
-        type="button"
-      >
-        ›
-      </button>
-
-
-      <div class="project-info">
-
-        <div class="project-title">
-          X-RAYS OF THE MODERN CITIES
-        </div>
-
-
-        <div class="project-description">
-          photography project, ongoing
-        </div>
-
-      </div>
-
-    </div>
-
-
-    <!-- ==================================================
-         3 — PLACES INSPIRED BY ROBERT SMITHSON
-    ================================================== -->
-
-    <div
-      class="project project-3"
-      data-project="3"
-    >
-
-      <img
-        class="project-image"
-        src="Smithson_1.png"
-        alt="Places Inspired by Robert Smithson"
-      >
-
-
-      <button
-        class="project-arrow prev"
-        type="button"
-      >
-        ‹
-      </button>
-
-
-      <button
-        class="project-arrow next"
-        type="button"
-      >
-        ›
-      </button>
-
-
-      <div class="project-info">
-
-        <div class="project-title">
-          PLACES INSPIRED BY ROBERT SMITHSON
-        </div>
-
-      </div>
-
-    </div>
-
-
-    <!-- ==================================================
-         4 — URBAN DESIGN
-    ================================================== -->
-
-    <div
-      class="project project-4"
-      data-project="4"
-    >
-
-      <img
-        class="project-image"
-        src="Urban_1.png"
-        alt="Urban Design"
-      >
-
-
-      <button
-        class="project-arrow prev"
-        type="button"
-      >
-        ‹
-      </button>
-
-
-      <button
-        class="project-arrow next"
-        type="button"
-      >
-        ›
-      </button>
-
-
-      <div class="project-info">
-
-        <div class="project-title">
-          URBAN DESIGN
-        </div>
-
-      </div>
-
-    </div>
-
-
-    <!-- ==================================================
-         5 — CATWALK
-    ================================================== -->
-
-    <div
-      class="project project-5"
-      data-project="5"
-    >
-
-      <img
-        class="project-image"
-        src="CATWALK_(1).jpg"
-        alt="Catwalk"
-      >
-
-
-      <button
-        class="project-arrow prev"
-        type="button"
-      >
-        ‹
-      </button>
-
-
-      <button
-        class="project-arrow next"
-        type="button"
-      >
-        ›
-      </button>
-
-
-      <div class="project-info">
-
-        <div class="project-title">
-          CATWALK
-        </div>
-
-
-        <div class="project-description">
-
-          small urban intervention with
-
-          <a
-            href="https://moradavaga.com/Exhibitions-Workshops-Lectures"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            MORADAVAGA
-          </a>
-
-          <br>
-
-          Alte, Portugal, 2024
-
-        </div>
-
-      </div>
-
-    </div>
-
-
-    <!-- ==================================================
-         6 — WISHWALL
-    ================================================== -->
-
-    <div
-      class="project project-6"
-      data-project="6"
-    >
-
-      <img
-        class="project-image"
-        src="WISHWALL_2.jpg"
-        alt="Wishwall"
-      >
-
-
-      <button
-        class="project-arrow prev"
-        type="button"
-      >
-        ‹
-      </button>
-
-
-      <button
-        class="project-arrow next"
-        type="button"
-      >
-        ›
-      </button>
-
-
-      <div class="project-info">
-
-        <div class="project-title">
-          WISHWALL
-        </div>
-
-
-        <div class="project-description">
-
-          Interactive Installation,
-
-          <br>
-
-          with
-
-          <a
-            href="https://moradavaga.com/WISHWALL"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            MORADAVAGA
-          </a>,
-
-          Braga, Portugal, 2024
-
-        </div>
-
-      </div>
-
-    </div>
-
-
-    <!-- ==================================================
-         7 — YTONG MODEL
-    ================================================== -->
-
-    <div
-      class="project project-7"
-      data-project="7"
-    >
-
-      <img
-        class="project-image"
-        src="model_1.jpg"
-        alt="Ytong Model"
-      >
-
-
-      <button
-        class="project-arrow prev"
-        type="button"
-      >
-        ‹
-      </button>
-
-
-      <button
-        class="project-arrow next"
-        type="button"
-      >
-        ›
-      </button>
-
-
-      <div class="project-info">
-
-        <div class="project-title">
-          YTONG MODEL
-        </div>
-
-      </div>
-
-    </div>
-
-
-    <!-- ==================================================
-         8 — EXPERIMENTAL MODEL
-    ================================================== -->
-
-    <div
-      class="project project-8"
-      data-project="8"
-    >
-
-      <img
-        class="project-image"
-        src="model_2.jpg"
-        alt="Experimental Model"
-      >
-
-
-      <div class="project-info">
-
-        <div class="project-title">
-          EXPERIMENTAL MODEL
-        </div>
-
-      </div>
-
-    </div>
-
-
-    <!-- ==================================================
-         9 — SPATIAL INVESTIGATIONS
-    ================================================== -->
-
-    <div
-      class="project project-9"
-      data-project="9"
-    >
-
-      <img
-        class="project-image"
-        src="TeclaSala_1.jpg"
-        alt="Spatial Investigations"
-      >
-
-
-      <button
-        class="project-arrow prev"
-        type="button"
-      >
-        ‹
-      </button>
-
-
-      <button
-        class="project-arrow next"
-        type="button"
-      >
-        ›
-      </button>
-
-
-      <div class="project-info">
-
-        <div class="project-title">
-          SPATIAL INVESTIGATIONS
-        </div>
-
-
-        <div class="project-description">
-
-          design studio in Auth,
-
-          <br>
-
-          with Evi Taxi, 2022
-
-        </div>
-
-
-        <div class="project-note">
-
-          The project was exhibited at the HELEXPO 2022 in Thessaloniki
-
-        </div>
-
-      </div>
-
-    </div>
-
-
-    <!-- ==================================================
-         10 — RESIDENTIAL COMPLEX
-    ================================================== -->
-
-    <div
-      class="project project-10"
-      data-project="10"
-    >
-
-      <img
-        class="project-image"
-        src="ResidentialBuilding_1.png"
-        alt="Residential Complex"
-      >
-
-
-      <button
-        class="project-arrow prev"
-        type="button"
-      >
-        ‹
-      </button>
-
-
-      <button
-        class="project-arrow next"
-        type="button"
-      >
-        ›
-      </button>
-
-
-      <div class="project-info">
-
-        <div class="project-title">
-          RESIDENTIAL COMPLEX
-        </div>
-
-
-        <div class="project-description">
-
-          Design Studio in Auth,
-
-          <br>
-
-          with Dimitrios Athanasiou and Pinelopi Kosta, 2022
-
-        </div>
-
-      </div>
-
-    </div>
-
-
-    <!-- ==================================================
-         11 — DRYPOINT PRINTING
-    ================================================== -->
-
-    <div
-      class="project project-11"
-      data-project="11"
-    >
-
-      <img
-        class="project-image"
-        src="Drypoint_1.jpg"
-        alt="Drypoint Printing"
-      >
-
-
-      <div class="project-info">
-
-        <div class="project-title">
-          DRYPOINT PRINTING
-        </div>
-
-      </div>
-
-    </div>
-
-
-    <!-- ==================================================
-         12 — POSTER
-    ================================================== -->
-
-    <div
-      class="project project-12"
-      data-project="12"
-    >
-
-      <img
-        class="project-image"
-        src="Poster_1 (2).jpg"
-        alt="Poster"
-      >
-
-
-      <button
-        class="project-arrow prev"
-        type="button"
-      >
-        ‹
-      </button>
-
-
-      <button
-        class="project-arrow next"
-        type="button"
-      >
-        ›
-      </button>
-
-
-      <div class="project-info">
-
-        <div class="project-title">
-          POSTER
-        </div>
-
-
-        <div class="project-description">
-
-          Design of the poster for a christmas show in an aerial arts school, 2025
-
-        </div>
-
-      </div>
-
-    </div>
-
-
-    <!-- ==================================================
-         13 — BOOKMARKS
-    ================================================== -->
-
-    <div
-      class="project project-13"
-      data-project="13"
-    >
-
-      <img
-        class="project-image"
-        src="BOOKMARKS_1.jpg"
-        alt="Bookmarks"
-      >
-
-
-      <button
-        class="project-arrow prev"
-        type="button"
-      >
-        ‹
-      </button>
-
-
-      <button
-        class="project-arrow next"
-        type="button"
-      >
-        ›
-      </button>
-
-
-      <div class="project-info">
-
-        <div class="project-title">
-          BOOKMARKS
-        </div>
-
-
-        <div class="project-description">
-          graphic design
-        </div>
-
-      </div>
-
-    </div>
-
-
-    <!-- ==================================================
-         14 — APPARTMENT IN ILISSIA
-    ================================================== -->
-
-    <div
-      class="project project-14"
-      data-project="14"
-    >
-
-      <img
-        class="project-image"
-        src="Michalakopoulou4_3.jpg.jpg"
-        alt="Appartment in Illisia"
-      >
-
-
-      <button
-        class="project-arrow prev"
-        type="button"
-      >
-        ‹
-      </button>
-
-
-      <button
-        class="project-arrow next"
-        type="button"
-      >
-        ›
-      </button>
-
-
-      <div class="project-info">
-
-        <div class="project-title">
-          Appartment in Illisia
-        </div>
-
-
-        <div class="project-description">
-          In Progress
-        </div>
-
-
-        <div class="project-collaborator">
-
-          with
-
-          <a
-            href="https://kellyspanou.com"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Kelly
-          </a>
-
-        </div>
-
-      </div>
-
-    </div>
-
-
-    <!-- ==================================================
-         15 — RESIDENCE IN PRIASTRO, TINOS
-    ================================================== -->
-
-    <div
-      class="project project-15"
-      data-project="15"
-    >
-
-      <img
-        class="project-image"
-        src="Priastros_1.jpg"
-        alt="Residence in Priastro, Tinos"
-      >
-
-
-      <div class="project-info">
-
-        <div class="project-title">
-          Residence in Priastro, Tinos
-        </div>
-
-
-        <div class="project-description">
-          In Progress
-        </div>
-
-
-        <div class="project-collaborator">
-
-          with
-
-          <a
-            href="https://kellyspanou.com"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Kelly
-          </a>
-
-        </div>
-
-      </div>
-
-    </div>
-
-
-    <!-- ==================================================
-         16 — ISTERNIA
-    ================================================== -->
-
-    <div
-      class="project project-16"
-      data-project="16"
-    >
-
-      <img
-        class="project-image"
-        src="Isternia_1.jpg"
-        alt="Isternia"
-      >
-
-
-      <div class="project-info">
-
-        <div class="project-description">
-          In Progress
-        </div>
-
-
-        <div class="project-collaborator">
-
-          with
-
-          <a
-            href="https://kellyspanou.com"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Kelly
-          </a>
-
-        </div>
-
-      </div>
-
-    </div>
-
-
-  </main>
-
-
-  <!-- ==================================================
-       CREDIT
-  ================================================== -->
-
-  <div class="website-credit">
-    WEB DESIGN: MYRTO PAVLOPOULOU
   </div>
 
 
-  <script>
-
-
-    /* ==================================================
-       PROJECT IMAGES
-    ================================================== */
-
-    const projectImages = {
-
-      0: [
-        "VetCard_1.jpg",
-        "VetCard2.jpg"
-      ],
-
-
-      1: [
-        "Jelly_1.jpg",
-        "Jelly_2.JPG",
-        "Jelly_3.JPG",
-        "Jelly_4.jpg",
-        "Jelly_5.JPG",
-        "Jelly_6.jpg",
-        "Jelly_7.JPG",
-        "Jelly_8.JPG",
-        "VIMEO_VIDEO"
-      ],
-
-
-      2: [
-        "X-ray_(1).jpg",
-        "X-ray_(2).jpg",
-        "X-ray_(3).jpg",
-        "X-ray_(4).jpg",
-        "X-ray_(5).jpg",
-        "X-ray_(6).jpg"
-      ],
-
-
-      3: [
-        "Smithson_1.png",
-        "Smithson_2.jpg",
-        "Smithson_3.png",
-        "Smithson_4.png",
-        "Smithson_5.jpg",
-        "Smithson_6.jpg",
-        "Smithson_7.jpg",
-        "Smithson_8.jpg",
-        "Smithson_9.png",
-        "Smithson_10.png"
-      ],
-
+  <!-- BLUE TEXT BLOCK -->
 
-      4: [
-        "Urban_1.png",
-        "Urban_2.jpg",
-        "Urban_3.jpg"
-      ],
-
+  <div class="island-block">
 
-      5: [
-        "CATWALK_(1).jpg",
-        "CATWALK_(2).jpg",
-        "CATWALK_(3).jpg",
-        "CATWALK_(4).jpg"
-      ],
-
-
-      6: [
-        "WISHWALL_2.jpg",
-        "WISHWALL_3.jpg",
-        "WISHWALL_4.jpg",
-        "WISHWALL_5.jpg",
-        "WISHWALL_6.jpg",
-        "WISHWALL_7.jpg",
-        "WISHWALL_1.jpg"
-      ],
+    <div class="island-title">
+      Why an island?
+    </div>
 
+    <div class="island-text">
 
-      7: [
-        "model_1.jpg",
-        "model_1(2).jpg",
-        "model_1(3).jpg"
-      ],
-
+      For Ruggiero Romano, an island is a space of experimentation—a laboratory where specific economic and social phenomena can be observed in their most essential forms, often isolated from the complexity of larger continental environments.
 
-      8: [
-        "model_2.jpg"
-      ],
+      <br><br>
 
+      At the same time, islands are often associated with the idea of the utopian place, occupying a unique position in the human imagination that wavers between escape, tranquility, and inner exploration.
 
-      9: [
-        "TeclaSala_1.jpg",
-        "TeclaSala_2.jpg",
-        "TeclaSala_3.jpg",
-        "TeclaSala_4.jpg",
-        "TeclaSala_5.jpg",
-        "TeclaSala_6.jpg",
-        "TeclaSala_7.jpg",
-        "TeclaSala_8.jpg",
-        "TeclaSala_9.jpg",
-        "TeclaSala_10.jpg"
-      ],
+      <br><br>
 
+      In literature, as a reflection of the human imagination, islands are frequently portrayed as places of both isolation and renewal.
 
-      10: [
-        "ResidentialBuilding_1.png",
-        "ResidentialBuilding_2.jpg",
-        "ResidentialBuilding_3.png",
-        "ResidentialBuilding_4.jpg",
-        "ResidentialBuilding_5.jpg",
-        "ResidentialBuilding_6.jpg"
-      ],
+      <br><br>
 
+      In his essay Desert Islands, Gilles Deleuze writes: “Whether one dreams of islands with anxiety or with joy.”
 
-      11: [
-        "Drypoint_1.jpg"
-      ],
+      <br><br>
 
+      <strong>Therefore, the island.</strong>
 
-      12: [
-        "Poster_1 (2).jpg",
-        "Poster_1 (1).jpg"
-      ],
+    </div>
 
+  </div>
 
-      13: [
-        "BOOKMARKS_1.jpg",
-        "BOOKMARKS_1 (2).jpg",
-        "BOOKMARKS_1 (3).jpg",
-        "BOOKMARKS_1 (4).jpg"
-      ],
+</section>
 
 
-      14: [
-        "Michalakopoulou4_3.jpg.jpg",
-        "Michalakopoulou4_2.jpg.jpg",
-        "Michalakopoulou4_1.jpg"
-      ],
+<!-- =========================
+     PHOTO ALBUM
+========================= -->
 
+<section class="photoalbum-section">
 
-      15: [
-        "Priastros_1.jpg"
-      ],
+  <div class="photoalbum-sticky">
 
+    <div class="photo-cluster">
 
-      16: [
-        "Isternia_1.jpg"
-      ]
 
-    };
+      <div class="photo-item">
+        <img src="diploma/photoalbum/1.jpg" alt="">
+      </div>
 
+      <div class="photo-item">
+        <img src="diploma/photoalbum/2.jpg" alt="">
+      </div>
 
-    /* ==================================================
-       MOBILE ORDER
-       LEFT = 9
-       RIGHT = 8
-    ================================================== */
+      <div class="photo-item">
+        <img src="diploma/photoalbum/3.jpg" alt="">
+      </div>
 
-    const leftProjects = [
+      <div class="photo-item">
+        <img src="diploma/photoalbum/4.jpg" alt="">
+      </div>
 
-      0,
-      2,
-      4,
-      6,
-      8,
-      10,
-      12,
-      14,
-      16
+      <div class="photo-item">
+        <img src="diploma/photoalbum/5.jpg" alt="">
+      </div>
 
-    ];
+      <div class="photo-item">
+        <img src="diploma/photoalbum/6.jpg" alt="">
+      </div>
 
+      <div class="photo-item">
+        <img src="diploma/photoalbum/7.jpg" alt="">
+      </div>
 
-    const rightProjects = [
+      <div class="photo-item">
+        <img src="diploma/photoalbum/8.jpg" alt="">
+      </div>
 
-      1,
-      3,
-      5,
-      7,
-      9,
-      11,
-      13,
-      15
+      <div class="photo-item">
+        <img src="diploma/photoalbum/9.jpg" alt="">
+      </div>
 
-    ];
+      <div class="photo-item">
+        <img src="diploma/photoalbum/10.jpg" alt="">
+      </div>
 
+      <div class="photo-item">
+        <img src="diploma/photoalbum/11.jpg" alt="">
+      </div>
 
-    /* ==================================================
-       VARIABLES
-    ================================================== */
+      <div class="photo-item">
+        <img src="diploma/photoalbum/12.jpg" alt="">
+      </div>
 
-    const projects =
-      document.querySelectorAll(".project");
+      <div class="photo-item">
+        <img src="diploma/photoalbum/13.jpg" alt="">
+      </div>
 
+      <div class="photo-item">
+        <img src="diploma/photoalbum/14.jpg" alt="">
+      </div>
+
+      <div class="photo-item">
+        <img src="diploma/photoalbum/15.jpg" alt="">
+      </div>
+
+      <div class="photo-item">
+        <img src="diploma/photoalbum/16.jpg" alt="">
+      </div>
+
+      <div class="photo-item">
+        <img src="diploma/photoalbum/17.jpg" alt="">
+      </div>
+
+      <div class="photo-item">
+        <img src="diploma/photoalbum/18.jpg" alt="">
+      </div>
+
+      <div class="photo-item">
+        <img src="diploma/photoalbum/19.jpg" alt="">
+      </div>
+
+      <div class="photo-item">
+        <img src="diploma/photoalbum/20.jpg" alt="">
+      </div>
+
+      <div class="photo-item">
+        <img src="diploma/photoalbum/21.jpg" alt="">
+      </div>
+
+      <div class="photo-item">
+        <img src="diploma/photoalbum/22.jpg" alt="">
+      </div>
+
+      <div class="photo-item">
+        <img src="diploma/photoalbum/23.jpg" alt="">
+      </div>
+
+      <div class="photo-item">
+        <img src="diploma/photoalbum/24.jpg" alt="">
+      </div>
+
+      <div class="photo-item">
+        <img src="diploma/photoalbum/25.jpg" alt="">
+      </div>
+
+      <div class="photo-item">
+        <img src="diploma/photoalbum/26.jpg" alt="">
+      </div>
+
+      <div class="photo-item">
+        <img src="diploma/photoalbum/27.jpg" alt="">
+      </div>
 
-    const gallery =
-      document.querySelector(".gallery");
+      <div class="photo-item">
+        <img src="diploma/photoalbum/28.jpg" alt="">
+      </div>
 
+      <div class="photo-item">
+        <img src="diploma/photoalbum/29.jpg" alt="">
+      </div>
 
-    const mobileLeft =
-      document.querySelector(".mobile-left");
+      <div class="photo-item">
+        <img src="diploma/photoalbum/30.jpg" alt="">
+      </div>
 
+      <div class="photo-item">
+        <img src="diploma/photoalbum/31.jpg" alt="">
+      </div>
 
-    const mobileRight =
-      document.querySelector(".mobile-right");
+      <div class="photo-item">
+        <img src="diploma/photoalbum/34.jpg" alt="">
+      </div>
 
+      <div class="photo-item">
+        <img src="diploma/photoalbum/35.jpg" alt="">
+      </div>
 
-    const imageIndexes = {};
+      <div class="photo-item">
+        <img src="diploma/photoalbum/36.jpg" alt="">
+      </div>
 
+      <div class="photo-item">
+        <img src="diploma/photoalbum/37.jpg" alt="">
+      </div>
 
-    projects.forEach(function(project) {
+      <div class="photo-item">
+        <img src="diploma/photoalbum/38.jpg" alt="">
+      </div>
 
-      const id =
-        Number(
-          project.dataset.project
-        );
+      <div class="photo-item">
+        <img src="diploma/photoalbum/39.jpg" alt="">
+      </div>
 
-      imageIndexes[id] = 0;
+      <div class="photo-item">
+        <img src="diploma/photoalbum/40.jpg" alt="">
+      </div>
 
-    });
+      <div class="photo-item">
+        <img src="diploma/photoalbum/41.jpg" alt="">
+      </div>
 
+      <div class="photo-item">
+        <img src="diploma/photoalbum/42.jpg" alt="">
+      </div>
 
-    /* ==================================================
-       DISPLAY MEDIA
-    ================================================== */
+      <div class="photo-item">
+        <img src="diploma/photoalbum/43.jpg" alt="">
+      </div>
 
-    function displayProjectMedia(project) {
+      <div class="photo-item">
+        <img src="diploma/photoalbum/44.jpg" alt="">
+      </div>
 
-      const id =
-        Number(
-          project.dataset.project
-        );
+      <div class="photo-item">
+        <img src="diploma/photoalbum/45.jpg" alt="">
+      </div>
 
+      <div class="photo-item">
+        <img src="diploma/photoalbum/46.jpg" alt="">
+      </div>
 
-      const images =
-        projectImages[id];
+      <div class="photo-item">
+        <img src="diploma/photoalbum/47.jpg" alt="">
+      </div>
 
+      <div class="photo-item">
+        <img src="diploma/photoalbum/48.jpg" alt="">
+      </div>
 
-      const currentIndex =
-        imageIndexes[id];
+      <div class="photo-item">
+        <img src="diploma/photoalbum/49.jpg" alt="">
+      </div>
 
+      <div class="photo-item">
+        <img src="diploma/photoalbum/50.jpg" alt="">
+      </div>
 
-      const currentMedia =
-        images[currentIndex];
+      <div class="photo-item">
+        <img src="diploma/photoalbum/51.jpg" alt="">
+      </div>
 
+      <div class="photo-item">
+        <img src="diploma/photoalbum/52.jpg" alt="">
+      </div>
 
-      const image =
-        project.querySelector(
-          ".project-image"
-        );
+      <div class="photo-item">
+        <img src="diploma/photoalbum/53.jpg" alt="">
+      </div>
 
 
-      const video =
-        project.querySelector(
-          ".project-video"
-        );
+    </div>
 
+  </div>
 
-      if (
-        currentMedia === "VIMEO_VIDEO"
-      ) {
+</section>
 
-        image.style.display =
-          "none";
 
+<!-- =========================
+     END SECTION
+========================= -->
 
-        if (video) {
+<section class="next-section"></section>
 
-          video.style.display =
-            "block";
 
-        }
+<!-- =========================
+     CREDIT
+========================= -->
 
-        return;
-      }
+<div class="website-credit">
+  WEB DESIGN: MYRTO PAVLOPOULOU
+</div>
 
 
-      image.src =
-        currentMedia;
+<script>
 
+/* =========================
+   ISLAND BLOCK SCROLL
+========================= */
 
-      image.style.display =
-        "block";
+const islandBlock = document.querySelector(".island-block");
 
+const handoffScrollRatio = 1.00;
+const handoffPositionRatio = 0.29;
 
-      if (video) {
+function updateIslandPosition() {
 
-        video.style.display =
-          "none";
+  const viewportHeight = window.innerHeight;
+  const scrollY = window.scrollY;
+  const boxHeight = islandBlock.offsetHeight;
 
-      }
+  const handoffScroll =
+    viewportHeight * handoffScrollRatio;
 
-    }
+  const handoffTop =
+    viewportHeight * handoffPositionRatio;
 
+  if (scrollY <= handoffScroll) {
 
-    /* ==================================================
-       CHANGE IMAGE
-    ================================================== */
+    let progress =
+      scrollY / handoffScroll;
 
-    function changeImage(
-      project,
-      direction
-    ) {
+    progress =
+      Math.max(0, Math.min(1, progress));
 
-      const id =
-        Number(
-          project.dataset.project
-        );
+    const startTop =
+      viewportHeight + boxHeight;
 
+    const currentTop =
+      startTop +
+      (handoffTop - startTop) * progress;
 
-      const images =
-        projectImages[id];
+    islandBlock.style.position = "fixed";
 
+    islandBlock.style.top =
+      `${currentTop}px`;
 
-      if (
-        !images ||
-        images.length <= 1
-      ) {
+  } else {
 
-        return;
+    islandBlock.style.position = "absolute";
 
-      }
+    const documentTop =
+      handoffScroll + handoffTop;
 
+    islandBlock.style.top =
+      `${documentTop}px`;
 
-      let currentIndex =
-        imageIndexes[id];
+  }
 
+}
 
-      currentIndex +=
-        direction;
+window.addEventListener(
+  "scroll",
+  updateIslandPosition,
+  { passive: true }
+);
 
+window.addEventListener(
+  "resize",
+  updateIslandPosition
+);
 
-      if (
-        currentIndex >=
-        images.length
-      ) {
+updateIslandPosition();
 
-        currentIndex = 0;
 
-      }
+/* =========================
+   PHOTO ALBUM ANIMATION
+========================= */
 
+const photoSection =
+  document.querySelector(".photoalbum-section");
 
-      if (
-        currentIndex < 0
-      ) {
+const photoItems =
+  document.querySelectorAll(".photo-item");
 
-        currentIndex =
-          images.length - 1;
+let photoAnimationStarted = false;
 
-      }
 
+/*
+   Το animation ξεκινά όταν το photoalbum
+   πλησιάσει στο viewport.
+*/
 
-      imageIndexes[id] =
-        currentIndex;
+const photoObserver =
+  new IntersectionObserver(
+    (entries) => {
 
-
-      displayProjectMedia(
-        project
-      );
-
-    }
-
-
-    /* ==================================================
-       SELECT PROJECT
-    ================================================== */
-
-    function selectProject(
-      project
-    ) {
-
-      projects.forEach(
-        function(item) {
-
-          item.classList.remove(
-            "selected"
-          );
-
-        }
-      );
-
-
-      project.classList.add(
-        "selected"
-      );
-
-
-      displayProjectMedia(
-        project
-      );
-
-    }
-
-
-    /* ==================================================
-       DESELECT PROJECT
-    ================================================== */
-
-    function deselectProject() {
-
-      projects.forEach(
-        function(project) {
-
-          project.classList.remove(
-            "selected"
-          );
-
-        }
-      );
-
-    }
-
-
-    /* ==================================================
-       PROJECT CLICK
-    ================================================== */
-
-    projects.forEach(
-      function(project) {
-
-
-        project.addEventListener(
-          "click",
-          function(event) {
-
-
-            const clickedLink =
-              event.target.closest(
-                "a"
-              );
-
-
-            if (clickedLink) {
-
-              event.stopPropagation();
-
-              return;
-
-            }
-
-
-            if (
-              event.target.closest(
-                ".project-arrow"
-              )
-            ) {
-
-              return;
-
-            }
-
-
-            if (
-              event.target.closest(
-                ".project-video"
-              )
-            ) {
-
-              return;
-
-            }
-
-
-            if (
-
-              project.classList.contains(
-                "selected"
-              )
-
-              &&
-
-              event.target.closest(
-                ".project-image"
-              )
-
-            ) {
-
-              changeImage(
-                project,
-                1
-              );
-
-              return;
-
-            }
-
-
-            if (
-              !project.classList.contains(
-                "selected"
-              )
-            ) {
-
-              selectProject(
-                project
-              );
-
-              return;
-
-            }
-
-          }
-        );
-
-
-        /* =========================
-           PREVIOUS
-        ========================= */
-
-        const prev =
-          project.querySelector(
-            ".project-arrow.prev"
-          );
-
-
-        if (prev) {
-
-          prev.addEventListener(
-            "click",
-            function(event) {
-
-              event.stopPropagation();
-
-              selectProject(
-                project
-              );
-
-              changeImage(
-                project,
-                -1
-              );
-
-            }
-          );
-
-        }
-
-
-        /* =========================
-           NEXT
-        ========================= */
-
-        const next =
-          project.querySelector(
-            ".project-arrow.next"
-          );
-
-
-        if (next) {
-
-          next.addEventListener(
-            "click",
-            function(event) {
-
-              event.stopPropagation();
-
-              selectProject(
-                project
-              );
-
-              changeImage(
-                project,
-                1
-              );
-
-            }
-          );
-
-        }
-
-      }
-    );
-
-
-    /* ==================================================
-       CLICK OUTSIDE
-    ================================================== */
-
-    document.addEventListener(
-      "click",
-      function(event) {
-
-
-        const insideProject =
-          event.target.closest(
-            ".project"
-          );
-
-
-        const insideHeader =
-          event.target.closest(
-            "header"
-          );
-
-
-        const insideCredit =
-          event.target.closest(
-            ".website-credit"
-          );
-
+      entries.forEach((entry) => {
 
         if (
-
-          !insideProject
-          &&
-          !insideHeader
-          &&
-          !insideCredit
-
+          entry.isIntersecting &&
+          !photoAnimationStarted
         ) {
 
-          deselectProject();
+          photoAnimationStarted = true;
+
+          startPhotoSequence();
 
         }
 
-      }
-    );
+      });
+
+    },
+    {
+      threshold: 0.20
+    }
+  );
 
 
-    /* ==================================================
-       MOBILE COLUMNS
-    ================================================== */
-
-    function setupMobileColumns() {
-
-      const isMobile =
-        window.innerWidth <= 650;
+photoObserver.observe(photoSection);
 
 
-      if (!isMobile) {
+/*
+   Μία εικόνα κάθε 2 δευτερόλεπτα.
+*/
 
-        projects.forEach(
-          function(project) {
+function startPhotoSequence() {
 
-            gallery.appendChild(
-              project
-            );
+  photoItems.forEach(
+    (photo, index) => {
 
-          }
-        );
+      setTimeout(() => {
 
-        return;
-      }
+        photo.classList.add("visible");
 
-
-      /* =========================
-         LEFT COLUMN
-      ========================= */
-
-      leftProjects.forEach(
-        function(id) {
-
-
-          const project =
-            document.querySelector(
-              '.project[data-project="' +
-              id +
-              '"]'
-            );
-
-
-          if (project) {
-
-            mobileLeft.appendChild(
-              project
-            );
-
-          }
-
-        }
-      );
-
-
-      /* =========================
-         RIGHT COLUMN
-      ========================= */
-
-      rightProjects.forEach(
-        function(id) {
-
-
-          const project =
-            document.querySelector(
-              '.project[data-project="' +
-              id +
-              '"]'
-            );
-
-
-          if (project) {
-
-            mobileRight.appendChild(
-              project
-            );
-
-          }
-
-        }
-      );
+      }, index * 2000);
 
     }
+  );
 
+}
 
-    /* ==================================================
-       INITIALIZE
-    ================================================== */
-
-    setupMobileColumns();
-
-
-    /* ==================================================
-       RESIZE
-    ================================================== */
-
-    let previousMobileState =
-      window.innerWidth <= 650;
-
-
-    window.addEventListener(
-      "resize",
-      function() {
-
-
-        const currentMobileState =
-          window.innerWidth <= 650;
-
-
-        if (
-          currentMobileState !==
-          previousMobileState
-        ) {
-
-          location.reload();
-
-        }
-
-      }
-    );
-
-  </script>
+</script>
 
 </body>
-
 </html>
