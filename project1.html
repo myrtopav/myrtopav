@@ -12,8 +12,9 @@
   <!-- Google Sans Code -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
   <link
-    href="https://fonts.googleapis.com/css2?family=Google+Sans+Code:wght@300;400&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Google+Sans+Code:wght@300;400;700&display=swap"
     rel="stylesheet"
   >
 
@@ -110,20 +111,10 @@
 
 
     /* ==================================================
-       FIRST SCENE
+       FIRST SCROLL SCENE
     ================================================== */
 
     .intro-scene {
-
-      /*
-        100vh is the visible screen.
-
-        The additional 70vh is the scroll distance
-        during which the blue box moves upward.
-
-        Only after this movement is completed
-        can the page continue downward.
-      */
 
       position: relative;
 
@@ -146,17 +137,22 @@
 
 
     /* ==================================================
-       CENTRAL CONTENT
+       CENTRAL TEXT + GIF
     ================================================== */
 
     .intro-cluster {
 
       position: absolute;
 
-      top: 12vh;
       left: 50%;
+      top: 80px;
 
-      width: 700px;
+      /*
+        The same width is used for both
+        black text blocks.
+      */
+
+      width: 680px;
 
       transform: translateX(-50%);
 
@@ -164,19 +160,21 @@
     }
 
 
+
     /*
       TOP TEXT
-      One single line.
     */
 
     .intro-text {
 
       width: 100%;
 
-      font-size: 8px;
+      font-size: 11px;
       line-height: 1.35;
 
       color: #000000;
+
+      text-align: center;
 
       white-space: nowrap;
     }
@@ -191,23 +189,23 @@
 
       display: block;
 
-      width: 380px;
+      width: 510px;
       height: auto;
 
-      margin: 22px auto 0 auto;
+      margin: 64px auto 0 auto;
     }
 
 
 
     /*
-      Small coordinate under the GIF
+      Coordinate under the GIF
     */
 
     .intro-coordinate {
 
-      width: 380px;
+      width: 510px;
 
-      margin: 4px auto 0 auto;
+      margin: 5px auto 0 auto;
 
       text-align: right;
 
@@ -229,18 +227,20 @@
 
       width: 100%;
 
-      margin-top: 24px;
+      margin-top: 38px;
 
-      font-size: 8px;
+      font-size: 11px;
       line-height: 1.35;
 
       color: #000000;
+
+      text-align: left;
     }
 
 
 
     /* ==================================================
-       BLUE BOX
+       BLUE TEXT BLOCK
     ================================================== */
 
     .island-block {
@@ -248,17 +248,17 @@
       position: absolute;
 
       /*
-        The right edge of the blue box is exactly
-        aligned with the right edge of the text.
+        Right edge aligned with the
+        central text field.
       */
 
       left: calc(50% + 350px);
 
       /*
-        Initially it is lower than the final position.
+        Starts below the visible screen.
       */
 
-      top: 68vh;
+      top: 100vh;
 
       width: 100px;
 
@@ -271,27 +271,26 @@
       font-family: "Google Sans Code", monospace;
 
       font-size: 7px;
+
+      /*
+        Normal weight for the body text.
+      */
+
       font-weight: 400;
 
       line-height: 1.35;
 
-      /*
-        Hidden when the page first opens.
-      */
-
-      opacity: 0;
-
-      /*
-        JavaScript controls the vertical movement.
-      */
-
       transform: translateY(0);
 
-      will-change: transform, opacity;
+      will-change: transform;
 
       z-index: 20;
     }
 
+
+    /*
+      ONLY THE TITLE IS BOLD
+    */
 
     .island-title {
 
@@ -300,20 +299,41 @@
       color: #2f6fff;
 
       font-size: 7px;
+
       line-height: 1.2;
+
+      font-weight: 700;
     }
 
+
+    /*
+      BLUE BODY TEXT IS NORMAL
+    */
 
     .island-text {
 
       color: #2f6fff;
+
+      font-weight: 400;
+    }
+
+
+    /*
+      ONLY "THEREFORE, THE ISLAND."
+      IS BOLD.
+    */
+
+    .island-text strong {
+
+      color: #2f6fff;
+
+      font-weight: 700;
     }
 
 
 
     /* ==================================================
        NEXT SECTION
-       EMPTY FOR NOW
     ================================================== */
 
     .next-section {
@@ -376,7 +396,7 @@
 
       .intro-cluster {
 
-        top: 13vh;
+        top: 70px;
 
         width: 90vw;
       }
@@ -386,9 +406,11 @@
 
         width: 100%;
 
-        font-size: 7px;
+        font-size: 11px;
 
         white-space: normal;
+
+        text-align: center;
       }
 
 
@@ -396,9 +418,9 @@
 
         width: 75vw;
 
-        max-width: 380px;
+        max-width: 510px;
 
-        margin-top: 22px;
+        margin-top: 42px;
       }
 
 
@@ -406,7 +428,7 @@
 
         width: 75vw;
 
-        max-width: 380px;
+        max-width: 510px;
 
         font-size: 5px;
       }
@@ -416,36 +438,58 @@
 
         width: 100%;
 
-        margin-top: 22px;
+        margin-top: 28px;
 
-        font-size: 7px;
+        font-size: 11px;
+
+        line-height: 1.35;
+
+        text-align: left;
       }
 
 
       .island-block {
 
         left: auto;
+
         right: 5vw;
 
         width: 82px;
 
-        top: 67vh;
+        top: 100vh;
 
         padding: 7px;
 
         font-size: 6.5px;
+
+        font-weight: 400;
       }
 
 
       .island-title {
 
         font-size: 6.5px;
+
+        font-weight: 700;
+      }
+
+
+      .island-text {
+
+        font-weight: 400;
+      }
+
+
+      .island-text strong {
+
+        font-weight: 700;
       }
 
 
       .website-credit {
 
         right: 5vw;
+
         bottom: 15px;
 
         font-size: 9px;
@@ -493,7 +537,9 @@
     <div class="intro-sticky">
 
 
-      <!-- CENTRAL TEXT + GIF -->
+      <!-- ==================================================
+           CENTRAL CONTENT
+      ================================================== -->
 
       <div class="intro-cluster">
 
@@ -545,8 +591,11 @@
 
       <div class="island-block">
 
+
         <div class="island-title">
+
           Why an island?
+
         </div>
 
 
@@ -564,9 +613,16 @@
 
           <br><br>
 
-          In his essay Desert Islands, Gilles Deleuze writes: “Whether one dreams of islands with anxiety or with joy matters little.”
+          In his essay Desert Islands, Gilles Deleuze writes: “Whether one dreams of islands with anxiety or with joy.”
+
+          <br><br>
+
+          <strong>
+            Therefore, the island.
+          </strong>
 
         </div>
+
 
       </div>
 
@@ -616,16 +672,13 @@
       const sceneTop =
         scene.offsetTop;
 
-      const sceneHeight =
-        scene.offsetHeight;
-
       const viewportHeight =
         window.innerHeight;
 
 
       /*
-        How far the user has scrolled
-        inside the first scene.
+        Amount of scrolling inside
+        the first scene.
       */
 
       const scrollInsideScene =
@@ -633,11 +686,8 @@
 
 
       /*
-        The blue box begins appearing
-        immediately when scrolling starts.
-
-        It completes its movement when the
-        user has scrolled approximately 70vh.
+        The blue box moves during
+        approximately 70vh of scrolling.
       */
 
       const movementDistance =
@@ -649,7 +699,7 @@
 
 
       /*
-        Keep the value between 0 and 1.
+        Keep progress between 0 and 1.
       */
 
       progress =
@@ -660,45 +710,44 @@
 
 
       /*
-        Fade in very quickly.
-
-        At the very first position:
-        opacity = 0
-
-        Shortly after scrolling:
-        opacity = 1
+        Measure the actual height of
+        the blue box.
       */
 
-      const opacity =
-        Math.min(
-          1,
-          progress * 12
-        );
-
-
-      islandBlock.style.opacity =
-        opacity;
+      const boxHeight =
+        islandBlock.offsetHeight;
 
 
       /*
-        Starting point:
-        68vh
-
-        Final point:
-        approximately 50vh
-
-        Therefore the blue box moves
-        upward by 18vh.
+        Starting position:
+        completely below the screen.
       */
 
-      const movement =
-        -viewportHeight *
-        0.18 *
+      const startPosition =
+        viewportHeight + boxHeight;
+
+
+      /*
+        Final position:
+        the center of the screen.
+      */
+
+      const finalPosition =
+        (viewportHeight - boxHeight) / 2;
+
+
+      /*
+        Interpolate between the two positions.
+      */
+
+      const currentPosition =
+        startPosition +
+        (finalPosition - startPosition) *
         progress;
 
 
-      islandBlock.style.transform =
-        `translateY(${movement}px)`;
+      islandBlock.style.top =
+        `${currentPosition}px`;
 
     }
 
