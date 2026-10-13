@@ -1,0 +1,2063 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>
+    Nisyros-(+100)- — Myrto Pavlopoulou
+  </title>
+
+  <link
+    rel="icon"
+    type="image/jpeg"
+    href="profile.jpg"
+  >
+
+  <!-- GOOGLE SANS CODE -->
+
+  <link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+  >
+
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  >
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Google+Sans+Code:wght@300;400;700&display=swap"
+    rel="stylesheet"
+  >
+
+
+  <style>
+
+
+    /* ==================================================
+       RESET
+    ================================================== */
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+
+    html,
+    body {
+
+      width: 100%;
+      min-height: 100%;
+
+      background: #ffffff;
+      color: #000000;
+
+      font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+      font-size: 10px;
+      font-weight: 400;
+
+      cursor:
+        url("cursor2.png") 25 25,
+        auto;
+    }
+
+
+    body {
+      overflow-x: hidden;
+    }
+
+
+    a {
+      text-decoration: none;
+
+      cursor:
+        url("cursor2.png") 25 25,
+        auto;
+    }
+
+
+
+    /* ==================================================
+       HEADER
+    ================================================== */
+
+    header {
+
+      position: fixed;
+
+      top: 0;
+      left: 0;
+
+      width: 100%;
+      height: 70px;
+
+      padding:
+        30px
+        3vw
+        0
+        3vw;
+
+      display: flex;
+
+      justify-content:
+        space-between;
+
+      align-items:
+        flex-start;
+
+      z-index: 1000;
+
+      pointer-events: none;
+
+      text-transform: uppercase;
+    }
+
+
+    .name {
+      pointer-events: auto;
+    }
+
+
+    .name a {
+
+      color: #777777;
+
+      font-size: 10px;
+
+      transition:
+        color 0.2s ease;
+    }
+
+
+    .name a:hover {
+      color: #2f6fff;
+    }
+
+    .profession {
+
+      color: #777777;
+
+      font-size: 10px;
+    }
+
+
+    .project-meta {
+
+      position: absolute;
+
+      top: 54px;
+      right: 3vw;
+
+      color: #777777;
+
+      font-family:
+        "Google Sans Code",
+        monospace;
+
+      font-size: 8px;
+
+      line-height: 1.35;
+
+      text-align: right;
+
+      text-transform: none;
+
+      pointer-events: none;
+
+    }
+
+
+
+    /* ==================================================
+       FIRST SCROLL SCENE
+    ================================================== */
+
+    .intro-scene {
+
+      position: relative;
+
+      height: 200vh;
+    }
+
+
+    .intro-sticky {
+
+      position: sticky;
+
+      top: 0;
+
+      width: 100%;
+      height: 100vh;
+
+      overflow: hidden;
+
+      z-index: 5;
+    }
+
+
+
+    /* ==================================================
+       CENTRAL CONTENT
+    ================================================== */
+
+    .intro-cluster {
+
+      position: absolute;
+
+      left: 50%;
+
+      top: 50%;
+
+      width: min(
+        100%,
+        100vw
+      );
+
+      transform:
+        translate(
+          -50%,
+          -50%
+        );
+
+      text-align: center;
+
+      display: flex;
+
+      flex-direction: column;
+
+      align-items: center;
+
+      justify-content: center;
+    }
+
+
+
+    /* ==================================================
+       TOP TEXT
+    ================================================== */
+
+    .intro-text {
+
+      display: block;
+
+      width: min(
+        90vw,
+        100%
+      );
+
+      margin: 0 auto;
+
+      padding: 0;
+
+      font-size: 11px;
+
+      line-height: 1.35;
+
+      color: #000000;
+
+      text-align: center;
+
+      white-space: normal;
+    }
+
+
+
+    /* ==================================================
+       NISYROS PHOTO — RIGHT SIDE ABOVE ANALYSIS GIF
+    ================================================== */
+
+    .nisyros-photo-wrap {
+      position: absolute;
+      top: 330px;
+      right: 0;
+      width: 30vw;
+      height: 17vw;
+      z-index: 3;
+    }
+
+    .nisyros-photo-label {
+      position: absolute;
+      left: 0;
+      top: -1.8em;
+      transform: none;
+      font-size: 7px;
+      line-height: 1.2;
+      color: #2f6fff;
+      font-family: "Google Sans Code", monospace;
+      font-weight: 400;
+      white-space: nowrap;
+      letter-spacing: 0.02em;
+    }
+
+    .nisyros-photo {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      overflow-x: auto;
+      overflow-y: hidden;
+      display: flex;
+      flex-direction: row;
+      align-items: flex-start;
+      gap: 0.5vw;
+      box-sizing: border-box;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+      scroll-behavior: auto;
+    }
+
+    .nisyros-photo::-webkit-scrollbar {
+      display: none;
+    }
+
+    .nisyros-photo img {
+      flex: 0 0 auto;
+      width: auto;
+      height: 17vw;
+      max-height: 17vw;
+      object-fit: contain;
+      object-position: center top;
+      display: block;
+      margin: 0;
+      padding: 0;
+    }
+
+    .nisyros-photo-arrow {
+      position: absolute;
+      top: 50%;
+      z-index: 10;
+      width: 0;
+      height: 0;
+      padding: 0;
+      margin: 0;
+      border: 0;
+      background: transparent;
+      cursor: pointer;
+      transform: translateY(-50%);
+    }
+
+    .nisyros-photo-arrow.left {
+      left: 0.7vw;
+      border-top: 0.9vw solid transparent;
+      border-bottom: 0.9vw solid transparent;
+      border-right: 1.3vw solid #2f6fff;
+    }
+
+    .nisyros-photo-arrow.right {
+      right: 0.7vw;
+      border-top: 0.9vw solid transparent;
+      border-bottom: 0.9vw solid transparent;
+      border-left: 1.3vw solid #2f6fff;
+    }
+
+    .nisyros-photo-arrow:hover {
+      opacity: 0.65;
+    }
+
+    .nisyros-photo-arrow:focus-visible {
+      outline: none;
+    }
+
+
+    /* ==================================================
+       GIF
+    ================================================== */
+
+    .intro-gif {
+
+      display: block;
+
+      width: min(
+        510px,
+        65vw
+      );
+
+      max-width: 510px;
+
+      height: auto;
+
+      margin:
+        64px auto
+        0 auto;
+    }
+
+
+
+    /* ==================================================
+       COORDINATE
+    ================================================== */
+
+    .intro-coordinate {
+
+      display: block;
+
+      width: min(
+        510px,
+        65vw
+      );
+
+      max-width: 510px;
+
+      margin:
+        5px auto
+        0 auto;
+
+      padding: 0;
+
+      text-align: right;
+
+      font-size: 6px;
+
+      line-height: 1;
+
+      color: #777777;
+    }
+
+
+
+    /* ==================================================
+       LOWER TEXT
+    ================================================== */
+
+    .intro-second-text {
+
+      display: block;
+
+      width: min(
+        90vw,
+        100%
+      );
+
+      margin:
+        38px auto
+        0 auto;
+
+      padding: 0;
+
+      font-size: 11px;
+
+      line-height: 1.35;
+
+      color: #000000;
+
+      text-align: center;
+
+      white-space: normal;
+    }
+
+
+
+    /* ==================================================
+       BLUE BOX
+    ================================================== */
+
+    .island-block {
+
+      position: fixed;
+
+      left:
+        calc(50% + 350px);
+
+      top: 100vh;
+
+      width: 100px;
+
+      padding:
+        8px
+        8px
+        10px
+        8px;
+
+      background:
+        transparent;
+
+      color:
+        #2f6fff;
+
+      font-family:
+        "Google Sans Code",
+        monospace;
+
+      font-size: 7px;
+
+      font-weight: 400;
+
+      line-height: 1.35;
+
+      z-index: 1050;
+
+      will-change:
+        top;
+    }
+
+
+
+    /* ==================================================
+       BLUE TITLE
+    ================================================== */
+
+    .island-title {
+
+      margin-bottom: 7px;
+
+      color: #2f6fff;
+
+      font-family:
+        "Google Sans Code",
+        monospace;
+
+      font-size: 7px;
+
+      line-height: 1.2;
+
+      font-weight: 700;
+    }
+
+
+
+    /* ==================================================
+       BLUE BODY
+    ================================================== */
+
+    .island-text {
+
+      color: #2f6fff;
+
+      font-family:
+        "Google Sans Code",
+        monospace;
+
+      font-size: 7px;
+
+      line-height: 1.35;
+
+      font-weight: 400;
+    }
+
+
+
+    /* ==================================================
+       ONLY REQUESTED PHRASES BOLD
+    ================================================== */
+
+    .island-text strong {
+
+      color: #2f6fff;
+
+      font-weight: 700;
+    }
+
+
+    /* ==================================================
+       LEFT BLUE BOX
+    ================================================== */
+
+    .left-island-block {
+      position: fixed;
+      left: 20vw;
+      top: 800vh;
+      width: 100px;
+      padding: 8px 8px 10px 8px;
+      background: transparent;
+      color: #2f6fff;
+      font-family: "Google Sans Code", monospace;
+      font-size: 7px;
+      font-weight: 400;
+      line-height: 1.35;
+      z-index: 1050;
+      box-sizing: border-box;
+      will-change: top;
+      pointer-events: none;
+    }
+
+    .left-island-title {
+      margin-bottom: 7px;
+      color: #2f6fff;
+      font-family: "Google Sans Code", monospace;
+      font-size: 7px;
+      line-height: 1.2;
+      font-weight: 700;
+    }
+
+    .left-island-info {
+      display: block;
+    }
+
+    .left-island-item {
+      display: block;
+      margin-bottom: 7px;
+    }
+
+    .left-island-label {
+      display: block;
+      color: #2f6fff;
+      font-weight: 700;
+    }
+
+    .left-island-value {
+      display: block;
+      color: #2f6fff;
+      font-weight: 400;
+    }
+
+    .left-island-date {
+      display: block;
+      color: #2f6fff;
+      font-weight: 400;
+      text-align: left;
+    }
+
+    .left-island-myth {
+      margin-top: 7px;
+      color: #2f6fff;
+      font-weight: 400;
+      text-align: justify;
+    }
+
+
+    /* ==================================================
+       MYTHOLOGY BLUE BOX
+    ================================================== */
+
+    .mythology-block {
+      position: fixed;
+      left: calc(50% - 510px);
+      top: 100vh;
+      width: 100px;
+      padding: 8px 8px 10px 8px;
+      background: transparent;
+      color: #2f6fff;
+      font-family: "Google Sans Code", monospace;
+      font-size: 7px;
+      font-weight: 400;
+      line-height: 1.35;
+      z-index: 1050;
+      box-sizing: border-box;
+      will-change: top;
+      pointer-events: none;
+    }
+
+    .mythology-title {
+      margin-bottom: 7px;
+      color: #2f6fff;
+      font-family: "Google Sans Code", monospace;
+      font-size: 7px;
+      line-height: 1.2;
+      font-weight: 700;
+    }
+
+    .mythology-text {
+      color: #2f6fff;
+      font-family: "Google Sans Code", monospace;
+      font-size: 7px;
+      line-height: 1.35;
+      font-weight: 400;
+      text-align: justify;
+    }
+
+
+    /* ==================================================
+       NEXT SECTION
+    ================================================== */
+
+    .next-section {
+
+      position: relative;
+
+      min-height: 100vh;
+
+      background:
+        #ffffff;
+    }
+/* ==================================================
+       WEBSITE CREDIT
+    ================================================== */
+
+    .website-credit {
+
+      position: fixed;
+
+      right: 3vw;
+
+      bottom: 25px;
+
+      color: #777777;
+
+      font-size: 10px;
+
+      font-weight: 400;
+
+      text-align: right;
+
+      z-index: 1100;
+    }
+
+
+
+    /* ==================================================
+       CUSTOM OVERLAY SCROLLBAR
+
+       The scrollbar does not take layout width.
+       The page content stays in the exact same position.
+    ================================================== */
+
+    html {
+      scrollbar-width: thin;
+      scrollbar-color: #2f6fff transparent;
+    }
+
+    ::-webkit-scrollbar {
+      width: 8px;
+      height: 8px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: #2f6fff;
+      border: 2px solid transparent;
+      background-clip: padding-box;
+      border-radius: 0;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: #2f6fff;
+      border: 1px solid transparent;
+      background-clip: padding-box;
+    }
+
+    ::-webkit-scrollbar-corner {
+      background: transparent;
+    }
+
+    /* ==================================================
+       MOBILE
+    ================================================== */
+
+    @media (max-width: 650px) {
+
+
+      header {
+
+        height: 60px;
+
+        padding:
+          24px
+          5vw
+          0
+          5vw;
+      }
+
+
+      .intro-scene {
+
+        height: 200vh;
+      }
+
+
+      .intro-sticky {
+
+        height: 100vh;
+      }
+
+
+      .intro-cluster {
+
+        top: 50%;
+
+        width: 100%;
+
+        min-width: 0;
+
+        max-width: 100%;
+
+        transform:
+          translate(
+            -50%,
+            -50%
+          );
+
+        padding:
+          0
+          5vw;
+      }
+
+
+      .intro-text {
+
+        width: 50vw;
+
+        margin:
+          0 auto;
+
+        font-size: 11px;
+
+        line-height: 1.35;
+
+        white-space: normal;
+
+        text-align: justify;
+      }
+
+
+      .intro-gif {
+
+        width: min(
+          75vw,
+          510px
+        );
+
+        max-width: 510px;
+
+        margin-top: 42px;
+      }
+
+
+      .intro-coordinate {
+
+        width: min(
+          75vw,
+          510px
+        );
+
+        max-width: 510px;
+
+        font-size: 5px;
+      }
+
+
+      .intro-second-text {
+
+        width: 50vw;
+
+        margin:
+          28px auto
+          0 auto;
+
+        font-size: 11px;
+
+        line-height: 1.35;
+
+        text-align: justify;
+      }
+
+      .intro-second-text br {
+        display: none;
+      }
+
+      .intro-cluster {
+        max-height: calc(100vh - 80px);
+      }
+
+      .intro-gif {
+        max-height: 42vh;
+        object-fit: contain;
+      }
+
+
+      .island-block {
+
+        left: auto;
+
+        right: 5vw;
+
+        width: 82px;
+
+        top: 100vh;
+
+        padding: 7px;
+
+        font-size: 6.5px;
+
+        font-weight: 400;
+      }
+
+
+      .island-title {
+
+        font-size: 6.5px;
+
+        font-weight: 700;
+      }
+
+
+      .island-text {
+
+        font-size: 6.5px;
+
+        font-weight: 400;
+      }
+
+
+      .island-text strong {
+
+        font-weight: 700;
+      }
+         PHOTO CLUSTER — MOBILE
+
+      .left-island-block {
+        left: 4vw;
+        right: auto;
+        width: 70vw;
+        min-width: 70vw;
+        max-width: 70vw;
+        top: 100vh;
+        padding: 7px;
+        font-size: 6.5px;
+        line-height: 1.35;
+      }
+
+      .left-island-title {
+        font-size: 6.5px;
+        margin-bottom: 7px;
+      }
+
+      .left-island-info {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        column-gap: 2.5vw;
+        row-gap: 7px;
+        width: 100%;
+      }
+
+      .left-island-item {
+        margin-bottom: 0;
+        min-width: 0;
+        overflow-wrap: normal;
+        word-break: normal;
+        hyphens: none;
+      }
+
+      .left-island-label,
+      .left-island-value,
+      .left-island-date,
+      .left-island-myth {
+        font-size: 6.5px;
+      }
+
+      .left-island-label,
+      .left-island-value,
+      .left-island-date {
+        display: block;
+      }
+
+      .mythology-block {
+        left: 5vw;
+        right: auto;
+        width: 82px;
+        top: 100vh;
+        padding: 7px;
+        font-size: 6.5px;
+        line-height: 1.35;
+      }
+
+      .mythology-title,
+      .mythology-text {
+        font-size: 6.5px;
+      }
+
+
+      /* --------------------------------------------------
+      -------------------------------------------------- */
+
+      .section-title {
+
+        gap: clamp(18px, 6vw, 34px);
+
+        margin-bottom: 30px;
+
+        font-size: 15px;
+
+      }
+
+      .nisyros-photo-wrap {
+        top: 0;
+        left: 0;
+        right: auto;
+        width: 100vw;
+        height: 29vw;
+      }
+
+      .nisyros-photo-label {
+        left: 4vw;
+        top: -1.8em;
+        font-size: 7px;
+      }
+
+      .nisyros-photo-arrow {
+        width: 0;
+        height: 0;
+      }
+
+      .nisyros-photo-arrow.left {
+        left: 18px;
+        border-top-width: 10px;
+        border-bottom-width: 10px;
+        border-right-width: 14px;
+      }
+
+      .nisyros-photo-arrow.right {
+        right: 18px;
+        border-top-width: 10px;
+        border-bottom-width: 10px;
+        border-left-width: 14px;
+      }
+
+      .nisyros-photo {
+        width: 100%;
+        height: 100%;
+        gap: 1vw;
+      }
+
+      .nisyros-photo img {
+        height: 29vw;
+        max-height: 29vw;
+        width: auto;
+        object-fit: contain;
+        object-position: center top;
+      }
+
+
+      .analysis-gif {
+
+        margin-top: -45px;
+
+      }
+.website-credit {
+
+        right: 5vw;
+
+        bottom: 15px;
+
+        font-size: 9px;
+      }
+
+    }
+
+
+    /* ==================================================
+       MOBILE DEVICE OVERRIDE
+       Keeps the desktop version untouched.
+       This also catches phones where the viewport
+       reports wider than 650px.
+    ================================================== */
+
+    @media (hover: none) and (pointer: coarse) {
+
+      .left-island-block {
+        left: 4vw;
+        right: auto;
+        width: 70vw;
+        min-width: 70vw;
+        max-width: 70vw;
+        padding: 7px;
+        font-size: 6.5px;
+        line-height: 1.35;
+      }
+
+      .nisyros-photo-arrow {
+        width: 0;
+        height: 0;
+      }
+
+      .nisyros-photo-arrow.left {
+        left: 18px;
+        border-top-width: 10px;
+        border-bottom-width: 10px;
+        border-right-width: 14px;
+      }
+
+      .nisyros-photo-arrow.right {
+        right: 18px;
+        border-top-width: 10px;
+        border-bottom-width: 10px;
+        border-left-width: 14px;
+      }
+
+      .left-island-title {
+        font-size: 6.5px;
+        margin-bottom: 7px;
+      }
+
+      .left-island-info {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        column-gap: 2.5vw;
+        row-gap: 7px;
+        width: 100%;
+      }
+
+      .left-island-item {
+        display: block;
+        margin-bottom: 0;
+        min-width: 0;
+        overflow-wrap: normal;
+        word-break: normal;
+        hyphens: none;
+      }
+
+      .left-island-label,
+      .left-island-value,
+      .left-island-date,
+      .left-island-myth {
+        font-size: 6.5px;
+      }
+
+      .left-island-label,
+      .left-island-value,
+      .left-island-date {
+        display: block;
+      }
+
+    }
+
+
+  </style>
+
+</head>
+
+
+<body>
+
+
+  <!-- ==================================================
+       HEADER
+  ================================================== -->
+
+  <header>
+
+
+    <div class="name">
+
+      <a href="index.html">
+
+        MYRTO PAVLOPOULOU
+
+      </a>
+
+    </div>
+
+
+    <div class="profession">
+
+      ARCHITECT
+
+    </div>
+
+
+    <div class="project-meta">
+
+      <div>NISYROS -(+100)-</div>
+
+      <div>diploma project thesis</div>
+
+      <div>AUTH, June 2026</div>
+
+    </div>
+
+
+  </header>
+
+
+
+  <!-- ==================================================
+       FIRST SCROLL SCENE
+  ================================================== -->
+
+  <section class="intro-scene">
+
+
+    <div class="intro-sticky">
+
+
+      <!-- ==================================================
+           CENTRAL CONTENT
+      ================================================== -->
+
+      <div class="intro-cluster">
+
+
+        <!-- TOP TEXT -->
+
+        <div class="intro-text">
+
+          This project is a poetic inquiry into the deconstruction of place and an exploration of its future ruins,<br>
+          using the island of Nisyros as a case study. 
+
+        </div>
+
+
+
+        <!-- GIF -->
+
+        <img
+          class="intro-gif"
+          src="diploma/dipl_1.gif"
+          alt="Nisyros"
+        >
+
+
+
+        <!-- COORDINATE -->
+
+        <div class="intro-coordinate">
+
+          Nisyros
+
+        </div>
+
+
+
+        <!-- LOWER TEXT -->
+
+        <div class="intro-second-text">
+
+          The investigation did not follow a linear trajectory. Instead, it unfolded through continuous shifts of<br>
+
+          perspective between the fragment and the whole, and from the whole back to the fragment. 
+
+        </div>
+
+
+      </div>
+
+
+    </div>
+
+
+
+
+    <!-- ==================================================
+         LEFT BLUE BOX
+    ================================================== -->
+
+    <div class="left-island-block" id="leftIslandBlock">
+
+      <div class="left-island-title">
+        NISYROS
+      </div>
+
+      <div class="left-island-info">
+
+        <div class="left-island-item">
+          <span class="left-island-label">Archipelago:</span>
+          <span class="left-island-value">Aegean Sea</span>
+        </div>
+
+        <div class="left-island-item">
+          <span class="left-island-label">Island group:</span>
+          <span class="left-island-value">Dodecanese</span>
+        </div>
+
+        <div class="left-island-item">
+          <span class="left-island-label">Area:</span>
+          <span class="left-island-value">41.263km²</span>
+        </div>
+
+        <div class="left-island-item">
+          <span class="left-island-label">Coastline length:</span>
+          <span class="left-island-value">≈24km²</span>
+        </div>
+
+        <div class="left-island-item">
+          <span class="left-island-label">Elevation:</span>
+          <span class="left-island-value">698m</span>
+        </div>
+
+        <div class="left-island-item">
+          <span class="left-island-label">Highest peak:</span>
+          <span class="left-island-value">Profitis Ilias</span>
+        </div>
+
+        <div class="left-island-item">
+          <span class="left-island-label">Region:</span>
+          <span class="left-island-value">South Aegean</span>
+        </div>
+
+        <div class="left-island-item">
+          <span class="left-island-label">Capital:</span>
+          <span class="left-island-value">Mandraki</span>
+        </div>
+
+        <div class="left-island-item">
+          <span class="left-island-label">Climate:</span>
+          <span class="left-island-value">warm, semi-arid steppe</span>
+        </div>
+
+        <div class="left-island-item">
+          <span class="left-island-label">Average temperature:</span>
+          <span class="left-island-value">21.5 °C</span>
+        </div>
+
+        <div class="left-island-item">
+          <span class="left-island-label">Average maximum:</span>
+          <span class="left-island-value">23.8 °C</span>
+        </div>
+
+        <div class="left-island-item">
+          <span class="left-island-label">Average minimum:</span>
+          <span class="left-island-value">19.1°C</span>
+        </div>
+
+        <div class="left-island-item">
+          <span class="left-island-label">Average precipitation:</span>
+          <span class="left-island-value">14.3 mm</span>
+        </div>
+
+        <div class="left-island-item">
+          <span class="left-island-label">Highest maximum temp.:</span>
+          <span class="left-island-value">31.7 °C</span>
+          <span class="left-island-date">(05/10/2020)</span>
+        </div>
+
+        <div class="left-island-item">
+          <span class="left-island-label">Lower minimum temp.:</span>
+          <span class="left-island-value">14.4 °C</span>
+          <span class="left-island-date">(26/10/2018)</span>
+        </div>
+
+        <div class="left-island-item">
+          <span class="left-island-label">Highest daily rainfall:</span>
+          <span class="left-island-value">24.6 mm</span>
+          <span class="left-island-date">(24/10/2018)</span>
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <!-- ==================================================
+         MYTHOLOGY BLUE BOX
+    ================================================== -->
+
+    <div class="mythology-block" id="mythologyBlock">
+
+      <div class="mythology-title">
+        #mythology
+      </div>
+
+      <div class="mythology-text">
+        According to mythology, Nisyros was born as a result of the Gigantomachy. Mother Earth turned the mortal Giants against the immortal gods of Olympus. The gods pursued the Giants, who who retreated in terror. The god of the sea, Poseidon, had been tasked, at Zeus’s command, with eliminating the Giant Polyvotes, who, in fear, crossed the Aegean Sea in an attempt to save himself. Poseidon caught up with him near Kos. With his trident, he tore off a piece of Kos and hurled it at Polyvotes. Poseidon struck the giant and crushed him. That piece of Kos became Nisyros. The rock, then, is the island of Nisyros, while the smoke from the volcano is nothing more than the breath of the giant who, imprisoned beneath the rock, is trying to break free.
+      </div>
+
+    </div>
+
+
+    <!-- ==================================================
+         BLUE BOX
+    ================================================== -->
+
+    <div class="island-block">
+
+
+      <div class="island-title">
+
+        Why an island?
+
+      </div>
+
+
+      <div class="island-text">
+
+
+        For Ruggiero Romano, an island is a space of experimentation—a laboratory where specific economic and social phenomena can be observed in their most essential forms, often isolated from the complexity of larger continental environments.
+
+
+        <br><br>
+
+
+        At the same time, islands are often associated with the idea of the utopian place, occupying a unique position in the human imagination that wavers between escape, tranquility, and inner exploration.
+
+
+        <br><br>
+
+
+        In literature, as a reflection of the human imagination, islands are frequently portrayed as places of both isolation and renewal.
+
+
+        <br><br>
+
+
+        In his essay Desert Islands, Gilles Deleuze writes: “Whether one dreams of islands with anxiety or with joy matters little. To dream of islands means that one is dreaming of separation, that one is already 
+separated, far from the continents, alone and lost—or rather, that one is beginning anew, creating 
+anew, and starting over.””
+
+
+        <br><br>
+
+
+        <strong>
+
+          Therefore, the island.
+
+        </strong>
+
+
+      </div>
+
+
+    </div>
+
+
+  </section>
+
+
+
+  <!-- ==================================================
+       NEXT SECTION
+  ================================================== -->
+
+  <section class="next-section">
+
+
+    <div class="section-title" aria-label="NISYROS">
+
+      <span>N</span>
+      <span>I</span>
+      <span>S</span>
+      <span>Y</span>
+      <span>R</span>
+      <span>O</span>
+      <span>S</span>
+
+    </div>
+
+
+    <div class="nisyros-photo-wrap">
+      <div class="nisyros-photo-label">photo gallery</div>
+
+      <button
+        class="nisyros-photo-arrow left"
+        type="button"
+        aria-label="Previous photo"
+      ></button>
+
+      <button
+        class="nisyros-photo-arrow right"
+        type="button"
+        aria-label="Next photo"
+      ></button>
+
+      <div class="nisyros-photo" aria-label="Nisyros photo cluster">
+      <img src="diploma/photoalbum/1.jpg" alt="Nisyros photo 1">
+      <img src="diploma/photoalbum/2.jpg" alt="Nisyros photo 2">
+      <img src="diploma/photoalbum/3.jpg" alt="Nisyros photo 3">
+      <img src="diploma/photoalbum/4.jpg" alt="Nisyros photo 4">
+      <img src="diploma/photoalbum/5.jpg" alt="Nisyros photo 5">
+      <img src="diploma/photoalbum/6.jpg" alt="Nisyros photo 6">
+      <img src="diploma/photoalbum/7.jpg" alt="Nisyros photo 7">
+      <img src="diploma/photoalbum/8.jpg" alt="Nisyros photo 8">
+      <img src="diploma/photoalbum/9.jpg" alt="Nisyros photo 9">
+      <img src="diploma/photoalbum/10.jpg" alt="Nisyros photo 10">
+      <img src="diploma/photoalbum/11.jpg" alt="Nisyros photo 11">
+      <img src="diploma/photoalbum/12.jpg" alt="Nisyros photo 12">
+      <img src="diploma/photoalbum/13.jpg" alt="Nisyros photo 13">
+      <img src="diploma/photoalbum/14.jpg" alt="Nisyros photo 14">
+      <img src="diploma/photoalbum/15.jpg" alt="Nisyros photo 15">
+      <img src="diploma/photoalbum/16.jpg" alt="Nisyros photo 16">
+      <img src="diploma/photoalbum/17.jpg" alt="Nisyros photo 17">
+      <img src="diploma/photoalbum/18.jpg" alt="Nisyros photo 18">
+      <img src="diploma/photoalbum/19.jpg" alt="Nisyros photo 19">
+      <img src="diploma/photoalbum/20.jpg" alt="Nisyros photo 20">
+      <img src="diploma/photoalbum/21.jpg" alt="Nisyros photo 21">
+      <img src="diploma/photoalbum/22.jpg" alt="Nisyros photo 22">
+      <img src="diploma/photoalbum/23.jpg" alt="Nisyros photo 23">
+      <img src="diploma/photoalbum/24.jpg" alt="Nisyros photo 24">
+      <img src="diploma/photoalbum/25.jpg" alt="Nisyros photo 25">
+      <img src="diploma/photoalbum/26.jpg" alt="Nisyros photo 26">
+      <img src="diploma/photoalbum/27.jpg" alt="Nisyros photo 27">
+      <img src="diploma/photoalbum/28.jpg" alt="Nisyros photo 28">
+      <img src="diploma/photoalbum/29.jpg" alt="Nisyros photo 29">
+      <img src="diploma/photoalbum/30.jpg" alt="Nisyros photo 30">
+      <img src="diploma/photoalbum/31.jpg" alt="Nisyros photo 31">
+      <img src="diploma/photoalbum/34.jpg" alt="Nisyros photo 32">
+      <img src="diploma/photoalbum/35.jpg" alt="Nisyros photo 33">
+      <img src="diploma/photoalbum/36.jpg" alt="Nisyros photo 34">
+      <img src="diploma/photoalbum/37.jpg" alt="Nisyros photo 35">
+      <img src="diploma/photoalbum/38.jpg" alt="Nisyros photo 36">
+      <img src="diploma/photoalbum/39.jpg" alt="Nisyros photo 37">
+      <img src="diploma/photoalbum/40.jpg" alt="Nisyros photo 38">
+      <img src="diploma/photoalbum/41.jpg" alt="Nisyros photo 39">
+      <img src="diploma/photoalbum/42.jpg" alt="Nisyros photo 40">
+      <img src="diploma/photoalbum/43.jpg" alt="Nisyros photo 41">
+      <img src="diploma/photoalbum/44.jpg" alt="Nisyros photo 42">
+      <img src="diploma/photoalbum/45.jpg" alt="Nisyros photo 43">
+      <img src="diploma/photoalbum/46.jpg" alt="Nisyros photo 44">
+      <img src="diploma/photoalbum/47.jpg" alt="Nisyros photo 45">
+      <img src="diploma/photoalbum/48.jpg" alt="Nisyros photo 46">
+      <img src="diploma/photoalbum/49.jpg" alt="Nisyros photo 47">
+      <img src="diploma/photoalbum/50.jpg" alt="Nisyros photo 48">
+      <img src="diploma/photoalbum/51.jpg" alt="Nisyros photo 49">
+      <img src="diploma/photoalbum/52.jpg" alt="Nisyros photo 50">
+      <img src="diploma/photoalbum/53.jpg" alt="Nisyros photo 51">
+      </div>
+    </div>
+
+
+    <img
+      class="analysis-gif"
+      src="diploma/NisyrosAnalysisDiagrams_A3.gif"
+      alt=""
+    >
+</section>
+
+
+
+  <!-- ==================================================
+       WEBSITE CREDIT
+  ================================================== -->
+
+  <div class="website-credit">
+
+    WEB DESIGN: MYRTO PAVLOPOULOU
+
+  </div>
+
+
+
+  <!-- ==================================================
+       SCROLL ANIMATION
+  ================================================== -->
+
+  <script>
+
+
+    /* ==================================================
+       NISYROS PHOTO SCROLL — RANDOM + CIRCULAR
+    ================================================== */
+
+    const nisyrosPhoto =
+      document.querySelector(".nisyros-photo");
+
+    const nisyrosPhotoWrap =
+      document.querySelector(".nisyros-photo-wrap");
+
+    if (nisyrosPhoto && nisyrosPhotoWrap) {
+
+      let originalPhotos =
+        Array.from(nisyrosPhoto.children);
+
+      /* Shuffle the images into a new random order
+         every time the page is loaded. */
+      for (
+        let i = originalPhotos.length - 1;
+        i > 0;
+        i--
+      ) {
+        const j =
+          Math.floor(Math.random() * (i + 1));
+
+        [
+          originalPhotos[i],
+          originalPhotos[j]
+        ] = [
+          originalPhotos[j],
+          originalPhotos[i]
+        ];
+      }
+
+      originalPhotos.forEach((image) => {
+        nisyrosPhoto.appendChild(image);
+      });
+
+      /* Create one extra copy so the scroll can loop
+         continuously in both directions. */
+      originalPhotos.forEach((image) => {
+        nisyrosPhoto.appendChild(
+          image.cloneNode(true)
+        );
+      });
+
+      let loopWidth = 0;
+
+      const setupCircularScroll = () => {
+
+        loopWidth =
+          nisyrosPhoto.scrollWidth / 2;
+
+        /* Start in the second copy so movement can
+           continue naturally in either direction. */
+        nisyrosPhoto.scrollLeft = loopWidth;
+      };
+
+      window.addEventListener(
+        "load",
+        setupCircularScroll
+      );
+
+      setupCircularScroll();
+
+      /* On mobile, place the new gallery directly below
+         the second GIF, while keeping the desktop position
+         exactly as it is. */
+      const positionMobileGallery = () => {
+
+        if (
+          window.matchMedia(
+            "(max-width: 700px)"
+          ).matches
+        ) {
+
+          const nextSection =
+            document.querySelector(".next-section");
+
+          const analysisGif =
+            document.querySelector(".analysis-gif");
+
+          if (
+            nextSection &&
+            analysisGif
+          ) {
+
+            const galleryWrap =
+              document.querySelector(
+                ".nisyros-photo-wrap"
+              );
+
+            if (galleryWrap) {
+
+              galleryWrap.style.top =
+                (
+                  analysisGif.offsetTop +
+                  analysisGif.offsetHeight
+                ) + "px";
+
+            }
+          }
+        }
+      };
+
+      window.addEventListener(
+        "load",
+        positionMobileGallery
+      );
+
+      window.addEventListener(
+        "resize",
+        positionMobileGallery
+      );
+
+
+      nisyrosPhoto.addEventListener(
+        "scroll",
+        () => {
+
+          if (!loopWidth) return;
+
+          if (
+            nisyrosPhoto.scrollLeft >=
+            loopWidth * 1.5
+          ) {
+            nisyrosPhoto.scrollLeft -= loopWidth;
+          }
+
+          if (
+            nisyrosPhoto.scrollLeft <=
+            loopWidth * 0.5
+          ) {
+            nisyrosPhoto.scrollLeft += loopWidth;
+          }
+
+        },
+        { passive: true }
+      );
+
+      const previousButton =
+        nisyrosPhotoWrap.querySelector(
+          ".nisyros-photo-arrow.left"
+        );
+
+      const nextButton =
+        nisyrosPhotoWrap.querySelector(
+          ".nisyros-photo-arrow.right"
+        );
+
+      const moveOnePhoto = (direction) => {
+
+        const firstImage =
+          nisyrosPhoto.querySelector("img");
+
+        if (!firstImage) return;
+
+        const imageStep =
+          firstImage.getBoundingClientRect().width +
+          parseFloat(
+            getComputedStyle(nisyrosPhoto).gap
+          );
+
+        nisyrosPhoto.scrollBy({
+          left: direction * imageStep,
+          behavior: "smooth"
+        });
+      };
+
+      previousButton.addEventListener(
+        "click",
+        () => moveOnePhoto(-1)
+      );
+
+      nextButton.addEventListener(
+        "click",
+        () => moveOnePhoto(1)
+      );
+    }
+
+
+
+
+
+    /* ==================================================
+       LEFT BLUE BOX SCROLL
+
+       Same scroll logic as the original right blue box.
+       The only difference is that the whole animation
+       starts a little later.
+    ================================================== */
+
+    const leftIslandBlock =
+        document.querySelector(
+            ".left-island-block"
+        );
+
+    const leftStartScrollRatio =
+        1.00;
+
+    const leftHandoffScrollRatio =
+        1.50;
+
+    const leftHandoffPositionRatio =
+        0.24;
+
+
+    function updateLeftIslandPosition() {
+
+        const viewportHeight =
+            window.innerHeight;
+
+        const scrollY =
+            window.scrollY;
+
+        const boxHeight =
+            leftIslandBlock.offsetHeight;
+
+        const startScroll =
+            viewportHeight *
+            leftStartScrollRatio;
+
+        const handoffScroll =
+            viewportHeight *
+            leftHandoffScrollRatio;
+
+        const handoffTop =
+            viewportHeight *
+            (
+                window.matchMedia("(max-width: 650px)").matches
+                    ? 0.30
+                    : leftHandoffPositionRatio
+            );
+
+
+        if (
+            scrollY <= startScroll
+        ) {
+
+            leftIslandBlock.style.position =
+                "fixed";
+
+            leftIslandBlock.style.top =
+                `${viewportHeight + boxHeight}px`;
+
+        }
+
+        else if (
+            scrollY <= handoffScroll
+        ) {
+
+            let progress =
+                (scrollY - startScroll) /
+                (handoffScroll - startScroll);
+
+            progress =
+                Math.max(
+                    0,
+                    Math.min(
+                        1,
+                        progress
+                    )
+                );
+
+            const startTop =
+                viewportHeight +
+                boxHeight;
+
+            const currentTop =
+                startTop +
+                (
+                    handoffTop -
+                    startTop
+                ) *
+                progress;
+
+            leftIslandBlock.style.position =
+                "fixed";
+
+            leftIslandBlock.style.top =
+                `${currentTop}px`;
+
+        }
+
+        else {
+
+            leftIslandBlock.style.position =
+                "absolute";
+
+            const documentTop =
+                handoffScroll +
+                handoffTop;
+
+            leftIslandBlock.style.top =
+                `${documentTop}px`;
+
+        }
+
+    }
+
+
+    window.addEventListener(
+        "scroll",
+        updateLeftIslandPosition,
+        {
+            passive: true
+        }
+    );
+
+
+    window.addEventListener(
+        "resize",
+        updateLeftIslandPosition
+    );
+
+
+    updateLeftIslandPosition();
+
+
+
+    /* ==================================================
+       MYTHOLOGY BLUE BOX SCROLL
+    ================================================== */
+
+    const mythologyBlock = document.querySelector(".mythology-block");
+    const mythologyStartScrollRatio = 1.30;
+    const mythologyHandoffScrollRatio = 2.20;
+    const mythologyHandoffPositionRatio = 0.18;
+
+    function updateMythologyPosition() {
+      const viewportHeight = window.innerHeight;
+      const scrollY = window.scrollY;
+      const boxHeight = mythologyBlock.offsetHeight;
+      const startScroll = viewportHeight * mythologyStartScrollRatio;
+      const handoffScroll = viewportHeight * mythologyHandoffScrollRatio;
+      const handoffTop = viewportHeight * mythologyHandoffPositionRatio;
+
+      if (scrollY <= startScroll) {
+        mythologyBlock.style.position = "fixed";
+        mythologyBlock.style.top = `${viewportHeight + boxHeight}px`;
+      } else if (scrollY <= handoffScroll) {
+        let progress = (scrollY - startScroll) / (handoffScroll - startScroll);
+        progress = Math.max(0, Math.min(1, progress));
+        const startTop = viewportHeight + boxHeight;
+        const currentTop = startTop + (handoffTop - startTop) * progress;
+        mythologyBlock.style.position = "fixed";
+        mythologyBlock.style.top = `${currentTop}px`;
+      } else {
+        mythologyBlock.style.position = "absolute";
+        const documentTop = handoffScroll + handoffTop;
+        mythologyBlock.style.top = `${documentTop}px`;
+      }
+    }
+
+    window.addEventListener("scroll", updateMythologyPosition, { passive: true });
+    window.addEventListener("resize", updateMythologyPosition);
+    updateMythologyPosition();
+
+
+    /* ==================================================
+       BLUE BOX SCROLL
+
+       THIS IS KEPT EXACTLY LIKE THE ORIGINAL
+       VERSION YOU SENT.
+
+       Phase 1:
+       The blue box enters from below and moves
+       to the handoff position.
+
+       Phase 2:
+       After the handoff, it becomes absolute and
+       continues naturally with the document.
+    ================================================== */
+
+
+    const islandBlock =
+        document.querySelector(
+            ".island-block"
+        );
+
+
+    const handoffScrollRatio =
+        1.00;
+
+
+    const handoffPositionRatio =
+        0.29;
+
+
+    function updateIslandPosition() {
+
+
+        const viewportHeight =
+            window.innerHeight;
+
+
+        const scrollY =
+            window.scrollY;
+
+
+        const boxHeight =
+            islandBlock.offsetHeight;
+
+
+        const handoffScroll =
+            viewportHeight *
+            handoffScrollRatio;
+
+
+        const handoffTop =
+            viewportHeight *
+            handoffPositionRatio;
+
+
+        /* ==================================================
+           PHASE 1
+
+           Blue box enters from below and travels
+           continuously toward the handoff position.
+        ================================================== */
+
+        if (
+            scrollY <= handoffScroll
+        ) {
+
+
+            let progress =
+                scrollY /
+                handoffScroll;
+
+
+            progress =
+                Math.max(
+                    0,
+                    Math.min(
+                        1,
+                        progress
+                    )
+                );
+
+
+            const startTop =
+                viewportHeight +
+                boxHeight;
+
+
+            const currentTop =
+                startTop +
+                (
+                    handoffTop -
+                    startTop
+                ) *
+                progress;
+
+
+            islandBlock.style.position =
+                "fixed";
+
+
+            islandBlock.style.top =
+                `${currentTop}px`;
+
+        }
+
+
+
+        /* ==================================================
+           PHASE 2
+
+           The normal page scroll has started.
+
+           The blue box becomes part of the normal
+           document flow and continues upward naturally.
+        ================================================== */
+
+        else {
+
+
+            islandBlock.style.position =
+                "absolute";
+
+
+            const documentTop =
+                handoffScroll +
+                handoffTop;
+
+
+            islandBlock.style.top =
+                `${documentTop}px`;
+
+        }
+
+    }
+
+
+
+    window.addEventListener(
+        "scroll",
+        updateIslandPosition,
+        {
+            passive: true
+        }
+    );
+
+
+    window.addEventListener(
+        "resize",
+        updateIslandPosition
+    );
+
+
+    updateIslandPosition();
+
+
+  </script>
+
+
+</body>
+
+</html>
